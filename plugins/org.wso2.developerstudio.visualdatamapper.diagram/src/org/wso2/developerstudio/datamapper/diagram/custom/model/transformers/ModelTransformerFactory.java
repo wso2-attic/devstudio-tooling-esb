@@ -89,6 +89,8 @@ public class ModelTransformerFactory {
 			return new CustomOperatorModelTransformer();
 		case PROPERTIES:
 			return new PropertiesModelTransformer();
+		case CLONE:
+			return new CloneModelTransformer();
 		default:
 			throw new IllegalArgumentException(
 					"Unable to find common operator model transformer to operator type in ModelTransformerFactory: "

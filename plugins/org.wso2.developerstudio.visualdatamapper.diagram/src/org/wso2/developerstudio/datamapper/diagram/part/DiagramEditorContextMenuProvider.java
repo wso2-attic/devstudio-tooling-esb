@@ -43,6 +43,7 @@ import org.wso2.developerstudio.datamapper.diagram.custom.action.AddNewAttribute
 import org.wso2.developerstudio.datamapper.diagram.custom.action.AddNewFieldAction;
 import org.wso2.developerstudio.datamapper.diagram.custom.action.AddNewObjectAction;
 import org.wso2.developerstudio.datamapper.diagram.custom.action.AddNewRootAction;
+import org.wso2.developerstudio.datamapper.diagram.custom.action.CloneConfigureAction;
 import org.wso2.developerstudio.datamapper.diagram.custom.action.CompareConfigureAction;
 import org.wso2.developerstudio.datamapper.diagram.custom.action.ConcatManyAction;
 import org.wso2.developerstudio.datamapper.diagram.custom.action.ConfigureCustomFunctionAction;
@@ -71,6 +72,7 @@ import org.wso2.developerstudio.datamapper.diagram.custom.action.StartsWithConfi
 import org.wso2.developerstudio.datamapper.diagram.custom.action.SubstringConfigureAction;
 import org.wso2.developerstudio.datamapper.diagram.edit.parts.ANDEditPart;
 import org.wso2.developerstudio.datamapper.diagram.edit.parts.AddEditPart;
+import org.wso2.developerstudio.datamapper.diagram.edit.parts.CloneEditPart;
 import org.wso2.developerstudio.datamapper.diagram.edit.parts.CompareEditPart;
 import org.wso2.developerstudio.datamapper.diagram.edit.parts.ConcatEditPart;
 import org.wso2.developerstudio.datamapper.diagram.edit.parts.ConstantEditPart;
@@ -186,6 +188,7 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 		contextActions.put(MaxEditPart.class, new MaxConfigureAction(part));
 		contextActions.put(MatchEditPart.class, new MatchConfigureAction(part));
 		contextActions.put(ReplaceEditPart.class, new ReplaceConfigureAction(part));
+		contextActions.put(CloneEditPart.class, new CloneConfigureAction(part));
 
 		// Initialize new root record context sensitive actions.
 		addNewRootElementContextActions = new HashMap<Class<? extends ShapeNodeEditPart>, AbstractActionHandler>();

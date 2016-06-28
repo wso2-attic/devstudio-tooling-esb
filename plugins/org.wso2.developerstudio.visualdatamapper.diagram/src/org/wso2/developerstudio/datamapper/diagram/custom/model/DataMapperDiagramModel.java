@@ -78,10 +78,38 @@ public class DataMapperDiagramModel {
 			populateOutputVariablesDepthFirst(rootDiagram.getOutput());
 			populateInputVariablesDepthFirst(rootDiagram.getInput());
 			resetDiagramTraversalProperties();
+			configureMultipleOutputOperations();
 			updateExecutionSequence();
 		} else {
 			throw new DataMapperException("Both input and output message formats needed to generate mapping");
 		}
+	}
+
+	private void configureMultipleOutputOperations() {
+		List<DMOperation> updatedOperationsList = new ArrayList<>();
+		List<ArrayList<Integer>> updatedInputAdjList = new ArrayList<>();
+		List<ArrayList<Integer>> updatedOutputAdjList = new ArrayList<>();
+		for (int i=0;i<operationsList.size();i++) {
+			if(DataMapperOperatorType.CLONE.equals(operationsList.get(i).getOperatorType())){
+				for (int j=0;j<outputAdjList.get(i).size();j++){
+					updatedInputAdjList.add(inputAdjList.get(i));
+					List<Integer> outputs = new ArrayList<>();
+					outputs.add(outputAdjList.get(i).get(j));
+					updatedOutputAdjList.add((ArrayList<Integer>) outputs);
+					updatedOperationsList.add(new DMOperation(DataMapperOperatorType.DIRECT, "DIRECT_"+i+"_"+j, updatedOperationsList.size()));
+				}
+			} else if (DataMapperOperatorType.SPLIT.equals(operationsList.get(i).getOperatorType())){
+				
+			} else {
+				operationsList.get(i).setIndex(updatedOperationsList.size());
+				updatedOperationsList.add(operationsList.get(i));
+				updatedInputAdjList.add(inputAdjList.get(i));
+				updatedOutputAdjList.add(outputAdjList.get(i));
+			}
+		}
+		operationsList = updatedOperationsList;
+		inputAdjList = updatedInputAdjList;
+		outputAdjList = updatedOutputAdjList;
 	}
 
 	private void populateInputVariablesDepthFirst(Input input) {

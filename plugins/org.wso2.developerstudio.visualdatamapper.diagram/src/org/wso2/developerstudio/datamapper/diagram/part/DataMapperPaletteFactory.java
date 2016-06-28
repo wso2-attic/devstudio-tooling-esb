@@ -651,10 +651,10 @@ public class DataMapperPaletteFactory {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	private ToolEntry createClone36CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Clone36CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.Clone36CreationTool_title,
 				Messages.Clone36CreationTool_desc, Collections.singletonList(DataMapperElementTypes.Clone_2039));
 		entry.setId("createClone36CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(DataMapperElementTypes.getImageDescriptor(DataMapperElementTypes.Clone_2039));
