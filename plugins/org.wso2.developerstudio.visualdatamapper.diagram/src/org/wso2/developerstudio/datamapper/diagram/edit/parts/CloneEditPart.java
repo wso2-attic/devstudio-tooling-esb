@@ -189,7 +189,7 @@ public class CloneEditPart extends AbstractOperatorEditPart {
 	public class CloneFigure extends OperatorRectangle {
 
 		public CloneFigure() {
-			super("Cline");
+			super("Clone");
 			this.setBackgroundColor(THIS_BACK);
 		}
 

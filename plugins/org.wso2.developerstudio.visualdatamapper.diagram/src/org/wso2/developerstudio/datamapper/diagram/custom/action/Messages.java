@@ -23,6 +23,9 @@ public class Messages extends NLS {
 	public static String SchemaKeyEditorDialog_ErrorRetreivingResource;
 	public static String SchemaKeyEditorFialog_NoSuchResource;
 	public static String SchemaKeyEditorFialog_VisibilityError;
+	public static String CloneConfigureAction_ID;
+	public static String CloneConfigureAction_Text;
+	public static String CloneConfigureAction_ToolTip;
 	public static String CreateNewConfigurationDialog_DefaultConfigName;
 	public static String CreateNewConfigurationDialog_DialogHeaderLoadingCAppProjects;
 	public static String CreateNewConfigurationDialog_DialogHeaderResourceCreation;

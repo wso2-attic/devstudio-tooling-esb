@@ -403,10 +403,18 @@ public enum DataMapperOperatorType implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #INSTANTIATE_VALUE
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	INSTANTIATE(40, "INSTANTIATE", "INSTANTIATE",COMMON_OPERATION);
+	INSTANTIATE(40, "INSTANTIATE", "INSTANTIATE",COMMON_OPERATION), /**
+	 * The '<em><b>CLONE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CLONE_VALUE
+	 * @generated NOT
+	 * @ordered
+	 */
+	CLONE(41, "CLONE", "CLONE",COMMON_OPERATION);
 
 	/**
 	 * The '<em><b>OPERATOR</b></em>' literal value.
@@ -1054,6 +1062,21 @@ public enum DataMapperOperatorType implements Enumerator {
 	public static final int INSTANTIATE_VALUE = 40;
 
 	/**
+	 * The '<em><b>CLONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>CLONE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CLONE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CLONE_VALUE = 41;
+
+	/**
 	 * An array of all the '<em><b>Operator Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1104,6 +1127,7 @@ public enum DataMapperOperatorType implements Enumerator {
 			STRING_TO_BOOLEAN,
 			STRING_TO_NUMBER,
 			INSTANTIATE,
+			CLONE,
 		};
 
 	/**
@@ -1201,6 +1225,7 @@ public enum DataMapperOperatorType implements Enumerator {
 			case STRING_TO_BOOLEAN_VALUE: return STRING_TO_BOOLEAN;
 			case STRING_TO_NUMBER_VALUE: return STRING_TO_NUMBER;
 			case INSTANTIATE_VALUE: return INSTANTIATE;
+			case CLONE_VALUE: return CLONE;
 		}
 		return null;
 	}
