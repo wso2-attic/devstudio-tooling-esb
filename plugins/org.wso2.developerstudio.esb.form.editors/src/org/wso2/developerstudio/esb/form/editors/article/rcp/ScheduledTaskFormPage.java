@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,9 @@
 
 package org.wso2.developerstudio.esb.form.editors.article.rcp;
 
+import java.util.List;
+
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
@@ -40,12 +41,13 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
+import org.wso2.developerstudio.eclipse.gmf.esb.TaskProperty;
 import org.wso2.developerstudio.esb.forgm.editors.article.FormArticlePlugin;
 
 /**
  * 
- * To change the template for this generated type comment go to Window -
- * Preferences - Java - Code Generation - Code and Comments
+ * To change the template for this generated type comment go to Window - Preferences - Java - Code Generation - Code and
+ * Comments
  */
 public class ScheduledTaskFormPage extends FormPage {
 
@@ -61,8 +63,8 @@ public class ScheduledTaskFormPage extends FormPage {
 	private Label countLbl;
 	private Label cronLbl;
 	private Label intervalLbl;
-	
-	
+	private List<TaskProperty> taskPropertyList;
+
 	/**
 	 * @param id
 	 * @param title
@@ -170,25 +172,28 @@ public class ScheduledTaskFormPage extends FormPage {
 		taskImpl = toolkit.createText(implSectionClient, "org.apache.synapse.startup.tasks.MessageInjector");
 		taskImpl.setBackground(new Color(null, 229, 236, 253));
 		// taskImpl.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
-		
+
 		Button taskImplButton = toolkit.createButton(implSectionClient, "Task Implementation Properties", SWT.PUSH);
 		taskImplButton.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Shell shell = Display.getDefault().getActiveShell();
- 				TaskPropertyDialog taskPropDialog = new TaskPropertyDialog(shell, getTaskImpl().getText());
+				TaskPropertyDialog taskPropDialog = new TaskPropertyDialog(shell, getTaskImpl().getText(),
+						getTaskPropertyList());
 				taskPropDialog.setBlockOnOpen(true);
 				taskPropDialog.open();
-				
+				taskPropertyList = taskPropDialog.getTaskPropertyList();
 			}
-			
+
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
+
+		setTaskPropertyList(taskPropertyList);
+
 		// taskImplProp.setLayoutData(new
 		// TableWrapData(TableWrapData.FILL_GRAB));
 
@@ -213,36 +218,50 @@ public class ScheduledTaskFormPage extends FormPage {
 		final Composite triggerSectionClient = toolkit.createComposite(triggerSection);
 		triggerSectionClient.setLayout(new TableWrapLayout());
 
-		toolkit.createLabel(triggerSectionClient, "Task Type");
-		triggerType = new Combo(triggerSectionClient, SWT.DROP_DOWN);
+		toolkit.createLabel(triggerSectionClient, "Trigger Type");
+		triggerType = new Combo(triggerSectionClient, SWT.READ_ONLY);
 		triggerType.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		// triggerType.setBackground(new Color(null, 229,236,253));
 		String[] triggerTypes = { "Simple", "Cron" };
 		triggerType.setItems(triggerTypes);
-		triggerType.addSelectionListener(new SelectionAdapter() {
+
+		cronLbl = toolkit.createLabel(triggerSectionClient, "Cron");
+		cron = toolkit.createText(triggerSectionClient, "");
+		cron.setBackground(new Color(null, 229, 236, 253));
+		cron.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		disableCronFields();
+
+		countLbl = toolkit.createLabel(triggerSectionClient, "Count");
+		count = toolkit.createText(triggerSectionClient, "1");
+		count.setBackground(new Color(null, 229, 236, 253));
+		count.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+
+		intervalLbl = toolkit.createLabel(triggerSectionClient, "Interval");
+		interval = toolkit.createText(triggerSectionClient, "0");
+		interval.setBackground(new Color(null, 229, 236, 253));
+		interval.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		enableSimpleFields();
+
+		triggerType.addSelectionListener(new SelectionListener() {
+
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if (triggerType.getSelectionIndex() == 0) {
-					countLbl = toolkit.createLabel(triggerSectionClient, "Count");
-					count = toolkit.createText(triggerSectionClient, "1");
-					count.setBackground(new Color(null, 229, 236, 253));
-
-					intervalLbl = toolkit.createLabel(triggerSectionClient, "Interval");
-					interval = toolkit.createText(triggerSectionClient, "1");
-					interval.setBackground(new Color(null, 229, 236, 253));
-					refershTaskSettings();
-				} else {
-					cronLbl = toolkit.createLabel(triggerSectionClient, "Cron");
-					cron = toolkit.createText(triggerSectionClient, "");
-					cron.setBackground(new Color(null, 229, 236, 253));
-					cron.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
-					refershTaskSettings();
+					disableCronFields();
+					enableSimpleFields();
+				} else if (triggerType.getSelectionIndex() == 1) {
+					enableCronFields();
+					disableSimpleFields();
 				}
-				super.widgetSelected(e);
-				refershTaskSettings();
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+
 			}
 		});
-		
+
 		triggerSection.setClient(triggerSectionClient);
 	}
 
@@ -309,7 +328,7 @@ public class ScheduledTaskFormPage extends FormPage {
 	public void setCron(Text cron) {
 		this.cron = cron;
 	}
-	
+
 	public Combo getTriggerType() {
 		return triggerType;
 	}
@@ -317,25 +336,69 @@ public class ScheduledTaskFormPage extends FormPage {
 	public void setTriggerType(Combo triggerType) {
 		this.triggerType = triggerType;
 	}
-	
-	public void refershTaskSettings() {
-		if (triggerType.getSelectionIndex() == 0) {
-			count.setVisible(true);
-			interval.setVisible(true);
-			countLbl.setVisible(true);
-			intervalLbl.setVisible(true);
-			
-			cron.setVisible(false);
-			cronLbl.setVisible(false);
-			
-		} else if (triggerType.getSelectionIndex() == 1) {
-			cron.setVisible(true);
-			cronLbl.setVisible(true);
-			count.setVisible(false);
-			interval.setVisible(false);
-			countLbl.setVisible(false);
-			intervalLbl.setVisible(false);
+
+	public void setTaskPropertyList(List<TaskProperty> taskPropertyList) {
+		this.taskPropertyList = taskPropertyList;
+
+	}
+
+	public List<TaskProperty> getTaskPropertyList() {
+		return taskPropertyList;
+	}
+
+	/**
+	 * Check if cron contain any values
+	 * 
+	 * @param isCron
+	 */
+
+	public void setCheckCron(boolean isCron) {
+		if (isCron) {
+			enableCronFields();
+			disableSimpleFields();
 		}
+	}
+
+	/**
+	 * Enable cron fields when opening the form editor if it contains cron values
+	 */
+	private void enableCronFields() {
+		cron.setVisible(true);
+		cronLbl.setVisible(true);
+	}
+
+	/**
+	 * Check if simple contain any values
+	 * 
+	 * @param isSimple
+	 */
+	public void setCheckSimple(boolean isSimple) {
+		if (isSimple) {
+			enableSimpleFields();
+			disableCronFields();
+		}
+	}
+
+	/**
+	 * Enable simple fields when opening the form editor if it contains simple values
+	 */
+	private void enableSimpleFields() {
+		countLbl.setVisible(true);
+		count.setVisible(true);
+		intervalLbl.setVisible(true);
+		interval.setVisible(true);
+	}
+
+	private void disableSimpleFields() {
+		countLbl.setVisible(false);
+		count.setVisible(false);
+		intervalLbl.setVisible(false);
+		interval.setVisible(false);
+	}
+
+	private void disableCronFields() {
+		cron.setVisible(false);
+		cronLbl.setVisible(false);
 	}
 
 }
