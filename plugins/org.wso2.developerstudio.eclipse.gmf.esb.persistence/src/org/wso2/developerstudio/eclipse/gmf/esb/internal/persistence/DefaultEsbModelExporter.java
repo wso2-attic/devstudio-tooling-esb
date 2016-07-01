@@ -285,6 +285,11 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		return transformer.createMessageStore(messageProcessorFormPage);
 	}
 	
+	private org.apache.synapse.endpoints.Endpoint transformEndpoint(FormPage endpointFormPage) {
+		return AbstractEndpointTransformer.createEndpoint(endpointFormPage);
+	}
+	
+	
 	private org.apache.synapse.rest.API transformAPI(SynapseAPI visualAPI) throws Exception{		
 		TransformationInfo info = new TransformationInfo();
 		info.getTransformedMediators().clear();
@@ -373,7 +378,11 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			configOM = transformMessageProcessor(formPage);
 		} else if (artifactType == ArtifactType.MESSAGE_STORE) {
 			configOM = transformMessageStore(formPage);
+		} else if (artifactType == ArtifactType.ENDPOINT_ADDRESS || artifactType == ArtifactType.ENDPOINT_DEFAULT || artifactType == ArtifactType.ENDPOINT_HTTP || artifactType == ArtifactType.ENDPOINT_WSDL) {
+			configOM = EndpointSerializer.getElementFromEndpoint(transformEndpoint(formPage));
 		}
+		
+		
 		if (configOM != null) {
 			sourceXML = format(configOM.toString());
 			sourceXML = sourceXML.replaceAll("\\?><", "?>\n<");

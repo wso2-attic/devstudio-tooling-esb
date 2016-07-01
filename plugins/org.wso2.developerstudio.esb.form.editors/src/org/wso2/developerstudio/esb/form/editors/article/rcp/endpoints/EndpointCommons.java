@@ -59,6 +59,7 @@ public class EndpointCommons {
 		
 		/* QOS Information */ 
 		Section qosSection = createSection(form, toolkit, Messages.getString("EndpointPage.section.qos"));
+		qosSection.setExpanded(false);
 		
 		Composite qosSectionClient = toolkit.createComposite(qosSection);
 		qosSectionClient.setLayout(new TableWrapLayout());

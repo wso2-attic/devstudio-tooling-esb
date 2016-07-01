@@ -54,7 +54,7 @@ public class DefaultEndpointFormPage extends EndpointFormPage {
 
 		super.createFormContent(managedForm);
 		
-		form.setText(Messages.getString("EndpointPage.sectionMainTitle"));
+		form.setText(Messages.getString("DefaultEndpointPage.sectionMainTitle"));
 	}
 
 	public void createFormBasicSection() {
@@ -96,6 +96,7 @@ public class DefaultEndpointFormPage extends EndpointFormPage {
 
 		 /* Misc Section */ 
 		miscSection = endpointCommons.createSection(form, toolkit, Messages.getString("EndpointPage.section.misc"));
+		miscSection.setExpanded(false);
 		
 		Composite miscSectionClient = toolkit.createComposite(miscSection);
 		miscSectionClient.setLayout(new TableWrapLayout());

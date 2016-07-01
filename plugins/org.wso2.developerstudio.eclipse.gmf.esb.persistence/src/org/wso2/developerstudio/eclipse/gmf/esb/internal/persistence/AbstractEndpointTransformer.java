@@ -30,8 +30,10 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.CallMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
+import org.eclipse.ui.forms.editor.FormPage;
 import org.jaxen.JaxenException;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
@@ -46,6 +48,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.ESBFormEditor;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.endpoints.AddressEndpointFormPage;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.endpoints.DefaultEndpointFormPage;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.endpoints.EndpointCommons;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.endpoints.EndpointFormPage;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.endpoints.HttpEndpointFormPage;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.endpoints.WsdlEndpointFormPage;
 
 public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransformer{
 
@@ -357,6 +366,79 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 				callMediator.setEndpoint(synapseEP);
 			}
 		}
+	}
+
+	public static org.apache.synapse.endpoints.Endpoint createEndpoint(FormPage visualForm) {
+		org.apache.synapse.endpoints.Endpoint endpoint = null;
+
+		if (visualForm instanceof AddressEndpointFormPage) {
+			endpoint = new AddressEndPointTransformer().transform(visualForm);
+		} else if (visualForm instanceof DefaultEndpointFormPage) {
+			endpoint = new DefaultEndPointTransformer().transform(visualForm);
+		} else if (visualForm instanceof HttpEndpointFormPage) {
+			endpoint = new HTTPEndPointTransformer().transform(visualForm);
+		} else if (visualForm instanceof WsdlEndpointFormPage) {
+			endpoint = new WSDLEndPointTransformer().transform(visualForm);
+		}
+		
+		
+		return endpoint;
+	}
+
+	public void transform(EndpointCommons endpointCommons, EndpointDefinition definition) {
+		if (endpointCommons.endpointReliableMessaging.getSelectionIndex() == 0) {
+			definition.setReliableMessagingOn(true);
+		} else {
+			definition.setReliableMessagingOn(false);
+		}
+		
+		if (endpointCommons.endpointSecurity.getSelectionIndex() == 0) {
+			definition.setSecurityOn(true);
+		} else {
+			definition.setSecurityOn(false);
+		}
+		
+		if (endpointCommons.endpointAddressing.getSelectionIndex() == 0) {
+			definition.setAddressingOn(true);
+		} else {
+			definition.setAddressingOn(false);
+		}
+		
+		String suspendErrorCodes = endpointCommons.endpointSuspendErrorCodes.getText();
+		
+		if(suspendErrorCodes!=null && !"".equals(suspendErrorCodes)){
+			String [] suspendErrorCodesList=suspendErrorCodes.split("\\,");
+			List<String> suspendCodes = Arrays.asList(suspendErrorCodesList); 
+			for(String code:suspendCodes){
+				definition.addSuspendErrorCode(Integer.parseInt(code));
+			}
+		}
+		
+		definition.setInitialSuspendDuration(Long.parseLong(endpointCommons.endpointSuspendInitialDuration.getText()));
+		
+		definition.setSuspendMaximumDuration(Long.parseLong(endpointCommons.endpointSuspendMaxDuration.getText()));
+		
+		definition.setSuspendProgressionFactor(Float.parseFloat(endpointCommons.endpointSuspendProgressFactor.getText()));
+		
+		String retryErrorCodes=endpointCommons.endpointRetryErrorCodes.getText();
+		if(retryErrorCodes!=null && !"".equals(retryErrorCodes)){
+			String [] retryCodesList=retryErrorCodes.split("\\,");
+			List<String> retryCodes = Arrays.asList(retryCodesList); 
+			for(String code:retryCodes){
+				definition.addTimeoutErrorCode(Integer.parseInt(code));
+			}
+		}
+		
+		definition.setTimeoutDuration(Long.parseLong(endpointCommons.endpointTimeoutDuration.getText()));
+		
+		if (endpointCommons.endpointTimeoutAction.getSelectionIndex() == 0) {
+			definition.setTimeoutAction(100);
+		} else if (endpointCommons.endpointTimeoutAction.getSelectionIndex() == 1) {
+			definition.setTimeoutAction(101);
+		} else if (endpointCommons.endpointTimeoutAction.getSelectionIndex() == 2) {
+			definition.setTimeoutAction(102);
+		}
+		
 	}
 
 }
