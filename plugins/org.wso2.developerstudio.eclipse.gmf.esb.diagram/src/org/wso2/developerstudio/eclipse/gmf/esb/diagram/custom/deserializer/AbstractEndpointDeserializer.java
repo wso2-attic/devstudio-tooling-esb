@@ -235,7 +235,7 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 		setTextValue(endpointCommons.endpointSuspendProgressFactor, definition.getSuspendProgressionFactor());
 		
 		// Error Handling - Endpoint Retry
-		setTextValue(endpointCommons.endpointRetryErrorCodes, definition.getRetryEnableErrorCodes().toString()
+		setTextValue(endpointCommons.endpointRetryErrorCodes, definition.getTimeoutErrorCodes().toString()
 				.replace("[", "").replace("]", "").replace(", ", ","));
 		
 		setTextValue(endpointCommons.endpointRetryCount, definition.getRetriesOnTimeoutBeforeSuspend());

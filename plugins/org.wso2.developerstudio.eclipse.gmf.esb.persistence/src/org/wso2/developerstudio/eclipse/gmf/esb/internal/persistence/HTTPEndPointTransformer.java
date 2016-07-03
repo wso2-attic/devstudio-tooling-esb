@@ -21,10 +21,12 @@ import java.util.List;
 import org.apache.axis2.Constants;
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.rest.RESTConstants;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.ui.forms.editor.FormPage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
@@ -33,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformerException;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.endpoints.HttpEndpointFormPage;
 
 import com.damnhandy.uri.template.UriTemplate;
 
@@ -144,6 +147,36 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 		HTTPEndpoint visualEndPoint = (HTTPEndpoint) subject;
 		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
+	}
+	
+	public Endpoint transform(FormPage visualForm) {
+		
+		HttpEndpointFormPage formPage = (HttpEndpointFormPage) visualForm;
+		org.apache.synapse.endpoints.HTTPEndpoint endpoint = new org.apache.synapse.endpoints.HTTPEndpoint();
+		EndpointDefinition definition = new EndpointDefinition();
+		
+		if (formPage.endpointTrace.getSelectionIndex() == 0) {
+			definition.enableTracing();
+		} else {
+			definition.disableTracing();
+		}
+		
+		if (formPage.endpointStatistics.getSelectionIndex() == 0) {
+			definition.enableStatistics();
+		} else {
+			definition.disableStatistics();
+		}
+		
+		endpoint.setUriTemplate(UriTemplate.fromTemplate(formPage.httpEP_UriTemplate.getText()));
+		endpoint.setHttpMethod(formPage.httpEP_Method.getText());
+		endpoint.setDescription(formPage.httpEP_Description.getText());
+		
+		super.transform(formPage.getEndpointCommons(), definition);
+		
+		endpoint.setDefinition(definition);
+		
+		
+		return endpoint;
 	}
 
 }

@@ -20,9 +20,11 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.ui.forms.editor.FormPage;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -32,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformerException;
+import org.wso2.developerstudio.esb.form.editors.article.rcp.endpoints.AddressEndpointFormPage;
 
 /**
  * {@link EsbNodeTransformer} responsible for transforming {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint}
@@ -117,5 +120,54 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
 		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
+	}
+	
+	
+	public Endpoint transform(FormPage visualForm) {
+		
+		AddressEndpointFormPage formPage = (AddressEndpointFormPage) visualForm;
+		AddressEndpoint endpoint = new AddressEndpoint();
+		EndpointDefinition definition = new EndpointDefinition();
+		
+		if (formPage.addressEP_Format.getSelectionIndex() == 0) {
+			
+		} else if (formPage.addressEP_Format.getSelectionIndex() == 1) {
+			definition.setFormat("soap11");
+		} else if (formPage.addressEP_Format.getSelectionIndex() == 2) {
+			definition.setFormat("soap12");
+		} else if (formPage.addressEP_Format.getSelectionIndex() == 3) {
+			definition.setFormat("pox");
+		} else if (formPage.addressEP_Format.getSelectionIndex() == 4) {
+			definition.setFormat("get");
+		} else if (formPage.addressEP_Format.getSelectionIndex() == 5) {
+			definition.setFormat("rest");
+		}
+		
+		if (formPage.endpointTrace.getSelectionIndex() == 0) {
+			definition.enableTracing();
+		} else {
+			definition.disableTracing();
+		}
+		
+		if (formPage.endpointStatistics.getSelectionIndex() == 0) {
+			definition.enableStatistics();
+		} else {
+			definition.disableStatistics();
+		}
+		
+		definition.setAddress(formPage.addressEP_URI.getText());
+		
+		if (formPage.addressEP_Optimize.getSelectionIndex() == 1) {
+			definition.setUseMTOM(true);
+		} else if (formPage.addressEP_Optimize.getSelectionIndex() == 2) {
+			definition.setUseSwa(true);
+		}
+		
+		super.transform(formPage.getEndpointCommons(), definition);
+		
+		endpoint.setDefinition(definition);
+		
+		
+		return endpoint;
 	}
 }

@@ -91,5 +91,4 @@ public class AddresingEndPointTransformer extends AbstractEndpointTransformer{
 			SequenceMediator sequence) throws TransformerException {
 		
 	}
-
 }
