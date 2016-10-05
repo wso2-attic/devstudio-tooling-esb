@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -250,7 +250,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 		lblSchemaTypeLabel.setLayoutData(lableLayoutData);
 
 		FormData comboLayoutData = new FormData();
-		comboLayoutData.left = new FormAttachment(lblSchemaTypeLabel, 10);
+		comboLayoutData.left = new FormAttachment(lblSchemaTypeLabel, 10, SWT.RIGHT);
 		schemaTypeCombo.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent arg0) {
 				if (FileType.CONNECTOR.toString().equals(schemaTypeCombo.getText())) {
@@ -258,6 +258,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 					lblConnectorOperation.setVisible(true);
 					cmbConnector.setVisible(true);
 					cmbConnectorOperation.setVisible(true);
+					generateSchema.setVisible(false);
 					link.setVisible(false);
 					schemaKeyTextField.setVisible(false);
 					grpPropertyKey.redraw();
@@ -266,6 +267,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 					lblConnectorOperation.setVisible(false);
 					cmbConnector.setVisible(false);
 					cmbConnectorOperation.setVisible(false);
+					generateSchema.setVisible(false);
 					link.setVisible(true);
 					schemaKeyTextField.setVisible(true);
 					grpPropertyKey.redraw();
@@ -282,14 +284,14 @@ public class SchemaKeyEditorDialog extends Dialog {
 		schemaTypeCombo.setLayoutData(comboLayoutData);
 
 		FormData connectorLabelLayoutData = new FormData();
-		connectorLabelLayoutData.top = new FormAttachment(lblSchemaTypeLabel, 20);
+		connectorLabelLayoutData.top = new FormAttachment(lblSchemaTypeLabel, 20, SWT.BOTTOM);
 
 		lblConnector.setText(SELECT_CONNECTOR);
 		lblConnector.setLayoutData(connectorLabelLayoutData);
 
 		FormData connectorComboLayoutData = new FormData();
-		connectorComboLayoutData.left = new FormAttachment(lblConnector, 10);
-		connectorComboLayoutData.top = new FormAttachment(schemaTypeCombo, 5);
+		connectorComboLayoutData.left = new FormAttachment(lblConnector, 10, SWT.RIGHT);
+		connectorComboLayoutData.top = new FormAttachment(schemaTypeCombo, 10, SWT.BOTTOM);
 
 		cmbConnector.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent arg0) {
@@ -306,13 +308,14 @@ public class SchemaKeyEditorDialog extends Dialog {
 		cmbConnector.setLayoutData(connectorComboLayoutData);
 
 		FormData connectorOperationLabelLayoutData = new FormData();
-		connectorOperationLabelLayoutData.top = new FormAttachment(lblConnector, 20);
+		connectorOperationLabelLayoutData.top = new FormAttachment(lblConnector, 20, SWT.BOTTOM);
 		lblConnectorOperation.setText(SELECT_CONNECTOR_OPERATION);
 		lblConnectorOperation.setLayoutData(connectorOperationLabelLayoutData);
 
 		FormData connectorOperationComboLayoutData = new FormData();
-		connectorOperationComboLayoutData.left = new FormAttachment(lblConnectorOperation, 10);
-		connectorOperationComboLayoutData.top = new FormAttachment(cmbConnector, 5);
+		connectorOperationComboLayoutData.left = new FormAttachment(lblConnectorOperation, 10,
+		                                                            SWT.RIGHT);
+		connectorOperationComboLayoutData.top = new FormAttachment(cmbConnector, 10, SWT.BOTTOM);
 
 		cmbConnectorOperation.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent arg0) {
@@ -368,9 +371,9 @@ public class SchemaKeyEditorDialog extends Dialog {
 		}
 
 		FormData createSchemaButtonLayoutData = new FormData();
-		createSchemaButtonLayoutData.top = new FormAttachment(cmbConnector, 6);
-		createSchemaButtonLayoutData.left = new FormAttachment(cmbConnectorOperation, 10);
-		createSchemaButtonLayoutData.right = new FormAttachment(100, 0);
+		createSchemaButtonLayoutData.top = new FormAttachment(cmbConnectorOperation, 0, SWT.TOP);
+		createSchemaButtonLayoutData.left =
+		                                  new FormAttachment(cmbConnectorOperation, 10, SWT.RIGHT);
 		generateSchema.setLayoutData(createSchemaButtonLayoutData);
 		generateSchema.setText(SELECT_GENERATE_SCHEMA);
 
@@ -386,7 +389,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 
 	/**
 	 * Create new GenerateSchemaDialog dialog
-	 * 
+	 *
 	 * @throws Exception
 	 * @throws IOException
 	 */
@@ -716,7 +719,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 	 * workspace, iterate through all the registry resource projects check if
 	 * the resource exist in some project, if so return the local file path to
 	 * that resource
-	 * 
+	 *
 	 * @param fileName
 	 * @return
 	 */
