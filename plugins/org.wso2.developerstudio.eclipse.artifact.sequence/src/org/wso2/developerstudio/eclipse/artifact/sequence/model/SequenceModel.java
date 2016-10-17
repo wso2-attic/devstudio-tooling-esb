@@ -59,6 +59,7 @@ public class SequenceModel extends ProjectDataModel {
 	private List<OMElement> availableSeqList;
 	private IContainer sequenceSaveLocation;
 	private String sequenceName;
+	private String sequenceVersion;
 	private String onErrorSequence = "";
 	private String selectedEP = "";
 	private List<OMElement> selectedSeqList;
@@ -150,6 +151,8 @@ public class SequenceModel extends ProjectDataModel {
 				}
 			}
 		} else if (key.equals("sequence.name")) {
+			setSequenceName(data.toString());
+		} else if (key.equals("sequence.version")) {
 			setSequenceName(data.toString());
 		} else if (key.equals("on.error.sequence")) {
 			String seqName = ProjectUtils.fileNameWithoutExtension((new File(data.toString())).getName());
@@ -259,11 +262,19 @@ public class SequenceModel extends ProjectDataModel {
 	}
 
 	public void setSequenceName(String sequenceName) {
-		this.sequenceName = sequenceName;
+		this.sequenceName = sequenceName+"jjjjj";
 	}
 
 	public String getSequenceName() {
 		return sequenceName;
+	}
+	
+	public void setSequenceVersion(String sequenceVersion) {
+		this.sequenceVersion = sequenceVersion;
+	}
+
+	public String getSequenceVersion() {
+		return sequenceVersion;
 	}
 
 	public void setRegistryPathID(String RegistryPathID) {

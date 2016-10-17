@@ -11,7 +11,8 @@
 				  title="Sequence Artifact" 
 				  description="Create a new Sequence Artifact" 
 				  error="Please give a name for the sequence">
-			<data modelProperty="sequence.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController">Sequence Name    </data>
+			<data modelProperty="sequence.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController">Sequence lame    </data>
+			<data modelProperty="sequence.version" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController">Sequence Version   </data>
 			<data modelProperty="save.file" type="workspacefolder" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.sequence.validators.ProjectFilter">Save Sequence in:</data>
 			<data modelProperty="create.esb.prj" type="link" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" controlData="align=right">&lt;a&gt;Create new Project...&lt;/a&gt;</data>
 			

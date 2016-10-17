@@ -219,7 +219,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			fileLst.add(destFile);
 			ESBArtifact artifact = new ESBArtifact();
 			artifact.setName(sequenceModel.getSequenceName());
-			artifact.setVersion(version);
+			artifact.setVersion(sequenceModel.getSequenceVersion());
 			artifact.setType("synapse/sequence");
 			artifact.setServerRole("EnterpriseServiceBus");
 			artifact.setGroupId(groupId);
