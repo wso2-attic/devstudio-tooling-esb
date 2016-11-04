@@ -217,9 +217,6 @@ public class SchemaGeneratorForXML extends SchemaGeneratorForJSON implements ISc
 			OMNamespace ns = (OMNamespace) iter.next();
 			String prefix = ns.getPrefix();
 			String uri = ns.getNamespaceURI();
-			if (!namespaces.containsKey(prefix)) {
-				namespaces.put(prefix, uri);
-			}
 		}
 
 		if (modifiedElementName != null) {
