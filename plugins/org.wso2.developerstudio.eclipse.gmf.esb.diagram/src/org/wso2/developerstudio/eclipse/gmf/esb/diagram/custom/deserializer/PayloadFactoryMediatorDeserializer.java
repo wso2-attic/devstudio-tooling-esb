@@ -23,6 +23,7 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, PayloadFactoryMediator>{
 	private static String XML_LITERAL = "xml"; 
 	private static String JSON_LITERAL = "json"; 
+	private static String TEXT_LITERAL = "text";
 	
 	public PayloadFactoryMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.transform.PayloadFactoryMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
@@ -50,6 +51,8 @@ public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeseriali
 				executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE, MediaType.XML);
 			} else if(payloadFactoryMediator.getType().equals(JSON_LITERAL)){
 				executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE, MediaType.JSON);
+			} else if(payloadFactoryMediator.getType().equals(TEXT_LITERAL)){
+				executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE, MediaType.TEXT);
 			}
 		}
 		

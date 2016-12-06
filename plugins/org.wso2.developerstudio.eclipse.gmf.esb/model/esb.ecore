@@ -2165,6 +2165,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="MediaType">
     <eLiterals name="XML" literal="xml"/>
     <eLiterals name="JSON" value="1" literal="json"/>
+    <eLiterals name="text" value="2" literal="text"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PayloadFactoryMediatorInputConnector"
       eSuperTypes="#//InputConnector"/>
