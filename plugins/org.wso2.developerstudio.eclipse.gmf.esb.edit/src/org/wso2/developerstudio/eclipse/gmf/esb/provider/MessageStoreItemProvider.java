@@ -73,6 +73,7 @@ public class MessageStoreItemProvider
 		super.getPropertyDescriptors(object);
 
 		addStoreNamePropertyDescriptor(object);
+		addVersionPropertyDescriptor(object);
 		addStoreTypePropertyDescriptor(object);
 
 		switch (store.getStoreType()) {
@@ -790,6 +791,28 @@ public class MessageStoreItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageStore_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageStore_version_feature", "_UI_MessageStore_type"),
+				 EsbPackage.Literals.MESSAGE_STORE__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -885,6 +908,7 @@ public class MessageStoreItemProvider
 			case EsbPackage.MESSAGE_STORE__JDBC_DATASOURCE_NAME:
 			case EsbPackage.MESSAGE_STORE__ENABLE_PRODUCER_GUARANTEED_DELIVERY:
 			case EsbPackage.MESSAGE_STORE__FAILOVER_MESSAGE_STORE:
+			case EsbPackage.MESSAGE_STORE__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.MESSAGE_STORE__PARAMETERS:

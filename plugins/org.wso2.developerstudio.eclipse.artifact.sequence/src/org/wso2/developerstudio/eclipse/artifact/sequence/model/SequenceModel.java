@@ -153,7 +153,7 @@ public class SequenceModel extends ProjectDataModel {
 		} else if (key.equals("sequence.name")) {
 			setSequenceName(data.toString());
 		} else if (key.equals("sequence.version")) {
-			setSequenceName(data.toString());
+			setSequenceVersion(data.toString());
 		} else if (key.equals("on.error.sequence")) {
 			String seqName = ProjectUtils.fileNameWithoutExtension((new File(data.toString())).getName());
 			setOnErrorSequence(seqName);
@@ -262,7 +262,7 @@ public class SequenceModel extends ProjectDataModel {
 	}
 
 	public void setSequenceName(String sequenceName) {
-		this.sequenceName = sequenceName+"jjjjj";
+		this.sequenceName = sequenceName;
 	}
 
 	public String getSequenceName() {
@@ -276,6 +276,14 @@ public class SequenceModel extends ProjectDataModel {
 	public String getSequenceVersion() {
 		return sequenceVersion;
 	}
+	
+	public String getSeqVersionAttributeString(){
+		if(sequenceVersion!=null){
+			return " version=\"" + sequenceVersion + "\"";
+		}else{
+			return "";
+		}
+	}
 
 	public void setRegistryPathID(String RegistryPathID) {
 		this.registryPathID = RegistryPathID;
@@ -287,7 +295,7 @@ public class SequenceModel extends ProjectDataModel {
 
 	public void setOnErrorSequence(String onErrorSequence) {
 		if (!onErrorSequence.equals("")) {
-			onErrorSequence = "onError=\"" + onErrorSequence + "\"";
+			onErrorSequence = " onError=\"" + onErrorSequence + "\"";
 		}
 		this.onErrorSequence = onErrorSequence;
 	}

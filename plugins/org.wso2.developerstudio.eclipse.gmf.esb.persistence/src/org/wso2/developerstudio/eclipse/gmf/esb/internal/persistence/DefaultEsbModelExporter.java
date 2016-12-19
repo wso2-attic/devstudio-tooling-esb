@@ -200,6 +200,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			if (childNode instanceof Sequences) {
 				Sequences visualSequence = (Sequences) childNode;
 				sequence.setName(visualSequence.getName());
+				sequence.setVersion(visualSequence.getVersion());
 				SequenceTransformer transformer = new SequenceTransformer();
 				transformer.transformWithinSequence(info, visualSequence,
 						sequence);
@@ -214,12 +215,11 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		info.getTransformedMediators().clear();
 		SynapseConfiguration configuration = new SynapseConfiguration();;
 		info.setSynapseConfiguration(configuration);
-		org.apache.synapse.core.axis2.ProxyService proxy = new org.apache.synapse.core.axis2.ProxyService(
-				visualService.getName());
+		org.apache.synapse.core.axis2.ProxyService proxy = new org.apache.synapse.core.axis2.ProxyService(visualService.getName(), visualService.getVersion());
 		ProxyServiceTransformer transformer = new ProxyServiceTransformer();
 		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
 		transformer.transform(info, visualService );
-		org.apache.synapse.core.axis2.ProxyService proxyService = configuration.getProxyService(visualService.getName());
+		org.apache.synapse.core.axis2.ProxyService proxyService = configuration.getProxyService(visualService.getName()+"/"+visualService.getVersion());
 		if(proxyService!=null){
 			proxy = proxyService;
 		}
@@ -386,7 +386,8 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
         info.setSynapseConfiguration(configuration);
         InboundEndpointTransformer transformer = new InboundEndpointTransformer();
         transformer.transform(info, visualInboundEndpoint);
-        org.apache.synapse.inbound.InboundEndpoint inboundEndpoint = configuration.getInboundEndpoint(visualInboundEndpoint.getName());
+        org.apache.synapse.inbound.InboundEndpoint inboundEndpoint = configuration.getInboundEndpoint(
+        		visualInboundEndpoint.getName()+"/"+visualInboundEndpoint.getVersion());
         return inboundEndpoint;
     }
     

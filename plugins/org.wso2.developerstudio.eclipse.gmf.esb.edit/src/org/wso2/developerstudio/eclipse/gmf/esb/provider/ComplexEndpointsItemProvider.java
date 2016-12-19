@@ -68,6 +68,7 @@ public class ComplexEndpointsItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +87,28 @@ public class ComplexEndpointsItemProvider
 				 getString("_UI_ComplexEndpoints_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexEndpoints_name_feature", "_UI_ComplexEndpoints_type"),
 				 EsbPackage.Literals.COMPLEX_ENDPOINTS__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComplexEndpoints_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexEndpoints_version_feature", "_UI_ComplexEndpoints_type"),
+				 EsbPackage.Literals.COMPLEX_ENDPOINTS__VERSION,
 				 true,
 				 false,
 				 false,
@@ -163,6 +186,7 @@ public class ComplexEndpointsItemProvider
 
 		switch (notification.getFeatureID(ComplexEndpoints.class)) {
 			case EsbPackage.COMPLEX_ENDPOINTS__NAME:
+			case EsbPackage.COMPLEX_ENDPOINTS__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.COMPLEX_ENDPOINTS__OUTPUT_CONNECTOR:

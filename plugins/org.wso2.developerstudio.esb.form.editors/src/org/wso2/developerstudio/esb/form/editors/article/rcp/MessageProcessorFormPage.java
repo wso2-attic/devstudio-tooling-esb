@@ -60,6 +60,7 @@ public class MessageProcessorFormPage extends AbstractEsbFormPage {
 	public IMessageProcessor currentMessageProcessor = null;
 	
 	public Text processorName;
+	public Text processorVersion;
 	public Combo processorType;
 	public Text storeName;
 	
@@ -133,6 +134,18 @@ public class MessageProcessorFormPage extends AbstractEsbFormPage {
 		processorName.setBackground(new Color(null, 229,236,253));
 		processorName.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		processorName.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				setSave(true);
+				updateDirtyState();
+			}
+		});
+		
+		toolkit.createLabel(basicSectionClient, "Message Processor Version *");
+		processorVersion = toolkit.createText(basicSectionClient, "");
+		processorVersion.setBackground(new Color(null, 229,236,253));
+		processorVersion.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		processorVersion.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				setSave(true);

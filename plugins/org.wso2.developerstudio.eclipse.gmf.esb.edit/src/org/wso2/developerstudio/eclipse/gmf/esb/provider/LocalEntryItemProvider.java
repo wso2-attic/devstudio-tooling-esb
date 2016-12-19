@@ -58,6 +58,7 @@ public class LocalEntryItemProvider
 		super.getPropertyDescriptors(object);
 
 		addEntryNamePropertyDescriptor(object);
+		addEntryVersionPropertyDescriptor(object);
 		addLocalEntryTypePropertyDescriptor(object);
 
 		switch (entry.getLocalEntryType()) {
@@ -185,6 +186,28 @@ public class LocalEntryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Entry Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEntryVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocalEntry_entryVersion_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_entryVersion_feature", "_UI_LocalEntry_type"),
+				 EsbPackage.Literals.LOCAL_ENTRY__ENTRY_VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns LocalEntry.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -226,6 +249,7 @@ public class LocalEntryItemProvider
 			case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
 			case EsbPackage.LOCAL_ENTRY__VALUE_XML:
 			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
+			case EsbPackage.LOCAL_ENTRY__ENTRY_VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

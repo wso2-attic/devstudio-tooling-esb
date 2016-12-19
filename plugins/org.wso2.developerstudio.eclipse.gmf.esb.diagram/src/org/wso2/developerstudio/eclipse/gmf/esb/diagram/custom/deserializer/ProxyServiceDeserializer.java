@@ -58,7 +58,11 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		setElementToEdit(proxy);
 		refreshEditPartMap();
 		
-		executeSetValueCommand(PROXY_SERVICE__NAME,object.getName());
+		executeSetValueCommand(PROXY_SERVICE__NAME,object.getArtifactName());
+		if(object.getVersion()!=null){
+			executeSetValueCommand(PROXY_SERVICE__VERSION, object.getVersion());
+		}
+		executeSetValueCommand(PROXY_SERVICE__IS_DEFAULT, object.isDefault());
 		
 		// Fixing TOOLS-2033.
 		if (object.getAspectConfiguration().isTracingEnabled()) {

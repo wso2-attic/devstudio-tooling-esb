@@ -36,6 +36,9 @@ public class EndPointsList extends AbstractListDataProvider{
 		if(availableEPList != null){
 			for (OMElement omElement : availableEPList) {
 				String name = omElement.getAttributeValue(new QName("name"));
+				if(omElement.getAttribute(new QName("version"))!=null){
+					name = name + "/" + omElement.getAttributeValue(new QName("version"));
+				}
 				list.add(createListData(name, omElement));
 			}
 		}

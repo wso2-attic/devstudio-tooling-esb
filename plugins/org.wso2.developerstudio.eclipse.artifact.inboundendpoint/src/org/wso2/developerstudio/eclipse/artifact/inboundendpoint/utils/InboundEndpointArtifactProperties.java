@@ -31,7 +31,7 @@ public final class InboundEndpointArtifactProperties extends NLS {
 	public static String typeKAFKA;
 	public static String typeCXF_WS_RM;
 	public static String typeMQTT;
-	public static String typeRabbitMq;	
+	public static String typeRabbitMq;
 	public static String typeFeed;
 	public static String typeWSO2_MB;
 
@@ -43,6 +43,7 @@ public final class InboundEndpointArtifactProperties extends NLS {
 	public static String wizardOptionImportFilePath;
 	public static String wizardOptionCreateESBProject;
 	public static String wizardOptionIEName;
+	public static String wizardOptionIEVersion;
 	public static String wizardOptionAvailableIEs;
 	public static String wizardOptionImportSourceUrlIEUrl;
 	public static String wizardOptionSequence;

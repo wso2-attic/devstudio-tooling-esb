@@ -103,7 +103,6 @@ public class InboundEndpointProjectCreationWizard extends AbstractWSO2ProjectCre
 	private ESBProjectArtifact esbProjectArtifact;
 	private List<File> fileList = new ArrayList<File>();
 	private IProject esbProject;
-	private String version = "1.0.0";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	public InboundEndpointProjectCreationWizard() {
@@ -151,20 +150,27 @@ public class InboundEndpointProjectCreationWizard extends AbstractWSO2ProjectCre
 			copyImportFile(location, isNewArtifact, groupId);
 
 		} else {
+			
+			String endpointFileName;
+			if(!(ieModel.getVersion()==null && ieModel.getVersion().equals(""))){
+				endpointFileName = ieModel.getName()+ "-v" + ieModel.getVersion() + XML_EXTENSION;
+			}else{
+				endpointFileName = ieModel.getName() + XML_EXTENSION;				
+			}
+			
 			File inboundEndpointFile = new File(location.getLocation().toFile(),
-					inboundEndpointModel.getName() + XML_EXTENSION);
+					endpointFileName);
 			writeTemplete(inboundEndpointFile);
 
 			ESBArtifact artifact = new ESBArtifact();
 			artifact.setName(inboundEndpointModel.getName());
-			artifact.setVersion(version);
+			artifact.setVersion(ieModel.getVersion());
 			artifact.setType(TYPE);
 			artifact.setServerRole(SERVER_ROLE);
 			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(
 					esbProject.getLocation().toFile(),
-					new File(location.getLocation().toFile(), inboundEndpointModel.getName()
-							+ XML_EXTENSION)).replaceAll(Pattern.quote(File.separator), "/"));
+					new File(location.getLocation().toFile(), endpointFileName)).replaceAll(Pattern.quote(File.separator), "/"));
 			esbProjectArtifact.addESBArtifact(artifact);
 		}
 		File pomfile = esbProject.getFile(POM_FILE).getLocation().toFile();
@@ -199,7 +205,6 @@ public class InboundEndpointProjectCreationWizard extends AbstractWSO2ProjectCre
 	public void updatePom() throws IOException, XmlPullParserException {
 		File mavenProjectPomLocation = esbProject.getFile(POM_FILE).getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		version = mavenProject.getVersion();
 
 		// Skip changing the pom file if group ID and artifact ID are matched
 		if (MavenUtils.checkOldPluginEntry(mavenProject, MAVEN_ID, INBOUND_EP_PLUGIN_ID)) {
@@ -232,6 +237,7 @@ public class InboundEndpointProjectCreationWizard extends AbstractWSO2ProjectCre
 			
 			InboundEndpoint inboundEndpoint= new InboundEndpoint();
 			inboundEndpoint.setName(ieModel.getName());
+			inboundEndpoint.setVersion(ieModel.getVersion());
 			
 			if(ieModel.getProtocol().equals(CUSTOM)){
 				inboundEndpoint.setClassImpl("org.wso2.sample.inbound.CustomClass");
@@ -281,7 +287,13 @@ public class InboundEndpointProjectCreationWizard extends AbstractWSO2ProjectCre
 		if(selectedLEList != null && selectedLEList.size() >0 ){
 			for (OMElement element : selectedLEList) {
 				String key = element.getAttributeValue(new QName(KEY));
-				destFile  = new File(importLocation.getLocation().toFile(), key + XML_EXTENSION);
+				String version = "";
+				String fileName = key + XML_EXTENSION;
+				if(element.getAttribute(new QName("version"))!=null){
+					version = element.getAttributeValue(new QName("version"));
+					fileName = key + "-v" + version + XML_EXTENSION;
+				}
+				destFile  = new File(importLocation.getLocation().toFile(), fileName);
 				FileUtils.createFile(destFile, element.toString());
 				fileList.add(destFile);
 				if(isNewArtifact){
@@ -292,7 +304,7 @@ public class InboundEndpointProjectCreationWizard extends AbstractWSO2ProjectCre
 				artifact.setServerRole(SERVER_ROLE);
 				artifact.setGroupId(groupId);
 					artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-							new File(importLocation.getLocation().toFile(), key + XML_EXTENSION)).replaceAll(
+							new File(importLocation.getLocation().toFile(), fileName)).replaceAll(
 							Pattern.quote(File.separator), "/"));
 				esbProjectArtifact.addESBArtifact(artifact);
 				}
@@ -303,6 +315,14 @@ public class InboundEndpointProjectCreationWizard extends AbstractWSO2ProjectCre
 			FileUtils.copy(importFile, destFile);
 			fileList.add(destFile);
 			String key = importFile.getName().replaceAll(".xml$", "");
+			String version = "";
+			String fileName = key + ".xml";
+			if(key.contains("-v")){
+				int versionIndex = key.lastIndexOf("-v");
+				version = key.substring(versionIndex+2,versionIndex+7);
+				key = key.substring(0, versionIndex);
+				fileName = key + "-v" + version + ".xml";
+			}
 			if(isNewArtifact){
 			ESBArtifact artifact=new ESBArtifact();
 			artifact.setName(key);
@@ -311,7 +331,7 @@ public class InboundEndpointProjectCreationWizard extends AbstractWSO2ProjectCre
 			artifact.setServerRole(SERVER_ROLE);
 			artifact.setGroupId(groupId);
 				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-						new File(importLocation.getLocation().toFile(), key + XML_EXTENSION)).replaceAll(
+						new File(importLocation.getLocation().toFile(), fileName)).replaceAll(
 						Pattern.quote(File.separator), "/"));
 			esbProjectArtifact.addESBArtifact(artifact);
 			}

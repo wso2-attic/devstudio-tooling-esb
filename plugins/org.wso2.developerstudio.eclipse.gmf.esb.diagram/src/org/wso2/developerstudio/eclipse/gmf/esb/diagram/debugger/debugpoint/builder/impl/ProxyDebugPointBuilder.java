@@ -127,7 +127,9 @@ public class ProxyDebugPointBuilder extends AbstractESBDebugPointBuilder {
             throw new IllegalArgumentException(MEDIATOR_IN_A_UNKNOWN_POSITION_LOG_MESSAGE + container.toString());
         }
 
-        ESBProxyBean proxyBean = new ESBProxyBean(proxy.getName(), sequenceType, new ESBMediatorPosition(position));
+        String proxyName = (!(proxy.getVersion()==null && proxy.getVersion().equals("")))?proxy.getName()+"/"+proxy.getVersion():proxy.getName();
+
+        ESBProxyBean proxyBean = new ESBProxyBean(proxyName, sequenceType, new ESBMediatorPosition(position));
         ESBProxyDebugPointMessage proxyDebugPoint = new ESBProxyDebugPointMessage(null, commandArgument,
                 new ESBProxySequenceBean(proxyBean));
 		return proxyDebugPoint;

@@ -52,6 +52,8 @@ public class ProxyServiceModel extends ProjectDataModel {
 	private List<OMElement> availablePSList;
 	private IContainer proxyServiceSaveLocation;
 	private String proxyServiceName="";
+	private String proxyServiceVersion="";
+	private boolean isDefault=false;
 	private String endPointUrl="";
 	private String endPointKey="";
 	private String secPolicy="";
@@ -170,6 +172,10 @@ public class ProxyServiceModel extends ProjectDataModel {
 			}
 		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_PS_NAME)){
 			setProxyServiceName(data.toString());
+		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_PS_VERSION)){
+			setProxyServiceVersion(data.toString());
+		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_PS_ISDEFAULT)){
+			setProxyServiceDefault((Boolean)data);
 		} else if (key.equals("proxy.target.ep.type")) {
 			setTargetEPType((TargetEPType)data);
 		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_COMMON_PS_EPURL)){
@@ -391,6 +397,22 @@ public class ProxyServiceModel extends ProjectDataModel {
 
 	public String getProxyServiceName() {
 		return proxyServiceName;
+	}
+	
+	public void setProxyServiceVersion(String psVersion) {
+		this.proxyServiceVersion = psVersion;
+	}
+
+	public String getProxyServiceVersion() {
+		return proxyServiceVersion;
+	}
+	
+	public void setProxyServiceDefault(boolean psDefault) {
+		this.isDefault = psDefault;
+	}
+
+	public boolean getProxyServiceDefault() {
+		return isDefault;
 	}
 	
 	public void setSelectedProxyList(List<OMElement> selectedProxyList) {

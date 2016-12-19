@@ -82,7 +82,6 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject project;
 
-	private String version = "1.0.0";
 
 	public void setProject(IProject project) {
 		this.project = project;
@@ -148,7 +147,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	public void updatePom() throws IOException, XmlPullParserException {
 		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		version = mavenProject.getVersion();
+		String version = mavenProject.getVersion();
 
 		// Skip changing the pom file if group ID and artifact ID are matched
 		if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-sequence-plugin")) {
@@ -214,7 +213,14 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			                                    ArtifactTemplateHandler.getArtifactTemplates("org.wso2.developerstudio.eclipse.esb.sequence");
 			String templateContent = FileUtils.getContentAsString(selectedTemplate.getTemplateDataStream());
 			String content = createSequenceTemplate(templateContent);
-			File destFile = new File(location.getLocation().toFile(), sequenceModel.getSequenceName() + ".xml");
+			File destFile;
+			String sequenceFileName = "";
+			if(!(sequenceModel.getSequenceVersion()==null && sequenceModel.getSequenceVersion().equals(""))){
+				sequenceFileName = sequenceModel.getSequenceName()+ "-v" + sequenceModel.getSequenceVersion() + ".xml";
+			}else{
+				sequenceFileName = sequenceModel.getSequenceName() + ".xml";				
+			}
+			destFile = new File(location.getLocation().toFile(), sequenceFileName);
 			FileUtils.createFile(destFile, content);
 			fileLst.add(destFile);
 			ESBArtifact artifact = new ESBArtifact();
@@ -225,7 +231,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(project.getLocation().toFile(),
 			                                           new File(location.getLocation().toFile(),
-			                                                    sequenceModel.getSequenceName() + ".xml"))
+			                                        		   sequenceFileName))
 			                          .replaceAll(Pattern.quote(File.separator), "/"));
 			esbProjectArtifact.addESBArtifact(artifact);
 		}
@@ -361,7 +367,13 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		if (selectedSeqList != null && selectedSeqList.size() > 0) {
 			for (OMElement element : selectedSeqList) {
 				String name = element.getAttributeValue(new QName("name"));
-				destFile = new File(importLocation.getLocation().toFile(), name + ".xml");
+				String version = "";
+				String sequenceFileName = name + ".xml";
+				if(element.getAttribute(new QName("version"))!=null){
+					version = element.getAttributeValue(new QName("version"));
+					sequenceFileName = name + "-v" + version + ".xml";
+				}
+				destFile = new File(importLocation.getLocation().toFile(), sequenceFileName);
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
 				if (isNewAritfact) {
@@ -372,8 +384,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 					artifact.setServerRole("EnterpriseServiceBus");
 					artifact.setGroupId(groupId);
 					artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-					                                           new File(importLocation.getLocation().toFile(), name +
-					                                                                                           ".xml"))
+					                                           new File(importLocation.getLocation().toFile(), sequenceFileName))
 					                          .replaceAll(Pattern.quote(File.separator), "/"));
 					esbProjectArtifact.addESBArtifact(artifact);
 				}
@@ -384,6 +395,14 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			String name = importFile.getName().replaceAll(".xml$", "");
+			String version = "";
+			String sequenceFileName = name + ".xml";
+			if(name.contains("-v")){
+				int versionIndex = name.lastIndexOf("-v");
+				version = name.substring(versionIndex+2,versionIndex+7);
+				name = name.substring(0, versionIndex);
+				sequenceFileName = name + "-v" + version + ".xml";
+			}
 			if (isNewAritfact) {
 				ESBArtifact artifact = new ESBArtifact();
 				artifact.setName(name);
@@ -392,8 +411,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				artifact.setServerRole("EnterpriseServiceBus");
 				artifact.setGroupId(groupId);
 				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-				                                           new File(importLocation.getLocation().toFile(), name +
-				                                                                                           ".xml"))
+				                                           new File(importLocation.getLocation().toFile(), sequenceFileName))
 				                          .replaceAll(Pattern.quote(File.separator), "/"));
 				esbProjectArtifact.addESBArtifact(artifact);
 			}
@@ -406,16 +424,16 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		// defaultNS = SynapseConstants.NS_1_4;
 		// }
 		String content = "";
-		templateContent = templateContent.replaceFirst("name=", "{1} name=");
+		templateContent = templateContent.replaceFirst(" name=", "{1}{2} name=");
 		if (!seqModel.getSelectedEP().equals("")) {
 			String contentWithoutClosingTag = templateContent.substring(0, templateContent.length() - 2);
 			contentWithoutClosingTag = contentWithoutClosingTag.concat(seqModel.getSelectedEP());
 
 			content =
 			          MessageFormat.format(contentWithoutClosingTag, seqModel.getSequenceName(),
-			                               seqModel.getOnErrorSequence());
+			                               seqModel.getOnErrorSequence(), seqModel.getSeqVersionAttributeString());
 		} else {
-			content = MessageFormat.format(templateContent, seqModel.getSequenceName(), seqModel.getOnErrorSequence());
+			content = MessageFormat.format(templateContent, seqModel.getSequenceName(), seqModel.getOnErrorSequence(),seqModel.getSeqVersionAttributeString());
 		}
 		return content;
 	}

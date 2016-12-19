@@ -26,6 +26,7 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOU
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__INBOUND_HL7_AUTO_ACK;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__INBOUND_HL7_VALIDATE_MESSAGE;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__NAME;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__VERSION;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__SEQUENTIAL;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__SERVICE_PARAMETERS;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__STATISTICS_ENABLED;
@@ -107,7 +108,8 @@ public class InboundEndpointDeserializer extends
 
         setElementToEdit(inboundEndpoint);
         refreshEditPartMap();
-        executeSetValueCommand(INBOUND_ENDPOINT__NAME, object.getName());
+        executeSetValueCommand(INBOUND_ENDPOINT__NAME, object.getArtifactName());
+        executeSetValueCommand(INBOUND_ENDPOINT__VERSION, object.getVersion());
         AspectConfiguration aspectConfiguration = object.getAspectConfiguration();
 		if (aspectConfiguration != null && object.getAspectConfiguration().isStatisticsEnable()) {
 			executeSetValueCommand(INBOUND_ENDPOINT__STATISTICS_ENABLED, new Boolean(true));

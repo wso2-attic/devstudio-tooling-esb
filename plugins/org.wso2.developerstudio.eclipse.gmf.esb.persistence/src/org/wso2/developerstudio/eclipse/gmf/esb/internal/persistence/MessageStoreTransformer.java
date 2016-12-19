@@ -26,6 +26,8 @@ import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.config.xml.MessageStoreSerializer;
+import org.apache.synapse.message.processor.impl.AbstractMessageProcessor;
+import org.apache.synapse.message.store.AbstractMessageStore;
 import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.ui.forms.editor.FormPage;
@@ -380,6 +382,7 @@ public class MessageStoreTransformer {
 				}
 
 				messageStore.setName(formPage.storeName.getText());
+				((AbstractMessageStore) messageStore).setVersion(formPage.storeVersion.getText());
 				messageStore.setParameters(parameterMap);
 
 				configXml = MessageStoreSerializer.serializeMessageStore(null, messageStore);

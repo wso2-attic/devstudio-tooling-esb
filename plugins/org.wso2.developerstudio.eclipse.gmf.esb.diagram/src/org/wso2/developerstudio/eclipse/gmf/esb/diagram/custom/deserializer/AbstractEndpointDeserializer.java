@@ -231,7 +231,10 @@ public abstract class AbstractEndpointDeserializer
 		EndpointDefinition definition = object.getDefinition();
 
 		if (StringUtils.isNotBlank(object.getName())) {
-			endpointPage.getEndpointName().setText(object.getName());
+			endpointPage.getEndpointName().setText(object.getArtifactName());
+		}
+		if (StringUtils.isNotBlank(object.getVersion())) {
+			endpointPage.getEndpointVersion().setText(object.getVersion());
 		}
 
 		StatisticsConfigurable statisticsConfigurable = definition.getAspectConfiguration();

@@ -46,6 +46,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ComplexEndpointsImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ComplexEndpointsImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ComplexEndpointsImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ComplexEndpointsImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +91,26 @@ public class ComplexEndpointsImpl extends EsbElementImpl implements ComplexEndpo
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,6 +212,27 @@ public class ComplexEndpointsImpl extends EsbElementImpl implements ComplexEndpo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.COMPLEX_ENDPOINTS__VERSION, oldVersion, version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -216,6 +258,8 @@ public class ComplexEndpointsImpl extends EsbElementImpl implements ComplexEndpo
 				return getMediatorFlow();
 			case EsbPackage.COMPLEX_ENDPOINTS__NAME:
 				return getName();
+			case EsbPackage.COMPLEX_ENDPOINTS__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -239,6 +283,9 @@ public class ComplexEndpointsImpl extends EsbElementImpl implements ComplexEndpo
 			case EsbPackage.COMPLEX_ENDPOINTS__NAME:
 				setName((String)newValue);
 				return;
+			case EsbPackage.COMPLEX_ENDPOINTS__VERSION:
+				setVersion((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -260,6 +307,9 @@ public class ComplexEndpointsImpl extends EsbElementImpl implements ComplexEndpo
 			case EsbPackage.COMPLEX_ENDPOINTS__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case EsbPackage.COMPLEX_ENDPOINTS__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -278,6 +328,8 @@ public class ComplexEndpointsImpl extends EsbElementImpl implements ComplexEndpo
 				return mediatorFlow != null;
 			case EsbPackage.COMPLEX_ENDPOINTS__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EsbPackage.COMPLEX_ENDPOINTS__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -294,6 +346,8 @@ public class ComplexEndpointsImpl extends EsbElementImpl implements ComplexEndpo
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", version: ");
+		result.append(version);
 		result.append(')');
 		return result.toString();
 	}

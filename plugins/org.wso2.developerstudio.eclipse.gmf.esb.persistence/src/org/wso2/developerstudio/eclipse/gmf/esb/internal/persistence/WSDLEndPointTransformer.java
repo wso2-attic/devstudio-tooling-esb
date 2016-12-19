@@ -102,7 +102,10 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		synapseWSDLEP.setPortName(visualEndPoint.getPort());		
 		if(StringUtils.isNotBlank(name)){
 			synapseWSDLEP.setName(name);
-		}		
+		}	
+		if(StringUtils.isNotBlank(visualEndPoint.getVersion())){
+			synapseWSDLEP.setVersion(visualEndPoint.getVersion());
+		}
 		try {
 			createAdvanceOptions(visualEndPoint,synapseWSDLEP);
 		} catch (JaxenException e) {
@@ -119,6 +122,9 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		if(StringUtils.isNotBlank(wsdlEndpointFormPage.getEndpointName().getText())){
 			synapseWSDLEP.setName(wsdlEndpointFormPage.getEndpointName().getText());
 		}		
+		if(StringUtils.isNotBlank(wsdlEndpointFormPage.getEndpointVersion().getText())){
+			synapseWSDLEP.setVersion(wsdlEndpointFormPage.getEndpointVersion().getText());
+		}
 		createAdvanceOptions(wsdlEndpointFormPage, synapseWSDLEP);	
 		
 		if(wsdlEndpointFormPage.endpointPropertyList != null && wsdlEndpointFormPage.endpointPropertyList.size()>0){

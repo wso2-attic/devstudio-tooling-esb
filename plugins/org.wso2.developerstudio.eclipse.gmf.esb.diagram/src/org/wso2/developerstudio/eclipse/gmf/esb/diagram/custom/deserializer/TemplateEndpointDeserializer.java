@@ -87,6 +87,9 @@ public class TemplateEndpointDeserializer extends AbstractEsbNodeDeserializer<Ab
 		if (templateEndpoint.getName() != null) {
 			templateEndpointPage.setName(templateEndpoint.getName());
 		}
+		if (templateEndpoint.getVersion() != null) {
+			templateEndpointPage.setVersion(templateEndpoint.getVersion());
+		}
 		
 		if (templateEndpoint.getTemplate() != null) {
 			String [] availableTemplates = templateEndpointPage.getTempEP_AvaiableTemp().getItems();

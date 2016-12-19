@@ -53,7 +53,14 @@ public class EntryExtFactory extends EntryFactory {
 
         } else {
 
-            Entry entry = new Entry(key.getAttributeValue());
+        	OMAttribute version = elem.getAttribute(new QName(XMLConfigConstants.NULL_NAMESPACE, "version"));
+        	
+        	Entry entry;
+        	if(version != null){
+        		entry = new Entry(key.getAttributeValue(), version.getAttributeValue());
+        	}else{
+        		entry = new Entry(key.getAttributeValue());
+        	}
 
             OMElement descriptionElem = elem.getFirstChildWithName(DESCRIPTION_Q);
             if (descriptionElem != null) {
@@ -69,7 +76,7 @@ public class EntryExtFactory extends EntryFactory {
                     entry.setSrc(new URL(src.trim()));
                     entry.setType(Entry.URL_SRC);
                 } catch (MalformedURLException e) {
-                    handleException("The entry with key : " + key + " refers to an invalid URL");
+                    handleException("The entry with key : " + entry.getKey() + " refers to an invalid URL");
                 }
 
             } else {

@@ -22,6 +22,8 @@
 				controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.messageprocessor.provider.MessageProcessorTypeList">Message processor type *</data>
 			<data modelProperty="processor.name" type="string"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController">Message processor Name *</data>
+			<data modelProperty="processor.version" type="string"
+				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController">Message processor Version </data>
 
             <!-- Forwarding_Processor & Sampling_Processor & Custom_Processor : begin -->
 			<data modelProperty="FSC_processor.store" type="list"

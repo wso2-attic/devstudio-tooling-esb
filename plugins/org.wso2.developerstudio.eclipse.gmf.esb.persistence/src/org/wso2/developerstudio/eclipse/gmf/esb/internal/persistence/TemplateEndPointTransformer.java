@@ -146,7 +146,9 @@ public class TemplateEndPointTransformer extends AbstractEndpointTransformer{
     		if (StringUtils.isNotEmpty(tempFormPage.getName())) {
     			synapseTemplateEP.setName(tempFormPage.getName());
     		}
-    		
+    		if(StringUtils.isNotBlank(tempFormPage.getVersion())){
+    			synapseTemplateEP.setVersion(tempFormPage.getVersion());
+    		}
     		createAdvanceOptions(tempFormPage, synapseTemplateEP);
     		
     		if(tempFormPage.templateParameterList != null && tempFormPage.templateParameterList.size()>0){

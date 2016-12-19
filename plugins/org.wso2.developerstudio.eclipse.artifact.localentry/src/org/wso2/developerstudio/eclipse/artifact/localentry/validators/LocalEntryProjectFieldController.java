@@ -54,7 +54,7 @@ public class LocalEntryProjectFieldController extends AbstractFieldController {
 							esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 							List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
 							for (ESBArtifact artifact : allArtifacts) {
-								if (resource.equals(artifact.getName())) {
+								if (resource.equals(artifact.getName())&&artifact.getVersion().equals(localentryModel.getLocalEntryVersion())) {
 									throw new FieldValidationException("");
 								}
 							}
@@ -66,6 +66,10 @@ public class LocalEntryProjectFieldController extends AbstractFieldController {
 				}		 	 
 			}
 
+		}else if (modelProperty.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_VERSION)){
+			if(!(value.toString().matches("[\\d]+[.][\\d]+[.][\\d]+")||value.toString().equals(""))){
+				throw new FieldValidationException("Incorrect version format");
+			}
 		} else if (modelProperty.equals(LocalEntryArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
 			CommonFieldValidator.validateImportFile(value);
 		

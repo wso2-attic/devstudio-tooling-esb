@@ -62,6 +62,7 @@ public class InboundEndpointItemProvider extends EsbElementItemProvider {
 		super.getPropertyDescriptors(object);
 
 		addNamePropertyDescriptor(object);
+		addVersionPropertyDescriptor(object);
 		addTypePropertyDescriptor(object);
 		addSuspendPropertyDescriptor(object);
 		addTraceEnabledPropertyDescriptor(object);
@@ -2213,6 +2214,28 @@ public class InboundEndpointItemProvider extends EsbElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InboundEndpoint_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InboundEndpoint_version_feature", "_UI_InboundEndpoint_type"),
+				 EsbPackage.Literals.INBOUND_ENDPOINT__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Class feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -4023,6 +4046,7 @@ public class InboundEndpointItemProvider extends EsbElementItemProvider {
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_FEED_TYPE:
 			case EsbPackage.INBOUND_ENDPOINT__TRACE_ENABLED:
 			case EsbPackage.INBOUND_ENDPOINT__STATISTICS_ENABLED:
+			case EsbPackage.INBOUND_ENDPOINT__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.INBOUND_ENDPOINT__SEQUENCE_INPUT_CONNECTOR:

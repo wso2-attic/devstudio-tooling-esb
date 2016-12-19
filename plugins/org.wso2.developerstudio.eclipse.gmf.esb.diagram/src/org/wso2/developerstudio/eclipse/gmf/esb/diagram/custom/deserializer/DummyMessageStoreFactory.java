@@ -31,6 +31,7 @@ import org.apache.synapse.SynapseConstants;
 import org.apache.synapse.SynapseException;
 import org.apache.synapse.config.xml.MessageStoreFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
+import org.apache.synapse.message.store.AbstractMessageStore;
 import org.apache.synapse.message.store.MessageStore;
 import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyMessageStore;
@@ -45,6 +46,7 @@ public class DummyMessageStoreFactory {
 
 	    public static final QName CLASS_Q = new QName(XMLConfigConstants.NULL_NAMESPACE, "class");
 	    public static final QName NAME_Q = new QName(XMLConfigConstants.NULL_NAMESPACE, "name");
+	    public static final QName VERSION_Q = new QName(XMLConfigConstants.NULL_NAMESPACE, "version");
 	    public static final QName SEQUENCE_Q = new QName(XMLConfigConstants.NULL_NAMESPACE, "sequence");
 
 	    public static final QName PARAMETER_Q = new QName(XMLConfigConstants.SYNAPSE_NAMESPACE,
@@ -72,6 +74,13 @@ public class DummyMessageStoreFactory {
 	        } else {
 	            handleException("Message Store name not specified");
 	        }
+	        
+	        
+	        OMAttribute versionAtt = elem.getAttribute(VERSION_Q);
+
+	        if (versionAtt != null) {
+	            ((AbstractMessageStore) messageStore).setVersion(versionAtt.getAttributeValue());
+	        } 
 
 
 	        OMElement descriptionElem = elem.getFirstChildWithName(DESCRIPTION_Q);

@@ -582,7 +582,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements IGotoMark
 		initialPageLoad = true;
 		switch (currArtifactType) {
 		case COMPLEX_ENDPOINT:
-			break;
+		//	break;
 		case LOCAL_ENTRY:
 		case MESSAGE_PROCESSOR:
 		case MESSAGE_STORE:

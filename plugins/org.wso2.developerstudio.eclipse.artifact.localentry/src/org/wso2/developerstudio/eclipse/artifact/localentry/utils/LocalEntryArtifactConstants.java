@@ -31,6 +31,7 @@ public final class LocalEntryArtifactConstants extends NLS{
 	public static String WIZARD_OPTION_IMPORT_FILE_PATH;
 	public static String WIZARD_OPTION_CREATE_ESB_PROJECT;
 	public static String WIZARD_OPTION_LE_NAME;
+	public static String WIZARD_OPTION_LE_VERSION;
 	public static String WIZARD_OPTION_AVAILABLE_LES;
 	public static String WIZARD_OPTION_IN_LINE_TEXT_LE_VALUE;;
 	public static String WIZARD_OPTION_IN_LINE_XML_LE_VALUE;

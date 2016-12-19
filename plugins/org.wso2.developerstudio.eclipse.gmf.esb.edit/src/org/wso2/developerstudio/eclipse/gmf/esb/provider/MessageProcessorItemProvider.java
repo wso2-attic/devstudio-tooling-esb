@@ -66,6 +66,7 @@ public class MessageProcessorItemProvider
 
 		addProcessorTypePropertyDescriptor(object);
 		addProcessorNamePropertyDescriptor(object);
+		addVersionPropertyDescriptor(object);
 		
 		switch (messageProcessor.getProcessorType()) {
 		case SCHEDULED_MSG_FORWARDING: {
@@ -679,6 +680,28 @@ public class MessageProcessorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageProcessor_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageProcessor_version_feature", "_UI_MessageProcessor_type"),
+				 EsbPackage.Literals.MESSAGE_PROCESSOR__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -764,6 +787,7 @@ public class MessageProcessorItemProvider
 			case EsbPackage.MESSAGE_PROCESSOR__CRON_EXPRESSION:
 			case EsbPackage.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES:
 			case EsbPackage.MESSAGE_PROCESSOR__TASK_COUNT:
+			case EsbPackage.MESSAGE_PROCESSOR__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME:

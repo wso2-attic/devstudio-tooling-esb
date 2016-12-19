@@ -115,6 +115,9 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		if (StringUtils.isNotBlank(name)) {
 			synapseAddEP.setName(name);
 		}
+		if(StringUtils.isNotBlank(visualEndPoint.getVersion())){
+			synapseAddEP.setVersion(visualEndPoint.getVersion());
+		}
 		try {
 			createAdvanceOptions(addressEndPoint, synapseAddEP);
 		} catch (JaxenException e) {
@@ -129,6 +132,9 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		AddressEndpoint synapseAddEP = new AddressEndpoint();
 		if (StringUtils.isNotBlank(formPage.getEndpointName().getText())) {
 			synapseAddEP.setName(formPage.getEndpointName().getText());
+		}
+		if(StringUtils.isNotBlank(formPage.getEndpointVersion().getText())){
+			synapseAddEP.setVersion(formPage.getEndpointVersion().getText());
 		}
 		createAdvanceOptions(formPage, synapseAddEP);
 		synapseAddEP.getDefinition().setAddress(formPage.getAddressEP_URI().getText());

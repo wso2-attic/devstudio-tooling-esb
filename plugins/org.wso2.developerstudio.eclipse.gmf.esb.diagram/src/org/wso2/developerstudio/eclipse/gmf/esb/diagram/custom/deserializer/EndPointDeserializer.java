@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 
+import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.eclipse.draw2d.geometry.Point;
@@ -64,7 +65,7 @@ public class EndPointDeserializer extends AbstractEsbNodeDeserializer<EndpointWr
 				Endpoint endpoint = endpointWrapper.getEndpoint();
 				if(endpoint!=null){
 					setElementToEdit(endpointDiagram);
-					executeSetValueCommand(ENDPOINT_DIAGRAM__NAME, endpoint.getName());
+					executeSetValueCommand(ENDPOINT_DIAGRAM__NAME, ((AbstractEndpoint) endpoint).getArtifactName());
 					IGraphicalEditPart innerCompartment = (IGraphicalEditPart) graphicalNode.getChildren().get(0);
 					@SuppressWarnings("rawtypes")
 					IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);

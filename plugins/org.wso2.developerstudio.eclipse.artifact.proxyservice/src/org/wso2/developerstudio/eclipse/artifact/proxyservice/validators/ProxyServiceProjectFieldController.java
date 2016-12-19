@@ -61,7 +61,7 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 							esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 							List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
 							for (ESBArtifact artifact : allArtifacts) {
-								if (resource.equals(artifact.getName())) {
+								if (resource.equals(artifact.getName())&&artifact.getVersion().equals(proxyModel.getProxyServiceVersion())) {
 									throw new FieldValidationException("");
 								}
 							}
@@ -72,7 +72,11 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 					}
 				}		 	 
 			}
-		 } else if (modelProperty.equals("import.file")) {
+		} else if (modelProperty.equals("ps.version")){
+			if(!(value.toString().matches("[\\d]+[.][\\d]+[.][\\d]+")||value.toString().equals(""))){
+				throw new FieldValidationException("Incorrect version format");
+			}
+		} else if (modelProperty.equals("import.file")) {
 			 CommonFieldValidator.validateImportFile(value);
 		}  else if (modelProperty.equals("proxy.target.ep.type")) {
 		/** //TODO: 

@@ -12,6 +12,7 @@
 				  description="Create a new Endpoint Artifact" 
 				  error="Please give a name for the endpoint">			  
 			<data modelProperty="ep.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController">Endpoint Name</data>
+			<data modelProperty="ep.version" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController">Endpoint Version</data>
 			<data modelProperty="ep.type" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController"  controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndPointTemplateList">Endpoint Type</data>
 						
 			<!-- Address EP -->

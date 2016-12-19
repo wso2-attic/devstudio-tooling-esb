@@ -96,6 +96,8 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlEndpoint <em>Wsdl Endpoint</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlResources <em>Wsdl Resources</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getOnError <em>On Error</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isIsDefault <em>Is Default</em>}</li>
  * </ul>
  *
  * @generated
@@ -710,6 +712,46 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @ordered
 	 */
 	protected RegistryKeyProperty onError;
+
+	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = "\"\"";
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsDefault() <em>Is Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_DEFAULT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsDefault() <em>Is Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isDefault = IS_DEFAULT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1945,6 +1987,48 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__VERSION, oldVersion, version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isIsDefault() {
+		return isDefault;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsDefault(boolean newIsDefault) {
+		boolean oldIsDefault = isDefault;
+		isDefault = newIsDefault;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__IS_DEFAULT, oldIsDefault, isDefault));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -2080,6 +2164,10 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return getWsdlResources();
 			case EsbPackage.PROXY_SERVICE__ON_ERROR:
 				return getOnError();
+			case EsbPackage.PROXY_SERVICE__VERSION:
+				return getVersion();
+			case EsbPackage.PROXY_SERVICE__IS_DEFAULT:
+				return isIsDefault();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2218,6 +2306,12 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__ON_ERROR:
 				setOnError((RegistryKeyProperty)newValue);
 				return;
+			case EsbPackage.PROXY_SERVICE__VERSION:
+				setVersion((String)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__IS_DEFAULT:
+				setIsDefault((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2351,6 +2445,12 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__ON_ERROR:
 				setOnError((RegistryKeyProperty)null);
 				return;
+			case EsbPackage.PROXY_SERVICE__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_SERVICE__IS_DEFAULT:
+				setIsDefault(IS_DEFAULT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -2444,6 +2544,10 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return wsdlResources != null && !wsdlResources.isEmpty();
 			case EsbPackage.PROXY_SERVICE__ON_ERROR:
 				return onError != null;
+			case EsbPackage.PROXY_SERVICE__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case EsbPackage.PROXY_SERVICE__IS_DEFAULT:
+				return isDefault != IS_DEFAULT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -2501,6 +2605,10 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		result.append(wsdlXML);
 		result.append(", wsdlURL: ");
 		result.append(wsdlURL);
+		result.append(", version: ");
+		result.append(version);
+		result.append(", isDefault: ");
+		result.append(isDefault);
 		result.append(')');
 		return result.toString();
 	}

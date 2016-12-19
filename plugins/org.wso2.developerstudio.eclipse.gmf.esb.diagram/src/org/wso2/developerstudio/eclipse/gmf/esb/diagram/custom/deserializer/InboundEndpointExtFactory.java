@@ -37,6 +37,7 @@ public class InboundEndpointExtFactory {
 	private static final QName ATT_TRACE = new QName("trace");
 	private static final QName ATT_STAT = new QName("statistics");
     private static final QName ATT_NAME = new QName(InboundEndpointConstants.INBOUND_ENDPOINT_NAME);
+    private static final QName ATT_VERSION = new QName(InboundEndpointConstants.INBOUND_ENDPOINT_VERSION);
     private static final QName ATT_PROTOCOL = new QName(InboundEndpointConstants.INBOUND_ENDPOINT_PROTOCOL);
     private static final QName ATT_ENDPOINT_CLASS = new QName(InboundEndpointConstants.INBOUND_ENDPOINT_CLASS);
     private static final QName ATT_ENDPOINT_SUSPEND = new QName(InboundEndpointConstants.INBOUND_ENDPOINT_SUSPEND);
@@ -61,6 +62,11 @@ public class InboundEndpointExtFactory {
             inboundEndpoint.setName(inboundEndpointElem.getAttributeValue(ATT_NAME));
         } else {
             throw new SynapseException("Inbound Endpoint name cannot be null");
+        }
+        if (inboundEndpointElem.getAttribute(ATT_VERSION) != null) {
+        	if (inboundEndpointElem.getAttributeValue(ATT_VERSION) != null) {
+                inboundEndpoint.setVersion(inboundEndpointElem.getAttributeValue(ATT_VERSION));
+            }
         }
         inboundEndpoint.configure(new AspectConfiguration(inboundEndpointElem.getAttributeValue(ATT_NAME)));
 		if (inboundEndpointElem.getAttributeValue(ATT_TRACE) != null

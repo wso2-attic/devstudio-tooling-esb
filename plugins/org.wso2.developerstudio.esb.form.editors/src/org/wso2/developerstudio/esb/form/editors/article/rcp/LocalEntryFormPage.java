@@ -42,6 +42,7 @@ public class LocalEntryFormPage extends AbstractEsbFormPage {
 	public static final String IN_LINED_XML_ENTRY = "In-lined XML Entry";
 	public static final String IN_LINED_TEXT_ENTRY = "In-lined Text Entry";
 	private Text localEntryNameTxt;
+	private Text localEntryVersionTxt;
 	private Combo localEntryTypeCombo;
 	private Text localEntryTextValue;
 	private Label localEntryValueLbl;
@@ -84,6 +85,18 @@ public class LocalEntryFormPage extends AbstractEsbFormPage {
 		localEntryNameTxt.setBackground(new Color(null, 229,236,253));
 		localEntryNameTxt.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		localEntryNameTxt.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				setSave(true);
+				updateDirtyState();
+			}
+		});
+		
+		toolkit.createLabel(basicSectionClient, "Local Entry Version");
+		localEntryVersionTxt = toolkit.createText(basicSectionClient, "");
+		localEntryVersionTxt.setBackground(new Color(null, 229,236,253));
+		localEntryVersionTxt.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		localEntryVersionTxt.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				setSave(true);
@@ -181,6 +194,14 @@ public class LocalEntryFormPage extends AbstractEsbFormPage {
 
 	public void setLocalEntryNameTxt(Text localEntryNameTxt) {
 		this.localEntryNameTxt = localEntryNameTxt;
+	}
+	
+	public Text getLocalEntryVersionTxt() {
+		return localEntryVersionTxt;
+	}
+
+	public void setLocalEntryVersionTxt(Text localEntryVersionTxt) {
+		this.localEntryVersionTxt = localEntryVersionTxt;
 	}
 	
 	public Combo getLocalEntryTypeCombo() {

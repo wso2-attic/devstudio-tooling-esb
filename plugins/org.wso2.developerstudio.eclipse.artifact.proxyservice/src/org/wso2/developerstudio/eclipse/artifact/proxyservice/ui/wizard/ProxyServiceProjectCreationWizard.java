@@ -67,7 +67,6 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject esbProject;
 
-	private String version = "1.0.0";
 
 	public ProxyServiceProjectCreationWizard() {
 		this.psModel = new ProxyServiceModel();
@@ -140,16 +139,21 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 					template = createProxyTemplate(templateContent, "");
 				}
 			
-				proxyServiceFile = location.getFile(new Path(proxyServiceModel.getProxyServiceName() + ".xml"));
+				String proxyFileName;
+				if(!(proxyServiceModel.getProxyServiceVersion()==null || proxyServiceModel.getProxyServiceVersion().equals(""))){
+					proxyFileName = proxyServiceModel.getProxyServiceName()+ "-v" + proxyServiceModel.getProxyServiceVersion() + ".xml";
+				}else{
+					proxyFileName = proxyServiceModel.getProxyServiceName() + ".xml";				
+				}
+				proxyServiceFile = location.getFile(new Path(proxyFileName));
 				File destFile = proxyServiceFile.getLocation().toFile();
 				FileUtils.createFile(destFile, template);
 				fileLst.add(destFile);
 				String relativePath = FileUtils.getRelativePath(
 						esbProject.getLocation().toFile(),
-						new File(location.getLocation().toFile(), proxyServiceModel
-								.getProxyServiceName() + ".xml")).replaceAll(Pattern.quote(File.separator), "/");
+						new File(location.getLocation().toFile(), proxyFileName)).replaceAll(Pattern.quote(File.separator), "/");
 				esbProjectArtifact.addESBArtifact(createArtifact(
-						proxyServiceModel.getProxyServiceName(), groupId, version, relativePath));
+						proxyServiceModel.getProxyServiceName(), groupId, proxyServiceModel.getProxyServiceVersion(), relativePath));
 			}
 			
 			esbProjectArtifact.toFile();
@@ -171,7 +175,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 	public void updatePom() throws IOException, XmlPullParserException {
 		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		version = mavenProject.getVersion();
+		String version = mavenProject.getVersion();
 
 		// Skip changing the pom file if group ID and artifact ID are matched
 		if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-proxy-plugin")) {
@@ -203,12 +207,18 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 		if(availablePSList.size()>0){
 			for(OMElement proxy:availablePSList){
 				String name = proxy.getAttributeValue(new QName("name"));
-				destFile  = new File(location.getLocation().toFile(),  name + ".xml");
+				String version = "";
+				String proxyFileName = name + ".xml";
+				if(proxy.getAttribute(new QName("version"))!=null){
+					version = proxy.getAttributeValue(new QName("version"));
+					proxyFileName  = name + "-v" + version + ".xml";
+				}
+				destFile  = new File(location.getLocation().toFile(), proxyFileName );
 				FileUtils.createFile(destFile,  proxy.toString());
 				fileLst.add(destFile);
 				if(isNewArtifact){
 					relativePath = FileUtils.getRelativePath(location.getProject().getLocation().toFile(),
-							new File(location.getLocation().toFile(), name + ".xml")).replaceAll(
+							new File(location.getLocation().toFile(), proxyFileName)).replaceAll(
 							Pattern.quote(File.separator), "/");
 					esbProjectArtifact.addESBArtifact(createArtifact(name,groupId,version,relativePath) );
 				}
@@ -217,13 +227,21 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 		else{
 			File importFile = getModel().getImportFile();
 			String name = importFile.getName().replaceAll(".xml$","");
-			proxyServiceFile = location.getFile(new Path(importFile.getName()));
+			String version = "";
+			String proxyFileName = name + ".xml";
+			if(name.contains("-v")){
+				int versionIndex = name.lastIndexOf("-v");
+				version = name.substring(versionIndex+2,versionIndex+7);
+				name = name.substring(0, versionIndex);
+				proxyFileName  = name + "-v" + version + ".xml";
+			}
+			proxyServiceFile = location.getFile(new Path(proxyFileName));
 			destFile = proxyServiceFile.getLocation().toFile();
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			if(isNewArtifact){
 				relativePath = FileUtils.getRelativePath(location.getProject().getLocation().toFile(),
-						new File(location.getLocation().toFile(), name + ".xml")).replaceAll(
+						new File(location.getLocation().toFile(), proxyFileName)).replaceAll(
 						Pattern.quote(File.separator), "/");
 				esbProjectArtifact.addESBArtifact(createArtifact(name,groupId,version,relativePath) );
 			}
@@ -238,6 +256,10 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 	public String createProxyTemplate(String templateContent, String type) throws IOException{
 		templateContent = templateContent.replaceAll("\\{", "<");
 		templateContent = templateContent.replaceAll("\\}", ">");
+		templateContent = templateContent.replaceFirst("name=\"<proxy.name>\"", "name=\"<proxy.name>\" isDefault=\"" + psModel.getProxyServiceDefault() + "\"");		
+		if(!(psModel.getProxyServiceVersion()==null && psModel.getProxyServiceVersion().equals(""))){
+			templateContent = templateContent.replaceFirst("name=\"<proxy.name>\"", "name=\"<proxy.name>\" version=\"" + psModel.getProxyServiceVersion() + "\"");
+		}
 
 		String newContent= StringUtils.replace(templateContent,"<proxy.name>", psModel.getProxyServiceName());
 		

@@ -37,6 +37,7 @@ import org.apache.maven.model.PluginExecution;
 import org.apache.maven.project.MavenProject;
 import org.apache.synapse.config.xml.MessageStoreSerializer;
 import org.apache.synapse.message.store.MessageStore;
+import org.apache.synapse.message.store.AbstractMessageStore;
 import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
@@ -150,15 +151,21 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 				} 	
 				copyImportFile(location,isNewArtifact,groupId);
             }else{
-			artifactFile = location.getFile(new Path(messageStoreModel.getStoreName() + ".xml"));
+            String fileName;
+			if(!(messageStoreModel.getStoreVersion()==null && messageStoreModel.getStoreVersion().equals(""))){
+				fileName = messageStoreModel.getStoreName()+ "-v" + messageStoreModel.getStoreVersion() + ".xml";
+			}else{
+				fileName = messageStoreModel.getStoreName() + ".xml";				
+			}
+			artifactFile = location.getFile(new Path(fileName));
 			File destFile = artifactFile.getLocation().toFile();
 			FileUtils.createFile(destFile, getTemplateContent());
 			fileLst.add(destFile);
 			String relativePath = FileUtils.getRelativePath(esbProject.getLocation().toFile(),
-					new File(location.getLocation().toFile(), messageStoreModel.getStoreName() + ".xml"))
+					new File(location.getLocation().toFile(), fileName))
 					.replaceAll(Pattern.quote(File.separator), "/");
 			esbProjectArtifact.addESBArtifact(createArtifact(messageStoreModel.getStoreName(), groupId,
-					version, relativePath));
+					messageStoreModel.getStoreVersion(), relativePath));
 			esbProjectArtifact.toFile();
             }
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
@@ -203,6 +210,7 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 		String className = null;
 		MessageStore store = new InMemoryStore();
 		store.setName(messageStoreModel.getStoreName());
+		((AbstractMessageStore)store).setVersion(messageStoreModel.getStoreVersion());
 		String lineSeparator = System.getProperty("line.separator","\n");
 		
 		if(messageStoreModel.getMessageStoreType()==MessageStoreType.CUSTOM){
@@ -389,7 +397,6 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 	public void updatePom() throws IOException, XmlPullParserException {
 		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		version = mavenProject.getVersion();
 
 		// Skip changing the pom file if group ID and artifact ID are matched
 		if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-messagestore-plugin",
@@ -439,12 +446,18 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 		if(selectedList != null && selectedList.size() >0 ){
 			for (OMElement element : selectedList) {
 				String name = element.getAttributeValue(new QName("name"));
-				destFile = new File(importLocation.getLocation().toFile(), name + ".xml");
+				String version = "";
+				String fileName = name + ".xml";
+				if(element.getAttribute(new QName("version"))!=null){
+					version = element.getAttributeValue(new QName("version"));
+					fileName = name + "-v" + version + ".xml";
+				}
+				destFile = new File(importLocation.getLocation().toFile(), fileName);
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
 				if(isNewAritfact){
 					String relativePath = FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-							new File(importLocation.getLocation().toFile(), name + ".xml")).replaceAll(
+							new File(importLocation.getLocation().toFile(), fileName)).replaceAll(
 							Pattern.quote(File.separator), "/");
 					esbProjectArtifact.addESBArtifact(createArtifact(name, groupId,
 							version, relativePath));
@@ -456,9 +469,17 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			String name = importFile.getName().replaceAll(".xml$","");
+			String version = "";
+			String fileName = name + ".xml";
+			if(name.contains("-v")){
+				int versionIndex = name.lastIndexOf("-v");
+				version = name.substring(versionIndex+2,versionIndex+7);
+				name = name.substring(0, versionIndex);
+				fileName = name + "-v" + version + ".xml";
+			}
 			if(isNewAritfact){
 				String relativePath = FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-						new File(importLocation.getLocation().toFile(), name + ".xml")).replaceAll(
+						new File(importLocation.getLocation().toFile(), fileName)).replaceAll(
 						Pattern.quote(File.separator), "/");
 				esbProjectArtifact.addESBArtifact(createArtifact(name, groupId,
 						version, relativePath));

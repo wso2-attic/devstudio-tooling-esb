@@ -4320,6 +4320,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEndPoint_Version() {
+		return (EAttribute)endPointEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCallMediator() {
 		return callMediatorEClass;
 	}
@@ -4853,6 +4862,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getProxyService_OnError() {
 		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(39);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_Version() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(40);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_IsDefault() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(41);
 	}
 
 	/**
@@ -9261,6 +9288,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getComplexEndpoints_Version() {
+		return (EAttribute)complexEndpointsEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getComplexEndpointsOutputConnector() {
 		return complexEndpointsOutputConnectorEClass;
 	}
@@ -9729,6 +9765,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMessageStore_Version() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMessageProcessorParameter() {
 		return messageProcessorParameterEClass;
 	}
@@ -9983,6 +10028,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getMessageProcessor_TaskCount() {
 		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageProcessor_Version() {
+		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -11225,6 +11279,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getInboundEndpoint_StatisticsEnabled() {
 		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(173);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInboundEndpoint_Version() {
+		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(174);
 	}
 
 	/**
@@ -17145,6 +17208,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLocalEntry_EntryVersion() {
+		return (EAttribute)localEntryEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSession() {
 		return sessionEClass;
 	}
@@ -17184,7 +17256,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	public EAttribute getSequences_Name() {
 		return (EAttribute)sequencesEClass.getEStructuralFeatures().get(3);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17237,6 +17309,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getSequences_StatisticsEnabled() {
 		return (EAttribute)sequencesEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSequences_Version() {
+		return (EAttribute)sequencesEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -18658,6 +18739,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(endPointEClass, END_POINT__DUPLICATE);
 		createEReference(endPointEClass, END_POINT__PROPERTIES);
 		createEAttribute(endPointEClass, END_POINT__REVERSED);
+		createEAttribute(endPointEClass, END_POINT__VERSION);
 
 		callMediatorEClass = createEClass(CALL_MEDIATOR);
 		createEReference(callMediatorEClass, CALL_MEDIATOR__INPUT_CONNECTOR);
@@ -18724,6 +18806,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(proxyServiceEClass, PROXY_SERVICE__WSDL_ENDPOINT);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__WSDL_RESOURCES);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__ON_ERROR);
+		createEAttribute(proxyServiceEClass, PROXY_SERVICE__VERSION);
+		createEAttribute(proxyServiceEClass, PROXY_SERVICE__IS_DEFAULT);
 
 		proxyOutputConnectorEClass = createEClass(PROXY_OUTPUT_CONNECTOR);
 
@@ -19937,6 +20021,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(localEntryEClass, LOCAL_ENTRY__VALUE_LITERAL);
 		createEAttribute(localEntryEClass, LOCAL_ENTRY__VALUE_XML);
 		createEAttribute(localEntryEClass, LOCAL_ENTRY__VALUE_URL);
+		createEAttribute(localEntryEClass, LOCAL_ENTRY__ENTRY_VERSION);
 
 		sessionEClass = createEClass(SESSION);
 		createEAttribute(sessionEClass, SESSION__TYPE);
@@ -19952,6 +20037,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(sequencesEClass, SEQUENCES__TEMPLATE_PARAMETERS);
 		createEAttribute(sequencesEClass, SEQUENCES__TRACE_ENABLED);
 		createEAttribute(sequencesEClass, SEQUENCES__STATISTICS_ENABLED);
+		createEAttribute(sequencesEClass, SEQUENCES__VERSION);
 
 		sequencesOutputConnectorEClass = createEClass(SEQUENCES_OUTPUT_CONNECTOR);
 
@@ -20114,6 +20200,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(complexEndpointsEClass, COMPLEX_ENDPOINTS__OUTPUT_CONNECTOR);
 		createEReference(complexEndpointsEClass, COMPLEX_ENDPOINTS__MEDIATOR_FLOW);
 		createEAttribute(complexEndpointsEClass, COMPLEX_ENDPOINTS__NAME);
+		createEAttribute(complexEndpointsEClass, COMPLEX_ENDPOINTS__VERSION);
 
 		complexEndpointsOutputConnectorEClass = createEClass(COMPLEX_ENDPOINTS_OUTPUT_CONNECTOR);
 
@@ -20176,6 +20263,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(messageStoreEClass, MESSAGE_STORE__PARAMETERS);
 		createEAttribute(messageStoreEClass, MESSAGE_STORE__ENABLE_PRODUCER_GUARANTEED_DELIVERY);
 		createEAttribute(messageStoreEClass, MESSAGE_STORE__FAILOVER_MESSAGE_STORE);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__VERSION);
 
 		messageProcessorParameterEClass = createEClass(MESSAGE_PROCESSOR_PARAMETER);
 		createEAttribute(messageProcessorParameterEClass, MESSAGE_PROCESSOR_PARAMETER__PARAMETER_NAME);
@@ -20207,6 +20295,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES);
 		createEReference(messageProcessorEClass, MESSAGE_PROCESSOR__PARAMETERS);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__TASK_COUNT);
+		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__VERSION);
 
 		apiHandlerEClass = createEClass(API_HANDLER);
 		createEAttribute(apiHandlerEClass, API_HANDLER__CLASS_NAME);
@@ -20443,6 +20532,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_FEED_TYPE);
 		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRACE_ENABLED);
 		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__STATISTICS_ENABLED);
+		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__VERSION);
 
 		inboundEndpointParameterEClass = createEClass(INBOUND_ENDPOINT_PARAMETER);
 		createEAttribute(inboundEndpointParameterEClass, INBOUND_ENDPOINT_PARAMETER__NAME);
@@ -21018,6 +21108,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEndPoint_Duplicate(), ecorePackage.getEBoolean(), "duplicate", null, 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEndPoint_Properties(), this.getEndPointProperty(), null, "properties", null, 0, -1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPoint_Reversed(), ecorePackage.getEBoolean(), "reversed", "false", 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEndPoint_Version(), ecorePackage.getEString(), "version", null, 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(callMediatorEClass, CallMediator.class, "CallMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCallMediator_InputConnector(), this.getCallMediatorInputConnector(), null, "inputConnector", null, 0, 1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -21084,6 +21175,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getProxyService_WsdlEndpoint(), this.getRegistryKeyProperty(), null, "wsdlEndpoint", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_WsdlResources(), this.getProxyWSDLResource(), null, "wsdlResources", null, 0, -1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_OnError(), this.getRegistryKeyProperty(), null, "OnError", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyService_Version(), ecorePackage.getEString(), "version", "\"\"", 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyService_IsDefault(), ecorePackage.getEBoolean(), "isDefault", "false", 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyOutputConnectorEClass, ProxyOutputConnector.class, "ProxyOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -22307,6 +22400,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getLocalEntry_ValueLiteral(), ecorePackage.getEString(), "valueLiteral", "entry_value", 0, 1, LocalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocalEntry_ValueXML(), ecorePackage.getEString(), "valueXML", "<value/>", 0, 1, LocalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocalEntry_ValueURL(), ecorePackage.getEString(), "valueURL", "file:/path/to/resource.ext", 0, 1, LocalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocalEntry_EntryVersion(), ecorePackage.getEString(), "entryVersion", null, 0, 1, LocalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sessionEClass, Session.class, "Session", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSession_Type(), this.getType(), "type", null, 0, 1, Session.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -22322,6 +22416,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getSequences_TemplateParameters(), this.getTemplateParameter(), null, "templateParameters", null, 0, -1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequences_TraceEnabled(), ecorePackage.getEBoolean(), "traceEnabled", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequences_StatisticsEnabled(), ecorePackage.getEBoolean(), "statisticsEnabled", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequences_Version(), ecorePackage.getEString(), "version", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequencesOutputConnectorEClass, SequencesOutputConnector.class, "SequencesOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -22484,6 +22579,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getComplexEndpoints_OutputConnector(), this.getComplexEndpointsOutputConnector(), null, "outputConnector", null, 0, -1, ComplexEndpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComplexEndpoints_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ComplexEndpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComplexEndpoints_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComplexEndpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComplexEndpoints_Version(), ecorePackage.getEString(), "version", null, 0, 1, ComplexEndpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(complexEndpointsOutputConnectorEClass, ComplexEndpointsOutputConnector.class, "ComplexEndpointsOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -22546,6 +22642,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getMessageStore_Parameters(), this.getMessageStoreParameter(), null, "parameters", null, 0, -1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageStore_EnableProducerGuaranteedDelivery(), ecorePackage.getEBoolean(), "enableProducerGuaranteedDelivery", "false", 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageStore_FailoverMessageStore(), ecorePackage.getEString(), "failoverMessageStore", "", 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_Version(), ecorePackage.getEString(), "version", "", 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(messageProcessorParameterEClass, MessageProcessorParameter.class, "MessageProcessorParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMessageProcessorParameter_ParameterName(), ecorePackage.getEString(), "parameterName", null, 0, 1, MessageProcessorParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -22577,6 +22674,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getMessageProcessor_NonRetryHttpStatusCodes(), ecorePackage.getEString(), "nonRetryHttpStatusCodes", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMessageProcessor_Parameters(), this.getMessageProcessorParameter(), null, "parameters", null, 0, -1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_TaskCount(), ecorePackage.getEString(), "taskCount", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageProcessor_Version(), ecorePackage.getEString(), "version", "", 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(apiHandlerEClass, APIHandler.class, "APIHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAPIHandler_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, APIHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -22813,6 +22911,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getInboundEndpoint_TransportFeedType(), this.getFeedType(), "transportFeedType", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpoint_TraceEnabled(), ecorePackage.getEBoolean(), "traceEnabled", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpoint_StatisticsEnabled(), ecorePackage.getEBoolean(), "statisticsEnabled", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpoint_Version(), ecorePackage.getEString(), "version", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inboundEndpointParameterEClass, InboundEndpointParameter.class, "InboundEndpointParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInboundEndpointParameter_Name(), ecorePackage.getEString(), "name", "parameter_name", 0, 1, InboundEndpointParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

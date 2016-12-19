@@ -43,6 +43,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getTemplateParameters <em>Template Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#isTraceEnabled <em>Trace Enabled</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#isStatisticsEnabled <em>Statistics Enabled</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,7 +96,7 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
+	
 	/**
 	 * The default value of the '{@link #isRecieveSequence() <em>Recieve Sequence</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -180,6 +181,25 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * @ordered
 	 */
 	protected boolean statisticsEnabled = STATISTICS_ENABLED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,7 +288,7 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCES__NAME, oldName, name));
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -408,6 +428,27 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCES__VERSION, oldVersion, version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SequencesOutputConnector getOutputConnector() {
 		return outputConnector;
 	}
@@ -539,6 +580,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return isTraceEnabled();
 			case EsbPackage.SEQUENCES__STATISTICS_ENABLED:
 				return isStatisticsEnabled();
+			case EsbPackage.SEQUENCES__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -584,6 +627,9 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 			case EsbPackage.SEQUENCES__STATISTICS_ENABLED:
 				setStatisticsEnabled((Boolean)newValue);
 				return;
+			case EsbPackage.SEQUENCES__VERSION:
+				setVersion((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -626,6 +672,9 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 			case EsbPackage.SEQUENCES__STATISTICS_ENABLED:
 				setStatisticsEnabled(STATISTICS_ENABLED_EDEFAULT);
 				return;
+			case EsbPackage.SEQUENCES__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -658,6 +707,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return traceEnabled != TRACE_ENABLED_EDEFAULT;
 			case EsbPackage.SEQUENCES__STATISTICS_ENABLED:
 				return statisticsEnabled != STATISTICS_ENABLED_EDEFAULT;
+			case EsbPackage.SEQUENCES__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -682,6 +733,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 		result.append(traceEnabled);
 		result.append(", statisticsEnabled: ");
 		result.append(statisticsEnabled);
+		result.append(", version: ");
+		result.append(version);
 		result.append(')');
 		return result.toString();
 	}

@@ -60,12 +60,16 @@ public class SequenceProjectFieldController extends AbstractFieldController {
 						}
 						List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
 						for (ESBArtifact artifact : allArtifacts) {
-							if (resource.equals(artifact.getName())) {
+							if (resource.equals(artifact.getName())&&artifact.getVersion().equals(sqModel.getSequenceVersion())) {
 								throw new FieldValidationException(ARTIFACT_NAME_ALREADY_EXISTS_ERROR);
 							}
 						}
 					}
 				}
+			}
+		} else if (modelProperty.equals("sequence.version")){
+			if(!(value.toString().matches("[\\d]+[.][\\d]+[.][\\d]+")||value.toString().equals(""))){
+				throw new FieldValidationException("Incorrect version format");
 			}
 		} else if (modelProperty.equals("import.file")) {
 			 CommonFieldValidator.validateImportFile(value);

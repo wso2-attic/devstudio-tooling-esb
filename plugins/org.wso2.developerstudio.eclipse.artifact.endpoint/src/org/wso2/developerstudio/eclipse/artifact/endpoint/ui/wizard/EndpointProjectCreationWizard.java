@@ -85,7 +85,6 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private ESBProjectArtifact esbProjectArtifact;
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject project;
-	private String version;
 
 	public EndpointProjectCreationWizard() {
 		this.epModel = new EndpointModel();
@@ -106,7 +105,6 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		try {
 			epModel = (EndpointModel) getModel();
 			project = epModel.getEndpointSaveLocation().getProject();
-			version = MavenUtils.getMavenProject(project.getFile("pom.xml").getLocation().toFile()).getVersion();
 
 			if (epModel.getSelectedOption_DynamicEP()) {
 				createDynamicEndpointArtifact(epModel.getEndpointSaveLocation(), epModel);
@@ -162,7 +160,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		String groupId = getMavenGroupId(pomfile);
 		groupId += ".endpoint";
-		// Adding the metadat+a about the endpoint to the metadata store.
+		// Adding the metadata about the endpoint to the metadata store.
 		esbProjectArtifact = new ESBProjectArtifact();
 		esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 
@@ -196,20 +194,26 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 
 			}
 
-			endpointFile = location.getFile(new Path(epModel.getEpName() + ".xml"));
+			String endpointFileName;
+			if(!(epModel.getEpVersion()==null && epModel.getEpVersion().equals(""))){
+				endpointFileName = epModel.getEpName()+ "-v" + epModel.getEpVersion() + ".xml";
+			}else{
+				endpointFileName = epModel.getEpName() + ".xml";				
+			}
+			
+			endpointFile = location.getFile(new Path(endpointFileName));
 			File destFile = endpointFile.getLocation().toFile();
 			FileUtils.createFile(destFile, template);
 			fileLst.add(destFile);
 
 			ESBArtifact artifact = new ESBArtifact();
 			artifact.setName(epModel.getEpName());
-			artifact.setVersion(version);
+			artifact.setVersion(epModel.getEpVersion());
 			artifact.setType("synapse/endpoint");
 			artifact.setServerRole("EnterpriseServiceBus");
 			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(project.getLocation().toFile(),
-			                                           new File(location.getLocation().toFile(), epModel.getEpName() +
-			                                                                                     ".xml"))
+			                                           new File(location.getLocation().toFile(), endpointFileName))
 			                          .replaceAll(Pattern.quote(File.separator), "/"));
 			esbProjectArtifact.addESBArtifact(artifact);
 
@@ -276,7 +280,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 
 		RegistryArtifact artifact = new RegistryArtifact();
 		artifact.setName(epModel.getEpName());
-		artifact.setVersion(version);
+		artifact.setVersion(epModel.getEpVersion());
 		artifact.setType("registry/resource");
 		artifact.setServerRole("EnterpriseServiceBus");
 		artifact.setGroupId(groupId);
@@ -391,16 +395,22 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		if (selectedEPList != null && selectedEPList.size() > 0) {
 			for (OMElement element : selectedEPList) {
 				String name = element.getAttributeValue(new QName("name"));
-				destFile = new File(importLocation.getLocation().toFile(), name + ".xml");
+				String version = "";
+				String fileName = name + ".xml";
+				if(element.getAttribute(new QName("version"))!=null){
+					version = element.getAttributeValue(new QName("version"));
+					fileName = name + "-v" + version + ".xml";
+				}
+				destFile = new File(importLocation.getLocation().toFile(), fileName);
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
 				if (isNewArtifact) {
 					String fileLocation =
 					                      FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
 					                                                new File(importLocation.getLocation().toFile(),
-					                                                         name + ".xml"))
+					                                                         fileName))
 					                               .replaceAll(Pattern.quote(File.separator), "/");
-					esbProjectArtifact.addESBArtifact(createArtifactxml(fileLocation, name, groupId));
+					esbProjectArtifact.addESBArtifact(createArtifactxml(fileLocation, name, version, groupId));
 				}
 			}
 
@@ -409,18 +419,25 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			String name = importFile.getName().replaceAll(".xml$", "");
+			String version = "";
+			String fileName = name + ".xml";
+			if(name.contains("-v")){
+				int versionIndex = name.lastIndexOf("-v");
+				version = name.substring(versionIndex+2,versionIndex+7);
+				name = name.substring(0, versionIndex);
+				fileName = name + "-v" + version + ".xml";
+			}
 			if (isNewArtifact) {
 				String fileLocation =
 				                      FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-				                                                new File(importLocation.getLocation().toFile(), name +
-				                                                                                                ".xml"))
+				                                                new File(importLocation.getLocation().toFile(), fileName))
 				                               .replaceAll(Pattern.quote(File.separator), "/");
-				esbProjectArtifact.addESBArtifact(createArtifactxml(fileLocation, name, groupId));
+				esbProjectArtifact.addESBArtifact(createArtifactxml(fileLocation, name, version, groupId));
 			}
 		}
 	}
 
-	private ESBArtifact createArtifactxml(String location, String artifactName, String groupId) {
+	private ESBArtifact createArtifactxml(String location, String artifactName, String version, String groupId) {
 		ESBArtifact artifact = new ESBArtifact();
 		artifact.setName(artifactName);
 		artifact.setVersion(version);
@@ -438,6 +455,9 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	public String createEPTemplate(String templateContent, String type) throws IOException {
 		templateContent = templateContent.replaceAll("\\{", "<");
 		templateContent = templateContent.replaceAll("\\}", ">");
+		if(!(epModel.getEpVersion()==null && epModel.getEpVersion().equals(""))){
+			templateContent = templateContent.replaceFirst("name=\"<ep.name>\"", "name=\"<ep.name>\" version=\"" + epModel.getEpVersion() + "\"");
+		}
 		String newContent = StringUtils.replace(templateContent, "<ep.name>", epModel.getEpName());
 		if (type.equals(EpArtifactConstants.ADDRESS_EP)) {
 			newContent = StringUtils.replace(newContent, "<address.uri>", epModel.getAddressEPURI());

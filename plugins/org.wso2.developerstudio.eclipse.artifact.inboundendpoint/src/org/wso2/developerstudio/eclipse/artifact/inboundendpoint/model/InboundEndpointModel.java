@@ -46,6 +46,7 @@ public class InboundEndpointModel extends ProjectDataModel {
 	private String fileName;
 	private String injectingSequence;
 	private String name;
+	private String version;
 	private String onErrorSequence;
 	private String protocol;
 	private String suspend;
@@ -100,6 +101,8 @@ public class InboundEndpointModel extends ProjectDataModel {
 				modelPropertyValue = getClassImpl();
 			} else if (key.equals(InboundEndpointArtifactProperties.wizardOptionIEName)) {
 				modelPropertyValue = getName();
+			} else if (key.equals(InboundEndpointArtifactProperties.wizardOptionIEVersion)) {
+				modelPropertyValue = getVersion();
 			} else if (key.equals(InboundEndpointArtifactProperties.wizardOptionErrorSequence)) {
 				modelPropertyValue = getOnErrorSequence();
 			} else if (key.equals(InboundEndpointArtifactProperties.wizardOptionProtocol)) {
@@ -186,6 +189,8 @@ public class InboundEndpointModel extends ProjectDataModel {
 			}
 		} else if (key.equals(InboundEndpointArtifactProperties.wizardOptionIEName)) {
 			setName(data.toString());
+		} else if (key.equals(InboundEndpointArtifactProperties.wizardOptionIEVersion)) {
+			setVersion(data.toString());
 		} else if (key.equals(InboundEndpointArtifactProperties.wizardOptionAvailableIEs)) {
 			Object[] selectedLEs = (Object[]) data;
 			selectedLEList.clear();
@@ -386,6 +391,15 @@ public class InboundEndpointModel extends ProjectDataModel {
 		this.name = name;
 	}
 
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+
+	
 	public String getOnErrorSequence() {
 		return onErrorSequence;
 	}

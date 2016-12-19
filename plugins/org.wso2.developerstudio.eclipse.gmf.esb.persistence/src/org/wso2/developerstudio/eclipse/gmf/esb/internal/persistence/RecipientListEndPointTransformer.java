@@ -157,7 +157,9 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 		if (StringUtils.isNotBlank(name)) {
 			recipientList.setName(name);
 		}
-
+		if(StringUtils.isNotBlank(model.getVersion())){
+			recipientList.setVersion(model.getVersion());
+		}
 		if (model.getEndpointType().getLiteral().equals(RecipientListEndpointType.VALUE.getLiteral())) {
 			Value dynamicEnpointSet = new Value(model.getEndpointsValue());
 			recipientList.setDynamicEnpointSet(dynamicEnpointSet);

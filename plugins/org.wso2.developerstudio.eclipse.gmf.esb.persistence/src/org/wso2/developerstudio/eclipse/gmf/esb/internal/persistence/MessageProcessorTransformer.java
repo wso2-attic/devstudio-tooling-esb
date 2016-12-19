@@ -28,6 +28,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.config.xml.MessageProcessorSerializer;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.message.processor.impl.AbstractMessageProcessor;
 import org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -452,8 +453,8 @@ public class MessageProcessorTransformer extends AbstractEsbNodeTransformer {
 				}
 				
 				messageProcessor.setParameters(parameterMap);
-				
 				messageProcessor.setName(messageProcessorFormPage.processorName.getText());
+				((AbstractMessageProcessor) messageProcessor).setVersion(messageProcessorFormPage.processorVersion.getText());
 				messageProcessor.setMessageStoreName(messageProcessorFormPage.storeName.getText());
 				
 				configXml = MessageProcessorSerializer.serializeMessageProcessor(null, messageProcessor);

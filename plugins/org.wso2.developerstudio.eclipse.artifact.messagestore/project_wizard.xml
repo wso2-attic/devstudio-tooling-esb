@@ -27,6 +27,8 @@
 			
 			<data modelProperty="store.name" type="string"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController">Message Store Name*</data>
+			<data modelProperty="store.version" type="string"
+				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController">Message Store Version*</data>
 			<data modelProperty="store.type" 
 				type="list" 
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController"  

@@ -36,6 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isDuplicate <em>Duplicate</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isReversed <em>Reversed</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -150,6 +151,26 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * @ordered
 	 */
 	protected boolean reversed = REVERSED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,6 +314,27 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.END_POINT__VERSION, oldVersion, version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -323,6 +365,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return getProperties();
 			case EsbPackage.END_POINT__REVERSED:
 				return isReversed();
+			case EsbPackage.END_POINT__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,6 +400,9 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 			case EsbPackage.END_POINT__REVERSED:
 				setReversed((Boolean)newValue);
 				return;
+			case EsbPackage.END_POINT__VERSION:
+				setVersion((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -387,6 +434,9 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 			case EsbPackage.END_POINT__REVERSED:
 				setReversed(REVERSED_EDEFAULT);
 				return;
+			case EsbPackage.END_POINT__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -412,6 +462,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return properties != null && !properties.isEmpty();
 			case EsbPackage.END_POINT__REVERSED:
 				return reversed != REVERSED_EDEFAULT;
+			case EsbPackage.END_POINT__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -437,6 +489,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 		result.append(duplicate);
 		result.append(", reversed: ");
 		result.append(reversed);
+		result.append(", version: ");
+		result.append(version);
 		result.append(')');
 		return result.toString();
 	}

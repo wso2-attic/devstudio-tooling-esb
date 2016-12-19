@@ -131,6 +131,9 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer {
 		if (StringUtils.isNotBlank(name)) {
 			synapseFailEP.setName(name);
 		}
+		if(StringUtils.isNotBlank(visualEndPoint.getVersion())){
+			synapseFailEP.setVersion(visualEndPoint.getVersion());
+		}
 
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
