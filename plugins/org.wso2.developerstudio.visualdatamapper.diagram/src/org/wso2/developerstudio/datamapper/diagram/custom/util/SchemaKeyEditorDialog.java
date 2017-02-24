@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,6 +17,11 @@
 package org.wso2.developerstudio.datamapper.diagram.custom.util;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -46,6 +51,7 @@ import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -101,6 +107,9 @@ public class SchemaKeyEditorDialog extends Dialog {
 	private Combo cmbConnectorOperation;
 	private Link link;
 	private Group grpPropertyKey;
+	private Button generateSchema;
+	private String dynamicSchemaObject;
+	private File file;
 	private SchemaGeneratorHelper schemaGeneratorHelper;
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private static final String FILE_NAME_VALUE = "tempSchemaContnt";
@@ -137,7 +146,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 	private static final String ERROR_OPENING_FILE =
 	                                               Messages.SchemaKeyEditorDialog_ErrorOpeningFile;
 	private static final String WARN_CONNECTOR_OPERATIONS =
-            Messages.SchemaKeyEditorDialog_WarnConnectorOperation;
+	                                                      Messages.SchemaKeyEditorDialog_WarnConnectorOperation;
 	private static final String REASON_OPENING_FILE =
 	                                                Messages.SchemaKeyEditorDialog_ReasonOpeningFile;
 	private static final String ERROR_REGISTRY_BROWSER =
@@ -155,8 +164,18 @@ public class SchemaKeyEditorDialog extends Dialog {
 	private static final String SELECT_CONNECTOR = Messages.SchemaKeyEditorDialog_SelectConnector;
 	private static final String SELECT_CONNECTOR_OPERATION =
 	                                                       Messages.SchemaKeyEditorDialog_SelectConnectorOperation;
-	private static final String REASON_FILE_TYPE_MISMATCH = Messages.SchemaKeyEditorDialog_ReasonRegistryBrowser_IncompatibleFileTypes;
-	private static final String ERROR_WORKSPACE_IMPORT = Messages.SchemaKeyEditorDialog_ErrorWorkspaceImport;
+	private static final String REASON_FILE_TYPE_MISMATCH =
+	                                                      Messages.SchemaKeyEditorDialog_ReasonRegistryBrowser_IncompatibleFileTypes;
+	private static final String ERROR_WORKSPACE_IMPORT =
+	                                                   Messages.SchemaKeyEditorDialog_ErrorWorkspaceImport;
+	private static final String SELECT_GENERATE_SCHEMA =
+	                                                   Messages.SchemaKeyEditorDialog_GenerateSchema;
+	private static final String SELECT_GENERATE_DYNAMIC_SCHEMA =
+	                                                           Messages.SchemaKeyEditorDialog_GenerateDynamicSchema;
+
+	private static String rootWorkspaceLocation = ResourcesPlugin.getWorkspace().getRoot()
+	                                                             .getLocation().toOSString() +
+	                                              File.separator + "temp.xml";
 
 	public SchemaKeyEditorDialog(Shell parent, EditPart selectedEP, IWorkbenchPart workbenchPart,
 	                             String schemaType) {
@@ -204,7 +223,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 		fl_grpPropertyKey.marginHeight = 10;
 		fl_grpPropertyKey.marginWidth = 10;
 		grpPropertyKey.setLayout(fl_grpPropertyKey);
-		
+
 		GridData gridDataCombo = new GridData();
 		gridDataCombo.grabExcessHorizontalSpace = true;
 		gridDataCombo.horizontalAlignment = GridData.FILL;
@@ -215,21 +234,23 @@ public class SchemaKeyEditorDialog extends Dialog {
 		lblConnector = new Label(grpPropertyKey, SWT.NORMAL);
 		lblConnectorOperation = new Label(grpPropertyKey, SWT.NORMAL);
 		cmbConnector = new Combo(grpPropertyKey, SWT.DROP_DOWN | SWT.READ_ONLY | SWT.BORDER);
-		cmbConnectorOperation = new Combo(grpPropertyKey, SWT.DROP_DOWN | SWT.READ_ONLY | SWT.BORDER);
+		cmbConnectorOperation =
+		                      new Combo(grpPropertyKey, SWT.DROP_DOWN | SWT.READ_ONLY | SWT.BORDER);
 		link = new Link(grpPropertyKey, SWT.NONE);
 		schemaKeyTextField = new Text(grpPropertyKey, SWT.BORDER);
+		generateSchema = new Button(grpPropertyKey, SWT.PUSH);
 
 		schemaTypeCombo.setLayoutData(gridDataCombo);
 		cmbConnector.setLayoutData(gridDataCombo);
 		cmbConnectorOperation.setLayoutData(gridDataCombo);
-		
+
 		FormData lableLayoutData = new FormData();
 
 		lblSchemaTypeLabel.setText(SELECT_SCHEMA_SOURCE);
 		lblSchemaTypeLabel.setLayoutData(lableLayoutData);
 
 		FormData comboLayoutData = new FormData();
-		comboLayoutData.left = new FormAttachment(lblSchemaTypeLabel, 10);
+		comboLayoutData.left = new FormAttachment(lblSchemaTypeLabel, 10, SWT.RIGHT);
 		schemaTypeCombo.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent arg0) {
 				if (FileType.CONNECTOR.toString().equals(schemaTypeCombo.getText())) {
@@ -237,6 +258,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 					lblConnectorOperation.setVisible(true);
 					cmbConnector.setVisible(true);
 					cmbConnectorOperation.setVisible(true);
+					generateSchema.setVisible(false);
 					link.setVisible(false);
 					schemaKeyTextField.setVisible(false);
 					grpPropertyKey.redraw();
@@ -245,6 +267,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 					lblConnectorOperation.setVisible(false);
 					cmbConnector.setVisible(false);
 					cmbConnectorOperation.setVisible(false);
+					generateSchema.setVisible(false);
 					link.setVisible(true);
 					schemaKeyTextField.setVisible(true);
 					grpPropertyKey.redraw();
@@ -261,14 +284,14 @@ public class SchemaKeyEditorDialog extends Dialog {
 		schemaTypeCombo.setLayoutData(comboLayoutData);
 
 		FormData connectorLabelLayoutData = new FormData();
-		connectorLabelLayoutData.top = new FormAttachment(lblSchemaTypeLabel, 20);
+		connectorLabelLayoutData.top = new FormAttachment(lblSchemaTypeLabel, 20, SWT.BOTTOM);
 
 		lblConnector.setText(SELECT_CONNECTOR);
 		lblConnector.setLayoutData(connectorLabelLayoutData);
 
 		FormData connectorComboLayoutData = new FormData();
-		connectorComboLayoutData.left = new FormAttachment(lblConnector, 10);
-		connectorComboLayoutData.top = new FormAttachment(schemaTypeCombo, 10);
+		connectorComboLayoutData.left = new FormAttachment(lblConnector, 10, SWT.RIGHT);
+		connectorComboLayoutData.top = new FormAttachment(schemaTypeCombo, 10, SWT.BOTTOM);
 
 		cmbConnector.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent arg0) {
@@ -285,16 +308,25 @@ public class SchemaKeyEditorDialog extends Dialog {
 		cmbConnector.setLayoutData(connectorComboLayoutData);
 
 		FormData connectorOperationLabelLayoutData = new FormData();
-		connectorOperationLabelLayoutData.top = new FormAttachment(lblConnector, 20);
+		connectorOperationLabelLayoutData.top = new FormAttachment(lblConnector, 20, SWT.BOTTOM);
 		lblConnectorOperation.setText(SELECT_CONNECTOR_OPERATION);
 		lblConnectorOperation.setLayoutData(connectorOperationLabelLayoutData);
 
 		FormData connectorOperationComboLayoutData = new FormData();
-		connectorOperationComboLayoutData.left = new FormAttachment(lblConnectorOperation, 10);
-		connectorOperationComboLayoutData.top = new FormAttachment(cmbConnector, 10);
+		connectorOperationComboLayoutData.left = new FormAttachment(lblConnectorOperation, 10,
+		                                                            SWT.RIGHT);
+		connectorOperationComboLayoutData.top = new FormAttachment(cmbConnector, 10, SWT.BOTTOM);
 
 		cmbConnectorOperation.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent arg0) {
+				if (getConnectorOperationIsDynamic(cmbConnectorOperation.getText()).equals("true") &&
+		            (!getConnectorOperationLoadClasses(cmbConnectorOperation.getText()).equals(""))) {
+					generateSchema.setVisible(true);
+					grpPropertyKey.redraw();
+				} else {
+					generateSchema.setVisible(false);
+					grpPropertyKey.redraw();
+				}
 			}
 		});
 
@@ -338,8 +370,94 @@ public class SchemaKeyEditorDialog extends Dialog {
 			schemaKeyTextField.setLayoutData(schemaKeyTextFieldLayoutData);
 		}
 
+		FormData createSchemaButtonLayoutData = new FormData();
+		createSchemaButtonLayoutData.top = new FormAttachment(cmbConnectorOperation, 0, SWT.TOP);
+		createSchemaButtonLayoutData.left =
+		                                  new FormAttachment(cmbConnectorOperation, 10, SWT.RIGHT);
+		generateSchema.setLayoutData(createSchemaButtonLayoutData);
+		generateSchema.setText(SELECT_GENERATE_SCHEMA);
+
+		generateSchema.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent event) {
+				openGenerateSchemaDialog();
+			}
+		});
+
 		loadConfiguration();
 		return container;
+	}
+
+	/**
+	 * Create new GenerateSchemaDialog dialog
+	 *
+	 * @throws Exception
+	 * @throws IOException
+	 */
+	protected void openGenerateSchemaDialog() {
+		hide();
+		FileOutputStream fileOutput = null;
+		try {
+			Class<?> loadClass =
+			                   Class.forName(getConnectorOperationLoadClasses(cmbConnectorOperation.getText()));
+			Constructor<?> cons = loadClass.getConstructor(Shell.class);
+			Object object = cons.newInstance(getParentShell());
+			Method method = object.getClass().getMethod("getResponse", new Class<?>[0]);
+			((Dialog) object).create();
+			((Window) object).getShell().setText(SELECT_GENERATE_DYNAMIC_SCHEMA);
+			((Window) object).open();
+
+			if (((Window) object).getReturnCode() == Window.OK) {
+				dynamicSchemaObject = (String) method.invoke(object);
+				file = new File(rootWorkspaceLocation);
+				fileOutput = new FileOutputStream(file);
+
+				if (!file.exists()) {
+					file.createNewFile();
+					file.getAbsolutePath();
+				}
+				byte[] contentInBytes = dynamicSchemaObject.getBytes();
+				fileOutput.write(contentInBytes);
+				fileOutput.flush();
+			}
+		} catch (IOException e) {
+			log.error("Error occurred while reading selected response file", e);
+		} catch (ClassNotFoundException e) {
+			MessageDialog.openError(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+			                        "ClassNotFoundException",
+			                        "Miss the feature installation of Dynamic Schema Creation for the Operation. \n" +
+			                                                  "Install the feature and add the plugin via MANIFEST.MF -> dependency tab -> Add -> plugin for dynamic schema generation for connector");
+		} catch (NoSuchMethodException e) {
+			MessageDialog.openError(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+			                        "NoSuchMethodException",
+			                        "Miss the operation to getting the response to create the dynamic operation");
+		} catch (SecurityException e) {
+			MessageDialog.openError(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+			                        "SecurityException", "Error thrown by the Security Manager.");
+		} catch (IllegalAccessException e) {
+			MessageDialog.openError(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+			                        "IllegalAccessException", "Error while creating an Instance.");
+		} catch (IllegalArgumentException e) {
+			MessageDialog.openError(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+			                        "IllegalArgumentException",
+			                        "Error in the calling of invoke() method in the generic part of Dynamic Schema Creation.");
+		} catch (InvocationTargetException e) {
+			MessageDialog.openError(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+			                        "InvocationTargetException",
+			                        "Error in the invoked method to generate the dynamic Schema.");
+		} catch (InstantiationException e) {
+			MessageDialog.openError(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+			                        "InstantiationException",
+			                        "Error in the constructor in Dynamic Schema Creation Class for the Operation.");
+		} finally {
+			try {
+				if (fileOutput != null) {
+					fileOutput.close();
+				}
+			} catch (IOException e) {
+				log.error("Error occurred while closing OutputStream: ", e);
+			}
+			show();
+		}
 	}
 
 	private String[] getConnectorOperations(String connectorName) {
@@ -388,6 +506,36 @@ public class SchemaKeyEditorDialog extends Dialog {
 		return new String[] {};
 	}
 
+	private String getConnectorOperationLoadClasses(String connectorOperation) {
+		String className = null;
+		try {
+			if (Messages.LoadInputSchemaAction_SchemaTypeInput.equals(schemaType)) {
+				className =
+				          CloudConnectorDirectoryTraverser.getInstance()
+				                                          .getCloudConnectorOperationInputLoadClass(connectorOperation);
+			} else if (Messages.LoadOutputSchemaAction_SchemaTypeOutput.equals(schemaType)) {
+				className =
+				          CloudConnectorDirectoryTraverser.getInstance()
+				                                          .getCloudConnectorOperationOutputLoadClass(connectorOperation);
+			}
+		} catch (Exception e) {
+			log.warn("Error loading connector operations Load Class", e);
+		}
+		return className;
+	}
+
+	private String getConnectorOperationIsDynamic(String connectorOperation) {
+		String isDynamic = null;
+		try {
+			isDynamic =
+			          CloudConnectorDirectoryTraverser.getInstance()
+			                                          .getCloudConnectorOperationIsDynamic(connectorOperation);
+		} catch (Exception e) {
+			log.warn("Error loading connector operations type", e);
+		}
+		return isDynamic;
+	}
+
 	/**
 	 * Retrieve from model and set to text field
 	 */
@@ -424,7 +572,8 @@ public class SchemaKeyEditorDialog extends Dialog {
 				                                               .getCloudConnectorOperationInputSchemaFilePath(connectorOperation);
 			}
 
-			String schema = schemaGeneratorHelper.getSchemaContent(FileType.JSONSCHEMA, schemaFilePath);
+			String schema = schemaGeneratorHelper.getSchemaContent(FileType.JSONSCHEMA,
+			                                                       schemaFilePath);
 			DataMapperSchemaEditorUtil schemaEditorUtil = new DataMapperSchemaEditorUtil(inputFile);
 			if (schema != null) {
 				String schemaSaveFilePath = schemaEditorUtil.createDiagram(schema, schemaType);
@@ -432,19 +581,32 @@ public class SchemaKeyEditorDialog extends Dialog {
 					setSelectedPathForConnector(schemaSaveFilePath);
 					saveInputOutputSchema(schemaSaveFilePath);
 				}
-            } else {
-                MessageDialog.openWarning(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
-                                          "Error Loading Schema from Connector Operation",
-                                          "Schema definition cannot be found for connector operation");
-            }
-
+			} else if (getConnectorOperationIsDynamic(cmbConnectorOperation.getText()).equals("true") &&
+			           (!getConnectorOperationLoadClasses(cmbConnectorOperation.getText()).equals(""))) {
+				DataMapperSchemaEditorUtil schemaEditorUtil1 =
+				                                             new DataMapperSchemaEditorUtil(inputFile);
+				String schema1 = schemaGeneratorHelper.getSchemaContent(FileType.XML,
+				                                                        rootWorkspaceLocation);
+				file.delete();
+				if (schema1 != null) {
+					String schemaSaveFilePath1 =
+					                           schemaEditorUtil1.createDiagram(schema1, schemaType);
+					if (!schemaSaveFilePath1.isEmpty()) {
+						setSelectedPathForConnector(schemaSaveFilePath1);
+						saveInputOutputSchema(schemaSaveFilePath1);
+					}
+				}
+			} else {
+				MessageDialog.openWarning(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+				                          "Error Loading Schema from Connector Operation",
+				                          "Schema definition cannot be found for connector operation");
+			}
 		} catch (Exception e) {
 			log.error(ERROR_OPENING_FILE, e);
 			displayUserError(REASON_OPENING_FILE, ERROR_OPENING_FILE);
 		} finally {
 			show();
 		}
-
 	}
 
 	/**
@@ -523,23 +685,26 @@ public class SchemaKeyEditorDialog extends Dialog {
 				String resourceFile = retrieveWorkSpaceFileLoc(getFileName[getFileName.length - 1]);
 
 				boolean isCompatible = checkFileExtensionAgainstTheSchemaType(fileType);
-				if(isCompatible){
-				String schema = schemaGeneratorHelper.getSchemaContent(fileType, resourceFile);
-				String schemaFilePath = null;
-				try {
-					schemaFilePath = schemaEditorUtil.createDiagram(schema, schemaType);
-				} catch (Exception e) {
-					// log the error
-				}
+				if (isCompatible) {
+					String schema = schemaGeneratorHelper.getSchemaContent(fileType, resourceFile);
+					String schemaFilePath = null;
+					try {
+						schemaFilePath = schemaEditorUtil.createDiagram(schema, schemaType);
+					} catch (Exception e) {
+						// log the error
+					}
 
-				if (!schemaFilePath.isEmpty()) {
-					setSelectedPath(schemaFilePath);
-					saveInputOutputSchema(schemaFilePath);
-				}
+					if (!schemaFilePath.isEmpty()) {
+						setSelectedPath(schemaFilePath);
+						saveInputOutputSchema(schemaFilePath);
+					}
 
-				}else{
-					String selectedType = FileType.values()[schemaTypeCombo.getSelectionIndex()].toString().toLowerCase();
-					displayUserError(REASON_FILE_TYPE_MISMATCH + " " + selectedType,ERROR_WORKSPACE_IMPORT);
+				} else {
+					String selectedType =
+					                    FileType.values()[schemaTypeCombo.getSelectionIndex()].toString()
+					                                                                          .toLowerCase();
+					displayUserError(REASON_FILE_TYPE_MISMATCH + " " + selectedType,
+					                 ERROR_WORKSPACE_IMPORT);
 				}
 			} else {
 				return;
@@ -550,11 +715,11 @@ public class SchemaKeyEditorDialog extends Dialog {
 	}
 
 	/**
-	 * retrieve the local path of th eregistry resource user selected from the
+	 * retrieve the local path of the registry resource user selected from the
 	 * workspace, iterate through all the registry resource projects check if
 	 * the resource exist in some project, if so return the local file path to
 	 * that resource
-	 * 
+	 *
 	 * @param fileName
 	 * @return
 	 */
@@ -586,11 +751,11 @@ public class SchemaKeyEditorDialog extends Dialog {
 			return FileType.XML;
 		} else if (selectedPath.endsWith(".jschema")) {
 			return FileType.JSONSCHEMA;
-		} else if (selectedPath.endsWith(".csv")){
+		} else if (selectedPath.endsWith(".csv")) {
 			return FileType.CSV;
-	    } else if(selectedPath.endsWith(".json")){
-	    	return FileType.JSON;
-	    } else {
+		} else if (selectedPath.endsWith(".json")) {
+			return FileType.JSON;
+		} else {
 			return null;
 		}
 	}
@@ -628,7 +793,8 @@ public class SchemaKeyEditorDialog extends Dialog {
 			String mediaType = "xml"; // TODO need to replace this with the
 			                          // above commented out line when the new
 			                          // kernel version is available
-			//FileType fileType = extractFileTypeFromRegistryResource(mediaType);
+			// FileType fileType =
+			// extractFileTypeFromRegistryResource(mediaType);
 			FileType fileType = extractFileTypeFromFileExtension(selectedPathData.getPath());
 
 			String fileName = FILE_NAME_VALUE + "." + fileType.toString().toLowerCase();
@@ -646,21 +812,24 @@ public class SchemaKeyEditorDialog extends Dialog {
 			                                                                        outputFile);
 
 			boolean isCompatible = checkFileExtensionAgainstTheSchemaType(fileType);
-			if(isCompatible){
-			String schema =
-			              schemaGeneratorHelper.getSchemaContent(FileType.values()[schemaTypeCombo.getSelectionIndex()],
-			                                                     outputFile.getAbsolutePath());
-			outputDirectory.deleteOnExit();
-			String schemaFilePath = schemaEditorUtil.createDiagram(schema, schemaType);
+			if (isCompatible) {
+				String schema =
+				              schemaGeneratorHelper.getSchemaContent(FileType.values()[schemaTypeCombo.getSelectionIndex()],
+				                                                     outputFile.getAbsolutePath());
+				outputDirectory.deleteOnExit();
+				String schemaFilePath = schemaEditorUtil.createDiagram(schema, schemaType);
 
-			if (!schemaFilePath.isEmpty()) {
-				setSelectedPath(schemaFilePath);
-				saveInputOutputSchema(schemaFilePath);
+				if (!schemaFilePath.isEmpty()) {
+					setSelectedPath(schemaFilePath);
+					saveInputOutputSchema(schemaFilePath);
+				}
+			} else {
+				String selectedType =
+				                    FileType.values()[schemaTypeCombo.getSelectionIndex()].toString()
+				                                                                          .toLowerCase();
+				displayUserError(REASON_FILE_TYPE_MISMATCH + " " + selectedType,
+				                 ERROR_REGISTRY_BROWSER);
 			}
-		}else{
-			String selectedType = FileType.values()[schemaTypeCombo.getSelectionIndex()].toString().toLowerCase();
-			displayUserError(REASON_FILE_TYPE_MISMATCH + " " + selectedType,ERROR_REGISTRY_BROWSER);
-		}
 
 		} catch (Exception e) {
 			log.error(ERROR_REGISTRY_BROWSER, e);
@@ -673,10 +842,10 @@ public class SchemaKeyEditorDialog extends Dialog {
 
 	private boolean checkFileExtensionAgainstTheSchemaType(FileType fileType) {
 		String selectedType = FileType.values()[schemaTypeCombo.getSelectionIndex()].toString();
-	    if(selectedType.equals(fileType.toString())){
-	    	return true;
-	    }
-		return false;	
+		if (selectedType.equals(fileType.toString())) {
+			return true;
+		}
+		return false;
 	}
 
 	private void displayUserError(String reason, String message) {
@@ -684,12 +853,11 @@ public class SchemaKeyEditorDialog extends Dialog {
 		ErrorDialog.openError(Display.getCurrent().getActiveShell(), ERROR_MSG_HEADER, message,
 		                      editorStatus);
 	}
-	
+
 	private int displayUserMssg(String header, String message) {
-		MessageDialog dialog = new MessageDialog(Display.getDefault().getActiveShell(),
-				header, null,
-				message,
-				MessageDialog.INFORMATION, new String[] { "OK" , "Cancel"}, 0);
+		MessageDialog dialog = new MessageDialog(Display.getDefault().getActiveShell(), header,
+		                                         null, message, MessageDialog.INFORMATION,
+		                                         new String[] { "OK", "Cancel" }, 0);
 		return dialog.open();
 	}
 
@@ -710,7 +878,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 			okPressed();
 		}
 	}
-	
+
 	private void setSelectedPathForConnector(String selectedPath) {
 		if (selectedPath.startsWith(G_REG_PATH_PREFIX)) {
 			selectedPath = String.format(G_REG_PREFIX,
@@ -720,6 +888,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 			                             selectedPath.substring(C_REG_PATH_PREFIX.length()));
 		}
 	}
+
 	/**
 	 * Open file browser
 	 */
@@ -737,7 +906,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 			if (filePath == null) {
 				return;
 			}
-		
+
 			String schema =
 			              schemaGeneratorHelper.getSchemaContent(FileType.values()[schemaTypeCombo.getSelectionIndex()],
 			                                                     filePath);
@@ -767,7 +936,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 				iep.resetInputTreeFromFile(schemaFilePath);
 			} else {
 				if (displayUserMssg("Input Schema will be overwritten",
-						"The current Input Schema will be overwritten with the new schema loading, you want to proceed ? ") == 0) {
+				                    "The current Input Schema will be overwritten with the new schema loading, you want to proceed ? ") == 0) {
 					InputEditPart iep = (InputEditPart) selectedEP;
 					iep.resetInputTreeFromFile(schemaFilePath);
 				}
@@ -778,7 +947,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 				iep.resetOutputTreeFromFile(schemaFilePath);
 			} else {
 				if (displayUserMssg("Output Schema will be overwritten",
-						"The current Output Schema will be overwritten with the new schema loading, you want to proceed ? ") == 0) {
+				                    "The current Output Schema will be overwritten with the new schema loading, you want to proceed ? ") == 0) {
 					OutputEditPart iep = (OutputEditPart) selectedEP;
 					iep.resetOutputTreeFromFile(schemaFilePath);
 				}
@@ -812,7 +981,7 @@ public class SchemaKeyEditorDialog extends Dialog {
 			return FileType.JSON;
 		} else if (mediaType.contains("csv")) {
 			return FileType.CSV;
-		}else {
+		} else {
 			return FileType.XML;
 		}
 	}
