@@ -55,6 +55,7 @@ public abstract class EndpointFormPage extends AbstractEsbFormPage {
 	protected ScrolledForm form;
     protected FormToolkit toolkit;
 	protected Text endpointName;
+	protected Text endpointVersion;
 	protected Text templateName;
 
 	protected Combo endpointTrace;
@@ -94,6 +95,14 @@ public abstract class EndpointFormPage extends AbstractEsbFormPage {
 
 	public void setEndpointName(Text endpointName) {
 		this.endpointName = endpointName;
+	}
+	
+	public Text getEndpointVersion() {
+		return endpointVersion;
+	}
+
+	public void setEndpointVersion(Text version) {
+		this.endpointVersion = version;
 	}
 		
 	public Combo getEP_Format() {
@@ -290,6 +299,24 @@ public abstract class EndpointFormPage extends AbstractEsbFormPage {
 		endpointName.setLayoutData(endpointNameGridData);
 		
 		endpointName.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				setSave(true);
+				updateDirtyState();
+			}
+		});
+		
+		toolkit.createLabel(basicSectionClient, "Version :");
+		endpointVersion = toolkit.createText(basicSectionClient, "");
+		endpointVersion.setBackground(new Color(null, 229,236,253));
+		//endpointName.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		GridData endpointVersionGridData = new GridData();
+		endpointVersionGridData.horizontalSpan = 3;
+		endpointVersionGridData.horizontalAlignment = GridData.FILL;
+		endpointVersionGridData.grabExcessHorizontalSpace = true;
+		endpointVersion.setLayoutData(endpointVersionGridData);
+		
+		endpointVersion.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				setSave(true);

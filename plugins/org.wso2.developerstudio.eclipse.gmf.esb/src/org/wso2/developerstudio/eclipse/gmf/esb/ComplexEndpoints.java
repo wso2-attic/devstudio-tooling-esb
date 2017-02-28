@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints#getMediatorFlow <em>Mediator Flow</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getComplexEndpoints()
@@ -103,5 +104,31 @@ public interface ComplexEndpoints extends EsbElement {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Version</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Version</em>' attribute.
+	 * @see #setVersion(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getComplexEndpoints_Version()
+	 * @model
+	 * @generated
+	 */
+	String getVersion();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints#getVersion <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * @see #getVersion()
+	 * @generated
+	 */
+	void setVersion(String value);
 
 } // ComplexEndpoints

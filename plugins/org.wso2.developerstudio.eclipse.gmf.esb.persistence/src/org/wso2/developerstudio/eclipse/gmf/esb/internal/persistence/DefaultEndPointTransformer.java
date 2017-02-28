@@ -113,6 +113,9 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 		if (StringUtils.isNotBlank(name)) {
 			synapseEP.setName(name);
 		}
+		if(StringUtils.isNotBlank(visualEndPoint.getVersion())){
+			synapseEP.setVersion(visualEndPoint.getVersion());
+		}
 		try {
 			createAdvanceOptions(visualEndPoint, synapseEP);
 		} catch (JaxenException e) {
@@ -125,6 +128,9 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 		DefaultEndpoint synapseEP = new DefaultEndpoint();
 		if (StringUtils.isNotBlank(defaultEndpointFormPage.getEndpointName().getText())) {
 			synapseEP.setName(defaultEndpointFormPage.getEndpointName().getText());
+		}
+		if(StringUtils.isNotBlank(defaultEndpointFormPage.getEndpointVersion().getText())){
+			synapseEP.setVersion(defaultEndpointFormPage.getEndpointVersion().getText());
 		}
 		createAdvanceOptions(defaultEndpointFormPage, synapseEP);
 		if(defaultEndpointFormPage.endpointPropertyList != null && defaultEndpointFormPage.endpointPropertyList.size()>0){

@@ -51,6 +51,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.synapse.message.processor.impl.AbstractMessageProcessor;
+import org.apache.synapse.message.store.AbstractMessageStore;
 import org.apache.synapse.message.store.MessageStore;
 import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -373,20 +375,23 @@ public class MessageStoreDeserializer
 		org.wso2.developerstudio.eclipse.gmf.esb.MessageStore messageStore = EsbFactoryImpl.eINSTANCE
 				.createMessageStore();
 
-		messageStore.setStoreName(store.getName());
+		messageStore.setStoreName(((AbstractMessageStore) store).getArtifactName());
+		messageStore.setVersion(((AbstractMessageStore) store).getVersion());
 		messageStore.setDescription(store.getDescription());
 
 		messageStorePage.setEsbNode(messageStore);
 
 		if (store instanceof InMemoryStore) {
 			messageStorePage.storeType.select(0);
-			messageStorePage.storeName.setText(store.getName());
+			messageStorePage.storeName.setText(((AbstractMessageStore) store).getArtifactName());
+			messageStorePage.storeVersion.setText(((AbstractMessageStore) store).getVersion());
 			messageStorePage.guaranteedDeliveryEnable.select(1);
 		} else {
 
 			DummyMessageStore dummyMessageStore = (DummyMessageStore) store;
 
-			messageStorePage.storeName.setText(dummyMessageStore.getName());
+			messageStorePage.storeName.setText(dummyMessageStore.getArtifactName());
+			messageStorePage.storeVersion.setText(dummyMessageStore.getVersion());
 
 			if (dummyMessageStore.getParameters().get(STORE_PRODUCER_GUARANTEED_DELIVERY_ENABLE) != null
 					&& dummyMessageStore.getParameters().get(STORE_PRODUCER_GUARANTEED_DELIVERY_ENABLE).toString()

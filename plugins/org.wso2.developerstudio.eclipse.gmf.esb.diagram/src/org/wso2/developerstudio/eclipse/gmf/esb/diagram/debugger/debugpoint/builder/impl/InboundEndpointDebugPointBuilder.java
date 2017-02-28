@@ -83,8 +83,11 @@ public class InboundEndpointDebugPointBuilder extends AbstractESBDebugPointBuild
             throw new IllegalArgumentException("Selected Metdiator Edit Part is in a unknown position : "
                     + container.toString());
         }
+        
+        String inboundEndpointName = (!(inboundEndpoint.getVersion()==null && inboundEndpoint.getVersion().equals("")))?
+        		inboundEndpoint.getName()+"/"+inboundEndpoint.getVersion():inboundEndpoint.getName();
 
-        ESBInboundEndpointBean inboundBean = new ESBInboundEndpointBean(inboundEndpoint.getName(), sequenceType,
+        ESBInboundEndpointBean inboundBean = new ESBInboundEndpointBean(inboundEndpointName, sequenceType,
                 new ESBMediatorPosition(position));
         ESBInboundEndpointDebugPointMessage inboundDebugPoint = new ESBInboundEndpointDebugPointMessage(null,
                 commandArgument, new ESBInboundEndpointSequenceBean(inboundBean));

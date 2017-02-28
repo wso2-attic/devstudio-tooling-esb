@@ -62,6 +62,7 @@ public class EndPointItemProvider
 		EndPoint endPoint = (EndPoint) object;		
 		super.getPropertyDescriptors(object);
 		//addEndPointNamePropertyDescriptor(object);
+		//addVersionPropertyDescriptor(object);
 		//addAnonymousPropertyDescriptor(object);
 
 		addPropertiesPropertyDescriptor(object);
@@ -214,6 +215,28 @@ public class EndPointItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EndPoint_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EndPoint_version_feature", "_UI_EndPoint_type"),
+				 EsbPackage.Literals.END_POINT__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Basic",
+				 null));
+	}
+
+	/**
 	 * This returns EndPoint.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,6 +281,7 @@ public class EndPointItemProvider
 			case EsbPackage.END_POINT__IN_LINE:
 			case EsbPackage.END_POINT__DUPLICATE:
 			case EsbPackage.END_POINT__REVERSED:
+			case EsbPackage.END_POINT__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

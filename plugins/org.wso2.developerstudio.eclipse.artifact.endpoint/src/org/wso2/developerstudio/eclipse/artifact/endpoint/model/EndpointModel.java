@@ -70,6 +70,7 @@ public class EndpointModel extends ProjectDataModel {
 	private IContainer endpointSaveLocation;
 	private IProject project;
 	private String epName;
+	private String epVersion;
 	private String addressEPURI;
 	private String wsdlEPURI;
 	private String wsdlEPService;
@@ -170,6 +171,8 @@ public class EndpointModel extends ProjectDataModel {
 			// endpointSaveLocation as it is
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_EP_NAME)) {
 			setEpName(data.toString());
+		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_EP_VERSION)) {
+			setEpVersion(data.toString());
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_ADDRESS_EP_URL)) {
 			setAddressEPURI(data.toString());
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_WSDL_EP_URL)) {
@@ -315,9 +318,17 @@ public class EndpointModel extends ProjectDataModel {
 	public void setEpName(String epName) {
 		this.epName = epName;
 	}
+	
+	public void setEpVersion(String epVersion) {
+		this.epVersion = epVersion;
+	}
 
 	public String getEpName() {
 		return epName;
+	}
+	
+	public String getEpVersion() {
+		return epVersion;
 	}
 
 	public String getAddressEPURI() {

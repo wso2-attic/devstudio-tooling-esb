@@ -861,6 +861,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/wsdlResources"/>
       <genFeatures children="true" createChild="true" propertyCategory="Basic" propertyDescription="On Error Sequence"
           ecoreFeature="ecore:EReference esb.ecore#//ProxyService/OnError"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/isDefault"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyInputConnector"/>
@@ -1973,6 +1975,7 @@
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequences/templateParameters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequences/traceEnabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequences/statisticsEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequences/version"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SequencesOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SequencesInputConnector"/>

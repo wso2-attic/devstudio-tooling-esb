@@ -49,6 +49,7 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.message.processor.MessageProcessor;
+import org.apache.synapse.message.processor.impl.AbstractMessageProcessor;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.editor.FormEditor;
@@ -588,7 +589,8 @@ public class MessageProcessorDeserializer
 		MessageProcessorFormPage messageProcessorPage = (MessageProcessorFormPage) messageProcessorFormEditor.getFormPageForArtifact(ArtifactType.MESSAGE_PROCESSOR);
 		org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor messageProcessor = EsbFactoryImpl.eINSTANCE.createMessageProcessor();
 		
-		messageProcessor.setProcessorName(processor.getName());
+		messageProcessor.setProcessorName(((AbstractMessageProcessor) processor).getArtifactName());
+		messageProcessor.setVersion(((AbstractMessageProcessor) processor).getVersion());
 		messageProcessor.setDescription(processor.getDescription());
 		messageProcessor.setMessageStore(processor.getMessageStoreName());
 		
@@ -598,7 +600,8 @@ public class MessageProcessorDeserializer
 		
 		DummyMessageProcessor dummyMessageProcessor = (DummyMessageProcessor) processor;
 			
-		messageProcessorPage.processorName.setText(dummyMessageProcessor.getName());
+		messageProcessorPage.processorName.setText(dummyMessageProcessor.getArtifactName());
+		messageProcessorPage.processorVersion.setText(dummyMessageProcessor.getVersion());
 		messageProcessorPage.storeName.setText(dummyMessageProcessor.getMessageStoreName());
 			
 

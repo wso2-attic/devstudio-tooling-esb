@@ -69,7 +69,6 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 	private ESBProjectArtifact esbProjectArtifact;
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject esbProject;
-	private String version = "1.0.0";
 	
 	
 	public LocalEntryProjectCreationWizard() {
@@ -130,20 +129,27 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			copyImportFile(location, isNewArtifact, groupId);
 
 		} else {
+			
+			String localEntryFileName;
+			if(!(localEntryModel.getLocalEntryVersion()==null && localEntryModel.getLocalEntryVersion().equals(""))){
+				localEntryFileName = localEntryModel.getLocalENtryName()+ "-v" + localEntryModel.getLocalEntryVersion() + ".xml";
+			}else{
+				localEntryFileName = localEntryModel.getLocalENtryName() + ".xml";				
+			}
+			
 			File localEntryFile = new File(location.getLocation().toFile(),
-					localEntryModel.getLocalENtryName() + ".xml");
+					localEntryFileName);
 			writeTemplete(localEntryFile);
 
 			ESBArtifact artifact = new ESBArtifact();
 			artifact.setName(localEntryModel.getLocalENtryName());
-			artifact.setVersion(version);
+			artifact.setVersion(localEntryModel.getLocalEntryVersion());
 			artifact.setType("synapse/local-entry");
 			artifact.setServerRole("EnterpriseServiceBus");
 			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(
 					esbProject.getLocation().toFile(),
-					new File(location.getLocation().toFile(), localEntryModel.getLocalENtryName()
-							+ ".xml")).replaceAll(Pattern.quote(File.separator), "/"));
+					new File(location.getLocation().toFile(), localEntryFileName)).replaceAll(Pattern.quote(File.separator), "/"));
 			esbProjectArtifact.addESBArtifact(artifact);
 		}
 		File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();
@@ -186,7 +192,6 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 	public void updatePom() throws IOException, XmlPullParserException {
 		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		version = mavenProject.getVersion();
 
 		// Skip changing the pom file if group ID and artifact ID are matched
 		if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-localentry-plugin")) {
@@ -224,7 +229,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				content =
 					      MessageFormat.format(LocalEntryTemplateUtils.getInstance()
 					                                                  .getTemplateString(templateToUse),
-					                                                  localEntryModel.getLocalENtryName(), localEntryModel.getInLineTextValue());
+					                                                  localEntryModel.getLocalENtryName(), localEntryModel.getLocalEntryVersion(), localEntryModel.getInLineTextValue());
 				
 			}else if(localEntryModel.getSelectedLocalEntryType().equals(LocalEntryArtifactConstants.TYPE_IN_LINE_XML_LE)){
 				templateToUse = "InLineXmlLE.xml";
@@ -232,7 +237,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				content =
 					      MessageFormat.format(LocalEntryTemplateUtils.getInstance()
 					                                                  .getTemplateString(templateToUse),
-					                                                  localEntryModel.getLocalENtryName(), localEntryModel.getInLineXMLValue());
+					                                                  localEntryModel.getLocalENtryName(), localEntryModel.getLocalEntryVersion(), localEntryModel.getInLineXMLValue());
 				
 			}else if(localEntryModel.getSelectedLocalEntryType().equals(LocalEntryArtifactConstants.TYPE_SOURCE_URL_LE)){
 				templateToUse = "SourceURLLE.xml";
@@ -240,7 +245,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				content =
 					      MessageFormat.format(LocalEntryTemplateUtils.getInstance()
 					                                                  .getTemplateString(templateToUse),
-					                                                  localEntryModel.getLocalENtryName(), localEntryModel.getSourceURL());
+					                                                  localEntryModel.getLocalENtryName(), localEntryModel.getLocalEntryVersion(), localEntryModel.getSourceURL());
 			}else{
 				
 			}
@@ -258,7 +263,13 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 		if(selectedLEList != null && selectedLEList.size() >0 ){
 			for (OMElement element : selectedLEList) {
 				String key = element.getAttributeValue(new QName("key"));
-				destFile  = new File(importLocation.getLocation().toFile(), key + ".xml");
+				String version = "";
+				String fileName = key + ".xml";
+				if(element.getAttribute(new QName("version"))!=null){
+					version = element.getAttributeValue(new QName("version"));
+					fileName = key + "-v" + version + ".xml";
+				}
+				destFile  = new File(importLocation.getLocation().toFile(), fileName);
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
 				if(isNewArtifact){
@@ -269,7 +280,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 					artifact.setServerRole("EnterpriseServiceBus");
 					artifact.setGroupId(groupId);
 					artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-							new File(importLocation.getLocation().toFile(), key + ".xml")).replaceAll(
+							new File(importLocation.getLocation().toFile(), fileName)).replaceAll(
 							Pattern.quote(File.separator), "/"));
 					esbProjectArtifact.addESBArtifact(artifact);
 				}
@@ -280,6 +291,14 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			String key = importFile.getName().replaceAll(".xml$", "");
+			String version = "";
+			String fileName = key + ".xml";
+			if(key.contains("-v")){
+				int versionIndex = key.lastIndexOf("-v");
+				version = key.substring(versionIndex+2,versionIndex+7);
+				key = key.substring(0, versionIndex);
+				fileName = key + "-v" + version + ".xml";
+			}
 			if(isNewArtifact){
 				ESBArtifact artifact=new ESBArtifact();
 				artifact.setName(key);
@@ -288,7 +307,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				artifact.setServerRole("EnterpriseServiceBus");
 				artifact.setFile(groupId);
 				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-						new File(importLocation.getLocation().toFile(), key + ".xml")).replaceAll(
+						new File(importLocation.getLocation().toFile(), fileName)).replaceAll(
 						Pattern.quote(File.separator), "/"));
 				esbProjectArtifact.addESBArtifact(artifact);
 			}

@@ -84,7 +84,8 @@ public class SequenceDebugPointBuilder extends AbstractESBDebugPointBuilder {
         SequencesImpl sequence = (SequencesImpl) esbServer.eContents().get(INDEX_OF_FIRST_ELEMENT);
         EObject selection = ((View) part.getModel()).getElement();
         List<Integer> position = getMediatorPosition(sequence.getOutputConnector(), selection);
-        ESBSequenceBean sequenceBean = new ESBSequenceBean(NAMED_SEQUENCE_LABEL, sequence.getName(),
+        String sequenceName = (!(sequence.getVersion()==null && sequence.getVersion().equals("")))?sequence.getName()+"/"+sequence.getVersion():sequence.getName();
+        ESBSequenceBean sequenceBean = new ESBSequenceBean(NAMED_SEQUENCE_LABEL, sequenceName,
                 new ESBMediatorPosition(position));
         ESBSequenceDebugPointMessage sequenceDebugPoint = new ESBSequenceDebugPointMessage(null, commandArgument,
                 SEQUENCE_LABEL, sequenceBean);

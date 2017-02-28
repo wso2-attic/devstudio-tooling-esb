@@ -35,6 +35,9 @@ public class InboundEndpointsList extends AbstractListDataProvider{
 		if(availableLEList != null){
 			for (OMElement omElement : availableLEList) {
 				String name = omElement.getAttributeValue(new QName("key"));
+				if(omElement.getAttribute(new QName("version"))!=null){
+					name = name + "/" + omElement.getAttributeValue(new QName("version"));
+				}
 				list.add(createListData(name, omElement));
 			}
 		}

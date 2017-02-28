@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.END_POINT__END_POINT_NAME;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.END_POINT__VERSION;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION;
@@ -90,7 +91,10 @@ public class RecipientListEndpointDeserializer extends AbstractComplexEndPointDe
 		}
 		
 		if(StringUtils.isNotBlank(endpoint.getName())){
-            executeSetValueCommand(END_POINT__END_POINT_NAME, endpoint.getName());
+            executeSetValueCommand(END_POINT__END_POINT_NAME, endpoint.getArtifactName());
+		}
+		if(StringUtils.isNotBlank(endpoint.getVersion())){
+            executeSetValueCommand(END_POINT__VERSION, endpoint.getVersion());
 		}
 
 		return model;

@@ -75,7 +75,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 							esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 							List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
 							for (ESBArtifact artifact : allArtifacts) {
-								if (resource.equals(artifact.getName())) {									
+								if (resource.equals(artifact.getName())&&artifact.getVersion().equals(endpointModel.getEpVersion())) {									
 									throw new FieldValidationException("");									
 								}
 							}
@@ -84,6 +84,10 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 						}
 					}
 				}		 	 
+			}
+		} else if (modelProperty.equals("ep.version")){
+			if(!(value.toString().matches("[\\d]+[.][\\d]+[.][\\d]+")||value.toString().equals(""))){
+				throw new FieldValidationException("Incorrect version format");
 			}
 		}else if (modelProperty.equals("import.file")) {
 			CommonFieldValidator.validateImportFile(value);

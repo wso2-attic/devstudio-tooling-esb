@@ -80,6 +80,7 @@ public class MessageStoreFormPage extends AbstractEsbFormPage {
 //	private ArrayList<Section> sectionsList = new ArrayList<Section>();
 	
 	public Text storeName;
+	public Text storeVersion;
 	public Combo storeType;
 	
 	ScrolledForm form ;
@@ -181,6 +182,23 @@ public class MessageStoreFormPage extends AbstractEsbFormPage {
 		storeName.setLayoutData(storeNameGridData);
 		
 		storeName.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				setSave(true);
+				updateDirtyState();
+			}
+		});
+		
+		toolkit.createLabel(basicSectionClient, "Message Store Version *");
+		storeVersion = toolkit.createText(basicSectionClient, "");
+		storeVersion.setBackground(new Color(null, 229,236,253));
+		GridData storeVersionGridData = new GridData();
+		storeVersionGridData.horizontalSpan = 3;
+		storeVersionGridData.horizontalAlignment = GridData.FILL;
+		storeVersionGridData.grabExcessHorizontalSpace = true;
+		storeVersion.setLayoutData(storeVersionGridData);
+		
+		storeVersion.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				setSave(true);

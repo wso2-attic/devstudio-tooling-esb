@@ -55,6 +55,10 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 		// Mandatory fields validation
 		if (key.equals(FIELD_STORE_NAME)) {
 			CommonFieldValidator.validateArtifactName(value);
+		} else if (key.equals(FIELD_STORE_VERSION)){
+			if(!(value.toString().matches("[\\d]+[.][\\d]+[.][\\d]+")||value.toString().equals(""))){
+				throw new FieldValidationException("Incorrect version format");
+			}
 		} else if (key.equals(FIELD_CUSTOM_PROVIDER_CLASS)) {
 			if(custom){
 				CommonFieldValidator.validateJavaFQN(value);

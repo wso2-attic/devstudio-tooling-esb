@@ -37,6 +37,7 @@ import org.apache.maven.model.PluginExecution;
 import org.apache.maven.project.MavenProject;
 import org.apache.synapse.config.xml.MessageProcessorSerializer;
 import org.apache.synapse.message.processor.MessageProcessor;
+import org.apache.synapse.message.processor.impl.AbstractMessageProcessor;
 import org.apache.synapse.message.processor.impl.failover.FailoverScheduledMessageForwardingProcessor;
 import org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor;
 import org.apache.synapse.message.processor.impl.sampler.SamplingProcessor;
@@ -78,8 +79,6 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 	private IFile artifactFile;
 	private List<File> fileLst = new ArrayList<File>();
 
-	private String version = "1.0.0";
-
 	public MessageProcessorCreationWizard() {
 		messageProcessorModel = new MessageProcessorModel();
 		setModel(messageProcessorModel);
@@ -109,18 +108,22 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			String groupId = getMavenGroupId(pomfile) + ".message-processors";
 			if (getModel().getSelectedOption().equals("create.processor")) {
-				artifactFile = location.getFile(new Path(messageProcessorModel
-						.getMessageProcessorName() + ".xml"));
+				String fileName;
+				if(!(messageProcessorModel.getMessageProcessorVersion()==null && messageProcessorModel.getMessageProcessorVersion().equals(""))){
+					fileName = messageProcessorModel.getMessageProcessorName()+ "-v" + messageProcessorModel.getMessageProcessorVersion() + ".xml";
+				}else{
+					fileName = messageProcessorModel.getMessageProcessorName() + ".xml";				
+				}
+				artifactFile = location.getFile(new Path(fileName));
 				File destFile = artifactFile.getLocation().toFile();
 				FileUtils.createFile(destFile, getTemplateContent());
 				fileLst.add(destFile);
 				String relativePath = FileUtils.getRelativePath(
 						esbProject.getLocation().toFile(),
-						new File(location.getLocation().toFile(), messageProcessorModel
-								.getMessageProcessorName() + ".xml")).replaceAll(
+						new File(location.getLocation().toFile(), fileName)).replaceAll(
 										Pattern.quote(File.separator), "/");
 				esbProjectArtifact.addESBArtifact(createArtifact(
-						messageProcessorModel.getMessageProcessorName(), groupId, version,
+						messageProcessorModel.getMessageProcessorName(), groupId, messageProcessorModel.getMessageProcessorVersion(),
 						relativePath));
 				esbProjectArtifact.toFile();
 			} else {
@@ -174,7 +177,6 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 	public void updatePom() throws IOException, XmlPullParserException {
 		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		version = mavenProject.getVersion();
 
 		// Skip changing the pom file if group ID and artifact ID are matched
 		if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-messageprocessor-plugin")) {
@@ -304,6 +306,8 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 					.getEndpointName());
 			messageProcessor.setName(messageProcessorModel
 					.getMessageProcessorName());
+			((AbstractMessageProcessor) messageProcessor).setVersion(messageProcessorModel
+					.getMessageProcessorVersion());
 			messageProcessor.setMessageStoreName(messageProcessorModel
 					.getMessageStore());
 			messageProcessor.setParameters(messageProcessorPrameeters);
@@ -343,8 +347,8 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			}
 
 			messageProcessor = new SamplingProcessor();
-
 			messageProcessor.setName(messageProcessorModel.getMessageProcessorName());
+			((AbstractMessageProcessor) messageProcessor).setVersion(messageProcessorModel.getMessageProcessorVersion());
 			messageProcessor.setMessageStoreName(messageProcessorModel.getMessageStore());
 			messageProcessor.setParameters(messageProcessorPrameeters);
 
@@ -355,6 +359,7 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			className = messageProcessorModel.getClassFQN();
 
 			messageProcessor.setName(messageProcessorModel.getMessageProcessorName());
+			((AbstractMessageProcessor) messageProcessor).setVersion(messageProcessorModel.getMessageProcessorVersion());
 			messageProcessor.setMessageStoreName(messageProcessorModel.getMessageStore());
 			messageProcessor.setParameters(messageProcessorPrameeters);
 
@@ -430,6 +435,7 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			messageProcessor = new FailoverScheduledMessageForwardingProcessor();
 
 			messageProcessor.setName(messageProcessorModel.getMessageProcessorName());
+			((AbstractMessageProcessor) messageProcessor).setVersion(messageProcessorModel.getMessageProcessorVersion());
 			messageProcessor.setMessageStoreName(messageProcessorModel.getSourceMessageStore());
 			messageProcessor.setParameters(messageProcessorPrameeters);
 
@@ -457,12 +463,18 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 		if (selectedList != null && selectedList.size() > 0) {
 			for (OMElement element : selectedList) {
 				String name = element.getAttributeValue(new QName("name"));
-				destFile = new File(importLocation.getLocation().toFile(), name + ".xml");
+				String version = "";
+				String fileName = name + ".xml";
+				if(element.getAttribute(new QName("version"))!=null){
+					version = element.getAttributeValue(new QName("version"));
+					fileName = name + "-v" + version + ".xml";
+				}
+				destFile = new File(importLocation.getLocation().toFile(), fileName);
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
 				if (isNewAritfact) {
 					String relativePath = FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-							new File(importLocation.getLocation().toFile(), name + ".xml")).replaceAll(
+							new File(importLocation.getLocation().toFile(), fileName)).replaceAll(
 							Pattern.quote(File.separator), "/");
 					esbProjectArtifact.addESBArtifact(createArtifact(name, groupId, version,
 							relativePath));
@@ -474,9 +486,17 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			String name = importFile.getName().replaceAll(".xml$", "");
+			String version = "";
+			String fileName = name + ".xml";
+			if(name.contains("-v")){
+				int versionIndex = name.lastIndexOf("-v");
+				version = name.substring(versionIndex+2,versionIndex+7);
+				name = name.substring(0, versionIndex);
+				fileName = name + "-v" + version + ".xml";
+			}
 			if (isNewAritfact) {
 				String relativePath = FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(),
-						new File(importLocation.getLocation().toFile(), name + ".xml")).replaceAll(
+						new File(importLocation.getLocation().toFile(), fileName)).replaceAll(
 						Pattern.quote(File.separator), "/");
 				esbProjectArtifact.addESBArtifact(createArtifact(name, groupId, version,
 						relativePath));

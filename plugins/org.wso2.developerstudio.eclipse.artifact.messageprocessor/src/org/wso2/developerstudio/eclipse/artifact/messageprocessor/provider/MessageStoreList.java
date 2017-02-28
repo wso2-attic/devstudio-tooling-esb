@@ -54,6 +54,9 @@ public class MessageStoreList extends AbstractListDataProvider{
  								if(esbArtifact.getType().equals("synapse/message-store")){
  									String relativeFilePath = esbArtifact.getFile().replaceAll("/", (File.separatorChar=='/')?"/":"\\\\");
  									String fileName = new File((relativeFilePath)).getName().replaceAll(".xml$", "");
+ 									if(fileName.contains("-v")){
+ 										fileName = fileName.replace("-v", "/");
+ 									}
 									availableMessageStoreList.add(createListData(fileName,fileName));
  								}
  							}

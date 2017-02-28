@@ -89,8 +89,9 @@ public class SequenceTransformer extends AbstractEsbNodeTransformer{
 		
 		// Fixing TOOLS-2652
 		sequence.setTraceState(visualSequence.isTraceEnabled() ? 1 : 0);
-
-		AspectConfiguration aspectConfiguration = new AspectConfiguration(visualSequence.getName());
+		sequence.setName(visualSequence.getName());
+		sequence.setVersion(visualSequence.getVersion());
+		AspectConfiguration aspectConfiguration = new AspectConfiguration(sequence.getName());
 		sequence.configure(aspectConfiguration);
 		if (visualSequence.isStatisticsEnabled()) {
 			aspectConfiguration.enableStatistics();

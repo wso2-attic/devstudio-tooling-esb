@@ -92,7 +92,7 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 		if(endpoint.getChildren() != null && !endpoint.getChildren().isEmpty()){
 			
 			if (endpoint.getName() != null) {
-				endpointName = endpoint.getName();
+				endpointName = endpoint.getArtifactName();
 				executeSetValueCommand(EsbPackage.Literals.PARENT_END_POINT__NAME, endpointName);
 			} else {
 				long lDateTime = new Date().getTime();
@@ -116,7 +116,11 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 						if (!iFolder.exists()){
 							iFolder.create(IResource.NONE, true, null);
 						} 
-						fileTobeOpened = iFolder.getFile(endpointName + ".xml");
+						if(endpoint.getVersion() != null){
+							fileTobeOpened = iFolder.getFile(endpoint.getName().replace("/", "-v") + ".xml");
+						}else{
+							fileTobeOpened = iFolder.getFile(endpointName + ".xml");
+						}
 						InputStream stream = new ByteArrayInputStream(configOM.toString().getBytes(StandardCharsets.UTF_8));
 						if(!fileTobeOpened.exists()){
 							fileTobeOpened.create(stream, true, new NullProgressMonitor());

@@ -79,6 +79,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.ui.utils.UnrecogizedArtifactTypeException;
 import org.wso2.developerstudio.esb.form.editors.article.rcp.ESBFormEditor;
+import javax.xml.namespace.QName;
 
 /**
  * Synapse model de-serialize base class
@@ -339,6 +340,12 @@ public class Deserializer {
 			break;
 		case PROXY:
 			ProxyService proxy = ProxyServiceFactory.createProxy(element, properties);
+			OMAttribute isDefaultAttribute = element.getAttribute(new QName("isDefault"));
+            if (isDefaultAttribute != null) {
+                if (isDefaultAttribute.getAttributeValue().equalsIgnoreCase("true")) {
+                    proxy.setDefault(true);
+                }
+            }
 			artifacts.put(proxy.getName(), proxy);
 			break;
 		case SEQUENCE:

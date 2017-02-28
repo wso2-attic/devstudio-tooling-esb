@@ -39,6 +39,7 @@ public final class EpArtifactConstants extends NLS{
 	public static String WIZARD_OPTION_IMPORT_OPTION;
 	public static String WIZARD_OPTION_CREATE_ESB_PROJECT;
 	public static String WIZARD_OPTION_EP_NAME;
+	public static String WIZARD_OPTION_EP_VERSION;
 	public static String WIZARD_OPTION_IMPORT_FILE;
 	public static String WIZARD_OPTION_TEMPLATE_ADDRESS_EP_URL;
 	public static String WIZARD_OPTION_TEMPLATE_WSDL_EP_URL;

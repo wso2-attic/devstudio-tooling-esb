@@ -21,6 +21,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry#getValueLiteral <em>Value Literal</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry#getValueXML <em>Value XML</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry#getValueURL <em>Value URL</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry#getEntryVersion <em>Entry Version</em>}</li>
  * </ul>
  *
  * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getLocalEntry()
@@ -166,4 +167,30 @@ public interface LocalEntry extends EsbElement {
 	 * @generated
 	 */
 	void setValueURL(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Entry Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Entry Version</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Entry Version</em>' attribute.
+	 * @see #setEntryVersion(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getLocalEntry_EntryVersion()
+	 * @model
+	 * @generated
+	 */
+	String getEntryVersion();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry#getEntryVersion <em>Entry Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Entry Version</em>' attribute.
+	 * @see #getEntryVersion()
+	 * @generated
+	 */
+	void setEntryVersion(String value);
 } // LocalEntry

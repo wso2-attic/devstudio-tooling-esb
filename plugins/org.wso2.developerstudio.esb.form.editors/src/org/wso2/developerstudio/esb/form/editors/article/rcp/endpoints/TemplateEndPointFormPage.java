@@ -64,6 +64,7 @@ public class TemplateEndPointFormPage extends EndpointFormPage {
 	public Text tempEP_Description;
 
 	public String name;
+	public String version;
 	public String uri;
 
 	public String getName() {
@@ -72,6 +73,14 @@ public class TemplateEndPointFormPage extends EndpointFormPage {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
 	}
 
 	public String getURI() {

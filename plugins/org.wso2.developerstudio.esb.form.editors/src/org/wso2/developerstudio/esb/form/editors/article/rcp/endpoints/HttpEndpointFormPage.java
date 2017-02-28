@@ -110,6 +110,24 @@ public class HttpEndpointFormPage extends EndpointFormPage {
 			}
 		});
 		
+		toolkit.createLabel(basicSectionClient, "Version :");
+		endpointVersion = toolkit.createText(basicSectionClient, "");
+		endpointVersion.setBackground(new Color(null, 229,236,253));
+		//endpointName.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
+		GridData endpointVersionGridData = new GridData();
+		endpointVersionGridData.horizontalSpan = 3;
+		endpointVersionGridData.horizontalAlignment = GridData.FILL;
+		endpointVersionGridData.grabExcessHorizontalSpace = true;
+		endpointVersion.setLayoutData(endpointVersionGridData);
+		
+		endpointVersion.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				setSave(true);
+				updateDirtyState();
+			}
+		});
+		
 		toolkit.createLabel(basicSectionClient, "Trace Enabled :");
 		endpointTrace = new Combo(basicSectionClient, SWT.DROP_DOWN);
 		//endpointTrace.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));

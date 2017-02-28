@@ -32,6 +32,8 @@ import org.apache.synapse.SynapseException;
 import org.apache.synapse.config.xml.MessageProcessorFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.message.processor.MessageProcessor;
+import org.apache.synapse.message.processor.impl.AbstractMessageProcessor;
+import org.apache.synapse.message.store.AbstractMessageStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyMessageProcessor;
 
 /**
@@ -44,6 +46,7 @@ public class DummyMessageProcessorFactory {
 
 	public static final QName CLASS_Q = new QName(XMLConfigConstants.NULL_NAMESPACE, "class");
 	public static final QName NAME_Q = new QName(XMLConfigConstants.NULL_NAMESPACE, "name");
+	public static final QName VERSION_Q = new QName(XMLConfigConstants.NULL_NAMESPACE, "version");
 	public static final QName PARAMETER_Q = new QName(XMLConfigConstants.SYNAPSE_NAMESPACE,
 			"parameter");
 	public static final QName MESSAGE_STORE_Q = new QName(XMLConfigConstants.NULL_NAMESPACE,
@@ -78,6 +81,12 @@ public class DummyMessageProcessorFactory {
 		} else {
 			handleException("Message Processor name not specified");
 		}
+        
+        OMAttribute versionAtt = elem.getAttribute(VERSION_Q);
+
+        if (versionAtt != null) {
+            ((AbstractMessageProcessor) messageProcessor).setVersion(versionAtt.getAttributeValue());
+        } 
 
 		if (FORWARDING_PROCESSOR.equals(clssAtt.getAttributeValue())
 				|| FORWARDING_PROCESSOR_OLD.equals(clssAtt.getAttributeValue())) {

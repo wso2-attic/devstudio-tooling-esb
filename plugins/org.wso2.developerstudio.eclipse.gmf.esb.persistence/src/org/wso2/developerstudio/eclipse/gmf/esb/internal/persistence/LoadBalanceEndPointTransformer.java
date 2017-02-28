@@ -156,6 +156,9 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer 
 		if (StringUtils.isNotBlank(name)) {
 			synapseLBEP.setName(name);
 		}
+		if(StringUtils.isNotBlank(visualEndPoint.getVersion())){
+			synapseLBEP.setVersion(visualEndPoint.getVersion());
+		}
 
 		/*
 		 * We should give this LoadbalanceAlgorithm class at runtime.User should

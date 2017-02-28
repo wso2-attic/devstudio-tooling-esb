@@ -75,6 +75,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageStoreImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageStoreImpl#isEnableProducerGuaranteedDelivery <em>Enable Producer Guaranteed Delivery</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageStoreImpl#getFailoverMessageStore <em>Failover Message Store</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageStoreImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -669,6 +670,26 @@ public class MessageStoreImpl extends EsbElementImpl implements MessageStore {
 	 * @ordered
 	 */
 	protected String failoverMessageStore = FAILOVER_MESSAGE_STORE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1315,6 +1336,27 @@ public class MessageStoreImpl extends EsbElementImpl implements MessageStore {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_STORE__VERSION, oldVersion, version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1392,6 +1434,8 @@ public class MessageStoreImpl extends EsbElementImpl implements MessageStore {
 				return isEnableProducerGuaranteedDelivery();
 			case EsbPackage.MESSAGE_STORE__FAILOVER_MESSAGE_STORE:
 				return getFailoverMessageStore();
+			case EsbPackage.MESSAGE_STORE__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1496,6 +1540,9 @@ public class MessageStoreImpl extends EsbElementImpl implements MessageStore {
 			case EsbPackage.MESSAGE_STORE__FAILOVER_MESSAGE_STORE:
 				setFailoverMessageStore((String)newValue);
 				return;
+			case EsbPackage.MESSAGE_STORE__VERSION:
+				setVersion((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1598,6 +1645,9 @@ public class MessageStoreImpl extends EsbElementImpl implements MessageStore {
 			case EsbPackage.MESSAGE_STORE__FAILOVER_MESSAGE_STORE:
 				setFailoverMessageStore(FAILOVER_MESSAGE_STORE_EDEFAULT);
 				return;
+			case EsbPackage.MESSAGE_STORE__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1670,6 +1720,8 @@ public class MessageStoreImpl extends EsbElementImpl implements MessageStore {
 				return enableProducerGuaranteedDelivery != ENABLE_PRODUCER_GUARANTEED_DELIVERY_EDEFAULT;
 			case EsbPackage.MESSAGE_STORE__FAILOVER_MESSAGE_STORE:
 				return FAILOVER_MESSAGE_STORE_EDEFAULT == null ? failoverMessageStore != null : !FAILOVER_MESSAGE_STORE_EDEFAULT.equals(failoverMessageStore);
+			case EsbPackage.MESSAGE_STORE__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1742,6 +1794,8 @@ public class MessageStoreImpl extends EsbElementImpl implements MessageStore {
 		result.append(enableProducerGuaranteedDelivery);
 		result.append(", failoverMessageStore: ");
 		result.append(failoverMessageStore);
+		result.append(", version: ");
+		result.append(version);
 		result.append(')');
 		return result.toString();
 	}

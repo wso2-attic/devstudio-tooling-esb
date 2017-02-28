@@ -58,6 +58,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlEndpoint <em>Wsdl Endpoint</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlResources <em>Wsdl Resources</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOnError <em>On Error</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isIsDefault <em>Is Default</em>}</li>
  * </ul>
  *
  * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService()
@@ -1086,5 +1088,59 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	void setOnError(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Version</b></em>' attribute.
+	 * The default value is <code>"\"\""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Version</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Version</em>' attribute.
+	 * @see #setVersion(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_Version()
+	 * @model default="\"\""
+	 * @generated
+	 */
+	String getVersion();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getVersion <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * @see #getVersion()
+	 * @generated
+	 */
+	void setVersion(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Default</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Default</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Default</em>' attribute.
+	 * @see #setIsDefault(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_IsDefault()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isIsDefault();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isIsDefault <em>Is Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Default</em>' attribute.
+	 * @see #isIsDefault()
+	 * @generated
+	 */
+	void setIsDefault(boolean value);
 
 } // ProxyService

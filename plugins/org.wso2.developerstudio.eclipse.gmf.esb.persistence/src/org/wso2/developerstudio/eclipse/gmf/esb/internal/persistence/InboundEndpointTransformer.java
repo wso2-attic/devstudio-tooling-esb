@@ -55,7 +55,7 @@ public class InboundEndpointTransformer extends AbstractEsbNodeTransformer {
 				"Invalid subject.");
 		org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint visualInboundEndpoint = (org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint) subject;
 		information.getSynapseConfiguration().addInboundEndpoint(
-				visualInboundEndpoint.getName(), create(visualInboundEndpoint));
+				visualInboundEndpoint.getName()+"/"+visualInboundEndpoint.getVersion(), create(visualInboundEndpoint));
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
@@ -106,6 +106,7 @@ public class InboundEndpointTransformer extends AbstractEsbNodeTransformer {
 			throws TransformerException {
 		InboundEndpoint inboundEndpoint = new InboundEndpoint();
 		inboundEndpoint.setName(visualInboundEndpoint.getName());
+		inboundEndpoint.setVersion(visualInboundEndpoint.getVersion());
 
 		// TODO: This validation should be done properly for specific inbound
 		// endpoint types
@@ -114,7 +115,7 @@ public class InboundEndpointTransformer extends AbstractEsbNodeTransformer {
 				.getSequenceOutputConnector());
 		Sequence onErrorSequence = getSequence(visualInboundEndpoint
 				.getOnErrorSequenceOutputConnector());
-		inboundEndpoint.configure(new AspectConfiguration(visualInboundEndpoint.getName()));
+		inboundEndpoint.configure(new AspectConfiguration(inboundEndpoint.getName()));
 		if (visualInboundEndpoint.isStatisticsEnabled()) {
 			inboundEndpoint.getAspectConfiguration().enableStatistics();
 		} else {

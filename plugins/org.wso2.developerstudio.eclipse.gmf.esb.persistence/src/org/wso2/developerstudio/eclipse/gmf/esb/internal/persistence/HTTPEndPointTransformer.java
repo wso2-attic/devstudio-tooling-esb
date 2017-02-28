@@ -98,6 +98,9 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 			synapseHttpEP.setName(name);
 		}
 
+		if(StringUtils.isNotBlank(visualEndPoint.getVersion())){
+			synapseHttpEP.setVersion(visualEndPoint.getVersion());
+		}
 		try {
 			createAdvanceOptions(httpEndPoint, synapseHttpEP);
 		} catch (JaxenException e) {
@@ -141,6 +144,9 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 		
 		if (StringUtils.isNotBlank(httpFormPage.getEndpointName().getText())) {
 			synapseHttpEP.setName(httpFormPage.getEndpointName().getText());
+		}
+		if(StringUtils.isNotBlank(httpFormPage.getEndpointVersion().getText())){
+			synapseHttpEP.setVersion(httpFormPage.getEndpointVersion().getText());
 		}
 		if (StringUtils.isNotEmpty(httpFormPage.httpEP_UriTemplate.getText())) {
 			UriTemplate template = UriTemplate.fromTemplate(httpFormPage.httpEP_UriTemplate.getText());

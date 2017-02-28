@@ -72,6 +72,7 @@ public class MessageStoreModel extends ProjectDataModel  {
 	private String jmsFailoverMessageStore;
 	
 	private String storeName;
+	private String storeVersion;
 	private IContainer saveLocation;
 	private Map<String,String> customParameters = new HashMap<String,String>();
 	private List<OMElement> availableStoreslist;
@@ -440,11 +441,19 @@ public class MessageStoreModel extends ProjectDataModel  {
 	public String getStoreName() {
 		return storeName;
 	}
+	
+	public String getStoreVersion() {
+		return storeVersion;
+	}
 
 	public void setStoreName(String storeName) {
 		this.storeName = storeName;
 	}
 
+	public void setStoreVersion(String storeVersion) {
+		this.storeVersion = storeVersion;
+	}
+	
 	public Map<String, String> getCustomParameters() {
 		return customParameters;
 	}
@@ -618,6 +627,8 @@ public class MessageStoreModel extends ProjectDataModel  {
 			value = getJmsTimeout();
 		} else if (key.equals(Constants.FIELD_STORE_NAME)) {
 			value = getStoreName();
+		} else if (key.equals(Constants.FIELD_STORE_VERSION)) {
+			value = getStoreVersion();
 		} else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
 			IContainer container= getSaveLocation();
 			if(container != null && container instanceof IFolder){
@@ -755,6 +766,9 @@ public class MessageStoreModel extends ProjectDataModel  {
 		
 		else if (key.equals(Constants.FIELD_STORE_NAME)) {
 			setStoreName(data.toString());
+		}
+		else if (key.equals(Constants.FIELD_STORE_VERSION)) {
+			setStoreVersion(data.toString());
 		} else if (key.equals(Constants.FIELD_CUSTOM_PROVIDER_CLASS)) {
 			setCustomProviderClass(data.toString());
 		} else if (key.equals(Constants.FIELD_CREATE_ESB_PRJ)) {

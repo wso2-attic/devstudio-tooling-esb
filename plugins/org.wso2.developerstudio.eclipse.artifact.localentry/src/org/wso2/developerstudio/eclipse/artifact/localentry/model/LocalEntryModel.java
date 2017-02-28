@@ -42,6 +42,7 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
 
 public class LocalEntryModel extends ProjectDataModel {
 	private String localENtryName;
+	private String localEntryVersion;
 	private String selectedLocalEntryType;
 	private String inLineTextValue;
 	private String inLineXMLValue;
@@ -59,6 +60,14 @@ public class LocalEntryModel extends ProjectDataModel {
 		this.localENtryName = localENtryName;
 	}
 
+	public String getLocalEntryVersion() {
+		return localEntryVersion;
+	}
+
+	public void setLocalEntryVersion(String localEntryVersion) {
+		this.localEntryVersion = localEntryVersion;
+	}
+	
 	public String getSelectedLocalEntryType() {
 		return selectedLocalEntryType;
 	}
@@ -112,6 +121,8 @@ public class LocalEntryModel extends ProjectDataModel {
 				modelPropertyValue = getInLineXMLValue();
 			}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_NAME)){
 				modelPropertyValue = getLocalENtryName();
+			}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_VERSION)){
+				modelPropertyValue = getLocalEntryVersion();
 			}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_AVAILABLE_LES)){
 				modelPropertyValue = selectedLEList.toArray();
 			}
@@ -167,6 +178,8 @@ public class LocalEntryModel extends ProjectDataModel {
 			}
 		}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_NAME)){
 			setLocalENtryName(data.toString());
+		}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_VERSION)){
+			setLocalEntryVersion(data.toString());
 		}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_AVAILABLE_LES)){
 			Object[] selectedLEs = (Object[])data;
 			selectedLEList.clear();
@@ -285,4 +298,5 @@ public class LocalEntryModel extends ProjectDataModel {
 		}
 		return newLocalEntrySaveLocation;
 	}
+
 }

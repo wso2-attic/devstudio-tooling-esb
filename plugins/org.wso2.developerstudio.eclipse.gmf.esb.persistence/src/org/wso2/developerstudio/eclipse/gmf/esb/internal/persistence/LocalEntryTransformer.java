@@ -53,7 +53,12 @@ public class LocalEntryTransformer extends AbstractEsbNodeTransformer {
 	}
 
 	public Entry createEntry(LocalEntry visualLocalEntry) throws Exception {
-		Entry localEntry = new Entry(visualLocalEntry.getEntryName());
+		Entry localEntry;
+    	if(visualLocalEntry.getEntryVersion() != null){
+    		localEntry = new Entry(visualLocalEntry.getEntryName(), visualLocalEntry.getEntryVersion());
+    	}else{
+    		localEntry = new Entry(visualLocalEntry.getEntryName());
+    	}
 		switch (visualLocalEntry.getLocalEntryType()) {
 		case LITERAL: {
 			localEntry.setValue(visualLocalEntry.getValueLiteral());
@@ -81,10 +86,16 @@ public class LocalEntryTransformer extends AbstractEsbNodeTransformer {
 			LocalEntryFormPage localEntryFormPage = (LocalEntryFormPage) visualLocalEntry;
 			if (localEntryFormPage.getLocalEntryNameTxt() != null) {
 				String localEntryName = localEntryFormPage.getLocalEntryNameTxt().getText();
+				String localEntryVersion = localEntryFormPage.getLocalEntryVersionTxt().getText();
 				int localEntryType = localEntryFormPage.getLocalEntryTypeCombo().getSelectionIndex();
 				String localEntryValue = localEntryFormPage.getLocalEntryTextValue().getText();
 
-				localEntry = new Entry(localEntryName);
+		    	if(localEntryVersion != null){
+		    		localEntry = new Entry(localEntryName, localEntryVersion);
+		    	}else{
+		    		localEntry = new Entry(localEntryName);
+		    	}
+		    	
 				if (localEntryType == 0) {
 					localEntry.setType(Entry.INLINE_TEXT);
 					localEntry.setValue(localEntryValue);

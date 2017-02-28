@@ -38,7 +38,8 @@ public class LocalEntryDeserializer extends AbstractEsbNodeDeserializer<Entry, L
 		LocalEntry localEntry = (LocalEntry) DeserializerUtils.createNode(part, EsbElementTypes.LocalEntry_3663);
 		setElementToEdit(localEntry);
 
-		executeSetValueCommand(LOCAL_ENTRY__ENTRY_NAME, entry.getKey());
+		executeSetValueCommand(LOCAL_ENTRY__ENTRY_NAME, entry.getArtifactKey());
+		executeSetValueCommand(LOCAL_ENTRY__ENTRY_VERSION, entry.getVersion());
 
 		if (entry.getType() == URL_SRC) {
 			executeSetValueCommand(LOCAL_ENTRY__LOCAL_ENTRY_TYPE, LocalEntryValueType.URL);
@@ -64,7 +65,10 @@ public class LocalEntryDeserializer extends AbstractEsbNodeDeserializer<Entry, L
 		if (formPage instanceof LocalEntryFormPage) {
 			LocalEntryFormPage localEntryPage = (LocalEntryFormPage) formPage;
 			if (localEntryPage.getLocalEntryNameTxt() != null) {
-				localEntryPage.getLocalEntryNameTxt().setText(object.getKey());
+				localEntryPage.getLocalEntryNameTxt().setText(object.getArtifactKey());
+			}
+			if (localEntryPage.getLocalEntryVersionTxt() != null) {
+				localEntryPage.getLocalEntryVersionTxt().setText(object.getEntryVersion());
 			}
 			if (object.getType() == INLINE_TEXT) {
 				if (localEntryPage.getLocalEntryTypeCombo() != null) {

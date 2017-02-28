@@ -62,7 +62,7 @@ public class InboundEndpointProjectFieldController extends AbstractFieldControll
 						}
 						List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
 						for (ESBArtifact artifact : allArtifacts) {
-							if (resource.equals(artifact.getName())) {
+							if (resource.equals(artifact.getName())&&artifact.getVersion().equals(inboundendpointModel.getVersion())) {
 								throw new FieldValidationException(InboundEndpointArtifactProperties.errorNameExists);
 							}
 						}
@@ -73,7 +73,11 @@ public class InboundEndpointProjectFieldController extends AbstractFieldControll
 		} else if (modelProperty.equals(InboundEndpointArtifactProperties.wizardOptionImportOption)) {
 			CommonFieldValidator.validateImportFile(value);
 
-		} else if (InboundEndpointArtifactProperties.wizardOptionSaveLocation.equals(modelProperty)) {
+		}else if (modelProperty.equals(InboundEndpointArtifactProperties.wizardOptionIEVersion)){
+			if(!(value.toString().matches("[\\d]+[.][\\d]+[.][\\d]+")||value.toString().equals(""))){
+				throw new FieldValidationException("Incorrect version format");
+			}
+		}else if (InboundEndpointArtifactProperties.wizardOptionSaveLocation.equals(modelProperty)) {
 			IResource resource = (IResource) value;
 			if (resource == null || !resource.exists()) {
 				throw new FieldValidationException(InboundEndpointArtifactProperties.errorProjectPath);

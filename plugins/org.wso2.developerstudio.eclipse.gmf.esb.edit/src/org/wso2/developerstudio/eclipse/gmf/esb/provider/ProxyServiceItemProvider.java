@@ -65,6 +65,7 @@ public class ProxyServiceItemProvider
 		if (!proxy.isMainSequence()) {
 			addServicePoliciesPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
 			addPinnedServersPropertyDescriptor(object);
 			addServiceGroupPropertyDescriptor(object);
 			addTraceEnabledPropertyDescriptor(object);
@@ -74,6 +75,7 @@ public class ProxyServiceItemProvider
 			addReliableMessagingEnabledPropertyDescriptor(object);
 			addSecurityEnabledPropertyDescriptor(object);
 			addServiceParametersPropertyDescriptor(object);
+			addIsDefaultPropertyDescriptor(object);
 			// addWsdlTypePropertyDescriptor(object);
 			// WSDL Type.
 			addWsdlTypePropertyDescriptor(object);
@@ -562,6 +564,50 @@ public class ProxyServiceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_version_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Default feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsDefaultPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_isDefault_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_isDefault_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__IS_DEFAULT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the In Sequence Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1039,6 +1085,8 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
 			case EsbPackage.PROXY_SERVICE__WSDL_XML:
 			case EsbPackage.PROXY_SERVICE__WSDL_URL:
+			case EsbPackage.PROXY_SERVICE__VERSION:
+			case EsbPackage.PROXY_SERVICE__IS_DEFAULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:

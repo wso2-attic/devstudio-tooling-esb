@@ -44,6 +44,10 @@ public class MessageProcessorFieldController extends AbstractFieldController {
 
 		if (modelProperty.equals("processor.name")) {
 			CommonFieldValidator.validateArtifactName(value);
+		} else if (modelProperty.equals("processor.version")){
+			if(!(value.toString().matches("[\\d]+[.][\\d]+[.][\\d]+")||value.toString().equals(""))){
+				throw new FieldValidationException("Incorrect version format");
+			}
 		} else if (modelProperty.equals("processor.type")) {
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException(

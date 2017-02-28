@@ -80,7 +80,10 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 						: EsbElementTypes.Sequences_3614;
 				Sequences sequenceModel = (Sequences) DeserializerUtils.createNode(part,
 						sequencesType);
-				executeSetValueCommand(sequenceModel, SEQUENCES__NAME, sequence.getName());
+				executeSetValueCommand(sequenceModel, SEQUENCES__NAME, sequence.getArtifactName());
+			  	if(sequence.getVersion()!=null){
+					executeSetValueCommand(sequenceModel, SEQUENCES__VERSION, sequence.getVersion());
+				}
 				if(StringUtils.isNotBlank(sequence.getErrorHandler())){
 					executeSetValueCommand(sequenceModel.getOnError(),
 							REGISTRY_KEY_PROPERTY__KEY_VALUE, sequence.getErrorHandler());

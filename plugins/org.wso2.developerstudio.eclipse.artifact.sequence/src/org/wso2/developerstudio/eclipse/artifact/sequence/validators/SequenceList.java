@@ -36,6 +36,9 @@ public class SequenceList extends AbstractListDataProvider{
 		if(availableSeqList != null){
 			for (OMElement omElement : availableSeqList) {
 				String name = omElement.getAttributeValue(new QName("name"));
+				if(omElement.getAttribute(new QName("version"))!=null){
+					name = name + "/" + omElement.getAttributeValue(new QName("version"));
+				}
 				list.add(createListData(name, omElement));
 			}
 		}

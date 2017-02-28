@@ -27,6 +27,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LocalEntryImpl#getValueLiteral <em>Value Literal</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LocalEntryImpl#getValueXML <em>Value XML</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LocalEntryImpl#getValueURL <em>Value URL</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LocalEntryImpl#getEntryVersion <em>Entry Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -122,6 +123,25 @@ public class LocalEntryImpl extends EsbElementImpl implements LocalEntry {
 	 * @ordered
 	 */
 	protected String valueURL = VALUE_URL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEntryVersion() <em>Entry Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEntryVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ENTRY_VERSION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getEntryVersion() <em>Entry Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEntryVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String entryVersion = ENTRY_VERSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,6 +272,27 @@ public class LocalEntryImpl extends EsbElementImpl implements LocalEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEntryVersion() {
+		return entryVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEntryVersion(String newEntryVersion) {
+		String oldEntryVersion = entryVersion;
+		entryVersion = newEntryVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__ENTRY_VERSION, oldEntryVersion, entryVersion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -265,6 +306,8 @@ public class LocalEntryImpl extends EsbElementImpl implements LocalEntry {
 				return getValueXML();
 			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
 				return getValueURL();
+			case EsbPackage.LOCAL_ENTRY__ENTRY_VERSION:
+				return getEntryVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -291,6 +334,9 @@ public class LocalEntryImpl extends EsbElementImpl implements LocalEntry {
 				return;
 			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
 				setValueURL((String)newValue);
+				return;
+			case EsbPackage.LOCAL_ENTRY__ENTRY_VERSION:
+				setEntryVersion((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -319,6 +365,9 @@ public class LocalEntryImpl extends EsbElementImpl implements LocalEntry {
 			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
 				setValueURL(VALUE_URL_EDEFAULT);
 				return;
+			case EsbPackage.LOCAL_ENTRY__ENTRY_VERSION:
+				setEntryVersion(ENTRY_VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -341,6 +390,8 @@ public class LocalEntryImpl extends EsbElementImpl implements LocalEntry {
 				return VALUE_XML_EDEFAULT == null ? valueXML != null : !VALUE_XML_EDEFAULT.equals(valueXML);
 			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
 				return VALUE_URL_EDEFAULT == null ? valueURL != null : !VALUE_URL_EDEFAULT.equals(valueURL);
+			case EsbPackage.LOCAL_ENTRY__ENTRY_VERSION:
+				return ENTRY_VERSION_EDEFAULT == null ? entryVersion != null : !ENTRY_VERSION_EDEFAULT.equals(entryVersion);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -365,6 +416,8 @@ public class LocalEntryImpl extends EsbElementImpl implements LocalEntry {
 		result.append(valueXML);
 		result.append(", valueURL: ");
 		result.append(valueURL);
+		result.append(", entryVersion: ");
+		result.append(entryVersion);
 		result.append(')');
 		return result.toString();
 	}

@@ -91,6 +91,7 @@
         eType="#//EndPointProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reversed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CallMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//CallMediatorInputConnector"
@@ -202,6 +203,10 @@
         eType="#//ProxyWSDLResource" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="OnError" eType="#//RegistryKeyProperty"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&quot;&quot;"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SequenceType">
     <eLiterals name="Anonymous"/>
@@ -2322,6 +2327,7 @@
         defaultValueLiteral="&lt;value/>"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="file:/path/to/resource.ext"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entryVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LocalEntryValueType">
     <eLiterals name="LITERAL" literal="In-lined Text Entry"/>
@@ -2348,6 +2354,7 @@
         eType="#//TemplateParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="traceEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="statisticsEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SequencesOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SequencesInputConnector" eSuperTypes="#//InputConnector"/>
@@ -2575,6 +2582,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexEndpointsOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="AddressingEndpoint" eSuperTypes="#//AbstractEndPoint">
@@ -2669,6 +2677,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="failoverMessageStore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MessageProcessorType">
     <eLiterals name="SCHEDULED_MSG_FORWARDING" literal="SCHEDULED_MSG_FORWARDING"/>
@@ -2724,6 +2734,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//MessageProcessorParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="APIHandler" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -3139,6 +3151,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transportFeedType" eType="#//FeedType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="traceEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="statisticsEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InboundEndpointParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

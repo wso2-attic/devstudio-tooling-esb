@@ -32,6 +32,11 @@ public class ESBArtifact {
 	private String file;
 	
 	public String getName() {
+		if(!name.contains("-v")){
+		if(!(version==null||version.equals(""))){
+			return name + "-v" + version;
+		}
+		}
 		return name;
 	}
 	public void setName(String name) {

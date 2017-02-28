@@ -1807,8 +1807,12 @@ public class EsbPaletteFactory {
 							if (esbArtifact.getType().equals(type)) {
 								File artifact = new File(projectPath,
 										esbArtifact.getFile());
-								definedArtifacts.add(artifact.getName()
-										.replaceAll("[.]xml$", ""));
+								String artifactName=artifact.getName();
+								if((artifactName.contains("-v")) && !(esbArtifact.getVersion().equals("")||esbArtifact.getVersion()==null)){
+									artifactName = artifactName.replaceAll("-v", "/");
+								}
+								artifactName = artifactName.replaceAll("[.]xml$", "");
+								definedArtifacts.add(artifactName);
 							}
 						}
 					} catch (Exception e) {

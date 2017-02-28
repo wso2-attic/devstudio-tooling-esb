@@ -48,6 +48,7 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
 public class MessageProcessorModel extends ProjectDataModel {
 
 	private String messageProcessorName;
+	private String messageProcessorVersion;
 	private String messageProcessorType;
 	private String messageStore;
 	private String sourceMessageStore;
@@ -93,6 +94,10 @@ public class MessageProcessorModel extends ProjectDataModel {
 		return messageProcessorName;
 	}
 
+	public String getMessageProcessorVersion() {
+		return messageProcessorVersion;
+	}
+	
 	public String getMessageStore() {
 		return messageStore;
 	}
@@ -119,6 +124,10 @@ public class MessageProcessorModel extends ProjectDataModel {
 
 	public void setMessageProcessorName(String messageProcessorName) {
 		this.messageProcessorName = messageProcessorName;
+	}
+	
+	public void setMessageProcessorVersion(String messageProcessorVersion) {
+		this.messageProcessorVersion = messageProcessorVersion;
 	}
 
 	public String getMessageProcessorType() {
@@ -242,6 +251,9 @@ public class MessageProcessorModel extends ProjectDataModel {
 	}
 
 	public void setEndpointName(String endpointName) {
+		if(endpointName.contains("-v")){
+			endpointName = endpointName.replace("-v", "/");
+		}
 		this.endpointName = endpointName;
 	}
 
@@ -323,6 +335,8 @@ public class MessageProcessorModel extends ProjectDataModel {
 		if (modelPropertyValue == null) {
 			if (key.equals("processor.name")) {
 				modelPropertyValue = getMessageProcessorName();
+			} else if (key.equals("processor.version")) {
+				modelPropertyValue = getMessageProcessorVersion();
 			} else if (key.equals("processor.type")) {
 				modelPropertyValue = getMessageProcessorType();
 			} else if (key.equals("FSC_processor.store")) {
@@ -393,6 +407,8 @@ public class MessageProcessorModel extends ProjectDataModel {
 
 		if (key.equals("processor.name")) {
 			setMessageProcessorName(data.toString());
+		} else if (key.equals("processor.version")) {
+			setMessageProcessorVersion(data.toString());
 		} else if (key.equals("processor.type")) {
 			setMessageProcessorType(data.toString());
 		} else if (key.equals("FSC_processor.store")) {
