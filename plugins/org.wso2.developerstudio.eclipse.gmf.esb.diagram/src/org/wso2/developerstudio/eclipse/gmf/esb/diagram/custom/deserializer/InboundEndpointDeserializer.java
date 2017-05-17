@@ -261,32 +261,35 @@ public class InboundEndpointDeserializer extends
      */
     private void updateParameters(InboundEndpoint inboundEndpointInstance, InboundEndpointType inboundEndpointType) {
         for (Map.Entry<String, String> paramEntry : inboundEndpointInstance.getParametersMap().entrySet()) {
-	    	if(paramEntry.getKey().equals(InboundEndpointConstants.RABBITMQ_CONSUMER_QOS)) {
-	    		addParameterKeyForInboundEndpoint(InboundEndpointConstants.RABBITMQ_CONSUMER_QOS,
-	    				inboundEndpointInstance.getParameterKey(InboundEndpointConstants.RABBITMQ_CONSUMER_QOS),
-	    				ParameterKeyValueType.VALUE, inboundEndpointType);
-	    	} else {
-	    		addParameterForInboundEndpoint(paramEntry, ParameterKeyValueType.VALUE, inboundEndpointType);
-	    	}
+            if (paramEntry.getKey().equals(InboundEndpointConstants.RABBITMQ_CONSUMER_QOS)) {
+                addParameterKeyForInboundEndpoint(InboundEndpointConstants.RABBITMQ_CONSUMER_QOS,
+                        inboundEndpointInstance.getParameterKey(InboundEndpointConstants.RABBITMQ_CONSUMER_QOS),
+                        ParameterKeyValueType.VALUE, inboundEndpointType);
+            } else {
+                addParameterForInboundEndpoint(paramEntry, ParameterKeyValueType.VALUE, inboundEndpointType);
+            }
         }
 
         // TODO proper fix after synapse release getParameterKeyMap
         for (InboundEndpointParameterType parameter : InboundEndpointParameterType.values()) {
             if (inboundEndpointInstance.getParameterKey(parameter.getName()) != null) {
-                addParameterForInboundEndpoint(new ParameterEntry<String, String>(parameter.getName(),
-                        inboundEndpointInstance.getParameterKey(parameter.getName())), ParameterKeyValueType.KEY,
-                        inboundEndpointType);
+                addParameterForInboundEndpoint(
+                        new ParameterEntry<String, String>(parameter.getName(),
+                                inboundEndpointInstance.getParameterKey(parameter.getName())),
+                        ParameterKeyValueType.KEY, inboundEndpointType);
             }
         }
     }
-    
-    private void addParameterKeyForInboundEndpoint(String paramEntryKey,String paramEntryValue, ParameterKeyValueType type,InboundEndpointType inboundEndpointType) {
-    	if (paramEntryKey.equals(InboundEndpointConstants.RABBITMQ_CONSUMER_QOS)) {
-    		executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS, InboundEndpointType.RABBITMQ_VALUE);
-    		RegistryKeyProperty consumerQosKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
-    		consumerQosKey.setKeyValue(paramEntryValue);
-    		executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS, consumerQosKey);
-    	}
+
+    private void addParameterKeyForInboundEndpoint(String paramEntryKey, String paramEntryValue,
+            ParameterKeyValueType type, InboundEndpointType inboundEndpointType) {
+        if (paramEntryKey.equals(InboundEndpointConstants.RABBITMQ_CONSUMER_QOS)) {
+            executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS,
+                    InboundEndpointType.RABBITMQ_VALUE);
+            RegistryKeyProperty consumerQosKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+            consumerQosKey.setKeyValue(paramEntryValue);
+            executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS, consumerQosKey);
+        }
     }
 
     private void addParameterForInboundEndpoint(Map.Entry<String, String> paramEntry, ParameterKeyValueType type,
