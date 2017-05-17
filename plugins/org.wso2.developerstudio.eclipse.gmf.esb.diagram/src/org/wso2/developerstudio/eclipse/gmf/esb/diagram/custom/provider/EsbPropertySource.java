@@ -381,11 +381,7 @@ public class EsbPropertySource extends PropertySource {
 			return new PublishEventAttributesPropertyDescriptor(object, itemPropertyDescriptor, PUBLISH_EVENT_PAYLOAD_CATEGORY);
 		} else if(pkg.getPublishEventMediator_ArbitraryAttributes().equals(feature)){
 			return new PublishEventAttributesPropertyDescriptor(object, itemPropertyDescriptor, PUBLISH_EVENT_ARBITRARY_CATEGORY);
-		} else if(pkg.getInboundEndpoint_TransportRabbitMqConsumerQos().equals(feature)){			
-			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
-		
-		
  		
 			
 		// Else, default EMF behavior

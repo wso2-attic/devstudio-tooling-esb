@@ -57,8 +57,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.VFSFileSort;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSClientSideBroadcastLevel;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Inbound Endpoint</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Inbound Endpoint</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -237,7 +238,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.WSClientSideBroadcastLevel;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportRabbitMqConnectionRetryCount <em>Transport Rabbit Mq Connection Retry Count</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportRabbitMqConnectionRetryInterval <em>Transport Rabbit Mq Connection Retry Interval</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportRabbitMqServerRetryInterval <em>Transport Rabbit Mq Server Retry Interval</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportRabbitMqConsumerQos <em>Transport Rabbit Mq Consumer Qos</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getWsInboundPort <em>Ws Inbound Port</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getWsClientSideBroadcastLevel <em>Ws Client Side Broadcast Level</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getWsOutflowDispatchSequence <em>Ws Outflow Dispatch Sequence</em>}</li>
@@ -256,10 +256,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.WSClientSideBroadcastLevel;
  */
 public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoint {
 	/**
-	 * The cached value of the '{@link #getSequenceInputConnector()
-	 * <em>Sequence Input Connector</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSequenceInputConnector() <em>Sequence Input Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSequenceInputConnector()
 	 * @generated
 	 * @ordered
@@ -267,10 +266,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected InboundEndpointSequenceInputConnector sequenceInputConnector;
 
 	/**
-	 * The cached value of the '{@link #getSequenceOutputConnector()
-	 * <em>Sequence Output Connector</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSequenceOutputConnector() <em>Sequence Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSequenceOutputConnector()
 	 * @generated
 	 * @ordered
@@ -278,10 +276,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected InboundEndpointSequenceOutputConnector sequenceOutputConnector;
 
 	/**
-	 * The cached value of the '{@link #getOnErrorSequenceInputConnector()
-	 * <em>On Error Sequence Input Connector</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getOnErrorSequenceInputConnector() <em>On Error Sequence Input Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOnErrorSequenceInputConnector()
 	 * @generated
 	 * @ordered
@@ -289,10 +286,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected InboundEndpointOnErrorSequenceInputConnector onErrorSequenceInputConnector;
 
 	/**
-	 * The cached value of the '{@link #getOnErrorSequenceOutputConnector()
-	 * <em>On Error Sequence Output Connector</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getOnErrorSequenceOutputConnector() <em>On Error Sequence Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOnErrorSequenceOutputConnector()
 	 * @generated
 	 * @ordered
@@ -301,7 +297,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getContainer() <em>Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getContainer()
 	 * @generated
 	 * @ordered
@@ -310,7 +307,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -319,7 +317,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -328,7 +327,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -337,7 +337,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -346,7 +347,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -355,7 +357,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
@@ -364,7 +367,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProtocol()
 	 * @generated
 	 * @ordered
@@ -373,7 +377,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProtocol()
 	 * @generated
 	 * @ordered
@@ -402,8 +407,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundHttpPort() <em>Inbound Http Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHttpPort()
 	 * @generated
 	 * @ordered
@@ -412,8 +417,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundHttpPort() <em>Inbound Http Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHttpPort()
 	 * @generated
 	 * @ordered
@@ -422,8 +427,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundWorkerPoolSizeCore() <em>Inbound Worker Pool Size Core</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundWorkerPoolSizeCore()
 	 * @generated
 	 * @ordered
@@ -432,8 +437,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundWorkerPoolSizeCore() <em>Inbound Worker Pool Size Core</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundWorkerPoolSizeCore()
 	 * @generated
 	 * @ordered
@@ -442,8 +447,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundWorkerPoolSizeMax() <em>Inbound Worker Pool Size Max</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundWorkerPoolSizeMax()
 	 * @generated
 	 * @ordered
@@ -452,8 +457,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundWorkerPoolSizeMax() <em>Inbound Worker Pool Size Max</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundWorkerPoolSizeMax()
 	 * @generated
 	 * @ordered
@@ -461,10 +466,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String inboundWorkerPoolSizeMax = INBOUND_WORKER_POOL_SIZE_MAX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getInboundWorkerThreadKeepAliveSec()
-	 * <em>Inbound Worker Thread Keep Alive Sec</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getInboundWorkerThreadKeepAliveSec() <em>Inbound Worker Thread Keep Alive Sec</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundWorkerThreadKeepAliveSec()
 	 * @generated
 	 * @ordered
@@ -472,10 +476,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String INBOUND_WORKER_THREAD_KEEP_ALIVE_SEC_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getInboundWorkerThreadKeepAliveSec()
-	 * <em>Inbound Worker Thread Keep Alive Sec</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getInboundWorkerThreadKeepAliveSec() <em>Inbound Worker Thread Keep Alive Sec</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundWorkerThreadKeepAliveSec()
 	 * @generated
 	 * @ordered
@@ -483,10 +486,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String inboundWorkerThreadKeepAliveSec = INBOUND_WORKER_THREAD_KEEP_ALIVE_SEC_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getInboundWorkerPoolQueueLength()
-	 * <em>Inbound Worker Pool Queue Length</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getInboundWorkerPoolQueueLength() <em>Inbound Worker Pool Queue Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundWorkerPoolQueueLength()
 	 * @generated
 	 * @ordered
@@ -494,10 +496,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String INBOUND_WORKER_POOL_QUEUE_LENGTH_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getInboundWorkerPoolQueueLength()
-	 * <em>Inbound Worker Pool Queue Length</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getInboundWorkerPoolQueueLength() <em>Inbound Worker Pool Queue Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundWorkerPoolQueueLength()
 	 * @generated
 	 * @ordered
@@ -526,8 +527,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundThreadId() <em>Inbound Thread Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundThreadId()
 	 * @generated
 	 * @ordered
@@ -536,8 +537,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundThreadId() <em>Inbound Thread Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundThreadId()
 	 * @generated
 	 * @ordered
@@ -566,7 +567,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInterval() <em>Interval</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInterval()
 	 * @generated
 	 * @ordered
@@ -575,7 +577,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInterval() <em>Interval</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInterval()
 	 * @generated
 	 * @ordered
@@ -584,7 +587,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isSequential() <em>Sequential</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isSequential()
 	 * @generated
 	 * @ordered
@@ -593,7 +597,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isSequential() <em>Sequential</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isSequential()
 	 * @generated
 	 * @ordered
@@ -602,7 +607,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isCoordination() <em>Coordination</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isCoordination()
 	 * @generated
 	 * @ordered
@@ -611,7 +617,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isCoordination() <em>Coordination</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isCoordination()
 	 * @generated
 	 * @ordered
@@ -620,8 +627,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportVFSFileURI() <em>Transport VFS File URI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileURI()
 	 * @generated
 	 * @ordered
@@ -630,8 +637,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportVFSFileURI() <em>Transport VFS File URI</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileURI()
 	 * @generated
 	 * @ordered
@@ -640,8 +647,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getWso2mbConnectionUrl() <em>Wso2mb Connection Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWso2mbConnectionUrl()
 	 * @generated
 	 * @ordered
@@ -650,8 +657,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getWso2mbConnectionUrl() <em>Wso2mb Connection Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWso2mbConnectionUrl()
 	 * @generated
 	 * @ordered
@@ -680,8 +687,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportVFSFileNamePattern() <em>Transport VFS File Name Pattern</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileNamePattern()
 	 * @generated
 	 * @ordered
@@ -690,8 +697,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportVFSFileNamePattern() <em>Transport VFS File Name Pattern</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileNamePattern()
 	 * @generated
 	 * @ordered
@@ -699,10 +706,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportVFSFileNamePattern = TRANSPORT_VFS_FILE_NAME_PATTERN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSFileProcessInterval()
-	 * <em>Transport VFS File Process Interval</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSFileProcessInterval() <em>Transport VFS File Process Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileProcessInterval()
 	 * @generated
 	 * @ordered
@@ -710,10 +716,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_VFS_FILE_PROCESS_INTERVAL_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSFileProcessInterval()
-	 * <em>Transport VFS File Process Interval</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSFileProcessInterval() <em>Transport VFS File Process Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileProcessInterval()
 	 * @generated
 	 * @ordered
@@ -721,10 +726,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportVFSFileProcessInterval = TRANSPORT_VFS_FILE_PROCESS_INTERVAL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSFileProcessCount()
-	 * <em>Transport VFS File Process Count</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSFileProcessCount() <em>Transport VFS File Process Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileProcessCount()
 	 * @generated
 	 * @ordered
@@ -732,10 +736,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_VFS_FILE_PROCESS_COUNT_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSFileProcessCount()
-	 * <em>Transport VFS File Process Count</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSFileProcessCount() <em>Transport VFS File Process Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileProcessCount()
 	 * @generated
 	 * @ordered
@@ -744,8 +747,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportVFSLocking() <em>Transport VFS Locking</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSLocking()
 	 * @generated
 	 * @ordered
@@ -754,8 +757,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportVFSLocking() <em>Transport VFS Locking</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSLocking()
 	 * @generated
 	 * @ordered
@@ -764,8 +767,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportVFSMaxRetryCount() <em>Transport VFS Max Retry Count</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMaxRetryCount()
 	 * @generated
 	 * @ordered
@@ -774,8 +777,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportVFSMaxRetryCount() <em>Transport VFS Max Retry Count</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMaxRetryCount()
 	 * @generated
 	 * @ordered
@@ -784,8 +787,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportVFSReconnectTimeout() <em>Transport VFS Reconnect Timeout</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSReconnectTimeout()
 	 * @generated
 	 * @ordered
@@ -794,8 +797,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportVFSReconnectTimeout() <em>Transport VFS Reconnect Timeout</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSReconnectTimeout()
 	 * @generated
 	 * @ordered
@@ -803,10 +806,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportVFSReconnectTimeout = TRANSPORT_VFS_RECONNECT_TIMEOUT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isTransportJMSSharedSubscription()
-	 * <em>Transport JMS Shared Subscription</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isTransportJMSSharedSubscription() <em>Transport JMS Shared Subscription</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportJMSSharedSubscription()
 	 * @generated
 	 * @ordered
@@ -814,10 +816,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final boolean TRANSPORT_JMS_SHARED_SUBSCRIPTION_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isTransportJMSSharedSubscription()
-	 * <em>Transport JMS Shared Subscription</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isTransportJMSSharedSubscription() <em>Transport JMS Shared Subscription</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportJMSSharedSubscription()
 	 * @generated
 	 * @ordered
@@ -826,8 +827,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSSubscriptionName() <em>Transport JMS Subscription Name</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSSubscriptionName()
 	 * @generated
 	 * @ordered
@@ -836,8 +837,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSSubscriptionName() <em>Transport JMS Subscription Name</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSSubscriptionName()
 	 * @generated
 	 * @ordered
@@ -846,8 +847,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSPinnedServers() <em>Transport JMS Pinned Servers</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSPinnedServers()
 	 * @generated
 	 * @ordered
@@ -856,8 +857,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSPinnedServers() <em>Transport JMS Pinned Servers</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSPinnedServers()
 	 * @generated
 	 * @ordered
@@ -865,10 +866,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSPinnedServers = TRANSPORT_JMS_PINNED_SERVERS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSActionAfterProcess()
-	 * <em>Transport VFS Action After Process</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSActionAfterProcess() <em>Transport VFS Action After Process</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSActionAfterProcess()
 	 * @generated
 	 * @ordered
@@ -876,10 +876,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final VFSAction TRANSPORT_VFS_ACTION_AFTER_PROCESS_EDEFAULT = VFSAction.DELETE;
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSActionAfterProcess()
-	 * <em>Transport VFS Action After Process</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSActionAfterProcess() <em>Transport VFS Action After Process</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSActionAfterProcess()
 	 * @generated
 	 * @ordered
@@ -887,10 +886,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected VFSAction transportVFSActionAfterProcess = TRANSPORT_VFS_ACTION_AFTER_PROCESS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSMoveAfterProcess()
-	 * <em>Transport VFS Move After Process</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSMoveAfterProcess() <em>Transport VFS Move After Process</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMoveAfterProcess()
 	 * @generated
 	 * @ordered
@@ -898,10 +896,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_VFS_MOVE_AFTER_PROCESS_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSMoveAfterProcess()
-	 * <em>Transport VFS Move After Process</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSMoveAfterProcess() <em>Transport VFS Move After Process</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMoveAfterProcess()
 	 * @generated
 	 * @ordered
@@ -909,10 +906,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportVFSMoveAfterProcess = TRANSPORT_VFS_MOVE_AFTER_PROCESS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSActionAfterErrors()
-	 * <em>Transport VFS Action After Errors</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSActionAfterErrors() <em>Transport VFS Action After Errors</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSActionAfterErrors()
 	 * @generated
 	 * @ordered
@@ -920,10 +916,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final VFSAction TRANSPORT_VFS_ACTION_AFTER_ERRORS_EDEFAULT = VFSAction.DELETE;
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSActionAfterErrors()
-	 * <em>Transport VFS Action After Errors</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSActionAfterErrors() <em>Transport VFS Action After Errors</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSActionAfterErrors()
 	 * @generated
 	 * @ordered
@@ -932,8 +927,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportVFSMoveAfterErrors() <em>Transport VFS Move After Errors</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMoveAfterErrors()
 	 * @generated
 	 * @ordered
@@ -942,8 +937,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportVFSMoveAfterErrors() <em>Transport VFS Move After Errors</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMoveAfterErrors()
 	 * @generated
 	 * @ordered
@@ -951,10 +946,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportVFSMoveAfterErrors = TRANSPORT_VFS_MOVE_AFTER_ERRORS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSActionAfterFailure()
-	 * <em>Transport VFS Action After Failure</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSActionAfterFailure() <em>Transport VFS Action After Failure</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSActionAfterFailure()
 	 * @generated
 	 * @ordered
@@ -962,10 +956,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final VFSAction TRANSPORT_VFS_ACTION_AFTER_FAILURE_EDEFAULT = VFSAction.DELETE;
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSActionAfterFailure()
-	 * <em>Transport VFS Action After Failure</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSActionAfterFailure() <em>Transport VFS Action After Failure</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSActionAfterFailure()
 	 * @generated
 	 * @ordered
@@ -973,10 +966,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected VFSAction transportVFSActionAfterFailure = TRANSPORT_VFS_ACTION_AFTER_FAILURE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSMoveAfterFailure()
-	 * <em>Transport VFS Move After Failure</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSMoveAfterFailure() <em>Transport VFS Move After Failure</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMoveAfterFailure()
 	 * @generated
 	 * @ordered
@@ -984,10 +976,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_VFS_MOVE_AFTER_FAILURE_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSMoveAfterFailure()
-	 * <em>Transport VFS Move After Failure</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSMoveAfterFailure() <em>Transport VFS Move After Failure</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMoveAfterFailure()
 	 * @generated
 	 * @ordered
@@ -996,8 +987,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isTransportVFSAutoLockRelease() <em>Transport VFS Auto Lock Release</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSAutoLockRelease()
 	 * @generated
 	 * @ordered
@@ -1006,8 +997,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isTransportVFSAutoLockRelease() <em>Transport VFS Auto Lock Release</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSAutoLockRelease()
 	 * @generated
 	 * @ordered
@@ -1015,11 +1006,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean transportVFSAutoLockRelease = TRANSPORT_VFS_AUTO_LOCK_RELEASE_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportVFSAutoLockReleaseInterval()
-	 * <em>Transport VFS Auto Lock Release Interval</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSAutoLockReleaseInterval() <em>Transport VFS Auto Lock Release Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSAutoLockReleaseInterval()
 	 * @generated
 	 * @ordered
@@ -1027,10 +1016,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_VFS_AUTO_LOCK_RELEASE_INTERVAL_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSAutoLockReleaseInterval()
-	 * <em>Transport VFS Auto Lock Release Interval</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSAutoLockReleaseInterval() <em>Transport VFS Auto Lock Release Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSAutoLockReleaseInterval()
 	 * @generated
 	 * @ordered
@@ -1038,10 +1026,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportVFSAutoLockReleaseInterval = TRANSPORT_VFS_AUTO_LOCK_RELEASE_INTERVAL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isTransportVFSLockReleaseSameNode()
-	 * <em>Transport VFS Lock Release Same Node</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isTransportVFSLockReleaseSameNode() <em>Transport VFS Lock Release Same Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSLockReleaseSameNode()
 	 * @generated
 	 * @ordered
@@ -1049,10 +1036,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final boolean TRANSPORT_VFS_LOCK_RELEASE_SAME_NODE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isTransportVFSLockReleaseSameNode()
-	 * <em>Transport VFS Lock Release Same Node</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isTransportVFSLockReleaseSameNode() <em>Transport VFS Lock Release Same Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSLockReleaseSameNode()
 	 * @generated
 	 * @ordered
@@ -1061,8 +1047,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isTransportVFSDistributedLock() <em>Transport VFS Distributed Lock</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSDistributedLock()
 	 * @generated
 	 * @ordered
@@ -1071,8 +1057,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isTransportVFSDistributedLock() <em>Transport VFS Distributed Lock</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSDistributedLock()
 	 * @generated
 	 * @ordered
@@ -1101,8 +1087,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isTransportVFSBuild() <em>Transport VFS Build</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSBuild()
 	 * @generated
 	 * @ordered
@@ -1111,8 +1097,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isTransportVFSBuild() <em>Transport VFS Build</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSBuild()
 	 * @generated
 	 * @ordered
@@ -1120,10 +1106,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean transportVFSBuild = TRANSPORT_VFS_BUILD_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSDistributedTimeout()
-	 * <em>Transport VFS Distributed Timeout</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSDistributedTimeout() <em>Transport VFS Distributed Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSDistributedTimeout()
 	 * @generated
 	 * @ordered
@@ -1131,10 +1116,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_VFS_DISTRIBUTED_TIMEOUT_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSDistributedTimeout()
-	 * <em>Transport VFS Distributed Timeout</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSDistributedTimeout() <em>Transport VFS Distributed Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSDistributedTimeout()
 	 * @generated
 	 * @ordered
@@ -1182,11 +1166,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String javaNamingProviderUrl = JAVA_NAMING_PROVIDER_URL_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportJMSConnectionFactoryJNDIName()
-	 * <em>Transport JMS Connection Factory JNDI Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportJMSConnectionFactoryJNDIName() <em>Transport JMS Connection Factory JNDI Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSConnectionFactoryJNDIName()
 	 * @generated
 	 * @ordered
@@ -1194,11 +1176,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_JMS_CONNECTION_FACTORY_JNDI_NAME_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportJMSConnectionFactoryJNDIName()
-	 * <em>Transport JMS Connection Factory JNDI Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportJMSConnectionFactoryJNDIName() <em>Transport JMS Connection Factory JNDI Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSConnectionFactoryJNDIName()
 	 * @generated
 	 * @ordered
@@ -1206,10 +1186,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSConnectionFactoryJNDIName = TRANSPORT_JMS_CONNECTION_FACTORY_JNDI_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportJMSConnectionFactoryType()
-	 * <em>Transport JMS Connection Factory Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportJMSConnectionFactoryType() <em>Transport JMS Connection Factory Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSConnectionFactoryType()
 	 * @generated
 	 * @ordered
@@ -1217,10 +1196,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final JMSConnectionFactoryType TRANSPORT_JMS_CONNECTION_FACTORY_TYPE_EDEFAULT = JMSConnectionFactoryType.TOPIC;
 
 	/**
-	 * The cached value of the '{@link #getTransportJMSConnectionFactoryType()
-	 * <em>Transport JMS Connection Factory Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportJMSConnectionFactoryType() <em>Transport JMS Connection Factory Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSConnectionFactoryType()
 	 * @generated
 	 * @ordered
@@ -1228,10 +1206,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected JMSConnectionFactoryType transportJMSConnectionFactoryType = TRANSPORT_JMS_CONNECTION_FACTORY_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportJMSConcurrentConsumers()
-	 * <em>Transport JMS Concurrent Consumers</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportJMSConcurrentConsumers() <em>Transport JMS Concurrent Consumers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSConcurrentConsumers()
 	 * @generated
 	 * @ordered
@@ -1239,10 +1216,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_JMS_CONCURRENT_CONSUMERS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportJMSConcurrentConsumers()
-	 * <em>Transport JMS Concurrent Consumers</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportJMSConcurrentConsumers() <em>Transport JMS Concurrent Consumers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSConcurrentConsumers()
 	 * @generated
 	 * @ordered
@@ -1270,10 +1246,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSDestination = TRANSPORT_JMS_DESTINATION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isTransportJMSSessionTransacted()
-	 * <em>Transport JMS Session Transacted</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isTransportJMSSessionTransacted() <em>Transport JMS Session Transacted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportJMSSessionTransacted()
 	 * @generated
 	 * @ordered
@@ -1281,10 +1256,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final boolean TRANSPORT_JMS_SESSION_TRANSACTED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isTransportJMSSessionTransacted()
-	 * <em>Transport JMS Session Transacted</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isTransportJMSSessionTransacted() <em>Transport JMS Session Transacted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportJMSSessionTransacted()
 	 * @generated
 	 * @ordered
@@ -1292,10 +1266,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean transportJMSSessionTransacted = TRANSPORT_JMS_SESSION_TRANSACTED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportJMSSessionAcknowledgement()
-	 * <em>Transport JMS Session Acknowledgement</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportJMSSessionAcknowledgement() <em>Transport JMS Session Acknowledgement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSSessionAcknowledgement()
 	 * @generated
 	 * @ordered
@@ -1303,10 +1276,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final JMSSessionAcknowledgement TRANSPORT_JMS_SESSION_ACKNOWLEDGEMENT_EDEFAULT = JMSSessionAcknowledgement.AUTO_ACKNOWLEDGE;
 
 	/**
-	 * The cached value of the '{@link #getTransportJMSSessionAcknowledgement()
-	 * <em>Transport JMS Session Acknowledgement</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportJMSSessionAcknowledgement() <em>Transport JMS Session Acknowledgement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSSessionAcknowledgement()
 	 * @generated
 	 * @ordered
@@ -1355,8 +1327,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSPassword() <em>Transport JMS Password</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSPassword()
 	 * @generated
 	 * @ordered
@@ -1365,8 +1337,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSPassword() <em>Transport JMS Password</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSPassword()
 	 * @generated
 	 * @ordered
@@ -1375,8 +1347,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSJMSSpecVersion() <em>Transport JMSJMS Spec Version</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSJMSSpecVersion()
 	 * @generated
 	 * @ordered
@@ -1385,8 +1357,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSJMSSpecVersion() <em>Transport JMSJMS Spec Version</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSJMSSpecVersion()
 	 * @generated
 	 * @ordered
@@ -1394,10 +1366,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSJMSSpecVersion = TRANSPORT_JMSJMS_SPEC_VERSION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportJMSSubscriptionDurable()
-	 * <em>Transport JMS Subscription Durable</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportJMSSubscriptionDurable() <em>Transport JMS Subscription Durable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSSubscriptionDurable()
 	 * @generated
 	 * @ordered
@@ -1405,10 +1376,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_JMS_SUBSCRIPTION_DURABLE_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportJMSSubscriptionDurable()
-	 * <em>Transport JMS Subscription Durable</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportJMSSubscriptionDurable() <em>Transport JMS Subscription Durable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSSubscriptionDurable()
 	 * @generated
 	 * @ordered
@@ -1416,11 +1386,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSSubscriptionDurable = TRANSPORT_JMS_SUBSCRIPTION_DURABLE_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportJMSDurableSubscriberClientID()
-	 * <em>Transport JMS Durable Subscriber Client ID</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportJMSDurableSubscriberClientID() <em>Transport JMS Durable Subscriber Client ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSDurableSubscriberClientID()
 	 * @generated
 	 * @ordered
@@ -1428,11 +1396,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_JMS_DURABLE_SUBSCRIBER_CLIENT_ID_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportJMSDurableSubscriberClientID()
-	 * <em>Transport JMS Durable Subscriber Client ID</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportJMSDurableSubscriberClientID() <em>Transport JMS Durable Subscriber Client ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSDurableSubscriberClientID()
 	 * @generated
 	 * @ordered
@@ -1441,8 +1407,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSMessageSelector() <em>Transport JMS Message Selector</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSMessageSelector()
 	 * @generated
 	 * @ordered
@@ -1451,8 +1417,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSMessageSelector() <em>Transport JMS Message Selector</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSMessageSelector()
 	 * @generated
 	 * @ordered
@@ -1461,8 +1427,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSRetryDuration() <em>Transport JMS Retry Duration</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSRetryDuration()
 	 * @generated
 	 * @ordered
@@ -1471,8 +1437,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSRetryDuration() <em>Transport JMS Retry Duration</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSRetryDuration()
 	 * @generated
 	 * @ordered
@@ -1480,10 +1446,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSRetryDuration = TRANSPORT_JMS_RETRY_DURATION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSMoveTimestampFormat()
-	 * <em>Transport VFS Move Timestamp Format</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSMoveTimestampFormat() <em>Transport VFS Move Timestamp Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMoveTimestampFormat()
 	 * @generated
 	 * @ordered
@@ -1491,10 +1456,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_VFS_MOVE_TIMESTAMP_FORMAT_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSMoveTimestampFormat()
-	 * <em>Transport VFS Move Timestamp Format</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSMoveTimestampFormat() <em>Transport VFS Move Timestamp Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSMoveTimestampFormat()
 	 * @generated
 	 * @ordered
@@ -1502,10 +1466,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportVFSMoveTimestampFormat = TRANSPORT_VFS_MOVE_TIMESTAMP_FORMAT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportVFSFileSortAttribute()
-	 * <em>Transport VFS File Sort Attribute</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSFileSortAttribute() <em>Transport VFS File Sort Attribute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileSortAttribute()
 	 * @generated
 	 * @ordered
@@ -1513,10 +1476,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final VFSFileSort TRANSPORT_VFS_FILE_SORT_ATTRIBUTE_EDEFAULT = VFSFileSort.NONE;
 
 	/**
-	 * The cached value of the '{@link #getTransportVFSFileSortAttribute()
-	 * <em>Transport VFS File Sort Attribute</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSFileSortAttribute() <em>Transport VFS File Sort Attribute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSFileSortAttribute()
 	 * @generated
 	 * @ordered
@@ -1524,10 +1486,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected VFSFileSort transportVFSFileSortAttribute = TRANSPORT_VFS_FILE_SORT_ATTRIBUTE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isTransportVFSFileSortAscending()
-	 * <em>Transport VFS File Sort Ascending</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isTransportVFSFileSortAscending() <em>Transport VFS File Sort Ascending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSFileSortAscending()
 	 * @generated
 	 * @ordered
@@ -1535,10 +1496,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final boolean TRANSPORT_VFS_FILE_SORT_ASCENDING_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isTransportVFSFileSortAscending()
-	 * <em>Transport VFS File Sort Ascending</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isTransportVFSFileSortAscending() <em>Transport VFS File Sort Ascending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportVFSFileSortAscending()
 	 * @generated
 	 * @ordered
@@ -1546,11 +1506,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean transportVFSFileSortAscending = TRANSPORT_VFS_FILE_SORT_ASCENDING_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportVFSSubFolderTimestampFormat()
-	 * <em>Transport VFS Sub Folder Timestamp Format</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportVFSSubFolderTimestampFormat() <em>Transport VFS Sub Folder Timestamp Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSSubFolderTimestampFormat()
 	 * @generated
 	 * @ordered
@@ -1558,11 +1516,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_VFS_SUB_FOLDER_TIMESTAMP_FORMAT_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportVFSSubFolderTimestampFormat()
-	 * <em>Transport VFS Sub Folder Timestamp Format</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportVFSSubFolderTimestampFormat() <em>Transport VFS Sub Folder Timestamp Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportVFSSubFolderTimestampFormat()
 	 * @generated
 	 * @ordered
@@ -1591,8 +1547,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSReceiveTimeout() <em>Transport JMS Receive Timeout</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSReceiveTimeout()
 	 * @generated
 	 * @ordered
@@ -1601,8 +1557,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSReceiveTimeout() <em>Transport JMS Receive Timeout</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSReceiveTimeout()
 	 * @generated
 	 * @ordered
@@ -1630,10 +1586,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSContentType = TRANSPORT_JMS_CONTENT_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportJMSContentTypeProperty()
-	 * <em>Transport JMS Content Type Property</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportJMSContentTypeProperty() <em>Transport JMS Content Type Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSContentTypeProperty()
 	 * @generated
 	 * @ordered
@@ -1641,10 +1596,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_JMS_CONTENT_TYPE_PROPERTY_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportJMSContentTypeProperty()
-	 * <em>Transport JMS Content Type Property</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportJMSContentTypeProperty() <em>Transport JMS Content Type Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSContentTypeProperty()
 	 * @generated
 	 * @ordered
@@ -1653,8 +1607,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSReplyDestination() <em>Transport JMS Reply Destination</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSReplyDestination()
 	 * @generated
 	 * @ordered
@@ -1663,8 +1617,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSReplyDestination() <em>Transport JMS Reply Destination</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSReplyDestination()
 	 * @generated
 	 * @ordered
@@ -1673,8 +1627,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportJMSPubSubNoLocal() <em>Transport JMS Pub Sub No Local</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSPubSubNoLocal()
 	 * @generated
 	 * @ordered
@@ -1683,8 +1637,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportJMSPubSubNoLocal() <em>Transport JMS Pub Sub No Local</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSPubSubNoLocal()
 	 * @generated
 	 * @ordered
@@ -1692,10 +1646,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSPubSubNoLocal = TRANSPORT_JMS_PUB_SUB_NO_LOCAL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportJMSDurableSubscriberName()
-	 * <em>Transport JMS Durable Subscriber Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportJMSDurableSubscriberName() <em>Transport JMS Durable Subscriber Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSDurableSubscriberName()
 	 * @generated
 	 * @ordered
@@ -1703,10 +1656,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_JMS_DURABLE_SUBSCRIBER_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportJMSDurableSubscriberName()
-	 * <em>Transport JMS Durable Subscriber Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportJMSDurableSubscriberName() <em>Transport JMS Durable Subscriber Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportJMSDurableSubscriberName()
 	 * @generated
 	 * @ordered
@@ -1714,10 +1666,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportJMSDurableSubscriberName = TRANSPORT_JMS_DURABLE_SUBSCRIBER_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportMQTTConnectionFactory()
-	 * <em>Transport MQTT Connection Factory</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportMQTTConnectionFactory() <em>Transport MQTT Connection Factory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTConnectionFactory()
 	 * @generated
 	 * @ordered
@@ -1725,10 +1676,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_MQTT_CONNECTION_FACTORY_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportMQTTConnectionFactory()
-	 * <em>Transport MQTT Connection Factory</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportMQTTConnectionFactory() <em>Transport MQTT Connection Factory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTConnectionFactory()
 	 * @generated
 	 * @ordered
@@ -1737,8 +1687,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportMQTTServerHostName() <em>Transport MQTT Server Host Name</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTServerHostName()
 	 * @generated
 	 * @ordered
@@ -1747,8 +1697,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportMQTTServerHostName() <em>Transport MQTT Server Host Name</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTServerHostName()
 	 * @generated
 	 * @ordered
@@ -1797,8 +1747,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportMQTTSubscriptionQOS() <em>Transport MQTT Subscription QOS</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTSubscriptionQOS()
 	 * @generated
 	 * @ordered
@@ -1807,8 +1757,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportMQTTSubscriptionQOS() <em>Transport MQTT Subscription QOS</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTSubscriptionQOS()
 	 * @generated
 	 * @ordered
@@ -1817,8 +1767,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isTransportMQTTSessionClean() <em>Transport MQTT Session Clean</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportMQTTSessionClean()
 	 * @generated
 	 * @ordered
@@ -1827,8 +1777,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isTransportMQTTSessionClean() <em>Transport MQTT Session Clean</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTransportMQTTSessionClean()
 	 * @generated
 	 * @ordered
@@ -1856,11 +1806,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportMQTTSslEnable = TRANSPORT_MQTT_SSL_ENABLE_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportMQTTTemporaryStoreDirectory()
-	 * <em>Transport MQTT Temporary Store Directory</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportMQTTTemporaryStoreDirectory() <em>Transport MQTT Temporary Store Directory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTTemporaryStoreDirectory()
 	 * @generated
 	 * @ordered
@@ -1868,11 +1816,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_MQTT_TEMPORARY_STORE_DIRECTORY_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportMQTTTemporaryStoreDirectory()
-	 * <em>Transport MQTT Temporary Store Directory</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportMQTTTemporaryStoreDirectory() <em>Transport MQTT Temporary Store Directory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTTemporaryStoreDirectory()
 	 * @generated
 	 * @ordered
@@ -1880,10 +1826,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportMQTTTemporaryStoreDirectory = TRANSPORT_MQTT_TEMPORARY_STORE_DIRECTORY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportMQTTSubscriptionUsername()
-	 * <em>Transport MQTT Subscription Username</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportMQTTSubscriptionUsername() <em>Transport MQTT Subscription Username</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTSubscriptionUsername()
 	 * @generated
 	 * @ordered
@@ -1891,10 +1836,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_MQTT_SUBSCRIPTION_USERNAME_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportMQTTSubscriptionUsername()
-	 * <em>Transport MQTT Subscription Username</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportMQTTSubscriptionUsername() <em>Transport MQTT Subscription Username</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTSubscriptionUsername()
 	 * @generated
 	 * @ordered
@@ -1902,10 +1846,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportMQTTSubscriptionUsername = TRANSPORT_MQTT_SUBSCRIPTION_USERNAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportMQTTSubscriptionPassword()
-	 * <em>Transport MQTT Subscription Password</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportMQTTSubscriptionPassword() <em>Transport MQTT Subscription Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTSubscriptionPassword()
 	 * @generated
 	 * @ordered
@@ -1913,10 +1856,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_MQTT_SUBSCRIPTION_PASSWORD_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getTransportMQTTSubscriptionPassword()
-	 * <em>Transport MQTT Subscription Password</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportMQTTSubscriptionPassword() <em>Transport MQTT Subscription Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportMQTTSubscriptionPassword()
 	 * @generated
 	 * @ordered
@@ -1945,7 +1887,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTruststore() <em>Truststore</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTruststore()
 	 * @generated
 	 * @ordered
@@ -1954,7 +1897,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTruststore() <em>Truststore</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTruststore()
 	 * @generated
 	 * @ordered
@@ -1963,7 +1907,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getKeystore() <em>Keystore</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getKeystore()
 	 * @generated
 	 * @ordered
@@ -1972,7 +1917,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getKeystore() <em>Keystore</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getKeystore()
 	 * @generated
 	 * @ordered
@@ -1981,8 +1927,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getSslVerifyClient() <em>Ssl Verify Client</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSslVerifyClient()
 	 * @generated
 	 * @ordered
@@ -1991,8 +1937,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getSslVerifyClient() <em>Ssl Verify Client</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSslVerifyClient()
 	 * @generated
 	 * @ordered
@@ -2001,7 +1947,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getSslProtocol() <em>Ssl Protocol</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSslProtocol()
 	 * @generated
 	 * @ordered
@@ -2010,7 +1957,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getSslProtocol() <em>Ssl Protocol</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSslProtocol()
 	 * @generated
 	 * @ordered
@@ -2019,8 +1967,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getHttpsProtocols() <em>Https Protocols</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getHttpsProtocols()
 	 * @generated
 	 * @ordered
@@ -2029,8 +1977,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getHttpsProtocols() <em>Https Protocols</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getHttpsProtocols()
 	 * @generated
 	 * @ordered
@@ -2039,8 +1987,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getCertificateRevocationVerifier() <em>Certificate Revocation Verifier</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCertificateRevocationVerifier()
 	 * @generated
 	 * @ordered
@@ -2049,8 +1997,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getCertificateRevocationVerifier() <em>Certificate Revocation Verifier</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCertificateRevocationVerifier()
 	 * @generated
 	 * @ordered
@@ -2059,8 +2007,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundHL7Port() <em>Inbound HL7 Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHL7Port()
 	 * @generated
 	 * @ordered
@@ -2069,8 +2017,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundHL7Port() <em>Inbound HL7 Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHL7Port()
 	 * @generated
 	 * @ordered
@@ -2079,8 +2027,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isInboundHL7AutoAck() <em>Inbound HL7 Auto Ack</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isInboundHL7AutoAck()
 	 * @generated
 	 * @ordered
@@ -2089,8 +2037,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isInboundHL7AutoAck() <em>Inbound HL7 Auto Ack</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isInboundHL7AutoAck()
 	 * @generated
 	 * @ordered
@@ -2098,10 +2046,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean inboundHL7AutoAck = INBOUND_HL7_AUTO_ACK_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getInboundHL7MessagePreProcessor()
-	 * <em>Inbound HL7 Message Pre Processor</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getInboundHL7MessagePreProcessor() <em>Inbound HL7 Message Pre Processor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHL7MessagePreProcessor()
 	 * @generated
 	 * @ordered
@@ -2109,10 +2056,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String INBOUND_HL7_MESSAGE_PRE_PROCESSOR_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getInboundHL7MessagePreProcessor()
-	 * <em>Inbound HL7 Message Pre Processor</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getInboundHL7MessagePreProcessor() <em>Inbound HL7 Message Pre Processor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHL7MessagePreProcessor()
 	 * @generated
 	 * @ordered
@@ -2121,8 +2067,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundHL7CharSet() <em>Inbound HL7 Char Set</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHL7CharSet()
 	 * @generated
 	 * @ordered
@@ -2131,8 +2077,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundHL7CharSet() <em>Inbound HL7 Char Set</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHL7CharSet()
 	 * @generated
 	 * @ordered
@@ -2141,8 +2087,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundHL7TimeOut() <em>Inbound HL7 Time Out</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHL7TimeOut()
 	 * @generated
 	 * @ordered
@@ -2151,8 +2097,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundHL7TimeOut() <em>Inbound HL7 Time Out</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundHL7TimeOut()
 	 * @generated
 	 * @ordered
@@ -2161,8 +2107,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isInboundHL7ValidateMessage() <em>Inbound HL7 Validate Message</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isInboundHL7ValidateMessage()
 	 * @generated
 	 * @ordered
@@ -2171,8 +2117,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isInboundHL7ValidateMessage() <em>Inbound HL7 Validate Message</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isInboundHL7ValidateMessage()
 	 * @generated
 	 * @ordered
@@ -2180,10 +2126,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean inboundHL7ValidateMessage = INBOUND_HL7_VALIDATE_MESSAGE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isInboundHL7BuildInvalidMessages()
-	 * <em>Inbound HL7 Build Invalid Messages</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isInboundHL7BuildInvalidMessages() <em>Inbound HL7 Build Invalid Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isInboundHL7BuildInvalidMessages()
 	 * @generated
 	 * @ordered
@@ -2191,10 +2136,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final boolean INBOUND_HL7_BUILD_INVALID_MESSAGES_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isInboundHL7BuildInvalidMessages()
-	 * <em>Inbound HL7 Build Invalid Messages</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isInboundHL7BuildInvalidMessages() <em>Inbound HL7 Build Invalid Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isInboundHL7BuildInvalidMessages()
 	 * @generated
 	 * @ordered
@@ -2202,11 +2146,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean inboundHL7BuildInvalidMessages = INBOUND_HL7_BUILD_INVALID_MESSAGES_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #isInboundHL7PassThroughInvalidMessages()
-	 * <em>Inbound HL7 Pass Through Invalid Messages</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isInboundHL7PassThroughInvalidMessages() <em>Inbound HL7 Pass Through Invalid Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isInboundHL7PassThroughInvalidMessages()
 	 * @generated
 	 * @ordered
@@ -2214,10 +2156,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final boolean INBOUND_HL7_PASS_THROUGH_INVALID_MESSAGES_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isInboundHL7PassThroughInvalidMessages()
-	 * <em>Inbound HL7 Pass Through Invalid Messages</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isInboundHL7PassThroughInvalidMessages() <em>Inbound HL7 Pass Through Invalid Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isInboundHL7PassThroughInvalidMessages()
 	 * @generated
 	 * @ordered
@@ -2226,8 +2167,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getZookeeperConnect() <em>Zookeeper Connect</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getZookeeperConnect()
 	 * @generated
 	 * @ordered
@@ -2236,8 +2177,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getZookeeperConnect() <em>Zookeeper Connect</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getZookeeperConnect()
 	 * @generated
 	 * @ordered
@@ -2246,7 +2187,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -2255,7 +2197,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -2264,7 +2207,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getContentType() <em>Content Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getContentType()
 	 * @generated
 	 * @ordered
@@ -2273,7 +2217,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getContentType() <em>Content Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getContentType()
 	 * @generated
 	 * @ordered
@@ -2282,8 +2227,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getConsumerType() <em>Consumer Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConsumerType()
 	 * @generated
 	 * @ordered
@@ -2292,7 +2237,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getConsumerType() <em>Consumer Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConsumerType()
 	 * @generated
 	 * @ordered
@@ -2301,8 +2247,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTopicsOrTopicFilter() <em>Topics Or Topic Filter</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTopicsOrTopicFilter()
 	 * @generated
 	 * @ordered
@@ -2311,8 +2257,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTopicsOrTopicFilter() <em>Topics Or Topic Filter</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTopicsOrTopicFilter()
 	 * @generated
 	 * @ordered
@@ -2321,7 +2267,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTopicsName() <em>Topics Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTopicsName()
 	 * @generated
 	 * @ordered
@@ -2330,7 +2277,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTopicsName() <em>Topics Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTopicsName()
 	 * @generated
 	 * @ordered
@@ -2339,8 +2287,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTopicFilterFrom() <em>Topic Filter From</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTopicFilterFrom()
 	 * @generated
 	 * @ordered
@@ -2349,8 +2297,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTopicFilterFrom() <em>Topic Filter From</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTopicFilterFrom()
 	 * @generated
 	 * @ordered
@@ -2359,8 +2307,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTopicFilterName() <em>Topic Filter Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTopicFilterName()
 	 * @generated
 	 * @ordered
@@ -2369,8 +2317,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTopicFilterName() <em>Topic Filter Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTopicFilterName()
 	 * @generated
 	 * @ordered
@@ -2379,8 +2327,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getSimpleConsumerTopic() <em>Simple Consumer Topic</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSimpleConsumerTopic()
 	 * @generated
 	 * @ordered
@@ -2389,8 +2337,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getSimpleConsumerTopic() <em>Simple Consumer Topic</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSimpleConsumerTopic()
 	 * @generated
 	 * @ordered
@@ -2419,8 +2367,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getSimpleConsumerPort() <em>Simple Consumer Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSimpleConsumerPort()
 	 * @generated
 	 * @ordered
@@ -2429,8 +2377,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getSimpleConsumerPort() <em>Simple Consumer Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSimpleConsumerPort()
 	 * @generated
 	 * @ordered
@@ -2458,10 +2406,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String simpleConsumerPartition = SIMPLE_CONSUMER_PARTITION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSimpleConsumerMaxMessagesToRead()
-	 * <em>Simple Consumer Max Messages To Read</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getSimpleConsumerMaxMessagesToRead() <em>Simple Consumer Max Messages To Read</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSimpleConsumerMaxMessagesToRead()
 	 * @generated
 	 * @ordered
@@ -2469,10 +2416,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String SIMPLE_CONSUMER_MAX_MESSAGES_TO_READ_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSimpleConsumerMaxMessagesToRead()
-	 * <em>Simple Consumer Max Messages To Read</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSimpleConsumerMaxMessagesToRead() <em>Simple Consumer Max Messages To Read</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSimpleConsumerMaxMessagesToRead()
 	 * @generated
 	 * @ordered
@@ -2481,7 +2427,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getThreadCount() <em>Thread Count</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getThreadCount()
 	 * @generated
 	 * @ordered
@@ -2490,7 +2437,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getThreadCount() <em>Thread Count</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getThreadCount()
 	 * @generated
 	 * @ordered
@@ -2499,7 +2447,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getConsumerId() <em>Consumer Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConsumerId()
 	 * @generated
 	 * @ordered
@@ -2508,7 +2457,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getConsumerId() <em>Consumer Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConsumerId()
 	 * @generated
 	 * @ordered
@@ -2517,8 +2467,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getSocketTimeoutMs() <em>Socket Timeout Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSocketTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2527,8 +2477,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getSocketTimeoutMs() <em>Socket Timeout Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSocketTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2577,8 +2527,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getNumConsumerFetches() <em>Num Consumer Fetches</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNumConsumerFetches()
 	 * @generated
 	 * @ordered
@@ -2587,8 +2537,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getNumConsumerFetches() <em>Num Consumer Fetches</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNumConsumerFetches()
 	 * @generated
 	 * @ordered
@@ -2597,8 +2547,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isAutoCommitEnable() <em>Auto Commit Enable</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isAutoCommitEnable()
 	 * @generated
 	 * @ordered
@@ -2607,8 +2557,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isAutoCommitEnable() <em>Auto Commit Enable</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isAutoCommitEnable()
 	 * @generated
 	 * @ordered
@@ -2657,8 +2607,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getRebalanceMaxRetries() <em>Rebalance Max Retries</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRebalanceMaxRetries()
 	 * @generated
 	 * @ordered
@@ -2667,8 +2617,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getRebalanceMaxRetries() <em>Rebalance Max Retries</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRebalanceMaxRetries()
 	 * @generated
 	 * @ordered
@@ -2677,8 +2627,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getFetchMinBytes() <em>Fetch Min Bytes</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFetchMinBytes()
 	 * @generated
 	 * @ordered
@@ -2687,8 +2637,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getFetchMinBytes() <em>Fetch Min Bytes</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFetchMinBytes()
 	 * @generated
 	 * @ordered
@@ -2697,8 +2647,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getFetchWaitMaxMs() <em>Fetch Wait Max Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFetchWaitMaxMs()
 	 * @generated
 	 * @ordered
@@ -2707,8 +2657,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getFetchWaitMaxMs() <em>Fetch Wait Max Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFetchWaitMaxMs()
 	 * @generated
 	 * @ordered
@@ -2717,8 +2667,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getRebalanceBackoffMs() <em>Rebalance Backoff Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRebalanceBackoffMs()
 	 * @generated
 	 * @ordered
@@ -2727,8 +2677,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getRebalanceBackoffMs() <em>Rebalance Backoff Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRebalanceBackoffMs()
 	 * @generated
 	 * @ordered
@@ -2757,8 +2707,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getAutoOffsetReset() <em>Auto Offset Reset</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getAutoOffsetReset()
 	 * @generated
 	 * @ordered
@@ -2767,8 +2717,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getAutoOffsetReset() <em>Auto Offset Reset</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getAutoOffsetReset()
 	 * @generated
 	 * @ordered
@@ -2777,8 +2727,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getConsumerTimeoutMs() <em>Consumer Timeout Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConsumerTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2787,8 +2737,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getConsumerTimeoutMs() <em>Consumer Timeout Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConsumerTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2817,8 +2767,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getPartitionAssignmentStrategy() <em>Partition Assignment Strategy</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPartitionAssignmentStrategy()
 	 * @generated
 	 * @ordered
@@ -2827,8 +2777,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getPartitionAssignmentStrategy() <em>Partition Assignment Strategy</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPartitionAssignmentStrategy()
 	 * @generated
 	 * @ordered
@@ -2837,7 +2787,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getClientId() <em>Client Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClientId()
 	 * @generated
 	 * @ordered
@@ -2846,7 +2797,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getClientId() <em>Client Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClientId()
 	 * @generated
 	 * @ordered
@@ -2855,8 +2807,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getZookeeperSessionTimeoutMs() <em>Zookeeper Session Timeout Ms</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getZookeeperSessionTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2865,8 +2817,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getZookeeperSessionTimeoutMs() <em>Zookeeper Session Timeout Ms</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getZookeeperSessionTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2875,8 +2827,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getZookeeperConnectionTimeoutMs() <em>Zookeeper Connection Timeout Ms</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getZookeeperConnectionTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2885,8 +2837,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getZookeeperConnectionTimeoutMs() <em>Zookeeper Connection Timeout Ms</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getZookeeperConnectionTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2895,8 +2847,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getZookeeperSyncTimeMs() <em>Zookeeper Sync Time Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getZookeeperSyncTimeMs()
 	 * @generated
 	 * @ordered
@@ -2905,8 +2857,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getZookeeperSyncTimeMs() <em>Zookeeper Sync Time Ms</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getZookeeperSyncTimeMs()
 	 * @generated
 	 * @ordered
@@ -2915,8 +2867,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getOffsetsStorage() <em>Offsets Storage</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOffsetsStorage()
 	 * @generated
 	 * @ordered
@@ -2925,8 +2877,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getOffsetsStorage() <em>Offsets Storage</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOffsetsStorage()
 	 * @generated
 	 * @ordered
@@ -2954,10 +2906,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String offsetsChannelBackoffMs = OFFSETS_CHANNEL_BACKOFF_MS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getOffsetsChannelSocketTimeoutMs()
-	 * <em>Offsets Channel Socket Timeout Ms</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getOffsetsChannelSocketTimeoutMs() <em>Offsets Channel Socket Timeout Ms</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOffsetsChannelSocketTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2965,10 +2916,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String OFFSETS_CHANNEL_SOCKET_TIMEOUT_MS_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getOffsetsChannelSocketTimeoutMs()
-	 * <em>Offsets Channel Socket Timeout Ms</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getOffsetsChannelSocketTimeoutMs() <em>Offsets Channel Socket Timeout Ms</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOffsetsChannelSocketTimeoutMs()
 	 * @generated
 	 * @ordered
@@ -2997,8 +2947,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isDualCommitEnabled() <em>Dual Commit Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDualCommitEnabled()
 	 * @generated
 	 * @ordered
@@ -3007,8 +2957,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isDualCommitEnabled() <em>Dual Commit Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDualCommitEnabled()
 	 * @generated
 	 * @ordered
@@ -3017,8 +2967,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundCxfRmHost() <em>Inbound Cxf Rm Host</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundCxfRmHost()
 	 * @generated
 	 * @ordered
@@ -3027,8 +2977,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundCxfRmHost() <em>Inbound Cxf Rm Host</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundCxfRmHost()
 	 * @generated
 	 * @ordered
@@ -3037,8 +2987,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getInboundCxfRmPort() <em>Inbound Cxf Rm Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundCxfRmPort()
 	 * @generated
 	 * @ordered
@@ -3047,8 +2997,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getInboundCxfRmPort() <em>Inbound Cxf Rm Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInboundCxfRmPort()
 	 * @generated
 	 * @ordered
@@ -3077,7 +3027,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isEnableSSL() <em>Enable SSL</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isEnableSSL()
 	 * @generated
 	 * @ordered
@@ -3086,7 +3037,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isEnableSSL() <em>Enable SSL</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isEnableSSL()
 	 * @generated
 	 * @ordered
@@ -3094,10 +3046,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean enableSSL = ENABLE_SSL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getServiceParameters()
-	 * <em>Service Parameters</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getServiceParameters() <em>Service Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getServiceParameters()
 	 * @generated
 	 * @ordered
@@ -3106,7 +3057,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isSuspend() <em>Suspend</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isSuspend()
 	 * @generated
 	 * @ordered
@@ -3115,7 +3067,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isSuspend() <em>Suspend</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isSuspend()
 	 * @generated
 	 * @ordered
@@ -3123,10 +3076,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean suspend = SUSPEND_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqConnectionFactory()
-	 * <em>Transport Rabbit Mq Connection Factory</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqConnectionFactory() <em>Transport Rabbit Mq Connection Factory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionFactory()
 	 * @generated
 	 * @ordered
@@ -3134,10 +3086,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_CONNECTION_FACTORY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqConnectionFactory()
-	 * <em>Transport Rabbit Mq Connection Factory</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqConnectionFactory() <em>Transport Rabbit Mq Connection Factory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionFactory()
 	 * @generated
 	 * @ordered
@@ -3145,10 +3096,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqConnectionFactory = TRANSPORT_RABBIT_MQ_CONNECTION_FACTORY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqServerHostName()
-	 * <em>Transport Rabbit Mq Server Host Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqServerHostName() <em>Transport Rabbit Mq Server Host Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerHostName()
 	 * @generated
 	 * @ordered
@@ -3156,10 +3106,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_SERVER_HOST_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqServerHostName()
-	 * <em>Transport Rabbit Mq Server Host Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqServerHostName() <em>Transport Rabbit Mq Server Host Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerHostName()
 	 * @generated
 	 * @ordered
@@ -3168,8 +3117,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportRabbitMqServerPort() <em>Transport Rabbit Mq Server Port</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerPort()
 	 * @generated
 	 * @ordered
@@ -3178,8 +3127,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportRabbitMqServerPort() <em>Transport Rabbit Mq Server Port</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerPort()
 	 * @generated
 	 * @ordered
@@ -3187,10 +3136,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqServerPort = TRANSPORT_RABBIT_MQ_SERVER_PORT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqServerUserName()
-	 * <em>Transport Rabbit Mq Server User Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqServerUserName() <em>Transport Rabbit Mq Server User Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerUserName()
 	 * @generated
 	 * @ordered
@@ -3198,10 +3146,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_SERVER_USER_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqServerUserName()
-	 * <em>Transport Rabbit Mq Server User Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqServerUserName() <em>Transport Rabbit Mq Server User Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerUserName()
 	 * @generated
 	 * @ordered
@@ -3209,10 +3156,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqServerUserName = TRANSPORT_RABBIT_MQ_SERVER_USER_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqServerPassword()
-	 * <em>Transport Rabbit Mq Server Password</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqServerPassword() <em>Transport Rabbit Mq Server Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerPassword()
 	 * @generated
 	 * @ordered
@@ -3220,10 +3166,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_SERVER_PASSWORD_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqServerPassword()
-	 * <em>Transport Rabbit Mq Server Password</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqServerPassword() <em>Transport Rabbit Mq Server Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerPassword()
 	 * @generated
 	 * @ordered
@@ -3232,8 +3177,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportRabbitMqQueueName() <em>Transport Rabbit Mq Queue Name</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueName()
 	 * @generated
 	 * @ordered
@@ -3242,8 +3187,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportRabbitMqQueueName() <em>Transport Rabbit Mq Queue Name</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueName()
 	 * @generated
 	 * @ordered
@@ -3251,10 +3196,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqQueueName = TRANSPORT_RABBIT_MQ_QUEUE_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqExchangeName()
-	 * <em>Transport Rabbit Mq Exchange Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqExchangeName() <em>Transport Rabbit Mq Exchange Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqExchangeName()
 	 * @generated
 	 * @ordered
@@ -3262,10 +3206,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_EXCHANGE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqExchangeName()
-	 * <em>Transport Rabbit Mq Exchange Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqExchangeName() <em>Transport Rabbit Mq Exchange Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqExchangeName()
 	 * @generated
 	 * @ordered
@@ -3273,10 +3216,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqExchangeName = TRANSPORT_RABBIT_MQ_EXCHANGE_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqQueueDurable()
-	 * <em>Transport Rabbit Mq Queue Durable</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqQueueDurable() <em>Transport Rabbit Mq Queue Durable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueDurable()
 	 * @generated
 	 * @ordered
@@ -3284,10 +3226,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_QUEUE_DURABLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqQueueDurable()
-	 * <em>Transport Rabbit Mq Queue Durable</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqQueueDurable() <em>Transport Rabbit Mq Queue Durable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueDurable()
 	 * @generated
 	 * @ordered
@@ -3295,10 +3236,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqQueueDurable = TRANSPORT_RABBIT_MQ_QUEUE_DURABLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqQueueExclusive()
-	 * <em>Transport Rabbit Mq Queue Exclusive</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqQueueExclusive() <em>Transport Rabbit Mq Queue Exclusive</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueExclusive()
 	 * @generated
 	 * @ordered
@@ -3306,10 +3246,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_QUEUE_EXCLUSIVE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqQueueExclusive()
-	 * <em>Transport Rabbit Mq Queue Exclusive</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqQueueExclusive() <em>Transport Rabbit Mq Queue Exclusive</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueExclusive()
 	 * @generated
 	 * @ordered
@@ -3317,10 +3256,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqQueueExclusive = TRANSPORT_RABBIT_MQ_QUEUE_EXCLUSIVE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqQueueAutoDelete()
-	 * <em>Transport Rabbit Mq Queue Auto Delete</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqQueueAutoDelete() <em>Transport Rabbit Mq Queue Auto Delete</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueAutoDelete()
 	 * @generated
 	 * @ordered
@@ -3328,10 +3266,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_QUEUE_AUTO_DELETE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqQueueAutoDelete()
-	 * <em>Transport Rabbit Mq Queue Auto Delete</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqQueueAutoDelete() <em>Transport Rabbit Mq Queue Auto Delete</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueAutoDelete()
 	 * @generated
 	 * @ordered
@@ -3339,10 +3276,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqQueueAutoDelete = TRANSPORT_RABBIT_MQ_QUEUE_AUTO_DELETE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqQueueAutoAck()
-	 * <em>Transport Rabbit Mq Queue Auto Ack</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqQueueAutoAck() <em>Transport Rabbit Mq Queue Auto Ack</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueAutoAck()
 	 * @generated
 	 * @ordered
@@ -3350,10 +3286,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_QUEUE_AUTO_ACK_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqQueueAutoAck()
-	 * <em>Transport Rabbit Mq Queue Auto Ack</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqQueueAutoAck() <em>Transport Rabbit Mq Queue Auto Ack</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueAutoAck()
 	 * @generated
 	 * @ordered
@@ -3361,10 +3296,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqQueueAutoAck = TRANSPORT_RABBIT_MQ_QUEUE_AUTO_ACK_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqQueueRoutingKey()
-	 * <em>Transport Rabbit Mq Queue Routing Key</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqQueueRoutingKey() <em>Transport Rabbit Mq Queue Routing Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueRoutingKey()
 	 * @generated
 	 * @ordered
@@ -3372,10 +3306,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_QUEUE_ROUTING_KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqQueueRoutingKey()
-	 * <em>Transport Rabbit Mq Queue Routing Key</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqQueueRoutingKey() <em>Transport Rabbit Mq Queue Routing Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueRoutingKey()
 	 * @generated
 	 * @ordered
@@ -3383,10 +3316,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqQueueRoutingKey = TRANSPORT_RABBIT_MQ_QUEUE_ROUTING_KEY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqQueueDeliveryMode()
-	 * <em>Transport Rabbit Mq Queue Delivery Mode</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqQueueDeliveryMode() <em>Transport Rabbit Mq Queue Delivery Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueDeliveryMode()
 	 * @generated
 	 * @ordered
@@ -3394,10 +3326,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_QUEUE_DELIVERY_MODE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqQueueDeliveryMode()
-	 * <em>Transport Rabbit Mq Queue Delivery Mode</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqQueueDeliveryMode() <em>Transport Rabbit Mq Queue Delivery Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqQueueDeliveryMode()
 	 * @generated
 	 * @ordered
@@ -3405,10 +3336,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqQueueDeliveryMode = TRANSPORT_RABBIT_MQ_QUEUE_DELIVERY_MODE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqExchangeType()
-	 * <em>Transport Rabbit Mq Exchange Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqExchangeType() <em>Transport Rabbit Mq Exchange Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqExchangeType()
 	 * @generated
 	 * @ordered
@@ -3416,10 +3346,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_EXCHANGE_TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqExchangeType()
-	 * <em>Transport Rabbit Mq Exchange Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqExchangeType() <em>Transport Rabbit Mq Exchange Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqExchangeType()
 	 * @generated
 	 * @ordered
@@ -3427,10 +3356,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqExchangeType = TRANSPORT_RABBIT_MQ_EXCHANGE_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqExchangeDurable()
-	 * <em>Transport Rabbit Mq Exchange Durable</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqExchangeDurable() <em>Transport Rabbit Mq Exchange Durable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqExchangeDurable()
 	 * @generated
 	 * @ordered
@@ -3438,10 +3366,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_EXCHANGE_DURABLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqExchangeDurable()
-	 * <em>Transport Rabbit Mq Exchange Durable</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqExchangeDurable() <em>Transport Rabbit Mq Exchange Durable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqExchangeDurable()
 	 * @generated
 	 * @ordered
@@ -3449,11 +3376,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqExchangeDurable = TRANSPORT_RABBIT_MQ_EXCHANGE_DURABLE_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportRabbitMqExchangeAutoDelete()
-	 * <em>Transport Rabbit Mq Exchange Auto Delete</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqExchangeAutoDelete() <em>Transport Rabbit Mq Exchange Auto Delete</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqExchangeAutoDelete()
 	 * @generated
 	 * @ordered
@@ -3461,10 +3386,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_EXCHANGE_AUTO_DELETE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqExchangeAutoDelete()
-	 * <em>Transport Rabbit Mq Exchange Auto Delete</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqExchangeAutoDelete() <em>Transport Rabbit Mq Exchange Auto Delete</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqExchangeAutoDelete()
 	 * @generated
 	 * @ordered
@@ -3472,10 +3396,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqExchangeAutoDelete = TRANSPORT_RABBIT_MQ_EXCHANGE_AUTO_DELETE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqServerVirtualHost()
-	 * <em>Transport Rabbit Mq Server Virtual Host</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqServerVirtualHost() <em>Transport Rabbit Mq Server Virtual Host</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerVirtualHost()
 	 * @generated
 	 * @ordered
@@ -3483,10 +3406,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_SERVER_VIRTUAL_HOST_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqServerVirtualHost()
-	 * <em>Transport Rabbit Mq Server Virtual Host</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqServerVirtualHost() <em>Transport Rabbit Mq Server Virtual Host</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerVirtualHost()
 	 * @generated
 	 * @ordered
@@ -3494,10 +3416,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqServerVirtualHost = TRANSPORT_RABBIT_MQ_SERVER_VIRTUAL_HOST_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTransportRabbitMqFactoryHeartbeat()
-	 * <em>Transport Rabbit Mq Factory Heartbeat</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqFactoryHeartbeat() <em>Transport Rabbit Mq Factory Heartbeat</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqFactoryHeartbeat()
 	 * @generated
 	 * @ordered
@@ -3505,10 +3426,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_FACTORY_HEARTBEAT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqFactoryHeartbeat()
-	 * <em>Transport Rabbit Mq Factory Heartbeat</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqFactoryHeartbeat() <em>Transport Rabbit Mq Factory Heartbeat</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqFactoryHeartbeat()
 	 * @generated
 	 * @ordered
@@ -3516,11 +3436,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqFactoryHeartbeat = TRANSPORT_RABBIT_MQ_FACTORY_HEARTBEAT_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportRabbitMqConnectionSslEnabled()
-	 * <em>Transport Rabbit Mq Connection Ssl Enabled</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqConnectionSslEnabled() <em>Transport Rabbit Mq Connection Ssl Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslEnabled()
 	 * @generated
 	 * @ordered
@@ -3528,11 +3446,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_CONNECTION_SSL_ENABLED_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportRabbitMqConnectionSslEnabled()
-	 * <em>Transport Rabbit Mq Connection Ssl Enabled</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqConnectionSslEnabled() <em>Transport Rabbit Mq Connection Ssl Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslEnabled()
 	 * @generated
 	 * @ordered
@@ -3541,7 +3457,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportRabbitMqConnectionSslKeystoreLocation() <em>Transport Rabbit Mq Connection Ssl Keystore Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslKeystoreLocation()
 	 * @generated
 	 * @ordered
@@ -3550,7 +3467,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportRabbitMqConnectionSslKeystoreLocation() <em>Transport Rabbit Mq Connection Ssl Keystore Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslKeystoreLocation()
 	 * @generated
 	 * @ordered
@@ -3559,7 +3477,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportRabbitMqConnectionSslKeystoreType() <em>Transport Rabbit Mq Connection Ssl Keystore Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslKeystoreType()
 	 * @generated
 	 * @ordered
@@ -3568,7 +3487,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportRabbitMqConnectionSslKeystoreType() <em>Transport Rabbit Mq Connection Ssl Keystore Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslKeystoreType()
 	 * @generated
 	 * @ordered
@@ -3577,7 +3497,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportRabbitMqConnectionSslKeystorePassword() <em>Transport Rabbit Mq Connection Ssl Keystore Password</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslKeystorePassword()
 	 * @generated
 	 * @ordered
@@ -3586,7 +3507,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportRabbitMqConnectionSslKeystorePassword() <em>Transport Rabbit Mq Connection Ssl Keystore Password</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslKeystorePassword()
 	 * @generated
 	 * @ordered
@@ -3595,7 +3517,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportRabbitMqConnectionSslTruststoreLocation() <em>Transport Rabbit Mq Connection Ssl Truststore Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslTruststoreLocation()
 	 * @generated
 	 * @ordered
@@ -3604,7 +3527,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportRabbitMqConnectionSslTruststoreLocation() <em>Transport Rabbit Mq Connection Ssl Truststore Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslTruststoreLocation()
 	 * @generated
 	 * @ordered
@@ -3613,7 +3537,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportRabbitMqConnectionSslTruststoreType() <em>Transport Rabbit Mq Connection Ssl Truststore Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslTruststoreType()
 	 * @generated
 	 * @ordered
@@ -3622,7 +3547,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportRabbitMqConnectionSslTruststoreType() <em>Transport Rabbit Mq Connection Ssl Truststore Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslTruststoreType()
 	 * @generated
 	 * @ordered
@@ -3631,7 +3557,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportRabbitMqConnectionSslTruststorePassword() <em>Transport Rabbit Mq Connection Ssl Truststore Password</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslTruststorePassword()
 	 * @generated
 	 * @ordered
@@ -3640,7 +3567,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportRabbitMqConnectionSslTruststorePassword() <em>Transport Rabbit Mq Connection Ssl Truststore Password</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslTruststorePassword()
 	 * @generated
 	 * @ordered
@@ -3648,11 +3576,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqConnectionSslTruststorePassword = TRANSPORT_RABBIT_MQ_CONNECTION_SSL_TRUSTSTORE_PASSWORD_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportRabbitMqConnectionSslVersion()
-	 * <em>Transport Rabbit Mq Connection Ssl Version</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqConnectionSslVersion() <em>Transport Rabbit Mq Connection Ssl Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslVersion()
 	 * @generated
 	 * @ordered
@@ -3660,11 +3586,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_CONNECTION_SSL_VERSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportRabbitMqConnectionSslVersion()
-	 * <em>Transport Rabbit Mq Connection Ssl Version</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqConnectionSslVersion() <em>Transport Rabbit Mq Connection Ssl Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionSslVersion()
 	 * @generated
 	 * @ordered
@@ -3672,11 +3596,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqConnectionSslVersion = TRANSPORT_RABBIT_MQ_CONNECTION_SSL_VERSION_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportRabbitMqMessageContentType()
-	 * <em>Transport Rabbit Mq Message Content Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqMessageContentType() <em>Transport Rabbit Mq Message Content Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqMessageContentType()
 	 * @generated
 	 * @ordered
@@ -3684,10 +3606,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_MESSAGE_CONTENT_TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqMessageContentType()
-	 * <em>Transport Rabbit Mq Message Content Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqMessageContentType() <em>Transport Rabbit Mq Message Content Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqMessageContentType()
 	 * @generated
 	 * @ordered
@@ -3695,11 +3616,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqMessageContentType = TRANSPORT_RABBIT_MQ_MESSAGE_CONTENT_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportRabbitMqConnectionRetryCount()
-	 * <em>Transport Rabbit Mq Connection Retry Count</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqConnectionRetryCount() <em>Transport Rabbit Mq Connection Retry Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionRetryCount()
 	 * @generated
 	 * @ordered
@@ -3707,11 +3626,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_CONNECTION_RETRY_COUNT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportRabbitMqConnectionRetryCount()
-	 * <em>Transport Rabbit Mq Connection Retry Count</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqConnectionRetryCount() <em>Transport Rabbit Mq Connection Retry Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionRetryCount()
 	 * @generated
 	 * @ordered
@@ -3719,11 +3636,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqConnectionRetryCount = TRANSPORT_RABBIT_MQ_CONNECTION_RETRY_COUNT_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportRabbitMqConnectionRetryInterval()
-	 * <em>Transport Rabbit Mq Connection Retry Interval</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqConnectionRetryInterval() <em>Transport Rabbit Mq Connection Retry Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionRetryInterval()
 	 * @generated
 	 * @ordered
@@ -3731,11 +3646,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_CONNECTION_RETRY_INTERVAL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportRabbitMqConnectionRetryInterval()
-	 * <em>Transport Rabbit Mq Connection Retry Interval</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqConnectionRetryInterval() <em>Transport Rabbit Mq Connection Retry Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqConnectionRetryInterval()
 	 * @generated
 	 * @ordered
@@ -3743,11 +3656,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqConnectionRetryInterval = TRANSPORT_RABBIT_MQ_CONNECTION_RETRY_INTERVAL_EDEFAULT;
 
 	/**
-	 * The default value of the '
-	 * {@link #getTransportRabbitMqServerRetryInterval()
-	 * <em>Transport Rabbit Mq Server Retry Interval</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getTransportRabbitMqServerRetryInterval() <em>Transport Rabbit Mq Server Retry Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerRetryInterval()
 	 * @generated
 	 * @ordered
@@ -3755,11 +3666,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '
-	 * {@link #getTransportRabbitMqServerRetryInterval()
-	 * <em>Transport Rabbit Mq Server Retry Interval</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getTransportRabbitMqServerRetryInterval() <em>Transport Rabbit Mq Server Retry Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportRabbitMqServerRetryInterval()
 	 * @generated
 	 * @ordered
@@ -3767,20 +3676,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String transportRabbitMqServerRetryInterval = TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTransportRabbitMqConsumerQos()
-	 * <em>Transport Rabbit Mq Consumer Qos</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getTransportRabbitMqConsumerQos()
-	 * @generated
-	 * @ordered
-	 */
-	protected RegistryKeyProperty transportRabbitMqConsumerQos;
-
-	/**
 	 * The default value of the '{@link #getWsInboundPort() <em>Ws Inbound Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsInboundPort()
 	 * @generated
 	 * @ordered
@@ -3789,8 +3687,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getWsInboundPort() <em>Ws Inbound Port</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsInboundPort()
 	 * @generated
 	 * @ordered
@@ -3799,8 +3697,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getWsClientSideBroadcastLevel() <em>Ws Client Side Broadcast Level</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsClientSideBroadcastLevel()
 	 * @generated
 	 * @ordered
@@ -3809,8 +3707,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getWsClientSideBroadcastLevel() <em>Ws Client Side Broadcast Level</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsClientSideBroadcastLevel()
 	 * @generated
 	 * @ordered
@@ -3819,8 +3717,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getWsOutflowDispatchSequence() <em>Ws Outflow Dispatch Sequence</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsOutflowDispatchSequence()
 	 * @generated
 	 * @ordered
@@ -3829,8 +3727,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getWsOutflowDispatchSequence() <em>Ws Outflow Dispatch Sequence</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsOutflowDispatchSequence()
 	 * @generated
 	 * @ordered
@@ -3838,10 +3736,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected String wsOutflowDispatchSequence = WS_OUTFLOW_DISPATCH_SEQUENCE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getWsOutflowDispatchFaultSequence()
-	 * <em>Ws Outflow Dispatch Fault Sequence</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getWsOutflowDispatchFaultSequence() <em>Ws Outflow Dispatch Fault Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsOutflowDispatchFaultSequence()
 	 * @generated
 	 * @ordered
@@ -3849,10 +3746,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected static final String WS_OUTFLOW_DISPATCH_FAULT_SEQUENCE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getWsOutflowDispatchFaultSequence()
-	 * <em>Ws Outflow Dispatch Fault Sequence</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getWsOutflowDispatchFaultSequence() <em>Ws Outflow Dispatch Fault Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsOutflowDispatchFaultSequence()
 	 * @generated
 	 * @ordered
@@ -3901,8 +3797,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getWsSubprotocolHandlerClass() <em>Ws Subprotocol Handler Class</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsSubprotocolHandlerClass()
 	 * @generated
 	 * @ordered
@@ -3911,8 +3807,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getWsSubprotocolHandlerClass() <em>Ws Subprotocol Handler Class</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWsSubprotocolHandlerClass()
 	 * @generated
 	 * @ordered
@@ -3941,8 +3837,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportFeedURL() <em>Transport Feed URL</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportFeedURL()
 	 * @generated
 	 * @ordered
@@ -3951,8 +3847,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportFeedURL() <em>Transport Feed URL</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportFeedURL()
 	 * @generated
 	 * @ordered
@@ -3961,8 +3857,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #getTransportFeedType() <em>Transport Feed Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportFeedType()
 	 * @generated
 	 * @ordered
@@ -3971,8 +3867,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #getTransportFeedType() <em>Transport Feed Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTransportFeedType()
 	 * @generated
 	 * @ordered
@@ -3981,7 +3877,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isTraceEnabled() <em>Trace Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTraceEnabled()
 	 * @generated
 	 * @ordered
@@ -3990,7 +3887,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isTraceEnabled() <em>Trace Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isTraceEnabled()
 	 * @generated
 	 * @ordered
@@ -3999,8 +3897,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The default value of the '{@link #isStatisticsEnabled() <em>Statistics Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isStatisticsEnabled()
 	 * @generated
 	 * @ordered
@@ -4009,8 +3907,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * The cached value of the '{@link #isStatisticsEnabled() <em>Statistics Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isStatisticsEnabled()
 	 * @generated
 	 * @ordered
@@ -4018,21 +3916,17 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean statisticsEnabled = STATISTICS_ENABLED_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected InboundEndpointImpl() {
 		super();
-		
-		RegistryKeyProperty consumerQosKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
-		consumerQosKey.setKeyName("ConsumerQos Key");
-		consumerQosKey.setPrettyName("ConsumerQos Key");
-		consumerQosKey.setKeyValue("");
-		setTransportRabbitMqConsumerQos(consumerQosKey);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -4041,7 +3935,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public InboundEndpointSequenceInputConnector getSequenceInputConnector() {
@@ -4049,11 +3944,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSequenceInputConnector(
-			InboundEndpointSequenceInputConnector newSequenceInputConnector, NotificationChain msgs) {
+	public NotificationChain basicSetSequenceInputConnector(InboundEndpointSequenceInputConnector newSequenceInputConnector, NotificationChain msgs) {
 		InboundEndpointSequenceInputConnector oldSequenceInputConnector = sequenceInputConnector;
 		sequenceInputConnector = newSequenceInputConnector;
 		if (eNotificationRequired()) {
@@ -4064,7 +3959,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSequenceInputConnector(InboundEndpointSequenceInputConnector newSequenceInputConnector) {
@@ -4082,7 +3978,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public InboundEndpointSequenceOutputConnector getSequenceOutputConnector() {
@@ -4090,11 +3987,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSequenceOutputConnector(
-			InboundEndpointSequenceOutputConnector newSequenceOutputConnector, NotificationChain msgs) {
+	public NotificationChain basicSetSequenceOutputConnector(InboundEndpointSequenceOutputConnector newSequenceOutputConnector, NotificationChain msgs) {
 		InboundEndpointSequenceOutputConnector oldSequenceOutputConnector = sequenceOutputConnector;
 		sequenceOutputConnector = newSequenceOutputConnector;
 		if (eNotificationRequired()) {
@@ -4105,7 +4002,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSequenceOutputConnector(InboundEndpointSequenceOutputConnector newSequenceOutputConnector) {
@@ -4123,7 +4021,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public InboundEndpointOnErrorSequenceInputConnector getOnErrorSequenceInputConnector() {
@@ -4131,11 +4030,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOnErrorSequenceInputConnector(
-			InboundEndpointOnErrorSequenceInputConnector newOnErrorSequenceInputConnector, NotificationChain msgs) {
+	public NotificationChain basicSetOnErrorSequenceInputConnector(InboundEndpointOnErrorSequenceInputConnector newOnErrorSequenceInputConnector, NotificationChain msgs) {
 		InboundEndpointOnErrorSequenceInputConnector oldOnErrorSequenceInputConnector = onErrorSequenceInputConnector;
 		onErrorSequenceInputConnector = newOnErrorSequenceInputConnector;
 		if (eNotificationRequired()) {
@@ -4146,11 +4045,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOnErrorSequenceInputConnector(
-			InboundEndpointOnErrorSequenceInputConnector newOnErrorSequenceInputConnector) {
+	public void setOnErrorSequenceInputConnector(InboundEndpointOnErrorSequenceInputConnector newOnErrorSequenceInputConnector) {
 		if (newOnErrorSequenceInputConnector != onErrorSequenceInputConnector) {
 			NotificationChain msgs = null;
 			if (onErrorSequenceInputConnector != null)
@@ -4165,7 +4064,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public InboundEndpointOnErrorSequenceOutputConnector getOnErrorSequenceOutputConnector() {
@@ -4173,11 +4073,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOnErrorSequenceOutputConnector(
-			InboundEndpointOnErrorSequenceOutputConnector newOnErrorSequenceOutputConnector, NotificationChain msgs) {
+	public NotificationChain basicSetOnErrorSequenceOutputConnector(InboundEndpointOnErrorSequenceOutputConnector newOnErrorSequenceOutputConnector, NotificationChain msgs) {
 		InboundEndpointOnErrorSequenceOutputConnector oldOnErrorSequenceOutputConnector = onErrorSequenceOutputConnector;
 		onErrorSequenceOutputConnector = newOnErrorSequenceOutputConnector;
 		if (eNotificationRequired()) {
@@ -4188,11 +4088,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOnErrorSequenceOutputConnector(
-			InboundEndpointOnErrorSequenceOutputConnector newOnErrorSequenceOutputConnector) {
+	public void setOnErrorSequenceOutputConnector(InboundEndpointOnErrorSequenceOutputConnector newOnErrorSequenceOutputConnector) {
 		if (newOnErrorSequenceOutputConnector != onErrorSequenceOutputConnector) {
 			NotificationChain msgs = null;
 			if (onErrorSequenceOutputConnector != null)
@@ -4207,7 +4107,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public InboundEndpointContainer getContainer() {
@@ -4215,7 +4116,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetContainer(InboundEndpointContainer newContainer, NotificationChain msgs) {
@@ -4229,7 +4131,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setContainer(InboundEndpointContainer newContainer) {
@@ -4247,7 +4150,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getName() {
@@ -4255,7 +4159,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -4266,7 +4171,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public InboundEndpointType getType() {
@@ -4274,7 +4180,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setType(InboundEndpointType newType) {
@@ -4285,7 +4192,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundHL7Port() {
@@ -4293,7 +4201,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHL7Port(String newInboundHL7Port) {
@@ -4304,7 +4213,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isInboundHL7AutoAck() {
@@ -4312,7 +4222,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHL7AutoAck(boolean newInboundHL7AutoAck) {
@@ -4323,7 +4234,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundHL7MessagePreProcessor() {
@@ -4331,7 +4243,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHL7MessagePreProcessor(String newInboundHL7MessagePreProcessor) {
@@ -4342,7 +4255,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundHL7CharSet() {
@@ -4350,7 +4264,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHL7CharSet(String newInboundHL7CharSet) {
@@ -4361,7 +4276,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundHL7TimeOut() {
@@ -4369,7 +4285,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHL7TimeOut(String newInboundHL7TimeOut) {
@@ -4380,7 +4297,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isInboundHL7ValidateMessage() {
@@ -4388,7 +4306,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHL7ValidateMessage(boolean newInboundHL7ValidateMessage) {
@@ -4399,7 +4318,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isInboundHL7BuildInvalidMessages() {
@@ -4407,7 +4327,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHL7BuildInvalidMessages(boolean newInboundHL7BuildInvalidMessages) {
@@ -4418,7 +4339,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isInboundHL7PassThroughInvalidMessages() {
@@ -4426,7 +4348,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHL7PassThroughInvalidMessages(boolean newInboundHL7PassThroughInvalidMessages) {
@@ -4437,7 +4360,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getZookeeperConnect() {
@@ -4445,7 +4369,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setZookeeperConnect(String newZookeeperConnect) {
@@ -4456,7 +4381,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getGroupId() {
@@ -4464,7 +4390,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setGroupId(String newGroupId) {
@@ -4475,7 +4402,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ConsumerType getConsumerType() {
@@ -4483,7 +4411,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setConsumerType(ConsumerType newConsumerType) {
@@ -4494,7 +4423,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public TopicsType getTopicsOrTopicFilter() {
@@ -4502,7 +4432,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTopicsOrTopicFilter(TopicsType newTopicsOrTopicFilter) {
@@ -4513,7 +4444,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTopicsName() {
@@ -4521,7 +4453,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTopicsName(String newTopicsName) {
@@ -4532,7 +4465,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public TopicFilterFromType getTopicFilterFrom() {
@@ -4540,7 +4474,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTopicFilterFrom(TopicFilterFromType newTopicFilterFrom) {
@@ -4551,7 +4486,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTopicFilterName() {
@@ -4559,7 +4495,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTopicFilterName(String newTopicFilterName) {
@@ -4570,7 +4507,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSimpleConsumerTopic() {
@@ -4578,7 +4516,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSimpleConsumerTopic(String newSimpleConsumerTopic) {
@@ -4589,7 +4528,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSimpleConsumerBrokers() {
@@ -4597,7 +4537,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSimpleConsumerBrokers(String newSimpleConsumerBrokers) {
@@ -4608,7 +4549,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSimpleConsumerPort() {
@@ -4616,7 +4558,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSimpleConsumerPort(String newSimpleConsumerPort) {
@@ -4627,7 +4570,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSimpleConsumerPartition() {
@@ -4635,7 +4579,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSimpleConsumerPartition(String newSimpleConsumerPartition) {
@@ -4646,7 +4591,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSimpleConsumerMaxMessagesToRead() {
@@ -4654,7 +4600,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSimpleConsumerMaxMessagesToRead(String newSimpleConsumerMaxMessagesToRead) {
@@ -4665,7 +4612,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ContentType getContentType() {
@@ -4673,7 +4621,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setContentType(ContentType newContentType) {
@@ -4684,7 +4633,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getThreadCount() {
@@ -4692,7 +4642,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setThreadCount(String newThreadCount) {
@@ -4703,7 +4654,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getConsumerId() {
@@ -4711,7 +4663,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setConsumerId(String newConsumerId) {
@@ -4722,7 +4675,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSocketTimeoutMs() {
@@ -4730,7 +4684,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSocketTimeoutMs(String newSocketTimeoutMs) {
@@ -4741,7 +4696,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSocketReceiveBufferBytes() {
@@ -4749,7 +4705,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSocketReceiveBufferBytes(String newSocketReceiveBufferBytes) {
@@ -4760,7 +4717,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getFetchMessageMaxBytes() {
@@ -4768,7 +4726,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFetchMessageMaxBytes(String newFetchMessageMaxBytes) {
@@ -4779,7 +4738,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getNumConsumerFetches() {
@@ -4787,7 +4747,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setNumConsumerFetches(String newNumConsumerFetches) {
@@ -4798,7 +4759,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isAutoCommitEnable() {
@@ -4806,7 +4768,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setAutoCommitEnable(boolean newAutoCommitEnable) {
@@ -4817,7 +4780,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getZookeeperSessionTimeoutMs() {
@@ -4825,7 +4789,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setZookeeperSessionTimeoutMs(String newZookeeperSessionTimeoutMs) {
@@ -4836,7 +4801,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getZookeeperConnectionTimeoutMs() {
@@ -4844,7 +4810,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setZookeeperConnectionTimeoutMs(String newZookeeperConnectionTimeoutMs) {
@@ -4855,7 +4822,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getZookeeperSyncTimeMs() {
@@ -4863,7 +4831,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setZookeeperSyncTimeMs(String newZookeeperSyncTimeMs) {
@@ -4874,7 +4843,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public OffsetsStorageType getOffsetsStorage() {
@@ -4882,7 +4852,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setOffsetsStorage(OffsetsStorageType newOffsetsStorage) {
@@ -4893,7 +4864,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getOffsetsChannelBackoffMs() {
@@ -4901,7 +4873,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setOffsetsChannelBackoffMs(String newOffsetsChannelBackoffMs) {
@@ -4912,7 +4885,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getOffsetsChannelSocketTimeoutMs() {
@@ -4920,7 +4894,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setOffsetsChannelSocketTimeoutMs(String newOffsetsChannelSocketTimeoutMs) {
@@ -4931,7 +4906,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getOffsetsCommitMaxRetries() {
@@ -4939,7 +4915,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setOffsetsCommitMaxRetries(String newOffsetsCommitMaxRetries) {
@@ -4950,7 +4927,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isDualCommitEnabled() {
@@ -4958,7 +4936,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDualCommitEnabled(boolean newDualCommitEnabled) {
@@ -4969,7 +4948,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getAutoCommitIntervalMs() {
@@ -4977,7 +4957,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setAutoCommitIntervalMs(String newAutoCommitIntervalMs) {
@@ -4988,7 +4969,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getQueuedMaxMessageChunks() {
@@ -4996,7 +4978,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setQueuedMaxMessageChunks(String newQueuedMaxMessageChunks) {
@@ -5007,7 +4990,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getRebalanceMaxRetries() {
@@ -5015,7 +4999,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRebalanceMaxRetries(String newRebalanceMaxRetries) {
@@ -5026,7 +5011,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getFetchMinBytes() {
@@ -5034,7 +5020,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFetchMinBytes(String newFetchMinBytes) {
@@ -5045,7 +5032,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getFetchWaitMaxMs() {
@@ -5053,7 +5041,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFetchWaitMaxMs(String newFetchWaitMaxMs) {
@@ -5064,7 +5053,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getRebalanceBackoffMs() {
@@ -5072,7 +5062,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRebalanceBackoffMs(String newRebalanceBackoffMs) {
@@ -5083,7 +5074,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getRefreshLeaderBackoffMs() {
@@ -5091,7 +5083,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRefreshLeaderBackoffMs(String newRefreshLeaderBackoffMs) {
@@ -5102,7 +5095,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AutoOffsetResetType getAutoOffsetReset() {
@@ -5110,7 +5104,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setAutoOffsetReset(AutoOffsetResetType newAutoOffsetReset) {
@@ -5121,7 +5116,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getConsumerTimeoutMs() {
@@ -5129,7 +5125,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setConsumerTimeoutMs(String newConsumerTimeoutMs) {
@@ -5140,7 +5137,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isExcludeInternalTopics() {
@@ -5148,7 +5146,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setExcludeInternalTopics(boolean newExcludeInternalTopics) {
@@ -5159,7 +5158,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public PartitionAssignmentStrategyType getPartitionAssignmentStrategy() {
@@ -5167,7 +5167,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setPartitionAssignmentStrategy(PartitionAssignmentStrategyType newPartitionAssignmentStrategy) {
@@ -5178,7 +5179,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getClientId() {
@@ -5186,7 +5188,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setClientId(String newClientId) {
@@ -5197,7 +5200,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundCxfRmHost() {
@@ -5205,7 +5209,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundCxfRmHost(String newInboundCxfRmHost) {
@@ -5216,7 +5221,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundCxfRmPort() {
@@ -5224,7 +5230,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundCxfRmPort(String newInboundCxfRmPort) {
@@ -5235,7 +5242,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundCxfRmConfigFile() {
@@ -5243,7 +5251,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundCxfRmConfigFile(String newInboundCxfRmConfigFile) {
@@ -5254,7 +5263,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isEnableSSL() {
@@ -5262,7 +5272,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setEnableSSL(boolean newEnableSSL) {
@@ -5273,7 +5284,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<InboundEndpointParameter> getServiceParameters() {
@@ -5284,7 +5296,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSuspend() {
@@ -5292,7 +5305,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSuspend(boolean newSuspend) {
@@ -5303,7 +5317,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionFactory() {
@@ -5311,7 +5326,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqConnectionFactory(String newTransportRabbitMqConnectionFactory) {
@@ -5322,7 +5338,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqServerHostName() {
@@ -5330,7 +5347,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqServerHostName(String newTransportRabbitMqServerHostName) {
@@ -5341,7 +5359,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqServerPort() {
@@ -5349,7 +5368,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqServerPort(String newTransportRabbitMqServerPort) {
@@ -5360,7 +5380,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqServerUserName() {
@@ -5368,7 +5389,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqServerUserName(String newTransportRabbitMqServerUserName) {
@@ -5379,7 +5401,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqServerPassword() {
@@ -5387,7 +5410,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqServerPassword(String newTransportRabbitMqServerPassword) {
@@ -5398,7 +5422,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqQueueName() {
@@ -5406,7 +5431,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqQueueName(String newTransportRabbitMqQueueName) {
@@ -5417,7 +5443,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqExchangeName() {
@@ -5425,7 +5452,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqExchangeName(String newTransportRabbitMqExchangeName) {
@@ -5436,7 +5464,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqQueueDurable() {
@@ -5444,7 +5473,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqQueueDurable(String newTransportRabbitMqQueueDurable) {
@@ -5455,7 +5485,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqQueueExclusive() {
@@ -5463,7 +5494,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqQueueExclusive(String newTransportRabbitMqQueueExclusive) {
@@ -5474,7 +5506,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqQueueAutoDelete() {
@@ -5482,7 +5515,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqQueueAutoDelete(String newTransportRabbitMqQueueAutoDelete) {
@@ -5493,7 +5527,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqQueueAutoAck() {
@@ -5501,7 +5536,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqQueueAutoAck(String newTransportRabbitMqQueueAutoAck) {
@@ -5512,7 +5548,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqQueueRoutingKey() {
@@ -5520,7 +5557,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqQueueRoutingKey(String newTransportRabbitMqQueueRoutingKey) {
@@ -5531,7 +5569,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqQueueDeliveryMode() {
@@ -5539,7 +5578,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqQueueDeliveryMode(String newTransportRabbitMqQueueDeliveryMode) {
@@ -5550,7 +5590,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqExchangeType() {
@@ -5558,7 +5599,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqExchangeType(String newTransportRabbitMqExchangeType) {
@@ -5569,7 +5611,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqExchangeDurable() {
@@ -5577,7 +5620,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqExchangeDurable(String newTransportRabbitMqExchangeDurable) {
@@ -5588,7 +5632,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqExchangeAutoDelete() {
@@ -5596,7 +5641,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqExchangeAutoDelete(String newTransportRabbitMqExchangeAutoDelete) {
@@ -5607,7 +5653,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqServerVirtualHost() {
@@ -5615,7 +5662,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqServerVirtualHost(String newTransportRabbitMqServerVirtualHost) {
@@ -5626,7 +5674,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqFactoryHeartbeat() {
@@ -5634,7 +5683,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqFactoryHeartbeat(String newTransportRabbitMqFactoryHeartbeat) {
@@ -5645,7 +5695,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionSslEnabled() {
@@ -5653,7 +5704,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqConnectionSslEnabled(String newTransportRabbitMqConnectionSslEnabled) {
@@ -5664,7 +5716,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionSslKeystoreLocation() {
@@ -5672,11 +5725,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransportRabbitMqConnectionSslKeystoreLocation(
-			String newTransportRabbitMqConnectionSslKeystoreLocation) {
+	public void setTransportRabbitMqConnectionSslKeystoreLocation(String newTransportRabbitMqConnectionSslKeystoreLocation) {
 		String oldTransportRabbitMqConnectionSslKeystoreLocation = transportRabbitMqConnectionSslKeystoreLocation;
 		transportRabbitMqConnectionSslKeystoreLocation = newTransportRabbitMqConnectionSslKeystoreLocation;
 		if (eNotificationRequired())
@@ -5684,7 +5737,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionSslKeystoreType() {
@@ -5692,7 +5746,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqConnectionSslKeystoreType(String newTransportRabbitMqConnectionSslKeystoreType) {
@@ -5703,7 +5758,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionSslKeystorePassword() {
@@ -5711,11 +5767,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransportRabbitMqConnectionSslKeystorePassword(
-			String newTransportRabbitMqConnectionSslKeystorePassword) {
+	public void setTransportRabbitMqConnectionSslKeystorePassword(String newTransportRabbitMqConnectionSslKeystorePassword) {
 		String oldTransportRabbitMqConnectionSslKeystorePassword = transportRabbitMqConnectionSslKeystorePassword;
 		transportRabbitMqConnectionSslKeystorePassword = newTransportRabbitMqConnectionSslKeystorePassword;
 		if (eNotificationRequired())
@@ -5723,7 +5779,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionSslTruststoreLocation() {
@@ -5731,11 +5788,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransportRabbitMqConnectionSslTruststoreLocation(
-			String newTransportRabbitMqConnectionSslTruststoreLocation) {
+	public void setTransportRabbitMqConnectionSslTruststoreLocation(String newTransportRabbitMqConnectionSslTruststoreLocation) {
 		String oldTransportRabbitMqConnectionSslTruststoreLocation = transportRabbitMqConnectionSslTruststoreLocation;
 		transportRabbitMqConnectionSslTruststoreLocation = newTransportRabbitMqConnectionSslTruststoreLocation;
 		if (eNotificationRequired())
@@ -5743,7 +5800,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionSslTruststoreType() {
@@ -5751,11 +5809,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransportRabbitMqConnectionSslTruststoreType(
-			String newTransportRabbitMqConnectionSslTruststoreType) {
+	public void setTransportRabbitMqConnectionSslTruststoreType(String newTransportRabbitMqConnectionSslTruststoreType) {
 		String oldTransportRabbitMqConnectionSslTruststoreType = transportRabbitMqConnectionSslTruststoreType;
 		transportRabbitMqConnectionSslTruststoreType = newTransportRabbitMqConnectionSslTruststoreType;
 		if (eNotificationRequired())
@@ -5763,7 +5821,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionSslTruststorePassword() {
@@ -5771,11 +5830,11 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransportRabbitMqConnectionSslTruststorePassword(
-			String newTransportRabbitMqConnectionSslTruststorePassword) {
+	public void setTransportRabbitMqConnectionSslTruststorePassword(String newTransportRabbitMqConnectionSslTruststorePassword) {
 		String oldTransportRabbitMqConnectionSslTruststorePassword = transportRabbitMqConnectionSslTruststorePassword;
 		transportRabbitMqConnectionSslTruststorePassword = newTransportRabbitMqConnectionSslTruststorePassword;
 		if (eNotificationRequired())
@@ -5783,7 +5842,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionSslVersion() {
@@ -5791,7 +5851,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqConnectionSslVersion(String newTransportRabbitMqConnectionSslVersion) {
@@ -5802,7 +5863,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqMessageContentType() {
@@ -5810,7 +5872,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqMessageContentType(String newTransportRabbitMqMessageContentType) {
@@ -5821,7 +5884,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionRetryCount() {
@@ -5829,7 +5893,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqConnectionRetryCount(String newTransportRabbitMqConnectionRetryCount) {
@@ -5840,7 +5905,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqConnectionRetryInterval() {
@@ -5848,7 +5914,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqConnectionRetryInterval(String newTransportRabbitMqConnectionRetryInterval) {
@@ -5859,7 +5926,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportRabbitMqServerRetryInterval() {
@@ -5867,7 +5935,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportRabbitMqServerRetryInterval(String newTransportRabbitMqServerRetryInterval) {
@@ -5878,48 +5947,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RegistryKeyProperty getTransportRabbitMqConsumerQos() {
-		return transportRabbitMqConsumerQos;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTransportRabbitMqConsumerQos(RegistryKeyProperty newTransportRabbitMqConsumerQos, NotificationChain msgs) {
-		RegistryKeyProperty oldTransportRabbitMqConsumerQos = transportRabbitMqConsumerQos;
-		transportRabbitMqConsumerQos = newTransportRabbitMqConsumerQos;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS, oldTransportRabbitMqConsumerQos, newTransportRabbitMqConsumerQos);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransportRabbitMqConsumerQos(RegistryKeyProperty newTransportRabbitMqConsumerQos) {
-		if (newTransportRabbitMqConsumerQos != transportRabbitMqConsumerQos) {
-			NotificationChain msgs = null;
-			if (transportRabbitMqConsumerQos != null)
-				msgs = ((InternalEObject)transportRabbitMqConsumerQos).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS, null, msgs);
-			if (newTransportRabbitMqConsumerQos != null)
-				msgs = ((InternalEObject)newTransportRabbitMqConsumerQos).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS, null, msgs);
-			msgs = basicSetTransportRabbitMqConsumerQos(newTransportRabbitMqConsumerQos, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS, newTransportRabbitMqConsumerQos, newTransportRabbitMqConsumerQos));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getWsInboundPort() {
@@ -5927,7 +5956,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWsInboundPort(String newWsInboundPort) {
@@ -5938,7 +5968,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public WSClientSideBroadcastLevel getWsClientSideBroadcastLevel() {
@@ -5946,7 +5977,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWsClientSideBroadcastLevel(WSClientSideBroadcastLevel newWsClientSideBroadcastLevel) {
@@ -5957,7 +5989,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getWsOutflowDispatchSequence() {
@@ -5965,7 +5998,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWsOutflowDispatchSequence(String newWsOutflowDispatchSequence) {
@@ -5976,7 +6010,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getWsOutflowDispatchFaultSequence() {
@@ -5984,7 +6019,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWsOutflowDispatchFaultSequence(String newWsOutflowDispatchFaultSequence) {
@@ -5995,7 +6031,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getWsBossThreadPoolSize() {
@@ -6003,7 +6040,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWsBossThreadPoolSize(String newWsBossThreadPoolSize) {
@@ -6014,7 +6052,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getWsWorkerThreadPoolSize() {
@@ -6022,7 +6061,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWsWorkerThreadPoolSize(String newWsWorkerThreadPoolSize) {
@@ -6033,7 +6073,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getWsSubprotocolHandlerClass() {
@@ -6041,7 +6082,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWsSubprotocolHandlerClass(String newWsSubprotocolHandlerClass) {
@@ -6052,7 +6094,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getWsPipelineHandlerClass() {
@@ -6060,7 +6103,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWsPipelineHandlerClass(String newWsPipelineHandlerClass) {
@@ -6071,7 +6115,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportFeedURL() {
@@ -6079,7 +6124,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportFeedURL(String newTransportFeedURL) {
@@ -6090,7 +6136,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public FeedType getTransportFeedType() {
@@ -6098,7 +6145,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportFeedType(FeedType newTransportFeedType) {
@@ -6109,7 +6157,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTraceEnabled() {
@@ -6117,16 +6166,15 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void setTraceEnabled(boolean newTraceEnabled) {
 		boolean oldTraceEnabled = traceEnabled;
 		traceEnabled = newTraceEnabled;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRACE_ENABLED,
-					oldTraceEnabled, traceEnabled));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRACE_ENABLED, oldTraceEnabled, traceEnabled));
 		// Fixing DEVTOOLESB-576
 		if (newTraceEnabled) {
 			setStatisticsEnabled(true);
@@ -6134,7 +6182,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isStatisticsEnabled() {
@@ -6142,7 +6191,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setStatisticsEnabled(boolean newStatisticsEnabled) {
@@ -6153,7 +6203,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getClass_() {
@@ -6161,7 +6212,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setClass(String newClass) {
@@ -6172,7 +6224,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getProtocol() {
@@ -6180,7 +6233,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setProtocol(String newProtocol) {
@@ -6191,7 +6245,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public InboundEndpointBehaviourType getInboundEndpointBehaviour() {
@@ -6199,7 +6254,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundEndpointBehaviour(InboundEndpointBehaviourType newInboundEndpointBehaviour) {
@@ -6210,7 +6266,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundHttpPort() {
@@ -6218,7 +6275,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundHttpPort(String newInboundHttpPort) {
@@ -6229,7 +6287,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundWorkerPoolSizeCore() {
@@ -6237,7 +6296,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundWorkerPoolSizeCore(String newInboundWorkerPoolSizeCore) {
@@ -6248,7 +6308,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundWorkerPoolSizeMax() {
@@ -6256,7 +6317,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundWorkerPoolSizeMax(String newInboundWorkerPoolSizeMax) {
@@ -6267,7 +6329,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundWorkerThreadKeepAliveSec() {
@@ -6275,7 +6338,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundWorkerThreadKeepAliveSec(String newInboundWorkerThreadKeepAliveSec) {
@@ -6286,7 +6350,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundWorkerPoolQueueLength() {
@@ -6294,7 +6359,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundWorkerPoolQueueLength(String newInboundWorkerPoolQueueLength) {
@@ -6305,7 +6371,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundThreadGroupId() {
@@ -6313,7 +6380,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundThreadGroupId(String newInboundThreadGroupId) {
@@ -6324,7 +6392,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInboundThreadId() {
@@ -6332,7 +6401,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInboundThreadId(String newInboundThreadId) {
@@ -6343,7 +6413,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getDispatchFilterPattern() {
@@ -6351,7 +6422,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDispatchFilterPattern(String newDispatchFilterPattern) {
@@ -6362,7 +6434,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getInterval() {
@@ -6370,7 +6443,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInterval(String newInterval) {
@@ -6381,7 +6455,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSequential() {
@@ -6389,7 +6464,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSequential(boolean newSequential) {
@@ -6400,7 +6476,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isCoordination() {
@@ -6408,7 +6485,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setCoordination(boolean newCoordination) {
@@ -6419,7 +6497,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSFileURI() {
@@ -6427,7 +6506,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSFileURI(String newTransportVFSFileURI) {
@@ -6438,7 +6518,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getWso2mbConnectionUrl() {
@@ -6446,7 +6527,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWso2mbConnectionUrl(String newWso2mbConnectionUrl) {
@@ -6457,7 +6539,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSContentType() {
@@ -6465,7 +6548,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSContentType(String newTransportVFSContentType) {
@@ -6476,7 +6560,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSFileNamePattern() {
@@ -6484,7 +6569,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSFileNamePattern(String newTransportVFSFileNamePattern) {
@@ -6495,7 +6581,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSFileProcessInterval() {
@@ -6503,7 +6590,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSFileProcessInterval(String newTransportVFSFileProcessInterval) {
@@ -6514,7 +6602,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSFileProcessCount() {
@@ -6522,7 +6611,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSFileProcessCount(String newTransportVFSFileProcessCount) {
@@ -6533,7 +6623,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Enable getTransportVFSLocking() {
@@ -6541,7 +6632,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSLocking(Enable newTransportVFSLocking) {
@@ -6552,7 +6644,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSMaxRetryCount() {
@@ -6560,7 +6653,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSMaxRetryCount(String newTransportVFSMaxRetryCount) {
@@ -6571,7 +6665,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSReconnectTimeout() {
@@ -6579,7 +6674,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSReconnectTimeout(String newTransportVFSReconnectTimeout) {
@@ -6590,7 +6686,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportJMSSharedSubscription() {
@@ -6598,7 +6695,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSSharedSubscription(boolean newTransportJMSSharedSubscription) {
@@ -6609,7 +6707,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSSubscriptionName() {
@@ -6617,7 +6716,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSSubscriptionName(String newTransportJMSSubscriptionName) {
@@ -6628,7 +6728,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSPinnedServers() {
@@ -6636,7 +6737,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSPinnedServers(String newTransportJMSPinnedServers) {
@@ -6647,7 +6749,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public VFSAction getTransportVFSActionAfterProcess() {
@@ -6655,7 +6758,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSActionAfterProcess(VFSAction newTransportVFSActionAfterProcess) {
@@ -6666,7 +6770,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSMoveAfterProcess() {
@@ -6674,7 +6779,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSMoveAfterProcess(String newTransportVFSMoveAfterProcess) {
@@ -6685,7 +6791,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public VFSAction getTransportVFSActionAfterErrors() {
@@ -6693,7 +6800,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSActionAfterErrors(VFSAction newTransportVFSActionAfterErrors) {
@@ -6704,7 +6812,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSMoveAfterErrors() {
@@ -6712,7 +6821,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSMoveAfterErrors(String newTransportVFSMoveAfterErrors) {
@@ -6723,7 +6833,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public VFSAction getTransportVFSActionAfterFailure() {
@@ -6731,7 +6842,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSActionAfterFailure(VFSAction newTransportVFSActionAfterFailure) {
@@ -6742,7 +6854,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSMoveAfterFailure() {
@@ -6750,7 +6863,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSMoveAfterFailure(String newTransportVFSMoveAfterFailure) {
@@ -6761,7 +6875,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportVFSAutoLockRelease() {
@@ -6769,7 +6884,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSAutoLockRelease(boolean newTransportVFSAutoLockRelease) {
@@ -6780,7 +6896,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSAutoLockReleaseInterval() {
@@ -6788,7 +6905,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSAutoLockReleaseInterval(String newTransportVFSAutoLockReleaseInterval) {
@@ -6799,7 +6917,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportVFSLockReleaseSameNode() {
@@ -6807,7 +6926,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSLockReleaseSameNode(boolean newTransportVFSLockReleaseSameNode) {
@@ -6818,7 +6938,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportVFSDistributedLock() {
@@ -6826,7 +6947,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSDistributedLock(boolean newTransportVFSDistributedLock) {
@@ -6837,7 +6959,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportVFSStreaming() {
@@ -6845,7 +6968,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSStreaming(boolean newTransportVFSStreaming) {
@@ -6856,7 +6980,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportVFSBuild() {
@@ -6864,7 +6989,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSBuild(boolean newTransportVFSBuild) {
@@ -6875,7 +7001,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSDistributedTimeout() {
@@ -6883,7 +7010,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSDistributedTimeout(String newTransportVFSDistributedTimeout) {
@@ -6894,7 +7022,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getJavaNamingFactoryInitial() {
@@ -6902,7 +7031,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setJavaNamingFactoryInitial(String newJavaNamingFactoryInitial) {
@@ -6913,7 +7043,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getJavaNamingProviderUrl() {
@@ -6921,7 +7052,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setJavaNamingProviderUrl(String newJavaNamingProviderUrl) {
@@ -6932,7 +7064,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSConnectionFactoryJNDIName() {
@@ -6940,7 +7073,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSConnectionFactoryJNDIName(String newTransportJMSConnectionFactoryJNDIName) {
@@ -6951,7 +7085,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public JMSConnectionFactoryType getTransportJMSConnectionFactoryType() {
@@ -6959,7 +7094,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSConnectionFactoryType(JMSConnectionFactoryType newTransportJMSConnectionFactoryType) {
@@ -6970,7 +7106,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSConcurrentConsumers() {
@@ -6978,7 +7115,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSConcurrentConsumers(String newTransportJMSConcurrentConsumers) {
@@ -6989,7 +7127,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSDestination() {
@@ -6997,7 +7136,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSDestination(String newTransportJMSDestination) {
@@ -7008,7 +7148,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportJMSSessionTransacted() {
@@ -7016,7 +7157,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSSessionTransacted(boolean newTransportJMSSessionTransacted) {
@@ -7027,7 +7169,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public JMSSessionAcknowledgement getTransportJMSSessionAcknowledgement() {
@@ -7035,7 +7178,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSSessionAcknowledgement(JMSSessionAcknowledgement newTransportJMSSessionAcknowledgement) {
@@ -7046,7 +7190,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public JMSCacheLevel getTransportJMSCacheLevel() {
@@ -7054,7 +7199,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSCacheLevel(JMSCacheLevel newTransportJMSCacheLevel) {
@@ -7065,7 +7211,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSUserName() {
@@ -7073,7 +7220,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSUserName(String newTransportJMSUserName) {
@@ -7084,7 +7232,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSPassword() {
@@ -7092,7 +7241,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSPassword(String newTransportJMSPassword) {
@@ -7103,7 +7253,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSJMSSpecVersion() {
@@ -7111,7 +7262,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSJMSSpecVersion(String newTransportJMSJMSSpecVersion) {
@@ -7122,7 +7274,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSSubscriptionDurable() {
@@ -7130,7 +7283,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSSubscriptionDurable(String newTransportJMSSubscriptionDurable) {
@@ -7141,7 +7295,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSDurableSubscriberClientID() {
@@ -7149,7 +7304,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSDurableSubscriberClientID(String newTransportJMSDurableSubscriberClientID) {
@@ -7160,7 +7316,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSMessageSelector() {
@@ -7168,7 +7325,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSMessageSelector(String newTransportJMSMessageSelector) {
@@ -7179,7 +7337,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSRetryDuration() {
@@ -7187,7 +7346,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSRetryDuration(String newTransportJMSRetryDuration) {
@@ -7198,7 +7358,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSMoveTimestampFormat() {
@@ -7206,7 +7367,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSMoveTimestampFormat(String newTransportVFSMoveTimestampFormat) {
@@ -7217,7 +7379,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public VFSFileSort getTransportVFSFileSortAttribute() {
@@ -7225,7 +7388,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSFileSortAttribute(VFSFileSort newTransportVFSFileSortAttribute) {
@@ -7236,7 +7400,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportVFSFileSortAscending() {
@@ -7244,7 +7409,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSFileSortAscending(boolean newTransportVFSFileSortAscending) {
@@ -7255,7 +7421,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportVFSSubFolderTimestampFormat() {
@@ -7263,7 +7430,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSSubFolderTimestampFormat(String newTransportVFSSubFolderTimestampFormat) {
@@ -7274,7 +7442,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportVFSCreateFolder() {
@@ -7282,7 +7451,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportVFSCreateFolder(boolean newTransportVFSCreateFolder) {
@@ -7293,7 +7463,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSReceiveTimeout() {
@@ -7301,7 +7472,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSReceiveTimeout(String newTransportJMSReceiveTimeout) {
@@ -7312,7 +7484,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSContentType() {
@@ -7320,7 +7493,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSContentType(String newTransportJMSContentType) {
@@ -7331,7 +7505,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSContentTypeProperty() {
@@ -7339,7 +7514,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSContentTypeProperty(String newTransportJMSContentTypeProperty) {
@@ -7350,7 +7526,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSReplyDestination() {
@@ -7358,7 +7535,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSReplyDestination(String newTransportJMSReplyDestination) {
@@ -7369,7 +7547,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSPubSubNoLocal() {
@@ -7377,7 +7556,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSPubSubNoLocal(String newTransportJMSPubSubNoLocal) {
@@ -7388,7 +7568,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportJMSDurableSubscriberName() {
@@ -7396,7 +7577,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportJMSDurableSubscriberName(String newTransportJMSDurableSubscriberName) {
@@ -7407,7 +7589,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTConnectionFactory() {
@@ -7415,7 +7598,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTConnectionFactory(String newTransportMQTTConnectionFactory) {
@@ -7426,7 +7610,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTServerHostName() {
@@ -7434,7 +7619,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTServerHostName(String newTransportMQTTServerHostName) {
@@ -7445,7 +7631,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTServerPort() {
@@ -7453,7 +7640,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTServerPort(String newTransportMQTTServerPort) {
@@ -7464,7 +7652,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTTopicName() {
@@ -7472,7 +7661,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTTopicName(String newTransportMQTTTopicName) {
@@ -7483,7 +7673,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public MQTTSubscriptionQOS getTransportMQTTSubscriptionQOS() {
@@ -7491,7 +7682,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTSubscriptionQOS(MQTTSubscriptionQOS newTransportMQTTSubscriptionQOS) {
@@ -7502,7 +7694,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTransportMQTTSessionClean() {
@@ -7510,7 +7703,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTSessionClean(boolean newTransportMQTTSessionClean) {
@@ -7521,7 +7715,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTSslEnable() {
@@ -7529,7 +7724,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTSslEnable(String newTransportMQTTSslEnable) {
@@ -7540,7 +7736,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTTemporaryStoreDirectory() {
@@ -7548,7 +7745,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTTemporaryStoreDirectory(String newTransportMQTTTemporaryStoreDirectory) {
@@ -7559,7 +7757,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTSubscriptionUsername() {
@@ -7567,7 +7766,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTSubscriptionUsername(String newTransportMQTTSubscriptionUsername) {
@@ -7578,7 +7778,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTSubscriptionPassword() {
@@ -7586,7 +7787,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTSubscriptionPassword(String newTransportMQTTSubscriptionPassword) {
@@ -7597,7 +7799,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTransportMQTTClientId() {
@@ -7605,7 +7808,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTransportMQTTClientId(String newTransportMQTTClientId) {
@@ -7616,7 +7820,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getTruststore() {
@@ -7624,7 +7829,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTruststore(String newTruststore) {
@@ -7635,7 +7841,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getKeystore() {
@@ -7643,7 +7850,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setKeystore(String newKeystore) {
@@ -7654,7 +7862,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSslVerifyClient() {
@@ -7662,7 +7871,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSslVerifyClient(String newSslVerifyClient) {
@@ -7673,7 +7883,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getSslProtocol() {
@@ -7681,7 +7892,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSslProtocol(String newSslProtocol) {
@@ -7692,7 +7904,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getHttpsProtocols() {
@@ -7700,7 +7913,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setHttpsProtocols(String newHttpsProtocols) {
@@ -7711,7 +7925,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getCertificateRevocationVerifier() {
@@ -7719,7 +7934,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setCertificateRevocationVerifier(String newCertificateRevocationVerifier) {
@@ -7730,7 +7946,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -7748,14 +7965,13 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return basicSetContainer(null, msgs);
 			case EsbPackage.INBOUND_ENDPOINT__SERVICE_PARAMETERS:
 				return ((InternalEList<?>)getServiceParameters()).basicRemove(otherEnd, msgs);
-			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS:
-				return basicSetTransportRabbitMqConsumerQos(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -8109,8 +8325,6 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return getTransportRabbitMqConnectionRetryInterval();
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL:
 				return getTransportRabbitMqServerRetryInterval();
-			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS:
-				return getTransportRabbitMqConsumerQos();
 			case EsbPackage.INBOUND_ENDPOINT__WS_INBOUND_PORT:
 				return getWsInboundPort();
 			case EsbPackage.INBOUND_ENDPOINT__WS_CLIENT_SIDE_BROADCAST_LEVEL:
@@ -8140,7 +8354,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -8670,9 +8885,6 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL:
 				setTransportRabbitMqServerRetryInterval((String)newValue);
 				return;
-			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS:
-				setTransportRabbitMqConsumerQos((RegistryKeyProperty)newValue);
-				return;
 			case EsbPackage.INBOUND_ENDPOINT__WS_INBOUND_PORT:
 				setWsInboundPort((String)newValue);
 				return;
@@ -8714,7 +8926,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -9242,9 +9455,6 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL:
 				setTransportRabbitMqServerRetryInterval(TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL_EDEFAULT);
 				return;
-			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS:
-				setTransportRabbitMqConsumerQos((RegistryKeyProperty)null);
-				return;
 			case EsbPackage.INBOUND_ENDPOINT__WS_INBOUND_PORT:
 				setWsInboundPort(WS_INBOUND_PORT_EDEFAULT);
 				return;
@@ -9286,7 +9496,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -9640,8 +9851,6 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return TRANSPORT_RABBIT_MQ_CONNECTION_RETRY_INTERVAL_EDEFAULT == null ? transportRabbitMqConnectionRetryInterval != null : !TRANSPORT_RABBIT_MQ_CONNECTION_RETRY_INTERVAL_EDEFAULT.equals(transportRabbitMqConnectionRetryInterval);
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL:
 				return TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL_EDEFAULT == null ? transportRabbitMqServerRetryInterval != null : !TRANSPORT_RABBIT_MQ_SERVER_RETRY_INTERVAL_EDEFAULT.equals(transportRabbitMqServerRetryInterval);
-			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_RABBIT_MQ_CONSUMER_QOS:
-				return transportRabbitMqConsumerQos != null;
 			case EsbPackage.INBOUND_ENDPOINT__WS_INBOUND_PORT:
 				return WS_INBOUND_PORT_EDEFAULT == null ? wsInboundPort != null : !WS_INBOUND_PORT_EDEFAULT.equals(wsInboundPort);
 			case EsbPackage.INBOUND_ENDPOINT__WS_CLIENT_SIDE_BROADCAST_LEVEL:
@@ -9671,7 +9880,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -10015,8 +10225,6 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 		result.append(transportRabbitMqConnectionRetryInterval);
 		result.append(", transportRabbitMqServerRetryInterval: ");
 		result.append(transportRabbitMqServerRetryInterval);
-		result.append(", transportRabbitMqConsumerQos: ");
-		result.append(transportRabbitMqConsumerQos);
 		result.append(", wsInboundPort: ");
 		result.append(wsInboundPort);
 		result.append(", wsClientSideBroadcastLevel: ");
@@ -10045,4 +10253,4 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 		return result.toString();
 	}
 
-} // InboundEndpointImpl
+} //InboundEndpointImpl
