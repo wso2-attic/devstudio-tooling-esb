@@ -18,9 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_ACTION;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_ID;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_SCOPE;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_TIMEOUT;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__HASH_GENERATOR;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__MAX_ENTRY_COUNT;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__MAX_MESSAGE_SIZE;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_KEY;
@@ -33,7 +31,6 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -58,12 +55,6 @@ public class CacheMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 				executeSetValueCommand(CACHE_MEDIATOR__CACHE_ID, mediator.getId());
 			}
 
-			if ("per-mediator".equals(mediator.getScope())) {
-				executeSetValueCommand(CACHE_MEDIATOR__CACHE_SCOPE, CacheScope.PER_MEDIATOR);
-			} else if ("per-host".equals(mediator.getScope())) {
-				executeSetValueCommand(CACHE_MEDIATOR__CACHE_SCOPE, CacheScope.PER_HOST);
-			}
-
 			if (mediator.isCollector()) {
 				executeSetValueCommand(CACHE_MEDIATOR__CACHE_ACTION, CacheAction.COLLECTOR);
 			} else {
@@ -71,11 +62,6 @@ public class CacheMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 				executeSetValueCommand(CACHE_MEDIATOR__CACHE_TIMEOUT, (int) mediator.getTimeout());
 				executeSetValueCommand(CACHE_MEDIATOR__MAX_MESSAGE_SIZE, (int) mediator.getMaxMessageSize());
 				executeSetValueCommand(CACHE_MEDIATOR__MAX_ENTRY_COUNT, (int) mediator.getInMemoryCacheSize());
-
-				if (mediator.getDigestGenerator() != null) {
-					executeSetValueCommand(CACHE_MEDIATOR__HASH_GENERATOR,
-							mediator.getDigestGenerator().getClass().getName());
-				}
 
 				String onCacheHitRef = mediator.getOnCacheHitRef();
 				SequenceMediator onCacheHitSequence = mediator.getOnCacheHitSequence();

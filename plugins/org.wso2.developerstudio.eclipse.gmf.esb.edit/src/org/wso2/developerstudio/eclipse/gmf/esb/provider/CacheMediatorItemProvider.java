@@ -65,14 +65,11 @@ public class CacheMediatorItemProvider
 		super.getPropertyDescriptors(object);
 
 		addCacheIdPropertyDescriptor(object);
-		addCacheScopePropertyDescriptor(object);
 		addCacheActionPropertyDescriptor(object);
 		
 		if (cacheMediator.getCacheAction().equals(CacheAction.FINDER)) {
-			addHashGeneratorPropertyDescriptor(object);
 			addCacheTimeoutPropertyDescriptor(object);
 			addMaxMessageSizePropertyDescriptor(object);
-			addImplementationTypePropertyDescriptor(object);
 			addMaxEntryCountPropertyDescriptor(object);
 			
 			addSequenceTypePropertyDescriptor(object);
@@ -108,28 +105,6 @@ public class CacheMediatorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Cache Scope feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addCacheScopePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CacheMediator_cacheScope_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_cacheScope_feature", "_UI_CacheMediator_type"),
-				 EsbPackage.Literals.CACHE_MEDIATOR__CACHE_SCOPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "General",
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Cache Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,28 +118,6 @@ public class CacheMediatorItemProvider
 				 getString("_UI_CacheMediator_cacheAction_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_cacheAction_feature", "_UI_CacheMediator_type"),
 				 EsbPackage.Literals.CACHE_MEDIATOR__CACHE_ACTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "General",
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Hash Generator feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addHashGeneratorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CacheMediator_hashGenerator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_hashGenerator_feature", "_UI_CacheMediator_type"),
-				 EsbPackage.Literals.CACHE_MEDIATOR__HASH_GENERATOR,
 				 true,
 				 false,
 				 false,
@@ -214,28 +167,6 @@ public class CacheMediatorItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 "General",
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Implementation Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addImplementationTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CacheMediator_implementationType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_implementationType_feature", "_UI_CacheMediator_type"),
-				 EsbPackage.Literals.CACHE_MEDIATOR__IMPLEMENTATION_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Implementation",
 				 null));
 	}
 
@@ -382,12 +313,9 @@ public class CacheMediatorItemProvider
 
 		switch (notification.getFeatureID(CacheMediator.class)) {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
-			case EsbPackage.CACHE_MEDIATOR__CACHE_SCOPE:
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ACTION:
-			case EsbPackage.CACHE_MEDIATOR__HASH_GENERATOR:
 			case EsbPackage.CACHE_MEDIATOR__CACHE_TIMEOUT:
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
-			case EsbPackage.CACHE_MEDIATOR__IMPLEMENTATION_TYPE:
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

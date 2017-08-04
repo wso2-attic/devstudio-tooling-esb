@@ -517,12 +517,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createTargetEndpointTypeFromString(eDataType, initialValue);
 			case EsbPackage.CACHE_SEQUENCE_TYPE:
 				return createCacheSequenceTypeFromString(eDataType, initialValue);
-			case EsbPackage.CACHE_IMPLEMENTATION_TYPE:
-				return createCacheImplementationTypeFromString(eDataType, initialValue);
 			case EsbPackage.CACHE_ACTION:
 				return createCacheActionFromString(eDataType, initialValue);
-			case EsbPackage.CACHE_SCOPE:
-				return createCacheScopeFromString(eDataType, initialValue);
 			case EsbPackage.XQUERY_VARIABLE_TYPE:
 				return createXQueryVariableTypeFromString(eDataType, initialValue);
 			case EsbPackage.XQUERY_VARIABLE_VALUE_TYPE:
@@ -789,12 +785,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertTargetEndpointTypeToString(eDataType, instanceValue);
 			case EsbPackage.CACHE_SEQUENCE_TYPE:
 				return convertCacheSequenceTypeToString(eDataType, instanceValue);
-			case EsbPackage.CACHE_IMPLEMENTATION_TYPE:
-				return convertCacheImplementationTypeToString(eDataType, instanceValue);
 			case EsbPackage.CACHE_ACTION:
 				return convertCacheActionToString(eDataType, instanceValue);
-			case EsbPackage.CACHE_SCOPE:
-				return convertCacheScopeToString(eDataType, instanceValue);
 			case EsbPackage.XQUERY_VARIABLE_TYPE:
 				return convertXQueryVariableTypeToString(eDataType, instanceValue);
 			case EsbPackage.XQUERY_VARIABLE_VALUE_TYPE:
@@ -5611,26 +5603,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CacheImplementationType createCacheImplementationTypeFromString(EDataType eDataType, String initialValue) {
-		CacheImplementationType result = CacheImplementationType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCacheImplementationTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CacheAction createCacheActionFromString(EDataType eDataType, String initialValue) {
 		CacheAction result = CacheAction.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -5643,26 +5615,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertCacheActionToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CacheScope createCacheScopeFromString(EDataType eDataType, String initialValue) {
-		CacheScope result = CacheScope.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCacheScopeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

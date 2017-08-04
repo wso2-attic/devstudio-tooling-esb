@@ -314,16 +314,9 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheSequenceType/ANONYMOUS"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheSequenceType/REGISTRY_REFERENCE"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CacheImplementationType">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheImplementationType/IN_MEMORY"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CacheAction">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheAction/FINDER"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheAction/COLLECTOR"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CacheScope">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheScope/PER_MEDIATOR"/>
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheScope/PER_HOST"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//XQueryVariableType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//XQueryVariableType/DOCUMENT"/>
@@ -1492,12 +1485,9 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CacheMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheScope"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheAction"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/hashGenerator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheTimeout"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/maxMessageSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/implementationType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/maxEntryCount"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/sequenceType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//CacheMediator/sequenceKey"/>
