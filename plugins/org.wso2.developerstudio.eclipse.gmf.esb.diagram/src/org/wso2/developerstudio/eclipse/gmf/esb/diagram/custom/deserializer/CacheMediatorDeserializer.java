@@ -31,7 +31,6 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
