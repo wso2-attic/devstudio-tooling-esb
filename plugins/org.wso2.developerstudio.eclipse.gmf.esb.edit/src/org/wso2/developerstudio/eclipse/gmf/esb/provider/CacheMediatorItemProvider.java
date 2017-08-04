@@ -70,7 +70,6 @@ public class CacheMediatorItemProvider
 		if (cacheMediator.getCacheAction().equals(CacheAction.FINDER)) {
 			addCacheTimeoutPropertyDescriptor(object);
 			addMaxMessageSizePropertyDescriptor(object);
-			addImplementationTypePropertyDescriptor(object);
 			addMaxEntryCountPropertyDescriptor(object);
 			
 			addSequenceTypePropertyDescriptor(object);
@@ -168,28 +167,6 @@ public class CacheMediatorItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 "General",
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Implementation Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addImplementationTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CacheMediator_implementationType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_implementationType_feature", "_UI_CacheMediator_type"),
-				 EsbPackage.Literals.CACHE_MEDIATOR__IMPLEMENTATION_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Implementation",
 				 null));
 	}
 
