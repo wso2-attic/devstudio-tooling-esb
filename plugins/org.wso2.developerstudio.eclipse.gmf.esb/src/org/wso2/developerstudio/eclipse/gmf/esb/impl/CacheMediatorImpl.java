@@ -46,7 +46,6 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getCacheAction <em>Cache Action</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getCacheTimeout <em>Cache Timeout</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getMaxMessageSize <em>Max Message Size</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getImplementationType <em>Implementation Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getMaxEntryCount <em>Max Entry Count</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getSequenceType <em>Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getSequenceKey <em>Sequence Key</em>}</li>
@@ -138,26 +137,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @ordered
 	 */
 	protected int maxMessageSize = MAX_MESSAGE_SIZE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getImplementationType() <em>Implementation Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImplementationType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final CacheImplementationType IMPLEMENTATION_TYPE_EDEFAULT = CacheImplementationType.IN_MEMORY;
-
-	/**
-	 * The cached value of the '{@link #getImplementationType() <em>Implementation Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImplementationType()
-	 * @generated
-	 * @ordered
-	 */
-	protected CacheImplementationType implementationType = IMPLEMENTATION_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMaxEntryCount() <em>Max Entry Count</em>}' attribute.
@@ -358,27 +337,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		maxMessageSize = newMaxMessageSize;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE, oldMaxMessageSize, maxMessageSize));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CacheImplementationType getImplementationType() {
-		return implementationType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setImplementationType(CacheImplementationType newImplementationType) {
-		CacheImplementationType oldImplementationType = implementationType;
-		implementationType = newImplementationType == null ? IMPLEMENTATION_TYPE_EDEFAULT : newImplementationType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__IMPLEMENTATION_TYPE, oldImplementationType, implementationType));
 	}
 
 	/**
@@ -678,8 +636,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return getCacheTimeout();
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
 				return getMaxMessageSize();
-			case EsbPackage.CACHE_MEDIATOR__IMPLEMENTATION_TYPE:
-				return getImplementationType();
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 				return getMaxEntryCount();
 			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
@@ -718,9 +674,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return;
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
 				setMaxMessageSize((Integer)newValue);
-				return;
-			case EsbPackage.CACHE_MEDIATOR__IMPLEMENTATION_TYPE:
-				setImplementationType((CacheImplementationType)newValue);
 				return;
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 				setMaxEntryCount((Integer)newValue);
@@ -768,9 +721,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
 				setMaxMessageSize(MAX_MESSAGE_SIZE_EDEFAULT);
 				return;
-			case EsbPackage.CACHE_MEDIATOR__IMPLEMENTATION_TYPE:
-				setImplementationType(IMPLEMENTATION_TYPE_EDEFAULT);
-				return;
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 				setMaxEntryCount(MAX_ENTRY_COUNT_EDEFAULT);
 				return;
@@ -813,8 +763,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return cacheTimeout != CACHE_TIMEOUT_EDEFAULT;
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
 				return maxMessageSize != MAX_MESSAGE_SIZE_EDEFAULT;
-			case EsbPackage.CACHE_MEDIATOR__IMPLEMENTATION_TYPE:
-				return implementationType != IMPLEMENTATION_TYPE_EDEFAULT;
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 				return maxEntryCount != MAX_ENTRY_COUNT_EDEFAULT;
 			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
@@ -852,8 +800,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		result.append(cacheTimeout);
 		result.append(", maxMessageSize: ");
 		result.append(maxMessageSize);
-		result.append(", implementationType: ");
-		result.append(implementationType);
 		result.append(", maxEntryCount: ");
 		result.append(maxEntryCount);
 		result.append(", sequenceType: ");

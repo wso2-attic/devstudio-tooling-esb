@@ -20,7 +20,6 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheAction <em>Cache Action</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheTimeout <em>Cache Timeout</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getMaxMessageSize <em>Max Message Size</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getImplementationType <em>Implementation Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getMaxEntryCount <em>Max Entry Count</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceType <em>Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceKey <em>Sequence Key</em>}</li>
@@ -144,35 +143,6 @@ public interface CacheMediator extends Mediator {
 	 * @generated
 	 */
 	void setMaxMessageSize(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Implementation Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Implementation Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Implementation Type</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType
-	 * @see #setImplementationType(CacheImplementationType)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_ImplementationType()
-	 * @model
-	 * @generated
-	 */
-	CacheImplementationType getImplementationType();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getImplementationType <em>Implementation Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Implementation Type</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType
-	 * @see #getImplementationType()
-	 * @generated
-	 */
-	void setImplementationType(CacheImplementationType value);
 
 	/**
 	 * Returns the value of the '<em><b>Max Entry Count</b></em>' attribute.

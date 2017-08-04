@@ -339,7 +339,6 @@ public class CacheMediatorItemProvider
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ACTION:
 			case EsbPackage.CACHE_MEDIATOR__CACHE_TIMEOUT:
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
-			case EsbPackage.CACHE_MEDIATOR__IMPLEMENTATION_TYPE:
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
