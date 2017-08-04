@@ -11219,31 +11219,13 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CACHE_MEDIATOR__CACHE_ID = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Cache Scope</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CACHE_MEDIATOR__CACHE_SCOPE = MEDIATOR_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Cache Action</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__CACHE_ACTION = MEDIATOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Hash Generator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CACHE_MEDIATOR__HASH_GENERATOR = MEDIATOR_FEATURE_COUNT + 3;
+	int CACHE_MEDIATOR__CACHE_ACTION = MEDIATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Cache Timeout</b></em>' attribute.
@@ -11252,7 +11234,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__CACHE_TIMEOUT = MEDIATOR_FEATURE_COUNT + 4;
+	int CACHE_MEDIATOR__CACHE_TIMEOUT = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Max Message Size</b></em>' attribute.
@@ -11261,7 +11243,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__MAX_MESSAGE_SIZE = MEDIATOR_FEATURE_COUNT + 5;
+	int CACHE_MEDIATOR__MAX_MESSAGE_SIZE = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Implementation Type</b></em>' attribute.
@@ -11270,7 +11252,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__IMPLEMENTATION_TYPE = MEDIATOR_FEATURE_COUNT + 6;
+	int CACHE_MEDIATOR__IMPLEMENTATION_TYPE = MEDIATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Max Entry Count</b></em>' attribute.
@@ -11279,7 +11261,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__MAX_ENTRY_COUNT = MEDIATOR_FEATURE_COUNT + 7;
+	int CACHE_MEDIATOR__MAX_ENTRY_COUNT = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -11288,7 +11270,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__SEQUENCE_TYPE = MEDIATOR_FEATURE_COUNT + 8;
+	int CACHE_MEDIATOR__SEQUENCE_TYPE = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
@@ -11297,7 +11279,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__SEQUENCE_KEY = MEDIATOR_FEATURE_COUNT + 9;
+	int CACHE_MEDIATOR__SEQUENCE_KEY = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -11306,7 +11288,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 10;
+	int CACHE_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -11315,7 +11297,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 11;
+	int CACHE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>On Hit Output Connector</b></em>' containment reference.
@@ -11324,7 +11306,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 12;
+	int CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Mediator Flow</b></em>' containment reference.
@@ -11333,7 +11315,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__MEDIATOR_FLOW = MEDIATOR_FEATURE_COUNT + 13;
+	int CACHE_MEDIATOR__MEDIATOR_FLOW = MEDIATOR_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Cache Mediator</em>' class.
@@ -11342,7 +11324,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 14;
+	int CACHE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorInputConnectorImpl <em>Cache Mediator Input Connector</em>}' class.
@@ -37850,17 +37832,6 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getCacheMediator_CacheId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheScope <em>Cache Scope</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cache Scope</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheScope()
-	 * @see #getCacheMediator()
-	 * @generated
-	 */
-	EAttribute getCacheMediator_CacheScope();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheAction <em>Cache Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -37870,17 +37841,6 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getCacheMediator_CacheAction();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getHashGenerator <em>Hash Generator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Hash Generator</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getHashGenerator()
-	 * @see #getCacheMediator()
-	 * @generated
-	 */
-	EAttribute getCacheMediator_HashGenerator();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheTimeout <em>Cache Timeout</em>}'.
@@ -52858,28 +52818,12 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute CACHE_MEDIATOR__CACHE_ID = eINSTANCE.getCacheMediator_CacheId();
 
 		/**
-		 * The meta object literal for the '<em><b>Cache Scope</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CACHE_MEDIATOR__CACHE_SCOPE = eINSTANCE.getCacheMediator_CacheScope();
-
-		/**
 		 * The meta object literal for the '<em><b>Cache Action</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CACHE_MEDIATOR__CACHE_ACTION = eINSTANCE.getCacheMediator_CacheAction();
-
-		/**
-		 * The meta object literal for the '<em><b>Hash Generator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CACHE_MEDIATOR__HASH_GENERATOR = eINSTANCE.getCacheMediator_HashGenerator();
 
 		/**
 		 * The meta object literal for the '<em><b>Cache Timeout</b></em>' attribute feature.

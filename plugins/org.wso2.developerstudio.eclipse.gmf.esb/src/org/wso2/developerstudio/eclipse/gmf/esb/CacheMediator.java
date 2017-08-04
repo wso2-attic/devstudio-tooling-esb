@@ -17,9 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * </p>
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheId <em>Cache Id</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheScope <em>Cache Scope</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheAction <em>Cache Action</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getHashGenerator <em>Hash Generator</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheTimeout <em>Cache Timeout</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getMaxMessageSize <em>Max Message Size</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getImplementationType <em>Implementation Type</em>}</li>
@@ -64,35 +62,6 @@ public interface CacheMediator extends Mediator {
 	void setCacheId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Cache Scope</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheScope}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Cache Scope</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cache Scope</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheScope
-	 * @see #setCacheScope(CacheScope)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_CacheScope()
-	 * @model
-	 * @generated
-	 */
-	CacheScope getCacheScope();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheScope <em>Cache Scope</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cache Scope</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheScope
-	 * @see #getCacheScope()
-	 * @generated
-	 */
-	void setCacheScope(CacheScope value);
-
-	/**
 	 * Returns the value of the '<em><b>Cache Action</b></em>' attribute.
 	 * The default value is <code>"FINDER"</code>.
 	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheAction}.
@@ -121,36 +90,6 @@ public interface CacheMediator extends Mediator {
 	 * @generated
 	 */
 	void setCacheAction(CacheAction value);
-
-	/**
-	 * Returns the value of the '<em><b>Hash Generator</b></em>' attribute.
-	 * The default value is <code>"CARBON_MEDIATOR_CACHE_DIGEST_DOMHASH_GENERATOR"</code>.
-	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.HashGenerator}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Hash Generator</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hash Generator</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HashGenerator
-	 * @see #setHashGenerator(HashGenerator)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_HashGenerator()
-	 * @model default="CARBON_MEDIATOR_CACHE_DIGEST_DOMHASH_GENERATOR"
-	 * @generated
-	 */
-	HashGenerator getHashGenerator();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getHashGenerator <em>Hash Generator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Hash Generator</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HashGenerator
-	 * @see #getHashGenerator()
-	 * @generated
-	 */
-	void setHashGenerator(HashGenerator value);
 
 	/**
 	 * Returns the value of the '<em><b>Cache Timeout</b></em>' attribute.

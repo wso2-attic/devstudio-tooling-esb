@@ -43,9 +43,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  * </p>
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getCacheId <em>Cache Id</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getCacheScope <em>Cache Scope</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getCacheAction <em>Cache Action</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getHashGenerator <em>Hash Generator</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getCacheTimeout <em>Cache Timeout</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getMaxMessageSize <em>Max Message Size</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getImplementationType <em>Implementation Type</em>}</li>
@@ -82,26 +80,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	protected String cacheId = CACHE_ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCacheScope() <em>Cache Scope</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCacheScope()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final CacheScope CACHE_SCOPE_EDEFAULT = CacheScope.PER_MEDIATOR;
-
-	/**
-	 * The cached value of the '{@link #getCacheScope() <em>Cache Scope</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCacheScope()
-	 * @generated
-	 * @ordered
-	 */
-	protected CacheScope cacheScope = CACHE_SCOPE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getCacheAction() <em>Cache Action</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,26 +98,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @ordered
 	 */
 	protected CacheAction cacheAction = CACHE_ACTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getHashGenerator() <em>Hash Generator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHashGenerator()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final HashGenerator HASH_GENERATOR_EDEFAULT = HashGenerator.CARBON_MEDIATOR_CACHE_DIGEST_DOMHASH_GENERATOR;
-
-	/**
-	 * The cached value of the '{@link #getHashGenerator() <em>Hash Generator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHashGenerator()
-	 * @generated
-	 * @ordered
-	 */
-	protected HashGenerator hashGenerator = HASH_GENERATOR_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCacheTimeout() <em>Cache Timeout</em>}' attribute.
@@ -344,27 +302,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CacheScope getCacheScope() {
-		return cacheScope;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCacheScope(CacheScope newCacheScope) {
-		CacheScope oldCacheScope = cacheScope;
-		cacheScope = newCacheScope == null ? CACHE_SCOPE_EDEFAULT : newCacheScope;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__CACHE_SCOPE, oldCacheScope, cacheScope));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CacheAction getCacheAction() {
 		return cacheAction;
 	}
@@ -379,27 +316,6 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		cacheAction = newCacheAction == null ? CACHE_ACTION_EDEFAULT : newCacheAction;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__CACHE_ACTION, oldCacheAction, cacheAction));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HashGenerator getHashGenerator() {
-		return hashGenerator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setHashGenerator(HashGenerator newHashGenerator) {
-		HashGenerator oldHashGenerator = hashGenerator;
-		hashGenerator = newHashGenerator == null ? HASH_GENERATOR_EDEFAULT : newHashGenerator;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__HASH_GENERATOR, oldHashGenerator, hashGenerator));
 	}
 
 	/**
@@ -756,12 +672,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		switch (featureID) {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
 				return getCacheId();
-			case EsbPackage.CACHE_MEDIATOR__CACHE_SCOPE:
-				return getCacheScope();
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ACTION:
 				return getCacheAction();
-			case EsbPackage.CACHE_MEDIATOR__HASH_GENERATOR:
-				return getHashGenerator();
 			case EsbPackage.CACHE_MEDIATOR__CACHE_TIMEOUT:
 				return getCacheTimeout();
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
@@ -798,14 +710,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
 				setCacheId((String)newValue);
 				return;
-			case EsbPackage.CACHE_MEDIATOR__CACHE_SCOPE:
-				setCacheScope((CacheScope)newValue);
-				return;
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ACTION:
 				setCacheAction((CacheAction)newValue);
-				return;
-			case EsbPackage.CACHE_MEDIATOR__HASH_GENERATOR:
-				setHashGenerator((HashGenerator)newValue);
 				return;
 			case EsbPackage.CACHE_MEDIATOR__CACHE_TIMEOUT:
 				setCacheTimeout((Integer)newValue);
@@ -853,14 +759,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
 				setCacheId(CACHE_ID_EDEFAULT);
 				return;
-			case EsbPackage.CACHE_MEDIATOR__CACHE_SCOPE:
-				setCacheScope(CACHE_SCOPE_EDEFAULT);
-				return;
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ACTION:
 				setCacheAction(CACHE_ACTION_EDEFAULT);
-				return;
-			case EsbPackage.CACHE_MEDIATOR__HASH_GENERATOR:
-				setHashGenerator(HASH_GENERATOR_EDEFAULT);
 				return;
 			case EsbPackage.CACHE_MEDIATOR__CACHE_TIMEOUT:
 				setCacheTimeout(CACHE_TIMEOUT_EDEFAULT);
@@ -907,12 +807,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		switch (featureID) {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
 				return CACHE_ID_EDEFAULT == null ? cacheId != null : !CACHE_ID_EDEFAULT.equals(cacheId);
-			case EsbPackage.CACHE_MEDIATOR__CACHE_SCOPE:
-				return cacheScope != CACHE_SCOPE_EDEFAULT;
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ACTION:
 				return cacheAction != CACHE_ACTION_EDEFAULT;
-			case EsbPackage.CACHE_MEDIATOR__HASH_GENERATOR:
-				return hashGenerator != HASH_GENERATOR_EDEFAULT;
 			case EsbPackage.CACHE_MEDIATOR__CACHE_TIMEOUT:
 				return cacheTimeout != CACHE_TIMEOUT_EDEFAULT;
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
@@ -950,12 +846,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (cacheId: ");
 		result.append(cacheId);
-		result.append(", cacheScope: ");
-		result.append(cacheScope);
 		result.append(", cacheAction: ");
 		result.append(cacheAction);
-		result.append(", hashGenerator: ");
-		result.append(hashGenerator);
 		result.append(", cacheTimeout: ");
 		result.append(cacheTimeout);
 		result.append(", maxMessageSize: ");
