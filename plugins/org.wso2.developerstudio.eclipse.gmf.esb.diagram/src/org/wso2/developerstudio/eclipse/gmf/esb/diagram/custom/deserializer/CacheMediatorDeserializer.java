@@ -48,7 +48,6 @@ public class CacheMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 				"Unsupported mediator passed in for deserialization");
 		CacheMediator mediatorModel = (CacheMediator) DeserializerUtils.createNode(part,
 				EsbElementTypes.CacheMediator_3518);
-		// Fixing DEVTOOLEI-1120
 		if (object instanceof org.wso2.carbon.mediator.cache.CacheMediator) {
 			org.wso2.carbon.mediator.cache.CacheMediator mediator = (org.wso2.carbon.mediator.cache.CacheMediator) object;
 
