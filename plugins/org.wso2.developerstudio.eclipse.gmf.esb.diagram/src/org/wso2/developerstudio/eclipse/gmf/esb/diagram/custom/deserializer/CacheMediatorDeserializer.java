@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ * Copyright 2012-2017 WSO2, Inc. (http://wso2.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,16 @@
  */
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
+
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_ACTION;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_ID;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_SCOPE;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_TIMEOUT;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__HASH_GENERATOR;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__MAX_ENTRY_COUNT;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__MAX_MESSAGE_SIZE;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_KEY;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_TYPE;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
@@ -38,7 +48,7 @@ public class CacheMediatorDeserializer extends
 	public CacheMediator createNode(IGraphicalEditPart part,
 			AbstractMediator object) throws DeserializerException {
 		Assert.isTrue(
-				object instanceof org.apache.synapse.mediators.builtin.CacheMediator
+				object instanceof org.wso2.carbon.mediator.cache.CacheMediator
 						|| object instanceof org.wso2.carbon.mediator.cache.CacheMediator,
 				"Unsupported mediator passed in for deserialization");
 		CacheMediator mediatorModel = (CacheMediator) DeserializerUtils
@@ -94,69 +104,8 @@ public class CacheMediatorDeserializer extends
 					deserializeSequence(compartment, onCacheHitSequence,
 							mediatorModel.getOnHitOutputConnector());
 				} else if (onCacheHitRef != null && !onCacheHitRef.equals("")) {
-					executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_TYPE,
-							CacheSequenceType.REGISTRY_REFERENCE);
-					RegistryKeyProperty regkey = EsbFactory.eINSTANCE
-							.createRegistryKeyProperty();
-					regkey.setKeyValue(onCacheHitRef);
-					executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_KEY, regkey);
-				}
-			}
-		} else if (object instanceof org.apache.synapse.mediators.builtin.CacheMediator) {
-			org.apache.synapse.mediators.builtin.CacheMediator mediator = (org.apache.synapse.mediators.builtin.CacheMediator) object;
-
-			setElementToEdit(mediatorModel);
-			setCommonProperties(mediator, mediatorModel);
-
-			if (StringUtils.isNotBlank(mediator.getId())) {
-				executeSetValueCommand(CACHE_MEDIATOR__CACHE_ID,
-						mediator.getId());
-			}
-
-			if ("per-mediator".equals(mediator.getScope())) {
-				executeSetValueCommand(CACHE_MEDIATOR__CACHE_SCOPE,
-						CacheScope.PER_MEDIATOR);
-			} else if ("per-host".equals(mediator.getScope())) {
-				executeSetValueCommand(CACHE_MEDIATOR__CACHE_SCOPE,
-						CacheScope.PER_HOST);
-			}
-
-			if (mediator.isCollector()) {
-				executeSetValueCommand(CACHE_MEDIATOR__CACHE_ACTION,
-						CacheAction.COLLECTOR);
-			} else {
-				executeSetValueCommand(CACHE_MEDIATOR__CACHE_ACTION,
-						CacheAction.FINDER);
-				executeSetValueCommand(CACHE_MEDIATOR__CACHE_TIMEOUT,
-						(int) mediator.getTimeout());
-				executeSetValueCommand(CACHE_MEDIATOR__MAX_MESSAGE_SIZE,
-						(int) mediator.getMaxMessageSize());
-				executeSetValueCommand(CACHE_MEDIATOR__MAX_ENTRY_COUNT,
-						(int) mediator.getInMemoryCacheSize());
-
-				if (mediator.getDigestGenerator() != null) {
-					executeSetValueCommand(CACHE_MEDIATOR__HASH_GENERATOR,
-							mediator.getDigestGenerator().getClass().getName());
-				}
-
-				String onCacheHitRef = mediator.getOnCacheHitRef();
-				SequenceMediator onCacheHitSequence = mediator
-						.getOnCacheHitSequence();
-
-				if (onCacheHitSequence != null) {
-					executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_TYPE,
-							CacheSequenceType.ANONYMOUS);
-					refreshEditPartMap();
-					IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(
-							mediatorModel.getMediatorFlow()).getChildren().get(
-							0);
-					deserializeSequence(compartment, onCacheHitSequence,
-							mediatorModel.getOnHitOutputConnector());
-				} else if (onCacheHitRef != null && !onCacheHitRef.equals("")) {
-					executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_TYPE,
-							CacheSequenceType.REGISTRY_REFERENCE);
-					RegistryKeyProperty regkey = EsbFactory.eINSTANCE
-							.createRegistryKeyProperty();
+					executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_TYPE, CacheSequenceType.REGISTRY_REFERENCE);
+					RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 					regkey.setKeyValue(onCacheHitRef);
 					executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_KEY, regkey);
 				}
