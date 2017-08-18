@@ -74,7 +74,9 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 			if(visualCache.getCacheAction().getValue()==0){
 				if (StringUtils.isNotBlank(visualCache.getCacheId())) {
 					cacheMediator.setId(visualCache.getCacheId());
-				}			
+				} else {
+					throw new TransformerException("Cache mediator id cannot be empty. Please specify an id for the cache mediator.");
+				}
 				cacheMediator.setScope(visualCache.getCacheScope().getLiteral());
 				cacheMediator.setTimeout(visualCache.getCacheTimeout());
 				cacheMediator.setMaxMessageSize(visualCache.getMaxMessageSize());
