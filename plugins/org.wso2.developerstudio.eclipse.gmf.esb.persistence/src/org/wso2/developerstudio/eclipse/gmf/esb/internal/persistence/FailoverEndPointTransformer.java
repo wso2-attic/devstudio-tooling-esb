@@ -132,6 +132,8 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer {
 			synapseFailEP.setName(name);
 		}
 
+		synapseFailEP.setBuildMessageAtt(visualEndPoint.isBuildMessage());
+
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
 		synapseFailEP.setChildren(endPointsList);
