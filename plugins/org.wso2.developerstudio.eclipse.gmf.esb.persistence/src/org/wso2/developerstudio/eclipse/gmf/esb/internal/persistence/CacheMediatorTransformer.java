@@ -75,39 +75,39 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 		 */
 		org.wso2.carbon.mediator.cache.CacheMediator cacheMediator = new org.wso2.carbon.mediator.cache.CacheMediator();
 		setCommonProperties(cacheMediator, visualCache);
-		{	
-			if(visualCache.getCacheAction().getValue() == 0){				
+		{
+			if (visualCache.getCacheAction().getValue() == 0) {
 				cacheMediator.setHTTPMethodsToCache(visualCache.getCacheProtocolMethods().split(","));
 				cacheMediator.setProtocolType(visualCache.getCacheProtocolType().getLiteral());
 				cacheMediator.setResponseCodes(visualCache.getResponseCodes());
 				cacheMediator.setMaxMessageSize(visualCache.getMaxMessageSize());
 				cacheMediator.setHttpMethod("http");
-				
+
 				cacheMediator.setTimeout(visualCache.getCacheTimeout());
 				cacheMediator.setHeadersToExcludeInHash(visualCache.getHeadersToExcludeInHash().split(","));
-				
-				if(visualCache.getHashGenerator().equals("HTTP_REQUEST_HASH_GENERATOR")) {
+
+				if (visualCache.getHashGenerator().equals("HTTP_REQUEST_HASH_GENERATOR")) {
 					org.wso2.carbon.mediator.cache.digest.DigestGenerator httpRequestHashGenerator = new org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator();
 					cacheMediator.setDigestGenerator(httpRequestHashGenerator);
 				}
-				
+
 				cacheMediator.setInMemoryCacheSize(visualCache.getMaxEntryCount());
 				cacheMediator.setCollector(false);
 			}
-			if(visualCache.getCacheAction().getValue()==1){
+
+			if (visualCache.getCacheAction().getValue() == 1) {
 				cacheMediator.setCollector(true);
 			}
-			
-			if(visualCache.getSequenceType().equals(CacheSequenceType.REGISTRY_REFERENCE)){
-				 
-				 if(visualCache.getSequenceKey() != null){
-					 
-					 RegistryKeyProperty  regKeyProperty = visualCache.getSequenceKey();
-					 cacheMediator.setOnCacheHitRef(regKeyProperty.getKeyValue());
-				 }
-			} else {				
-				SequenceMediator onCacheHitSequence = new SequenceMediator();
 
+			if (visualCache.getSequenceType().equals(CacheSequenceType.REGISTRY_REFERENCE)) {
+				if (visualCache.getSequenceKey() != null) {
+
+					RegistryKeyProperty regKeyProperty = visualCache.getSequenceKey();
+					cacheMediator.setOnCacheHitRef(regKeyProperty.getKeyValue());
+				}
+
+			} else {
+				SequenceMediator onCacheHitSequence = new SequenceMediator();
 				TransformationInfo newOnCacheHitInfo = new TransformationInfo();
 				newOnCacheHitInfo.setTraversalDirection(info.getTraversalDirection());
 				newOnCacheHitInfo.setSynapseConfiguration(info.getSynapseConfiguration());

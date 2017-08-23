@@ -60,7 +60,7 @@ public class CacheMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 				executeSetValueCommand(CACHE_MEDIATOR__CACHE_ACTION, CacheAction.COLLECTOR);
 			} else {
 				String[] methods = mediator.getHTTPMethodsToCache();
-				if (!(methods.length == 0 && "".equals(methods[0]))) {
+				if (methods.length != 0 && !methods[0].isEmpty()) {
 					StringBuilder method = new StringBuilder();
 					for (int i = 0; i < methods.length; i++) {
 						if (i != methods.length - 1) {

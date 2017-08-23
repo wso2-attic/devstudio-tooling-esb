@@ -28,7 +28,6 @@ import org.wso2.carbon.mediator.cache.digest.DigestGenerator;
 import org.apache.synapse.config.xml.SequenceMediatorFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.wso2.carbon.mediator.cache.CacheMediator;
-//import org.wso2.carbon.mediator.cache.CacheStore;
 import org.wso2.caching.CachingConstants;
 
 public class CacheMediatorExtFactory extends CacheMediatorFactory {
@@ -46,90 +45,91 @@ public class CacheMediatorExtFactory extends CacheMediatorFactory {
     private static final long DEFAULT_TIMEOUT = 5000L;
     private static final int DEFAULT_DISK_CACHE_SIZE = 200;
 
-    public Mediator createSpecificMediator(OMElement elem, Properties properties) {
+	public Mediator createSpecificMediator(OMElement elem, Properties properties) {
 
-        if (!CACHE_Q.equals(elem.getQName())) {
-            handleException(
-                    "Unable to create the cache mediator. " + "Unexpected element as the cache mediator configuration");
-        }
+		if (!CACHE_Q.equals(elem.getQName())) {
+			handleException(
+					"Unable to create the cache mediator. " + "Unexpected element as the cache mediator configuration");
+		}
 
-        CacheMediator cacheMediator = new CacheMediator();
+		CacheMediator cacheMediator = new CacheMediator();
 
-        OMAttribute collectorAttr = elem.getAttribute(ATT_COLLECTOR);
-        if (collectorAttr != null && collectorAttr.getAttributeValue() != null
-                && "true".equals(collectorAttr.getAttributeValue())) {
+		OMAttribute collectorAttr = elem.getAttribute(ATT_COLLECTOR);
+		if (collectorAttr != null && collectorAttr.getAttributeValue() != null
+				&& "true".equals(collectorAttr.getAttributeValue())) {
+			cacheMediator.setCollector(true);
 
-            cacheMediator.setCollector(true);
-        } else {
+		} else {
+			cacheMediator.setCollector(false);
+			OMAttribute timeoutAttr = elem.getAttribute(ATT_TIMEOUT);
+			if (timeoutAttr != null && timeoutAttr.getAttributeValue() != null) {
+				cacheMediator.setTimeout(Long.parseLong(timeoutAttr.getAttributeValue()));
+			} else {
+				cacheMediator.setTimeout(DEFAULT_TIMEOUT);
+			}
 
-            cacheMediator.setCollector(false);
+			OMAttribute maxMessageSizeAttr = elem.getAttribute(ATT_MAX_MSG_SIZE);
+			if (maxMessageSizeAttr != null && maxMessageSizeAttr.getAttributeValue() != null) {
+				cacheMediator.setMaxMessageSize(Integer.parseInt(maxMessageSizeAttr.getAttributeValue()));
+			}
 
-            OMAttribute timeoutAttr = elem.getAttribute(ATT_TIMEOUT);
-            if (timeoutAttr != null && timeoutAttr.getAttributeValue() != null) {
-                cacheMediator.setTimeout(Long.parseLong(timeoutAttr.getAttributeValue()));
-            } else {
-                cacheMediator.setTimeout(DEFAULT_TIMEOUT);
-            }
-            
-            OMAttribute maxMessageSizeAttr = elem.getAttribute(ATT_MAX_MSG_SIZE);
-            if (maxMessageSizeAttr != null && maxMessageSizeAttr.getAttributeValue() != null) {
-            	cacheMediator.setMaxMessageSize(Integer.parseInt(maxMessageSizeAttr.getAttributeValue()));
-            }
+			for (Iterator itr = elem.getChildrenWithName(PROTOCOL_Q); itr.hasNext();) {
+				OMElement implElem = (OMElement) itr.next();
+				OMAttribute typeAttr = implElem.getAttribute(ATT_TYPE);
+				if (typeAttr != null && typeAttr.getAttributeValue() != null) {
+					String protocolType = typeAttr.getAttributeValue();
+					cacheMediator.setProtocolType(protocolType);
+				}
+				for (Iterator itrChildren = implElem.getChildrenWithLocalName("methods"); itrChildren.hasNext();) {
+					OMElement child = (OMElement) itrChildren.next();
+					cacheMediator.setHTTPMethodsToCache(child.getText().split(","));
+				}
+				for (Iterator itrChildren = implElem.getChildrenWithLocalName("headersToExcludeInHash"); itrChildren
+						.hasNext();) {
+					OMElement child = (OMElement) itrChildren.next();
+					cacheMediator.setHeadersToExcludeInHash(child.getText().split(","));
+				}
+				for (Iterator itrChildren = implElem.getChildrenWithLocalName("responseCodes"); itrChildren
+						.hasNext();) {
+					OMElement child = (OMElement) itrChildren.next();
+					cacheMediator.setResponseCodes(child.getText());
+				}
+				for (Iterator itrChildren = implElem.getChildrenWithLocalName("hashGenerator"); itrChildren
+						.hasNext();) {
+					OMElement child = (OMElement) itrChildren.next();
 
-            for (Iterator itr = elem.getChildrenWithName(PROTOCOL_Q); itr.hasNext();) {
-                OMElement implElem = (OMElement) itr.next();
-                OMAttribute typeAttr = implElem.getAttribute(ATT_TYPE);
-                if (typeAttr != null && typeAttr.getAttributeValue() != null) {
-                    String protocolType = typeAttr.getAttributeValue();
-                    cacheMediator.setProtocolType(protocolType);
-                }
-                for(Iterator itrChildren = implElem.getChildrenWithLocalName("methods"); itrChildren.hasNext();) {
-                	OMElement child = (OMElement)itrChildren.next();
-                	cacheMediator.setHTTPMethodsToCache(child.getText().split(","));
-                }
-                for(Iterator itrChildren = implElem.getChildrenWithLocalName("headersToExcludeInHash"); itrChildren.hasNext();) {
-                	OMElement child = (OMElement)itrChildren.next();
-                	cacheMediator.setHeadersToExcludeInHash(child.getText().split(","));
-                }
-                for(Iterator itrChildren = implElem.getChildrenWithLocalName("responseCodes"); itrChildren.hasNext();) {
-                	OMElement child = (OMElement)itrChildren.next();
-                	cacheMediator.setResponseCodes(child.getText());
-                }
-                for(Iterator itrChildren = implElem.getChildrenWithLocalName("hashGenerator"); itrChildren.hasNext();) {
-                	OMElement child = (OMElement)itrChildren.next();
+					if (child.getText() != null && !"".equals(child.getText())) {
+						try {
+							Class generator = Class.forName(child.getText());
+							Object generatorOject = generator.newInstance();
+							if (generatorOject instanceof DigestGenerator) {
+								cacheMediator.setDigestGenerator((DigestGenerator) generatorOject);
+							} else {
+								handleException("Specified class for the hashGenerator is not a "
+										+ "DigestGenerator. It *must* implement "
+										+ "org.wso2.carbon.mediator.cache.digest.DigestGenerator interface");
+							}
+						} catch (ClassNotFoundException e) {
+							handleException("Unable to load the hash generator class", e);
+						} catch (IllegalAccessException e) {
+							handleException("Unable to access the hash generator class", e);
+						} catch (InstantiationException e) {
+							handleException("Unable to instantiate the hash generator class", e);
+						}
+					}
+				}
+			}
 
-        			if (child.getText() != null && child.getText() != null) {
-        				try {
-        					Class generator = Class.forName(child.getText());
-        					Object generatorOject = generator.newInstance();
-        					if (generatorOject instanceof DigestGenerator) {
-        						cacheMediator.setDigestGenerator((DigestGenerator) generatorOject);
-        					} else {
-        						handleException("Specified class for the hashGenerator is not a "
-        								+ "DigestGenerator. It *must* implement "
-        								+ "org.wso2.carbon.mediator.cache.digest.DigestGenerator interface");
-        					}
-        				} catch (ClassNotFoundException e) {
-        					handleException("Unable to load the hash generator class", e);
-        				} catch (IllegalAccessException e) {
-        					handleException("Unable to access the hash generator class", e);
-        				} catch (InstantiationException e) {
-        					handleException("Unable to instantiate the hash generator class", e);
-        				}
-        			}
-                }
-            }
-
-            OMElement onCacheHitElem = elem.getFirstChildWithName(ON_CACHE_HIT_Q);
-            if (onCacheHitElem != null) {
-                OMAttribute sequenceAttr = onCacheHitElem.getAttribute(ATT_SEQUENCE);
-                if (sequenceAttr != null && sequenceAttr.getAttributeValue() != null) {
-                    cacheMediator.setOnCacheHitRef(sequenceAttr.getAttributeValue());
-                } else if (onCacheHitElem.getFirstElement() != null) {
-                    cacheMediator.setOnCacheHitSequence(
-                            new SequenceMediatorFactory().createAnonymousSequence(onCacheHitElem, properties));
-                }
-            }
+			OMElement onCacheHitElem = elem.getFirstChildWithName(ON_CACHE_HIT_Q);
+			if (onCacheHitElem != null) {
+				OMAttribute sequenceAttr = onCacheHitElem.getAttribute(ATT_SEQUENCE);
+				if (sequenceAttr != null && sequenceAttr.getAttributeValue() != null) {
+					cacheMediator.setOnCacheHitRef(sequenceAttr.getAttributeValue());
+				} else if (onCacheHitElem.getFirstElement() != null) {
+					cacheMediator.setOnCacheHitSequence(
+							new SequenceMediatorFactory().createAnonymousSequence(onCacheHitElem, properties));
+				}
+			}
 
 			for (Iterator itr = elem.getChildrenWithName(IMPLEMENTATION_Q); itr.hasNext();) {
 				OMElement implElem = (OMElement) itr.next();
@@ -140,10 +140,10 @@ public class CacheMediatorExtFactory extends CacheMediatorFactory {
 					handleException("unknown implementation type for the Cache mediator");
 				}
 			}
-        }
+		}
 
-        addAllCommentChildrenToList(elem, cacheMediator.getCommentsList());
+		addAllCommentChildrenToList(elem, cacheMediator.getCommentsList());
 
-        return cacheMediator;
-    }
+		return cacheMediator;
+	}
 }
