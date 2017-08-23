@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.xml.namespace.QName;
+
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.commons.lang.StringUtils;
@@ -152,6 +154,8 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer 
 				((SALoadbalanceEndpoint) synapseLBEP).setSessionTimeout(sessionTimeout);
 			}
 		}
+
+		synapseLBEP.setBuildMessageAtt(visualEndPoint.isBuildMessage());
 
 		if (StringUtils.isNotBlank(name)) {
 			synapseLBEP.setName(name);
