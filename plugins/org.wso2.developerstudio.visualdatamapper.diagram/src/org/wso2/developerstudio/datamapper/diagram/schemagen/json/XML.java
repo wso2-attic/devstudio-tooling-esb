@@ -301,6 +301,9 @@ public class XML {
         if ("null".equalsIgnoreCase(string)) {
             return JSONObject.NULL;
         }
+        if ("".equals(string)) {
+            return JSONObject.valueToString(new String());
+        }
 
 // If it might be a number, try converting it, first as a Long, and then as a
 // Double. If that doesn't work, return the string.
