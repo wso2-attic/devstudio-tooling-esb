@@ -250,6 +250,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.WSClientSideBroadcastLevel;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportFeedType <em>Transport Feed Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#isTraceEnabled <em>Trace Enabled</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#isStatisticsEnabled <em>Statistics Enabled</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslKeyStoreLocation <em>Transport MQTT Ssl Key Store Location</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslKeystoreType <em>Transport MQTT Ssl Keystore Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslKeystorePassword <em>Transport MQTT Ssl Keystore Password</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslTruststoreLocation <em>Transport MQTT Ssl Truststore Location</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslTruststoreType <em>Transport MQTT Ssl Truststore Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslTruststorePassword <em>Transport MQTT Ssl Truststore Password</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslVersion <em>Transport MQTT Ssl Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -4018,17 +4025,151 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	protected boolean statisticsEnabled = STATISTICS_ENABLED_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getTransportMQTTSslKeyStoreLocation() <em>Transport MQTT Ssl Key Store Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslKeyStoreLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTransportMQTTSslKeyStoreLocation() <em>Transport MQTT Ssl Key Store Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslKeyStoreLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transportMQTTSslKeyStoreLocation = TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTransportMQTTSslKeystoreType() <em>Transport MQTT Ssl Keystore Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslKeystoreType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TRANSPORT_MQTT_SSL_KEYSTORE_TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTransportMQTTSslKeystoreType() <em>Transport MQTT Ssl Keystore Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslKeystoreType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transportMQTTSslKeystoreType = TRANSPORT_MQTT_SSL_KEYSTORE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTransportMQTTSslKeystorePassword() <em>Transport MQTT Ssl Keystore Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslKeystorePassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTransportMQTTSslKeystorePassword() <em>Transport MQTT Ssl Keystore Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslKeystorePassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transportMQTTSslKeystorePassword = TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTransportMQTTSslTruststoreLocation() <em>Transport MQTT Ssl Truststore Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslTruststoreLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTransportMQTTSslTruststoreLocation() <em>Transport MQTT Ssl Truststore Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslTruststoreLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transportMQTTSslTruststoreLocation = TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTransportMQTTSslTruststoreType() <em>Transport MQTT Ssl Truststore Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslTruststoreType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTransportMQTTSslTruststoreType() <em>Transport MQTT Ssl Truststore Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslTruststoreType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transportMQTTSslTruststoreType = TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTransportMQTTSslTruststorePassword() <em>Transport MQTT Ssl Truststore Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslTruststorePassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTransportMQTTSslTruststorePassword() <em>Transport MQTT Ssl Truststore Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslTruststorePassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transportMQTTSslTruststorePassword = TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTransportMQTTSslVersion() <em>Transport MQTT Ssl Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TRANSPORT_MQTT_SSL_VERSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTransportMQTTSslVersion() <em>Transport MQTT Ssl Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransportMQTTSslVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transportMQTTSslVersion = TRANSPORT_MQTT_SSL_VERSION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected InboundEndpointImpl() {
 		super();
-		
-		RegistryKeyProperty consumerQosKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
-		consumerQosKey.setKeyName("ConsumerQos Key");
-		consumerQosKey.setPrettyName("ConsumerQos Key");
-		consumerQosKey.setKeyValue("");
-		setTransportRabbitMqConsumerQos(consumerQosKey);
 	}
 
 	/**
@@ -6153,6 +6294,153 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTransportMQTTSslKeyStoreLocation() {
+		return transportMQTTSslKeyStoreLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransportMQTTSslKeyStoreLocation(String newTransportMQTTSslKeyStoreLocation) {
+		String oldTransportMQTTSslKeyStoreLocation = transportMQTTSslKeyStoreLocation;
+		transportMQTTSslKeyStoreLocation = newTransportMQTTSslKeyStoreLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION, oldTransportMQTTSslKeyStoreLocation, transportMQTTSslKeyStoreLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTransportMQTTSslKeystoreType() {
+		return transportMQTTSslKeystoreType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransportMQTTSslKeystoreType(String newTransportMQTTSslKeystoreType) {
+		String oldTransportMQTTSslKeystoreType = transportMQTTSslKeystoreType;
+		transportMQTTSslKeystoreType = newTransportMQTTSslKeystoreType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_TYPE, oldTransportMQTTSslKeystoreType, transportMQTTSslKeystoreType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTransportMQTTSslKeystorePassword() {
+		return transportMQTTSslKeystorePassword;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransportMQTTSslKeystorePassword(String newTransportMQTTSslKeystorePassword) {
+		String oldTransportMQTTSslKeystorePassword = transportMQTTSslKeystorePassword;
+		transportMQTTSslKeystorePassword = newTransportMQTTSslKeystorePassword;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD, oldTransportMQTTSslKeystorePassword, transportMQTTSslKeystorePassword));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTransportMQTTSslTruststoreLocation() {
+		return transportMQTTSslTruststoreLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransportMQTTSslTruststoreLocation(String newTransportMQTTSslTruststoreLocation) {
+		String oldTransportMQTTSslTruststoreLocation = transportMQTTSslTruststoreLocation;
+		transportMQTTSslTruststoreLocation = newTransportMQTTSslTruststoreLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION, oldTransportMQTTSslTruststoreLocation, transportMQTTSslTruststoreLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTransportMQTTSslTruststoreType() {
+		return transportMQTTSslTruststoreType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransportMQTTSslTruststoreType(String newTransportMQTTSslTruststoreType) {
+		String oldTransportMQTTSslTruststoreType = transportMQTTSslTruststoreType;
+		transportMQTTSslTruststoreType = newTransportMQTTSslTruststoreType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE, oldTransportMQTTSslTruststoreType, transportMQTTSslTruststoreType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTransportMQTTSslTruststorePassword() {
+		return transportMQTTSslTruststorePassword;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransportMQTTSslTruststorePassword(String newTransportMQTTSslTruststorePassword) {
+		String oldTransportMQTTSslTruststorePassword = transportMQTTSslTruststorePassword;
+		transportMQTTSslTruststorePassword = newTransportMQTTSslTruststorePassword;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD, oldTransportMQTTSslTruststorePassword, transportMQTTSslTruststorePassword));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTransportMQTTSslVersion() {
+		return transportMQTTSslVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransportMQTTSslVersion(String newTransportMQTTSslVersion) {
+		String oldTransportMQTTSslVersion = transportMQTTSslVersion;
+		transportMQTTSslVersion = newTransportMQTTSslVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION, oldTransportMQTTSslVersion, transportMQTTSslVersion));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -8135,6 +8423,20 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return isTraceEnabled();
 			case EsbPackage.INBOUND_ENDPOINT__STATISTICS_ENABLED:
 				return isStatisticsEnabled();
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION:
+				return getTransportMQTTSslKeyStoreLocation();
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_TYPE:
+				return getTransportMQTTSslKeystoreType();
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD:
+				return getTransportMQTTSslKeystorePassword();
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION:
+				return getTransportMQTTSslTruststoreLocation();
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE:
+				return getTransportMQTTSslTruststoreType();
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD:
+				return getTransportMQTTSslTruststorePassword();
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
+				return getTransportMQTTSslVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -8709,6 +9011,27 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 			case EsbPackage.INBOUND_ENDPOINT__STATISTICS_ENABLED:
 				setStatisticsEnabled((Boolean)newValue);
 				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION:
+				setTransportMQTTSslKeyStoreLocation((String)newValue);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_TYPE:
+				setTransportMQTTSslKeystoreType((String)newValue);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD:
+				setTransportMQTTSslKeystorePassword((String)newValue);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION:
+				setTransportMQTTSslTruststoreLocation((String)newValue);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE:
+				setTransportMQTTSslTruststoreType((String)newValue);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD:
+				setTransportMQTTSslTruststorePassword((String)newValue);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
+				setTransportMQTTSslVersion((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -9281,6 +9604,27 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 			case EsbPackage.INBOUND_ENDPOINT__STATISTICS_ENABLED:
 				setStatisticsEnabled(STATISTICS_ENABLED_EDEFAULT);
 				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION:
+				setTransportMQTTSslKeyStoreLocation(TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION_EDEFAULT);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_TYPE:
+				setTransportMQTTSslKeystoreType(TRANSPORT_MQTT_SSL_KEYSTORE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD:
+				setTransportMQTTSslKeystorePassword(TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD_EDEFAULT);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION:
+				setTransportMQTTSslTruststoreLocation(TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION_EDEFAULT);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE:
+				setTransportMQTTSslTruststoreType(TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD:
+				setTransportMQTTSslTruststorePassword(TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD_EDEFAULT);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
+				setTransportMQTTSslVersion(TRANSPORT_MQTT_SSL_VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -9666,6 +10010,20 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return traceEnabled != TRACE_ENABLED_EDEFAULT;
 			case EsbPackage.INBOUND_ENDPOINT__STATISTICS_ENABLED:
 				return statisticsEnabled != STATISTICS_ENABLED_EDEFAULT;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION:
+				return TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION_EDEFAULT == null ? transportMQTTSslKeyStoreLocation != null : !TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION_EDEFAULT.equals(transportMQTTSslKeyStoreLocation);
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_TYPE:
+				return TRANSPORT_MQTT_SSL_KEYSTORE_TYPE_EDEFAULT == null ? transportMQTTSslKeystoreType != null : !TRANSPORT_MQTT_SSL_KEYSTORE_TYPE_EDEFAULT.equals(transportMQTTSslKeystoreType);
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD:
+				return TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD_EDEFAULT == null ? transportMQTTSslKeystorePassword != null : !TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD_EDEFAULT.equals(transportMQTTSslKeystorePassword);
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION:
+				return TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION_EDEFAULT == null ? transportMQTTSslTruststoreLocation != null : !TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION_EDEFAULT.equals(transportMQTTSslTruststoreLocation);
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE:
+				return TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE_EDEFAULT == null ? transportMQTTSslTruststoreType != null : !TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE_EDEFAULT.equals(transportMQTTSslTruststoreType);
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD:
+				return TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD_EDEFAULT == null ? transportMQTTSslTruststorePassword != null : !TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD_EDEFAULT.equals(transportMQTTSslTruststorePassword);
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
+				return TRANSPORT_MQTT_SSL_VERSION_EDEFAULT == null ? transportMQTTSslVersion != null : !TRANSPORT_MQTT_SSL_VERSION_EDEFAULT.equals(transportMQTTSslVersion);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -10015,8 +10373,6 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 		result.append(transportRabbitMqConnectionRetryInterval);
 		result.append(", transportRabbitMqServerRetryInterval: ");
 		result.append(transportRabbitMqServerRetryInterval);
-		result.append(", transportRabbitMqConsumerQos: ");
-		result.append(transportRabbitMqConsumerQos);
 		result.append(", wsInboundPort: ");
 		result.append(wsInboundPort);
 		result.append(", wsClientSideBroadcastLevel: ");
@@ -10041,6 +10397,20 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 		result.append(traceEnabled);
 		result.append(", statisticsEnabled: ");
 		result.append(statisticsEnabled);
+		result.append(", transportMQTTSslKeyStoreLocation: ");
+		result.append(transportMQTTSslKeyStoreLocation);
+		result.append(", transportMQTTSslKeystoreType: ");
+		result.append(transportMQTTSslKeystoreType);
+		result.append(", transportMQTTSslKeystorePassword: ");
+		result.append(transportMQTTSslKeystorePassword);
+		result.append(", transportMQTTSslTruststoreLocation: ");
+		result.append(transportMQTTSslTruststoreLocation);
+		result.append(", transportMQTTSslTruststoreType: ");
+		result.append(transportMQTTSslTruststoreType);
+		result.append(", transportMQTTSslTruststorePassword: ");
+		result.append(transportMQTTSslTruststorePassword);
+		result.append(", transportMQTTSslVersion: ");
+		result.append(transportMQTTSslVersion);
 		result.append(')');
 		return result.toString();
 	}
