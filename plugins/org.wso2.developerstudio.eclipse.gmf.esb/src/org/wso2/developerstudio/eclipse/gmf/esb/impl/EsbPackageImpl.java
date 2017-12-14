@@ -11357,6 +11357,69 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInboundEndpoint_TransportMQTTSslKeyStoreLocation() {
+		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(187);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInboundEndpoint_TransportMQTTSslKeystoreType() {
+		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(188);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInboundEndpoint_TransportMQTTSslKeystorePassword() {
+		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(189);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInboundEndpoint_TransportMQTTSslTruststoreLocation() {
+		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(190);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInboundEndpoint_TransportMQTTSslTruststoreType() {
+		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(191);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInboundEndpoint_TransportMQTTSslTruststorePassword() {
+		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(192);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInboundEndpoint_TransportMQTTSslVersion() {
+		return (EAttribute)inboundEndpointEClass.getEStructuralFeatures().get(193);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInboundEndpointParameter() {
 		return inboundEndpointParameterEClass;
 	}
@@ -20590,6 +20653,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_FEED_TYPE);
 		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRACE_ENABLED);
 		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__STATISTICS_ENABLED);
+		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEY_STORE_LOCATION);
+		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_TYPE);
+		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_PASSWORD);
+		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_LOCATION);
+		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE);
+		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD);
+		createEAttribute(inboundEndpointEClass, INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION);
 
 		inboundEndpointParameterEClass = createEClass(INBOUND_ENDPOINT_PARAMETER);
 		createEAttribute(inboundEndpointParameterEClass, INBOUND_ENDPOINT_PARAMETER__NAME);
@@ -22974,6 +23044,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getInboundEndpoint_TransportFeedType(), this.getFeedType(), "transportFeedType", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpoint_TraceEnabled(), ecorePackage.getEBoolean(), "traceEnabled", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInboundEndpoint_StatisticsEnabled(), ecorePackage.getEBoolean(), "statisticsEnabled", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpoint_TransportMQTTSslKeyStoreLocation(), ecorePackage.getEString(), "transportMQTTSslKeyStoreLocation", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpoint_TransportMQTTSslKeystoreType(), ecorePackage.getEString(), "transportMQTTSslKeystoreType", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpoint_TransportMQTTSslKeystorePassword(), ecorePackage.getEString(), "transportMQTTSslKeystorePassword", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpoint_TransportMQTTSslTruststoreLocation(), ecorePackage.getEString(), "transportMQTTSslTruststoreLocation", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpoint_TransportMQTTSslTruststoreType(), ecorePackage.getEString(), "transportMQTTSslTruststoreType", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpoint_TransportMQTTSslTruststorePassword(), ecorePackage.getEString(), "transportMQTTSslTruststorePassword", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInboundEndpoint_TransportMQTTSslVersion(), ecorePackage.getEString(), "transportMQTTSslVersion", null, 0, 1, InboundEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inboundEndpointParameterEClass, InboundEndpointParameter.class, "InboundEndpointParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInboundEndpointParameter_Name(), ecorePackage.getEString(), "name", "parameter_name", 0, 1, InboundEndpointParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
