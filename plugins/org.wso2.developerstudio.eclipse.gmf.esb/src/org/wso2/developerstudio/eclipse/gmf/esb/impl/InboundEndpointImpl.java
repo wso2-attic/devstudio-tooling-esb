@@ -4166,10 +4166,15 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected InboundEndpointImpl() {
 		super();
+		RegistryKeyProperty consumerQosKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		consumerQosKey.setKeyName("ConsumerQos Key");
+		consumerQosKey.setPrettyName("ConsumerQos Key");
+		consumerQosKey.setKeyValue("");
+		setTransportRabbitMqConsumerQos(consumerQosKey);
 	}
 
 	/**
@@ -10373,6 +10378,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 		result.append(transportRabbitMqConnectionRetryInterval);
 		result.append(", transportRabbitMqServerRetryInterval: ");
 		result.append(transportRabbitMqServerRetryInterval);
+		result.append(", transportRabbitMqConsumerQos: ");
+		result.append(transportRabbitMqConsumerQos);
 		result.append(", wsInboundPort: ");
 		result.append(wsInboundPort);
 		result.append(", wsClientSideBroadcastLevel: ");
