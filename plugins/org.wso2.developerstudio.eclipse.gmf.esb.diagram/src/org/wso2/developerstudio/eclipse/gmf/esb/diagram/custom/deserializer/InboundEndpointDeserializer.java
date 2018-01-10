@@ -41,6 +41,8 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOU
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_JMS_SESSION_ACKNOWLEDGEMENT;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_JMS_SESSION_TRANSACTED;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_JMS_SHARED_SUBSCRIPTION;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_JMS_RETRIES_BEFORE_SUSPENSION;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_MQTT_SUBSCRIPTION_QOS;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_VFS_ACTION_AFTER_FAILURE;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_VFS_ACTION_AFTER_PROCESS;
@@ -484,12 +486,18 @@ public class InboundEndpointDeserializer extends
                         } else if (paramEntry.getValue().equals("3")) {
                             executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_JMS_CACHE_LEVEL, JMSCacheLevel.THREE);
                         }
-                    }else if (paramEntry.getKey().equals(InboundEndpointConstants.JMS_SHARED_SUBSCRIPTION)) {
+                    } else if (paramEntry.getKey().equals(InboundEndpointConstants.JMS_SHARED_SUBSCRIPTION)) {
                         if (paramEntry.getValue().equals(InboundEndpointConstants.TRUE)) {
                             executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_JMS_SHARED_SUBSCRIPTION, true);
                         } else {
                             executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_JMS_SHARED_SUBSCRIPTION, false);
                         }
+                    } else if (paramEntry.getKey().equals(InboundEndpointConstants.JMS_RETRIES_BEFORE_SUSPENSION)) {
+                        executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_JMS_RETRIES_BEFORE_SUSPENSION,
+                                paramEntry.getValue());
+                    } else if (paramEntry.getKey().equals(InboundEndpointConstants.JMS_POLLING_SUSPENSION_PERIOD)) {
+                        executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD,
+                                paramEntry.getValue());
                     }
                 }
             }
