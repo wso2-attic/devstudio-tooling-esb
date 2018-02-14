@@ -8496,7 +8496,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_PROPERTY__PROPERTY_NAME = ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME;
+	int CLASS_PROPERTY__PROPERTY_NAME = ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Property Value Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_PROPERTY__PROPERTY_VALUE_TYPE = ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_VALUE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Property Value</b></em>' attribute.
@@ -8505,7 +8514,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_PROPERTY__PROPERTY_VALUE = ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE;
+	int CLASS_PROPERTY__PROPERTY_VALUE = ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Property Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_PROPERTY__PROPERTY_EXPRESSION = ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>Class Property</em>' class.
@@ -8514,7 +8532,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_PROPERTY_FEATURE_COUNT = ABSTRACT_NAME_VALUE_PROPERTY_FEATURE_COUNT + 0;
+	int CLASS_PROPERTY_FEATURE_COUNT = ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SpringMediatorImpl <em>Spring Mediator</em>}' class.
@@ -22316,13 +22334,40 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int MESSAGE_PROCESSOR__TASK_COUNT = ESB_ELEMENT_FEATURE_COUNT + 24;
 
 	/**
+	 * The feature id for the '<em><b>Max Store Connection Attempts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_PROCESSOR__MAX_STORE_CONNECTION_ATTEMPTS = ESB_ELEMENT_FEATURE_COUNT + 25;
+
+	/**
+	 * The feature id for the '<em><b>Store Connection Interval</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_PROCESSOR__STORE_CONNECTION_INTERVAL = ESB_ELEMENT_FEATURE_COUNT + 26;
+
+	/**
+	 * The feature id for the '<em><b>Fail Messages Store</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_PROCESSOR__FAIL_MESSAGES_STORE = ESB_ELEMENT_FEATURE_COUNT + 27;
+
+	/**
 	 * The number of structural features of the '<em>Message Processor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 25;
+	int MESSAGE_PROCESSOR_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 28;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIHandlerImpl <em>API Handler</em>}' class.
@@ -33690,6 +33735,39 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getMessageProcessor_TaskCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getMaxStoreConnectionAttempts <em>Max Store Connection Attempts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Store Connection Attempts</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getMaxStoreConnectionAttempts()
+	 * @see #getMessageProcessor()
+	 * @generated
+	 */
+	EAttribute getMessageProcessor_MaxStoreConnectionAttempts();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getStoreConnectionInterval <em>Store Connection Interval</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Store Connection Interval</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getStoreConnectionInterval()
+	 * @see #getMessageProcessor()
+	 * @generated
+	 */
+	EAttribute getMessageProcessor_StoreConnectionInterval();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getFailMessagesStore <em>Fail Messages Store</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fail Messages Store</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getFailMessagesStore()
+	 * @see #getMessageProcessor()
+	 * @generated
+	 */
+	EAttribute getMessageProcessor_FailMessagesStore();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandler <em>API Handler</em>}'.
@@ -49938,6 +50016,30 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute MESSAGE_PROCESSOR__TASK_COUNT = eINSTANCE.getMessageProcessor_TaskCount();
 
 		/**
+		 * The meta object literal for the '<em><b>Max Store Connection Attempts</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_PROCESSOR__MAX_STORE_CONNECTION_ATTEMPTS = eINSTANCE.getMessageProcessor_MaxStoreConnectionAttempts();
+
+		/**
+		 * The meta object literal for the '<em><b>Store Connection Interval</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_PROCESSOR__STORE_CONNECTION_INTERVAL = eINSTANCE.getMessageProcessor_StoreConnectionInterval();
+
+		/**
+		 * The meta object literal for the '<em><b>Fail Messages Store</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_PROCESSOR__FAIL_MESSAGES_STORE = eINSTANCE.getMessageProcessor_FailMessagesStore();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIHandlerImpl <em>API Handler</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -51191,8 +51293,8 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 */
 		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD = eINSTANCE.getInboundEndpoint_TransportJmsPollingSuspensionPeriod();
 		
-		/** 
-		* The meta object literal for the '<em><b>Transport MQTT Ssl Keystore Location</b></em>' attribute feature
+		/**
+		 * The meta object literal for the '<em><b>Transport MQTT Ssl Keystore Location</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

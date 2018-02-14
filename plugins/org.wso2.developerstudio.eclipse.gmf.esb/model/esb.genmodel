@@ -560,6 +560,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//MediaType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MediaType/XML"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MediaType/JSON"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MediaType/TEXT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//PayloadFactoryArgumentType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFactoryArgumentType/VALUE"/>
@@ -2280,6 +2281,9 @@
           propertyDescription="Message Processor Parameters" propertySortChoices="true"
           ecoreFeature="ecore:EReference esb.ecore#//MessageProcessor/parameters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/taskCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/maxStoreConnectionAttempts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/storeConnectionInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/failMessagesStore"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//APIHandler">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIHandler/className"/>
