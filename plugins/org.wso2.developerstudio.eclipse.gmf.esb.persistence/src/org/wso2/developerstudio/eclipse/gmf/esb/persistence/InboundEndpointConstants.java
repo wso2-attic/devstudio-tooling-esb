@@ -100,6 +100,7 @@ public class InboundEndpointConstants {
 	public static final String JMS_RETRY_DURATION = "transport.jms.retry.duration";
 	public static final String JMS_RETRIES_BEFORE_SUSPENSION = "transport.jms.RetriesBeforeSuspension";
 	public static final String JMS_POLLING_SUSPENSION_PERIOD = "transport.jms.PollingSuspensionPeriod";
+	public static final String JMS_CLIENT_CONNECTION_RESET_AFTER_POLLING_SUSPENSION = "transport.jms.ResetConnectionOnPollingSuspension";
 
 	public static final String WSO2_MB_CONNECTION_URL ="wso2mb.connection.url";
 	public static final String WSO2_MB__QUEUE_CONNECTION_URL ="connectionfactory.QueueConnectionFactory";
