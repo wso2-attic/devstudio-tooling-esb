@@ -24833,13 +24833,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD = ESB_ELEMENT_FEATURE_COUNT + 195;
 
 	/**
+	 * The feature id for the '<em><b>Transport Jms Reset Connection On Polling Suspension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION = ESB_ELEMENT_FEATURE_COUNT + 196;
+
+	/**
 	 * The number of structural features of the '<em>Inbound Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 196;
+	int INBOUND_ENDPOINT_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 197;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointParameterImpl <em>Inbound Endpoint Parameter</em>}' class.
@@ -35410,6 +35419,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getInboundEndpoint_TransportJmsPollingSuspensionPeriod();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#isTransportJmsResetConnectionOnPollingSuspension <em>Transport Jms Reset Connection On Polling Suspension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Transport Jms Reset Connection On Polling Suspension</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#isTransportJmsResetConnectionOnPollingSuspension()
+	 * @see #getInboundEndpoint()
+	 * @generated
+	 */
+	EAttribute getInboundEndpoint_TransportJmsResetConnectionOnPollingSuspension();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpointParameter <em>Inbound Endpoint Parameter</em>}'.
@@ -51186,6 +51206,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD = eINSTANCE.getInboundEndpoint_TransportJmsPollingSuspensionPeriod();
+
+		/**
+		 * The meta object literal for the '<em><b>Transport Jms Reset Connection On Polling Suspension</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION = eINSTANCE.getInboundEndpoint_TransportJmsResetConnectionOnPollingSuspension();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointParameterImpl <em>Inbound Endpoint Parameter</em>}' class.
