@@ -137,6 +137,7 @@ public class InboundEndpointItemProvider extends EsbElementItemProvider {
 			addTransportJMSPinnedServersPropertyDescriptor(object);
 			addTransportJMSConcurrentConsumersPropertyDescriptor(object);
 			addTransportJMSRetryDurationPropertyDescriptor(object);
+			addTransportJmsResetConnectionOnPollingSuspensionPropertyDescriptor(object);
 			addTransportJmsRetriesBeforeSuspensionPropertyDescriptor(object);
 			addTransportJmsPollingSuspensionPeriodPropertyDescriptor(object);
 			break;
@@ -2721,6 +2722,28 @@ public class InboundEndpointItemProvider extends EsbElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Transport Jms Reset Connection On Polling Suspension feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addTransportJmsResetConnectionOnPollingSuspensionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InboundEndpoint_transportJmsResetConnectionOnPollingSuspension_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InboundEndpoint_transportJmsResetConnectionOnPollingSuspension_feature", "_UI_InboundEndpoint_type"),
+				 EsbPackage.Literals.INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 "Parameters",
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Class feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -4552,6 +4575,7 @@ public class InboundEndpointItemProvider extends EsbElementItemProvider {
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_TYPE:
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD:
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.INBOUND_ENDPOINT__SEQUENCE_INPUT_CONNECTOR:

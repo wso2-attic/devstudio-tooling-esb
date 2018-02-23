@@ -259,6 +259,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.WSClientSideBroadcastLevel;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslTruststoreType <em>Transport MQTT Ssl Truststore Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslTruststorePassword <em>Transport MQTT Ssl Truststore Password</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#getTransportMQTTSslVersion <em>Transport MQTT Ssl Version</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointImpl#isTransportJmsResetConnectionOnPollingSuspension <em>Transport Jms Reset Connection On Polling Suspension</em>}</li>
  * </ul>
  *
  * @generated
@@ -4206,6 +4207,25 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	 */
 	protected String transportMQTTSslVersion = TRANSPORT_MQTT_SSL_VERSION_EDEFAULT;
 	/**
+	 * The default value of the '{@link #isTransportJmsResetConnectionOnPollingSuspension() <em>Transport Jms Reset Connection On Polling Suspension</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTransportJmsResetConnectionOnPollingSuspension()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isTransportJmsResetConnectionOnPollingSuspension() <em>Transport Jms Reset Connection On Polling Suspension</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTransportJmsResetConnectionOnPollingSuspension()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean transportJmsResetConnectionOnPollingSuspension = TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION_EDEFAULT;
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -6532,6 +6552,27 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isTransportJmsResetConnectionOnPollingSuspension() {
+		return transportJmsResetConnectionOnPollingSuspension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransportJmsResetConnectionOnPollingSuspension(boolean newTransportJmsResetConnectionOnPollingSuspension) {
+		boolean oldTransportJmsResetConnectionOnPollingSuspension = transportJmsResetConnectionOnPollingSuspension;
+		transportJmsResetConnectionOnPollingSuspension = newTransportJmsResetConnectionOnPollingSuspension;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION, oldTransportJmsResetConnectionOnPollingSuspension, transportJmsResetConnectionOnPollingSuspension));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -8532,6 +8573,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return getTransportMQTTSslTruststorePassword();
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
 				return getTransportMQTTSslVersion();
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION:
+				return isTransportJmsResetConnectionOnPollingSuspension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -9111,6 +9154,7 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return;
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD:
 				setTransportJmsPollingSuspensionPeriod((String)newValue);
+				return;
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_LOCATION:
 				setTransportMQTTSslKeystoreLocation((String)newValue);
 				return;
@@ -9131,6 +9175,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return;
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
 				setTransportMQTTSslVersion((String)newValue);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION:
+				setTransportJmsResetConnectionOnPollingSuspension((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -9709,6 +9756,7 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return;
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD:
 				setTransportJmsPollingSuspensionPeriod(TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD_EDEFAULT);
+				return;
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_KEYSTORE_LOCATION:
 				setTransportMQTTSslKeystoreLocation(TRANSPORT_MQTT_SSL_KEYSTORE_LOCATION_EDEFAULT);
 				return;
@@ -9729,6 +9777,9 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return;
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
 				setTransportMQTTSslVersion(TRANSPORT_MQTT_SSL_VERSION_EDEFAULT);
+				return;
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION:
+				setTransportJmsResetConnectionOnPollingSuspension(TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -10133,6 +10184,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 				return TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD_EDEFAULT == null ? transportMQTTSslTruststorePassword != null : !TRANSPORT_MQTT_SSL_TRUSTSTORE_PASSWORD_EDEFAULT.equals(transportMQTTSslTruststorePassword);
 			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION:
 				return TRANSPORT_MQTT_SSL_VERSION_EDEFAULT == null ? transportMQTTSslVersion != null : !TRANSPORT_MQTT_SSL_VERSION_EDEFAULT.equals(transportMQTTSslVersion);
+			case EsbPackage.INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION:
+				return transportJmsResetConnectionOnPollingSuspension != TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -10482,8 +10535,6 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 		result.append(transportRabbitMqConnectionRetryInterval);
 		result.append(", transportRabbitMqServerRetryInterval: ");
 		result.append(transportRabbitMqServerRetryInterval);
-		result.append(", transportRabbitMqConsumerQos: ");
-		result.append(transportRabbitMqConsumerQos);
 		result.append(", wsInboundPort: ");
 		result.append(wsInboundPort);
 		result.append(", wsClientSideBroadcastLevel: ");
@@ -10526,6 +10577,8 @@ public class InboundEndpointImpl extends EsbElementImpl implements InboundEndpoi
 		result.append(transportMQTTSslTruststorePassword);
 		result.append(", transportMQTTSslVersion: ");
 		result.append(transportMQTTSslVersion);
+		result.append(", transportJmsResetConnectionOnPollingSuspension: ");
+		result.append(transportJmsResetConnectionOnPollingSuspension);
 		result.append(')');
 		return result.toString();
 	}

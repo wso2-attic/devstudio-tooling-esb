@@ -566,6 +566,12 @@ public class InboundEndpointTransformer extends AbstractEsbNodeTransformer {
 				addParameterForConfig(inboundEndpoint, InboundEndpointConstants.JMS_RETRY_DURATION,
 						visualInboundEndpoint.getTransportJMSRetryDuration());
 			}
+            if (StringUtils.isNotBlank(
+                    String.valueOf(visualInboundEndpoint.isTransportJmsResetConnectionOnPollingSuspension()))) {
+                addParameterForConfig(inboundEndpoint,
+                        InboundEndpointConstants.JMS_CLIENT_CONNECTION_RESET_AFTER_POLLING_SUSPENSION,
+                        String.valueOf(visualInboundEndpoint.isTransportJmsResetConnectionOnPollingSuspension()));
+            }
             break;
         case CUSTOM:
             if (StringUtils.isNotBlank(visualInboundEndpoint.getInterval())) {

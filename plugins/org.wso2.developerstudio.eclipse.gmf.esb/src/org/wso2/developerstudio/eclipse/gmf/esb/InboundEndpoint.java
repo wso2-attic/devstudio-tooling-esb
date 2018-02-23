@@ -223,6 +223,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportMQTTSslTruststoreType <em>Transport MQTT Ssl Truststore Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportMQTTSslTruststorePassword <em>Transport MQTT Ssl Truststore Password</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportMQTTSslVersion <em>Transport MQTT Ssl Version</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#isTransportJmsResetConnectionOnPollingSuspension <em>Transport Jms Reset Connection On Polling Suspension</em>}</li>
  * </ul>
  *
  * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getInboundEndpoint()
@@ -3218,6 +3219,33 @@ public interface InboundEndpoint extends EsbElement {
 	 * @generated
 	 */
 	void setTransportMQTTSslVersion(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Transport Jms Reset Connection On Polling Suspension</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Transport Jms Reset Connection On Polling Suspension</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Transport Jms Reset Connection On Polling Suspension</em>' attribute.
+	 * @see #setTransportJmsResetConnectionOnPollingSuspension(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getInboundEndpoint_TransportJmsResetConnectionOnPollingSuspension()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isTransportJmsResetConnectionOnPollingSuspension();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#isTransportJmsResetConnectionOnPollingSuspension <em>Transport Jms Reset Connection On Polling Suspension</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Transport Jms Reset Connection On Polling Suspension</em>' attribute.
+	 * @see #isTransportJmsResetConnectionOnPollingSuspension()
+	 * @generated
+	 */
+	void setTransportJmsResetConnectionOnPollingSuspension(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.
