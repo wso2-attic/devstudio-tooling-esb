@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 WSO2, Inc. (http://wso2.com)
+ * Copyright 2015-2018 WSO2, Inc. (http://wso2.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -426,21 +426,20 @@ public class InboundEndpointTransformer extends AbstractEsbNodeTransformer {
 				addParameterForConfig(inboundEndpoint, InboundEndpointConstants.JMS_RETRY_DURATION,
 						visualInboundEndpoint.getTransportJMSRetryDuration());
 			}
-            if (StringUtils.isNotBlank(
-                    String.valueOf(visualInboundEndpoint.isTransportJmsResetConnectionOnPollingSuspension()))) {
-                addParameterForConfig(inboundEndpoint,
-                        InboundEndpointConstants.JMS_CLIENT_CONNECTION_RESET_AFTER_POLLING_SUSPENSION,
-                        String.valueOf(visualInboundEndpoint.isTransportJmsResetConnectionOnPollingSuspension()));
-            }
-			if (StringUtils.isNotBlank(visualInboundEndpoint.getTransportJmsRetriesBeforeSuspension())) {
+			if (StringUtils.isNotBlank(
+					String.valueOf(visualInboundEndpoint.isTransportJMSResetConnectionOnPollingSuspension()))) {
+				addParameterForConfig(inboundEndpoint,
+						InboundEndpointConstants.JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION,
+						String.valueOf(visualInboundEndpoint.isTransportJMSResetConnectionOnPollingSuspension()));
+			}
+			if (StringUtils.isNotBlank(visualInboundEndpoint.getTransportJMSRetriesBeforeSuspension())) {
 				addParameterForConfig(inboundEndpoint, InboundEndpointConstants.JMS_RETRIES_BEFORE_SUSPENSION,
-						visualInboundEndpoint.getTransportJmsRetriesBeforeSuspension());
+						visualInboundEndpoint.getTransportJMSRetriesBeforeSuspension());
 			}
-			if (StringUtils.isNotBlank(visualInboundEndpoint.getTransportJmsPollingSuspensionPeriod())) {
+			if (StringUtils.isNotBlank(visualInboundEndpoint.getTransportJMSPollingSuspensionPeriod())) {
 				addParameterForConfig(inboundEndpoint, InboundEndpointConstants.JMS_POLLING_SUSPENSION_PERIOD,
-						visualInboundEndpoint.getTransportJmsPollingSuspensionPeriod());
+						visualInboundEndpoint.getTransportJMSPollingSuspensionPeriod());
 			}
-            
             break;
         case WSO2_MB:
             if (StringUtils.isNotBlank(visualInboundEndpoint.getInterval())) {
