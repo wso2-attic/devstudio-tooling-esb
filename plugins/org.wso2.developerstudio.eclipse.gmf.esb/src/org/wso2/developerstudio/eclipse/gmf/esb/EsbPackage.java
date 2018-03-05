@@ -24815,31 +24815,31 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION = ESB_ELEMENT_FEATURE_COUNT + 193;
 
 	/**
-	 * The feature id for the '<em><b>Transport Jms Retries Before Suspension</b></em>' attribute.
+	 * The feature id for the '<em><b>Transport JMS Reset Connection On Polling Suspension</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT__TRANSPORT_JMS_RETRIES_BEFORE_SUSPENSION = ESB_ELEMENT_FEATURE_COUNT + 194;
+	int INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION = ESB_ELEMENT_FEATURE_COUNT + 194;
 
 	/**
-	 * The feature id for the '<em><b>Transport Jms Polling Suspension Period</b></em>' attribute.
+	 * The feature id for the '<em><b>Transport JMS Retries Before Suspension</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD = ESB_ELEMENT_FEATURE_COUNT + 195;
+	int INBOUND_ENDPOINT__TRANSPORT_JMS_RETRIES_BEFORE_SUSPENSION = ESB_ELEMENT_FEATURE_COUNT + 195;
 
 	/**
-	 * The feature id for the '<em><b>Transport Jms Reset Connection On Polling Suspension</b></em>' attribute.
+	 * The feature id for the '<em><b>Transport JMS Polling Suspension Period</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION = ESB_ELEMENT_FEATURE_COUNT + 196;
+	int INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD = ESB_ELEMENT_FEATURE_COUNT + 196;
 
 	/**
 	 * The number of structural features of the '<em>Inbound Endpoint</em>' class.
@@ -35399,37 +35399,37 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getInboundEndpoint_TransportMQTTSslVersion();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportJmsRetriesBeforeSuspension <em>Transport Jms Retries Before Suspension</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportJMSRetriesBeforeSuspension <em>Transport JMS Retries Before Suspension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Transport Jms Retries Before Suspension</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportJmsRetriesBeforeSuspension()
+	 * @return the meta object for the attribute '<em>Transport JMS Retries Before Suspension</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportJMSRetriesBeforeSuspension()
 	 * @see #getInboundEndpoint()
 	 * @generated
 	 */
-	EAttribute getInboundEndpoint_TransportJmsRetriesBeforeSuspension();
+	EAttribute getInboundEndpoint_TransportJMSRetriesBeforeSuspension();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportJmsPollingSuspensionPeriod <em>Transport Jms Polling Suspension Period</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportJMSPollingSuspensionPeriod <em>Transport JMS Polling Suspension Period</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Transport Jms Polling Suspension Period</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportJmsPollingSuspensionPeriod()
+	 * @return the meta object for the attribute '<em>Transport JMS Polling Suspension Period</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#getTransportJMSPollingSuspensionPeriod()
 	 * @see #getInboundEndpoint()
 	 * @generated
 	 */
-	EAttribute getInboundEndpoint_TransportJmsPollingSuspensionPeriod();
+	EAttribute getInboundEndpoint_TransportJMSPollingSuspensionPeriod();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#isTransportJmsResetConnectionOnPollingSuspension <em>Transport Jms Reset Connection On Polling Suspension</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#isTransportJMSResetConnectionOnPollingSuspension <em>Transport JMS Reset Connection On Polling Suspension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Transport Jms Reset Connection On Polling Suspension</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#isTransportJmsResetConnectionOnPollingSuspension()
+	 * @return the meta object for the attribute '<em>Transport JMS Reset Connection On Polling Suspension</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpoint#isTransportJMSResetConnectionOnPollingSuspension()
 	 * @see #getInboundEndpoint()
 	 * @generated
 	 */
-	EAttribute getInboundEndpoint_TransportJmsResetConnectionOnPollingSuspension();
+	EAttribute getInboundEndpoint_TransportJMSResetConnectionOnPollingSuspension();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.InboundEndpointParameter <em>Inbound Endpoint Parameter</em>}'.
@@ -51192,28 +51192,28 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute INBOUND_ENDPOINT__TRANSPORT_MQTT_SSL_VERSION = eINSTANCE.getInboundEndpoint_TransportMQTTSslVersion();
 
 		/**
-		 * The meta object literal for the '<em><b>Transport Jms Retries Before Suspension</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Transport JMS Retries Before Suspension</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_RETRIES_BEFORE_SUSPENSION = eINSTANCE.getInboundEndpoint_TransportJmsRetriesBeforeSuspension();
+		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_RETRIES_BEFORE_SUSPENSION = eINSTANCE.getInboundEndpoint_TransportJMSRetriesBeforeSuspension();
 
 		/**
-		 * The meta object literal for the '<em><b>Transport Jms Polling Suspension Period</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Transport JMS Polling Suspension Period</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD = eINSTANCE.getInboundEndpoint_TransportJmsPollingSuspensionPeriod();
+		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_POLLING_SUSPENSION_PERIOD = eINSTANCE.getInboundEndpoint_TransportJMSPollingSuspensionPeriod();
 
 		/**
-		 * The meta object literal for the '<em><b>Transport Jms Reset Connection On Polling Suspension</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Transport JMS Reset Connection On Polling Suspension</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION = eINSTANCE.getInboundEndpoint_TransportJmsResetConnectionOnPollingSuspension();
+		EAttribute INBOUND_ENDPOINT__TRANSPORT_JMS_RESET_CONNECTION_ON_POLLING_SUSPENSION = eINSTANCE.getInboundEndpoint_TransportJMSResetConnectionOnPollingSuspension();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.InboundEndpointParameterImpl <em>Inbound Endpoint Parameter</em>}' class.
