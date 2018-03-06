@@ -79,25 +79,33 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		
 		boolean hasPublishWsdl=true;
 		
-		if(object.getWsdlURI()!=null){
+		if (object.getWsdlURI() != null) {
 			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.SOURCE_URL);
 			executeSetValueCommand(PROXY_SERVICE__WSDL_URL, object.getWsdlURI().toString());
-		}else if(object.getWSDLKey()!=null){
+		} else if (object.getWSDLKey() != null) {
 			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.REGISTRY_KEY);
 			RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 			keyProperty.setKeyValue(object.getWSDLKey());
 			executeSetValueCommand(PROXY_SERVICE__WSDL_KEY, keyProperty);
-		}else if(object.getInLineWSDL()!=null){
+		} else if (object.getInLineWSDL() != null) {
 			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.INLINE);
 			executeSetValueCommand(PROXY_SERVICE__WSDL_XML, object.getInLineWSDL().toString());
-		}else if(object.getPublishWSDLEndpoint() != null){
- 			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.ENDPOINT);
- 			RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
- 			keyProperty.setKeyValue(object.getPublishWSDLEndpoint());
- 			executeSetValueCommand(PROXY_SERVICE__WSDL_ENDPOINT, keyProperty);
-		}else{
+		} else if (object.getPublishWSDLEndpoint() != null) {
+			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.ENDPOINT);
+			RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+			keyProperty.setKeyValue(object.getPublishWSDLEndpoint());
+			executeSetValueCommand(PROXY_SERVICE__WSDL_ENDPOINT, keyProperty);
+		} else {
 			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.NONE);
-			hasPublishWsdl=false;
+			hasPublishWsdl = false;
+		}
+		
+		if (object.getPreservePolicy() != null) {
+			if (object.getPreservePolicy().equals("true")) {
+				executeSetValueCommand(PROXY_SERVICE__PRESERVE_POLICY, true);
+			} else {
+				executeSetValueCommand(PROXY_SERVICE__PRESERVE_POLICY, false);
+			}
 		}
 		
 		Endpoint targetInLineEndpoint = object.getTargetInLineEndpoint();
