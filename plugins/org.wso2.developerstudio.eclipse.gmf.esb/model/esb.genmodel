@@ -862,6 +862,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/endpointName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/mainSequence"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlPreservePolicy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlXML"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlURL"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/wsdlKey"/>
@@ -2513,9 +2514,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//InboundEndpoint/transportMQTTSslTruststoreType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//InboundEndpoint/transportMQTTSslTruststorePassword"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//InboundEndpoint/transportMQTTSslVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//InboundEndpoint/transportJMSResetConnectionOnPollingSuspension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//InboundEndpoint/transportJMSRetriesBeforeSuspension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//InboundEndpoint/transportJMSPollingSuspensionPeriod"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//InboundEndpoint/transportJMSResetConnectionOnPollingSuspension"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//InboundEndpointParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//InboundEndpointParameter/name"/>
