@@ -692,12 +692,6 @@ public class InboundEndpointDeserializer
 						} else {
 							executeSetValueCommand(INBOUND_ENDPOINT__COORDINATION, false);
 						}
-					} else if (paramEntry.getKey().equals(InboundEndpointConstants.CONTENT_TYPE)) {
-						if (paramEntry.getValue().equals(InboundEndpointConstants.APPLICATION_XML)) {
-							executeSetValueCommand(INBOUND_ENDPOINT__CONTENT_TYPE, ContentType.XML);
-						} else {
-							executeSetValueCommand(INBOUND_ENDPOINT__CONTENT_TYPE, ContentType.JSON);
-						}
 					} else if (paramEntry.getKey().equals(InboundEndpointConstants.CONSUMER_TYPE)) {
 						if (paramEntry.getValue().equals(InboundEndpointConstants.HIGHLEVEL)) {
 							executeSetValueCommand(INBOUND_ENDPOINT__CONSUMER_TYPE, ConsumerType.HIGHLEVEL);
@@ -736,12 +730,6 @@ public class InboundEndpointDeserializer
 						} else if (paramEntry.getValue().equals("2")) {
 							executeSetValueCommand(INBOUND_ENDPOINT__TRANSPORT_MQTT_SUBSCRIPTION_QOS,
 									MQTTSubscriptionQOS.TWO);
-						}
-					} else if (paramEntry.getKey().equals(InboundEndpointConstants.CONTENT_TYPE)) {
-						if (paramEntry.getValue().equals(InboundEndpointConstants.APPLICATION_XML)) {
-							executeSetValueCommand(INBOUND_ENDPOINT__CONTENT_TYPE, ContentType.XML);
-						} else {
-							executeSetValueCommand(INBOUND_ENDPOINT__CONTENT_TYPE, ContentType.JSON);
 						}
 					} else if (paramEntry.getKey()
 							.equals(InboundEndpointConstants.INBOUND_MQTT_SSL_KEYSTORE_LOCATION)) {
