@@ -1409,7 +1409,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="CacheMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cacheId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cacheProtocolType" eType="#//CacheProtocolType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cacheAction" eType="#//CacheAction"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cacheType" eType="#//CacheType"
         defaultValueLiteral="FINDER"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hashGenerator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="HTTP_REQUEST_HASH_GENERATOR"/>
@@ -1446,7 +1446,7 @@
     <eLiterals name="ANONYMOUS"/>
     <eLiterals name="REGISTRY_REFERENCE"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CacheAction">
+  <eClassifiers xsi:type="ecore:EEnum" name="CacheType">
     <eLiterals name="FINDER"/>
     <eLiterals name="COLLECTOR" value="1"/>
   </eClassifiers>

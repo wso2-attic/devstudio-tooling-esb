@@ -16,30 +16,29 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_ACTION;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_TIMEOUT;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__HASH_GENERATOR;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__MAX_ENTRY_COUNT;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__MAX_MESSAGE_SIZE;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_KEY;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_TYPE;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_PROTOCOL_METHODS;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_PROTOCOL_TYPE;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__RESPONSE_CODES;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_TIMEOUT;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__CACHE_TYPE;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__HASH_GENERATOR;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__HEADERS_TO_EXCLUDE_IN_HASH;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__MAX_ENTRY_COUNT;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__MAX_MESSAGE_SIZE;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__RESPONSE_CODES;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_KEY;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_TYPE;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
+import org.wso2.carbon.mediator.cache.CachingConstants;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
-import org.wso2.carbon.mediator.cache.CachingConstants;
 
 public class CacheMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, CacheMediator> {
 
@@ -58,7 +57,7 @@ public class CacheMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 
 
             if (mediator.isCollector()) {
-                executeSetValueCommand(CACHE_MEDIATOR__CACHE_ACTION, CacheAction.COLLECTOR);
+                executeSetValueCommand(CACHE_MEDIATOR__CACHE_TYPE, CacheType.COLLECTOR);
             } else {
                 if (CachingConstants.HTTP_PROTOCOL_TYPE.equals(mediator.getProtocolType())) {
                     String[] methods = mediator.getHTTPMethodsToCache();
@@ -81,7 +80,7 @@ public class CacheMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
                 }
                 executeSetValueCommand(CACHE_MEDIATOR__CACHE_PROTOCOL_TYPE, mediator.getProtocolType());
                 executeSetValueCommand(CACHE_MEDIATOR__MAX_MESSAGE_SIZE, mediator.getMaxMessageSize());
-                executeSetValueCommand(CACHE_MEDIATOR__CACHE_ACTION, CacheAction.FINDER);
+                executeSetValueCommand(CACHE_MEDIATOR__CACHE_TYPE, CacheType.FINDER);
                 executeSetValueCommand(CACHE_MEDIATOR__CACHE_TIMEOUT, (int) mediator.getTimeout());
                 executeSetValueCommand(CACHE_MEDIATOR__MAX_ENTRY_COUNT, (int) mediator.getInMemoryCacheSize());
 

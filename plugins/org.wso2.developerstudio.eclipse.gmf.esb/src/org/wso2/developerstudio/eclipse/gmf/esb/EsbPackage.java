@@ -11255,13 +11255,13 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CACHE_MEDIATOR__CACHE_PROTOCOL_TYPE = MEDIATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Cache Action</b></em>' attribute.
+	 * The feature id for the '<em><b>Cache Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__CACHE_ACTION = MEDIATOR_FEATURE_COUNT + 2;
+	int CACHE_MEDIATOR__CACHE_TYPE = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Hash Generator</b></em>' attribute.
@@ -25751,14 +25751,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CACHE_SEQUENCE_TYPE = 406;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheAction <em>Cache Action</em>}' enum.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheType <em>Cache Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheAction
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheAction()
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheType()
 	 * @generated
 	 */
-	int CACHE_ACTION = 407;
+	int CACHE_TYPE = 407;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheProtocolType <em>Cache Protocol Type</em>}' enum.
@@ -38445,15 +38445,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getCacheMediator_CacheProtocolType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheAction <em>Cache Action</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheType <em>Cache Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cache Action</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheAction()
+	 * @return the meta object for the attribute '<em>Cache Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheType()
 	 * @see #getCacheMediator()
 	 * @generated
 	 */
-	EAttribute getCacheMediator_CacheAction();
+	EAttribute getCacheMediator_CacheType();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getHashGenerator <em>Hash Generator</em>}'.
@@ -43543,14 +43543,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EEnum getCacheSequenceType();
 
 	/**
-	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheAction <em>Cache Action</em>}'.
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheType <em>Cache Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Cache Action</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheAction
+	 * @return the meta object for enum '<em>Cache Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheType
 	 * @generated
 	 */
-	EEnum getCacheAction();
+	EEnum getCacheType();
 
 	/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheProtocolType <em>Cache Protocol Type</em>}'.
@@ -53700,12 +53700,12 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute CACHE_MEDIATOR__CACHE_PROTOCOL_TYPE = eINSTANCE.getCacheMediator_CacheProtocolType();
 
 		/**
-		 * The meta object literal for the '<em><b>Cache Action</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Cache Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CACHE_MEDIATOR__CACHE_ACTION = eINSTANCE.getCacheMediator_CacheAction();
+		EAttribute CACHE_MEDIATOR__CACHE_TYPE = eINSTANCE.getCacheMediator_CacheType();
 
 		/**
 		 * The meta object literal for the '<em><b>Hash Generator</b></em>' attribute feature.
@@ -57844,14 +57844,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EEnum CACHE_SEQUENCE_TYPE = eINSTANCE.getCacheSequenceType();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheAction <em>Cache Action</em>}' enum.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheType <em>Cache Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheAction
-		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheAction()
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheType
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheType()
 		 * @generated
 		 */
-		EEnum CACHE_ACTION = eINSTANCE.getCacheAction();
+		EEnum CACHE_TYPE = eINSTANCE.getCacheType();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheProtocolType <em>Cache Protocol Type</em>}' enum.

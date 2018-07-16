@@ -12,22 +12,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
@@ -64,8 +56,9 @@ public class CacheMediatorItemProvider
 			itemPropertyDescriptors.clear();
 		}
 		super.getPropertyDescriptors(object);
-		
-		if (cacheMediator.getCacheAction().equals(CacheAction.FINDER)) {
+
+		addCacheTypePropertyDescriptor(object);
+		if (cacheMediator.getCacheType().equals(CacheType.FINDER)){
 			addCacheTimeoutPropertyDescriptor(object);
 			addMaxMessageSizePropertyDescriptor(object);
 			addMaxEntryCountPropertyDescriptor(object);
@@ -84,6 +77,28 @@ public class CacheMediatorItemProvider
 		} 
 		addDescriptionPropertyDescriptor(object);
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Cache Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCacheIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CacheMediator_cacheId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_cacheId_feature", "_UI_CacheMediator_type"),
+				 EsbPackage.Literals.CACHE_MEDIATOR__CACHE_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -109,24 +124,24 @@ public class CacheMediatorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Cache Action feature.
+	 * This adds a property descriptor for the Cache Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected void addCacheActionPropertyDescriptor(Object object) {
+	protected void addCacheTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CacheMediator_cacheAction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_cacheAction_feature", "_UI_CacheMediator_type"),
-				 EsbPackage.Literals.CACHE_MEDIATOR__CACHE_ACTION,
+				 getString("_UI_CacheMediator_cacheType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_cacheType_feature", "_UI_CacheMediator_type"),
+				 EsbPackage.Literals.CACHE_MEDIATOR__CACHE_TYPE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 
@@ -406,7 +421,7 @@ public class CacheMediatorItemProvider
 		switch (notification.getFeatureID(CacheMediator.class)) {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
 			case EsbPackage.CACHE_MEDIATOR__CACHE_PROTOCOL_TYPE:
-			case EsbPackage.CACHE_MEDIATOR__CACHE_ACTION:
+			case EsbPackage.CACHE_MEDIATOR__CACHE_TYPE:
 			case EsbPackage.CACHE_MEDIATOR__HASH_GENERATOR:
 			case EsbPackage.CACHE_MEDIATOR__CACHE_TIMEOUT:
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
