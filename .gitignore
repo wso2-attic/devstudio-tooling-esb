@@ -36,3 +36,9 @@ feature.common.properties
 ## no eclipse packs
 *.tar.gz
 
+## Generated
+plugins/org.wso2.developerstudio.eclipse.gmf.esb.editor/*
+plugins/org.wso2.developerstudio.eclipse.gmf.esb.persistence/library.jar
+plugins/org.wso2.developerstudio.eclipse.gmf.esb.tests/*
+plugins/org.wso2.developerstudio.eclipse.gmf.esb/src/org/wso2/developerstudio/eclipse/gmf/esb/validation/*
+plugins/org.wso2.developerstudio.eclipse.gmf.esb/text/*
