@@ -16,76 +16,55 @@ import org.eclipse.gmf.tooling.runtime.parsers.EnumParser;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressingEndpointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateIDEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BAMMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BeanMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BuilderMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheIdEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CallTemplateMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapActionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorClassNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneIDEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorOperationDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataMapperMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EJBMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnqueueMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceTypeEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FastXSLTMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ForEachMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HTTPEndpointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteralEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateIDEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategoryEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoopBackMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.NamedEndpointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrlEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PayloadFactoryMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PublishEventMediatorStreamNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RecipientListEndPointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RespondMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorScriptLanguageEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SmooksMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.StoreMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateEndpointDescriptionEditPart;
@@ -94,9 +73,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMe
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.URLRewriteMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorDescriptionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XSLTMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.parsers.MessageFormatParser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -479,23 +456,6 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 			cloneMediatorCloneID_5144Parser = parser;
 		}
 		return cloneMediatorCloneID_5144Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser cacheMediatorCacheId_5145Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCacheMediatorCacheId_5145Parser() {
-		if (cacheMediatorCacheId_5145Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE.getCacheMediator_CacheId() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			cacheMediatorCacheId_5145Parser = parser;
-		}
-		return cacheMediatorCacheId_5145Parser;
 	}
 
 	/**
@@ -1212,8 +1172,6 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 			return getHeaderMediatorDescription_5183Parser();
 		case CloneMediatorCloneIDEditPart.VISUAL_ID:
 			return getCloneMediatorCloneID_5144Parser();
-		case CacheMediatorCacheIdEditPart.VISUAL_ID:
-			return getCacheMediatorCacheId_5145Parser();
 		case IterateMediatorIterateIDEditPart.VISUAL_ID:
 			return getIterateMediatorIterateID_5146Parser();
 		case CalloutMediatorDescriptionEditPart.VISUAL_ID:

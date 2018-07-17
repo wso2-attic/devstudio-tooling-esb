@@ -16,9 +16,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheId <em>Cache Id</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheProtocolType <em>Cache Protocol Type</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheAction <em>Cache Action</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheType <em>Cache Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getHashGenerator <em>Hash Generator</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheTimeout <em>Cache Timeout</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getMaxMessageSize <em>Max Message Size</em>}</li>
@@ -39,32 +38,6 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * @generated
  */
 public interface CacheMediator extends Mediator {
-	/**
-	 * Returns the value of the '<em><b>Cache Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Cache Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cache Id</em>' attribute.
-	 * @see #setCacheId(String)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_CacheId()
-	 * @model
-	 * @generated
-	 */
-	String getCacheId();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheId <em>Cache Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cache Id</em>' attribute.
-	 * @see #getCacheId()
-	 * @generated
-	 */
-	void setCacheId(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Cache Protocol Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheProtocolType}.
@@ -95,34 +68,34 @@ public interface CacheMediator extends Mediator {
 	void setCacheProtocolType(CacheProtocolType value);
 
 	/**
-	 * Returns the value of the '<em><b>Cache Action</b></em>' attribute.
+	 * Returns the value of the '<em><b>Cache Type</b></em>' attribute.
 	 * The default value is <code>"FINDER"</code>.
-	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheAction}.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cache Action</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Cache Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cache Action</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheAction
-	 * @see #setCacheAction(CacheAction)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_CacheAction()
+	 * @return the value of the '<em>Cache Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheType
+	 * @see #setCacheType(CacheType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_CacheType()
 	 * @model default="FINDER"
 	 * @generated
 	 */
-	CacheAction getCacheAction();
+	CacheType getCacheType();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheAction <em>Cache Action</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheType <em>Cache Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cache Action</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheAction
-	 * @see #getCacheAction()
+	 * @param value the new value of the '<em>Cache Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheType
+	 * @see #getCacheType()
 	 * @generated
 	 */
-	void setCacheAction(CacheAction value);
+	void setCacheType(CacheType value);
 
 	/**
 	 * Returns the value of the '<em><b>Hash Generator</b></em>' attribute.

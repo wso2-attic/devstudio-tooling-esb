@@ -333,9 +333,9 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheSequenceType/ANONYMOUS"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheSequenceType/REGISTRY_REFERENCE"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CacheAction">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheAction/FINDER"/>
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheAction/COLLECTOR"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CacheType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheType/FINDER"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheType/COLLECTOR"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CacheProtocolType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheProtocolType/HTTP"/>
@@ -879,6 +879,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/endpointName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/mainSequence"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/preservePolicy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlXML"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlURL"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/wsdlKey"/>
@@ -1511,9 +1512,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MediatorSequence/description"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CacheMediator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheProtocolType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/hashGenerator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/cacheTimeout"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/maxMessageSize"/>
@@ -1527,9 +1527,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CacheMediator/mediatorFlow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/headersToExcludeInHash"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/responseCodes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/enableCacheControl"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/includeAgeHeader"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/collector"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CacheMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CacheMediatorOutputConnector"/>
