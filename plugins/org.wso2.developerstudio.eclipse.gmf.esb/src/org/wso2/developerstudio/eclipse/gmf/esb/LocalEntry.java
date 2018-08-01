@@ -125,7 +125,7 @@ public interface LocalEntry extends EsbElement {
 	 * @return the value of the '<em>Value XML</em>' attribute.
 	 * @see #setValueXML(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getLocalEntry_ValueXML()
-	 * @model default="<value/>"
+	 * @model default="&lt;value/&gt;"
 	 * @generated
 	 */
 	String getValueXML();

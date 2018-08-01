@@ -73,7 +73,7 @@ public interface Sequence extends Mediator {
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSequence_Key()
-	 * @model default="<inline/>"
+	 * @model default="&lt;inline/&gt;"
 	 * @generated
 	 */
 	String getKey();

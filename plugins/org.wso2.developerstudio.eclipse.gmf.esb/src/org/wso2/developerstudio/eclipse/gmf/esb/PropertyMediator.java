@@ -357,7 +357,7 @@ public interface PropertyMediator extends Mediator {
 	 * @return the value of the '<em>OM</em>' attribute.
 	 * @see #setOM(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getPropertyMediator_OM()
-	 * @model default="<value/>"
+	 * @model default="&lt;value/&gt;"
 	 * @generated
 	 */
 	String getOM();
