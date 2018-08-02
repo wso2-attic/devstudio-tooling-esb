@@ -117,7 +117,7 @@ public interface RuleMediator extends Mediator {
 	 * @return the value of the '<em>Rule Set Source Code</em>' attribute.
 	 * @see #setRuleSetSourceCode(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_RuleSetSourceCode()
-	 * @model default="<code/>"
+	 * @model default="&lt;code/&gt;"
 	 * @generated
 	 */
 	String getRuleSetSourceCode();

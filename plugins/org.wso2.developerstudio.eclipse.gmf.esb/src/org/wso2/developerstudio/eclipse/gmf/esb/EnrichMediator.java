@@ -158,7 +158,7 @@ public interface EnrichMediator extends Mediator {
 	 * @return the value of the '<em>Source XML</em>' attribute.
 	 * @see #setSourceXML(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEnrichMediator_SourceXML()
-	 * @model default="<inline/>"
+	 * @model default="&lt;inline/&gt;"
 	 * @generated
 	 */
 	String getSourceXML();
