@@ -121,7 +121,7 @@ public interface NamespacedProperty extends EsbNode {
 	 * @return the value of the '<em>Namespaces</em>' attribute.
 	 * @see #setNamespaces(Map)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getNamespacedProperty_Namespaces()
-	 * @model dataType="org.wso2.developerstudio.eclipse.gmf.esb.Map<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+	 * @model dataType="org.wso2.developerstudio.eclipse.gmf.esb.Map&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;"
 	 * @generated
 	 */
 	Map<String, String> getNamespaces();

@@ -120,7 +120,7 @@ public interface RegistryKeyProperty extends EObject {
 	 * @return the value of the '<em>Filters</em>' attribute.
 	 * @see #setFilters(Map)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRegistryKeyProperty_Filters()
-	 * @model dataType="org.wso2.developerstudio.eclipse.gmf.esb.Map<?, ?>"
+	 * @model dataType="org.wso2.developerstudio.eclipse.gmf.esb.Map&lt;?, ?&gt;"
 	 * @generated
 	 */
 	Map<?, ?> getFilters();

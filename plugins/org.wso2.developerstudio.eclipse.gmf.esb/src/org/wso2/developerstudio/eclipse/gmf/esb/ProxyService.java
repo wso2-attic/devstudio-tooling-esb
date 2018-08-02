@@ -979,7 +979,7 @@ public interface ProxyService extends EsbElement {
 	 * @return the value of the '<em>Wsdl XML</em>' attribute.
 	 * @see #setWsdlXML(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlXML()
-	 * @model default="<definitions/>"
+	 * @model default="&lt;definitions/&gt;"
 	 * @generated
 	 */
 	String getWsdlXML();
