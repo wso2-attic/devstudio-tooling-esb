@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
@@ -45,6 +46,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
+import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -66,13 +69,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOu
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CallMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoopBackMediatorEditPart;
@@ -82,7 +83,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment13EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment14EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment15EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment16EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment17EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment21EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment22EditPart;
@@ -100,7 +100,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInSequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
@@ -118,18 +117,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCasePar
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment21CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.eclipse.gef.GraphicalEditPart;
-import org.eclipse.jface.dialogs.ErrorDialog;
-import org.eclipse.jface.dialogs.StatusDialog;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.ui.PlatformUI;
 
 public abstract class AbstractMediator extends AbstractBorderedShapeEditPart implements DroppableElement{
 
@@ -601,17 +592,24 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		}
 		
 		if (!mediatorRestricted) {
-			AbstractMediator previousMediator = getPreviousMediator(nearestEsbLinkOutputConnector, nearestOutputConnector);
+			AbstractMediator previousMediator = getPreviousMediator(nearestEsbLinkOutputConnector,
+					nearestOutputConnector);
+			if (previousMediator == null && nearestOutputConnector == null && nearestESBLink == null
+					&& nearestInputConnector == null) {
+				// check whether previous mediator is a Drop Mediator
+				// TODO:- Validate adding drop after drop.
+				if (checkForDropMediator(inputConnectorEditpartList) && !(this instanceof DropMediatorEditPart)) {
+					mediatorRestricted = true;
+					mediatorType = "Drop Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAfter + mediatorType);
+					return;
+				}
+			}
 			if (previousMediator != null && previousMediator != this) {
 				AbstractMediator mediator = hasMediator(previousMediator);
 				mediatorRestricted = true;
 				if (mediator instanceof SendMediatorEditPart){			   
 					mediatorType = "Send Mediator";
-					deleteNewlyAddedMediator(warningAddingMediatorsAfter + mediatorType);
-					return;
-				}
-				else if (mediator instanceof DropMediatorEditPart){
-					mediatorType = "Drop Mediator";
 					deleteNewlyAddedMediator(warningAddingMediatorsAfter + mediatorType);
 					return;
 				}
@@ -1046,6 +1044,21 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		}
 		
 		return previousMediator;
+	}
+
+	/**
+	 * Check whether the previous mediator in the flow is a drop mediator or not.
+	 *
+	 * @param connectors - The list of input connectors available in the flow.
+	 * @return - True if it is a drop mediator.
+	 */
+	private boolean checkForDropMediator(ArrayList<AbstractConnectorEditPart> connectors) {
+		for (int i = 0; i < connectors.size(); ++i) {
+			if (connectors.get(i) instanceof DropMediatorInputConnectorEditPart) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	private AbstractMediator hasMediator(AbstractMediator mediator){
