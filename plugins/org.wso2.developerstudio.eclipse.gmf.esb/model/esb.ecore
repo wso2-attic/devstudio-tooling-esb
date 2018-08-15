@@ -2161,6 +2161,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="availableMessageStores"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Expression" eType="#//NamespacedProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SpecifyAs" eType="#//StoreMediatorSpecifyType"
+        defaultValueLiteral="Value"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StoreMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="StoreMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
@@ -3366,6 +3370,10 @@
   <eClassifiers xsi:type="ecore:EEnum" name="FeedType">
     <eLiterals name="atom" literal="Atom"/>
     <eLiterals name="rss" value="1" literal="RSS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StoreMediatorSpecifyType">
+    <eLiterals name="Value"/>
+    <eLiterals name="Expression" value="1" literal="Expression"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InboundEndpointContainer" eSuperTypes="#//EsbElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceContainer" eType="#//InboundEndpointSequenceContainer"
