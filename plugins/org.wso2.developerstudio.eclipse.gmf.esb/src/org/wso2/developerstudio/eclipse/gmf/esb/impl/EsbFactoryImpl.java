@@ -681,6 +681,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createMQTTSubscriptionQOSFromString(eDataType, initialValue);
 			case EsbPackage.FEED_TYPE:
 				return createFeedTypeFromString(eDataType, initialValue);
+			case EsbPackage.STORE_MEDIATOR_SPECIFY_TYPE:
+				return createStoreMediatorSpecifyTypeFromString(eDataType, initialValue);
 			case EsbPackage.ENABLE_DISABLE_STATE:
 				return createEnableDisableStateFromString(eDataType, initialValue);
 			case EsbPackage.API_VERSION_TYPE:
@@ -953,6 +955,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertMQTTSubscriptionQOSToString(eDataType, instanceValue);
 			case EsbPackage.FEED_TYPE:
 				return convertFeedTypeToString(eDataType, instanceValue);
+			case EsbPackage.STORE_MEDIATOR_SPECIFY_TYPE:
+				return convertStoreMediatorSpecifyTypeToString(eDataType, instanceValue);
 			case EsbPackage.ENABLE_DISABLE_STATE:
 				return convertEnableDisableStateToString(eDataType, instanceValue);
 			case EsbPackage.API_VERSION_TYPE:
@@ -7251,6 +7255,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertFeedTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StoreMediatorSpecifyType createStoreMediatorSpecifyTypeFromString(EDataType eDataType, String initialValue) {
+		StoreMediatorSpecifyType result = StoreMediatorSpecifyType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStoreMediatorSpecifyTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
