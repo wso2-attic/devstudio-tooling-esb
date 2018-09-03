@@ -48,6 +48,22 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.TemplateProjectWizard"
                 id="org.wso2.developerstudio.wizards.esb.template">
         </wizard>
+         <wizard
+                name="Proxying a SOAP API -- TEST Sample"
+                icon="icons/message-store-small.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.Template2ProjectWizard"
+                id="org.wso2.developerstudio.wizards.esb.template2">
+        </wizard>
+         <wizard
+                name="Proxying A SOAP Service"
+                icon="icons/message-store-small.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ProxyingASoapService"
+                id="org.wso2.developerstudio.wizards.esb.proxyingASoapService">
+        </wizard>
     </extension>
     <!--<extension point="org.eclipse.ui.navigator.navigatorContent">
      <navigatorContent activeByDefault="true"
@@ -112,6 +128,12 @@
         </category>
         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.template.project"
                     wizard="org.wso2.developerstudio.wizards.esb.template">
+        </wizardLink>
+         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.template2.project"
+                    wizard="org.wso2.developerstudio.wizards.esb.template2">
+        </wizardLink>
+         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.proxyingASoapService.project"
+                    wizard="org.wso2.developerstudio.wizards.esb.proxyingASoapService">
         </wizardLink>
     </extension>
 
