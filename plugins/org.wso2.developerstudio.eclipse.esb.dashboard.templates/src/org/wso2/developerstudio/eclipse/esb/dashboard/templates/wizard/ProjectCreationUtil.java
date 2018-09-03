@@ -164,6 +164,15 @@ public class ProjectCreationUtil {
         return repo;
     }
 
+    /**
+     * Copies the relevant artifacts and add to artifact.xml file
+     * @param esbProject
+     * @param groupId
+     * @param sampleName
+     * @param artifactName
+     * @param esbProjectArtifact
+     * @param type - the containing folder name
+     */
     public static void copyArtifact(IProject esbProject, String groupId, String sampleName, String artifactName,
             ESBProjectArtifact esbProjectArtifact, String type) {
 
@@ -180,21 +189,31 @@ public class ProjectCreationUtil {
                     new File(location.getLocation().toFile(), artifactName + ".xml"))
                     .replaceAll(Pattern.quote(File.separator), "/");
 
-            String artifactType = type;
+            String artifactType = type; // the name appended in artifact.xml file
             if (type.equals("proxy-services")) {
                 artifactType = "proxy-service";
             } else if (type.equals("endpoints")) {
                 artifactType = "endpoint";
-            }
+            } else if (type.equals("inbound-endpoints")) {
+                artifactType = "inbound-endpoint";
+            } else if (type.equals("sequences")) {
+                artifactType = "sequence";
+            } 
 
             String grpID = groupId + "." + artifactType;
 
             esbProjectArtifact.addESBArtifact(createArtifact(artifactName, grpID, version, relativePath, artifactType));
 
+            String artifactIdForPomDependency  = artifactType;
+            
             if (type.equals("proxy-services")) {
-                type = "proxy";
-            }
-            updatePomForArtifact(esbProject, type);
+        	artifactIdForPomDependency = "proxy";
+            } else if (type.equals("inbound-endpoints")) {
+        	artifactIdForPomDependency = "inboundendpoint";
+            } 
+            
+            updatePomForArtifact(esbProject, artifactIdForPomDependency);
+            
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -211,6 +230,12 @@ public class ProjectCreationUtil {
             pluginName = "wso2-esb-api-plugin";
         } else if (type.equals("proxy")) {
             pluginName = "wso2-esb-proxy-plugin";
+        }  else if (type.equals("endpoint")) {
+            pluginName = "wso2-esb-endpoint-plugin";
+        }  else if (type.equals("inboundendpoint")) {
+            pluginName = "wso2-esb-inboundendpoint-plugin";
+        }  else if (type.equals("sequence")) {
+            pluginName = "wso2-esb-sequence-plugin";
         }
 
         File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
@@ -282,6 +307,14 @@ public class ProjectCreationUtil {
 
     }
 
+    /**
+     * 
+     * @param groupId
+     * @param artifactName
+     * @param type - the name appended in carbon app dependency list. Inside <properties> tag
+     * eg. values  endpoint , api , proxy-service , inbound-endpoint , sequence 
+     * @return
+     */
     public static Dependency addDependencyForCAPP(String groupId, String artifactName, String type) {
         Dependency dependency = new Dependency();
         dependency.setGroupId(groupId + "." + type);

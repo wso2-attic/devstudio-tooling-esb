@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/echo" name="EchoRestAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/string">
+        <inSequence>
+            <log description="Log Request Payload" level="full"/>
+            <header description="" name="SOAPAction" scope="transport" value="urn:echoString"/>
+            <send description="Send Request to Echo Endpoint">
+                <endpoint key="EchoHttpEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send description="Send Response Back to Client"/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
