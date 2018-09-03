@@ -13,7 +13,13 @@ import java.util.Properties;
 import java.util.regex.Pattern;
 
 import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
+import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
+import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -26,6 +32,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
@@ -35,6 +42,7 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWizard;
 import org.osgi.framework.Bundle;
+import org.wso2.developerstudio.eclipse.esb.core.ESBMavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -75,8 +83,8 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * This method is called when 'Finish' button is pressed in the wizard. We
-     * will create an operation and run it using wizard as execution context.
+     * This method is called when 'Finish' button is pressed in the wizard. We will
+     * create an operation and run it using wizard as execution context.
      */
     @Override
     public boolean performFinish() {
@@ -121,6 +129,33 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
 
     }
 
+    public void updatePomForProxy(IProject esbProject) throws IOException, XmlPullParserException {
+        File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+        MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+        version = mavenProject.getVersion();
+
+        // Skip changing the pom file if group ID and artifact ID are matched
+        if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-proxy-plugin")) {
+            return;
+        }
+
+        Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-proxy-plugin",
+                ESBMavenConstants.WSO2_ESB_PROXY_VERSION, true);
+        PluginExecution pluginExecution = new PluginExecution();
+        pluginExecution.addGoal("pom-gen");
+        pluginExecution.setPhase("process-resources");
+        pluginExecution.setId("proxy");
+
+        Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
+        Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
+        artifactLocationNode.setValue(".");
+        Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
+        typeListNode.setValue("${artifact.types}");
+        pluginExecution.setConfiguration(configurationNode);
+        plugin.addExecution(pluginExecution);
+        MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
+    }
+
     private void copyProxy(IProject esbProject, String sampleName, String proxyName,
             ESBProjectArtifact esbProjectArtifact) {
 
@@ -138,7 +173,8 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
                     new File(location.getLocation().toFile(), proxyName + ".xml"))
                     .replaceAll(Pattern.quote(File.separator), "/");
             esbProjectArtifact.addESBArtifact(createArtifact(proxyName, grpID, version, relativePath));
-        } catch (IOException e) {
+            updatePomForProxy(esbProject);
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -161,9 +197,8 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * The worker method. It will find the container, create the file if missing
-     * or just replace its contents, and open the editor on the newly created
-     * file.
+     * The worker method. It will find the container, create the file if missing or
+     * just replace its contents, and open the editor on the newly created file.
      */
     private void doFinish(String containerName, IProgressMonitor monitor) throws CoreException {
         IProject project = createProject(containerName, TemplateProjectConstants.ESB_PROJECT_NATURE);
@@ -173,7 +208,12 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
             groupId = "wso2.sampleTemplate." + containerName;
 
             createPOM(groupId, pomfile, containerName, "pom");
+
             templateWizardUtil.addNature(project, TemplateProjectConstants.ESB_PROJECT_NATURE);
+
+            MavenUtils.updateWithMavenEclipsePlugin(pomfile, new String[] {},
+                    new String[] { TemplateProjectConstants.ESB_PROJECT_NATURE });
+
             ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
             IFile artifactXML = project.getFile("artifact.xml");
             esbProjectArtifact.setSource(artifactXML.getLocation().toFile());
@@ -201,6 +241,7 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
             File pomfile = CarbonAppProject.getFile("pom.xml").getLocation().toFile();
             createPOM(pomfile);
             ProjectUtils.addNatureToProject(CarbonAppProject, false, DISTRIBUTION_PROJECT_NATURE);
+
             MavenUtils.updateWithMavenEclipsePlugin(pomfile, new String[] {},
                     new String[] { DISTRIBUTION_PROJECT_NATURE });
             CarbonAppProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
@@ -212,7 +253,7 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
             Dependency dependency = new Dependency();
 
             dependency.setGroupId(groupId + ".proxy-service");
-            dependency.setArtifactId(sampleName + ".xml");
+            dependency.setArtifactId(sampleName);
             dependency.setVersion("1.0.0");
             dependency.setType("xml");
 
@@ -248,6 +289,60 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
         MavenProject mavenProject = MavenUtils
                 .createMavenProject(groupId, containerName + "CarbonApp", version, "carbon/application");
 
+        Repository globalRepositoryFromPreference = getGlobalRepositoryFromPreference();
+
+        //	System.out.println("============== getGlobalRepositoryFromPreference ============");
+        mavenProject.getModel().addRepository(globalRepositoryFromPreference);
+        mavenProject.getModel().addPluginRepository(globalRepositoryFromPreference);
+
+        ///////
+     String MAVEN_CAR_VERSION = "2.1.1";
+     String MAVEN_CAR_DEPLOY_VERSION = "1.1.1";
+        Plugin plugin = MavenUtils
+                .createPluginEntry(mavenProject, "org.wso2.maven", "maven-car-plugin", MAVEN_CAR_VERSION,
+                        true);
+        PluginExecution pluginExecution;
+
+        pluginExecution = new PluginExecution();
+        pluginExecution.addGoal("car");
+        pluginExecution.setPhase("package");
+        pluginExecution.setId("car");
+        plugin.addExecution(pluginExecution);
+
+        Plugin carDeployPlugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-car-deploy-plugin",
+                MAVEN_CAR_DEPLOY_VERSION, true);
+        Xpp3Dom carDeployConfElement = MavenUtils.createMainConfigurationNode(carDeployPlugin);
+        Xpp3Dom serversElement = MavenUtils.createXpp3Node(carDeployConfElement, "carbonServers");
+        Xpp3Dom carbonServer = MavenUtils.createXpp3Node(serversElement, "CarbonServer");
+        Xpp3Dom trustStore = MavenUtils.createXpp3Node(carbonServer, "trustStorePath");
+        trustStore.setValue("${basedir}/src/main/resources/security/wso2carbon.jks");
+        Xpp3Dom trustStorePW = MavenUtils.createXpp3Node(carbonServer, "trustStorePassword");
+        trustStorePW.setValue("wso2carbon");
+        Xpp3Dom trustStoreType = MavenUtils.createXpp3Node(carbonServer, "trustStoreType");
+        trustStoreType.setValue("JKS");
+        Xpp3Dom serverUrl = MavenUtils.createXpp3Node(carbonServer, "serverUrl");
+        serverUrl.setValue("https://localhost:9443");
+        Xpp3Dom serverUserName = MavenUtils.createXpp3Node(carbonServer, "userName");
+        serverUserName.setValue("admin");
+        Xpp3Dom serverPW = MavenUtils.createXpp3Node(carbonServer, "password");
+        serverPW.setValue("admin");
+        Xpp3Dom serverOperation = MavenUtils.createXpp3Node(carbonServer, "operation");
+        serverOperation.setValue("deploy");
+
+        Repository repo = new Repository();
+        repo.setUrl("http://dist.wso2.org/maven2");
+        repo.setId("wso2-maven2-repository-1");
+
+        Repository repo1 = new Repository();
+        repo1.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+        repo1.setId("wso2-nexus-repository-1");
+
+        mavenProject.getModel().addRepository(repo);
+        mavenProject.getModel().addPluginRepository(repo);
+
+        mavenProject.getModel().addRepository(repo1);
+        mavenProject.getModel().addPluginRepository(repo1);
+
         MavenUtils.saveMavenProject(mavenProject, pomLocation);
     }
 
@@ -276,13 +371,34 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
      * @param pomLocation
      * @param projectName
      * @throws Exception
-     */
+     */ 
     public void createPOM(String groupID, File pomLocation, String projectName, String packaging) throws Exception {
-        MavenProject mavenProject = MavenUtils.createMavenProject(groupID, projectName, version, packaging);
-        MavenUtils.updateMavenRepo(mavenProject);
-//        mavenProject.getModel().addRepository(globalRepositoryFromPreference);
-//	mavenProject.getModel().addPluginRepository(globalRepositoryFromPreference);
-        MavenUtils.saveMavenProject(mavenProject, pomLocation);
+        MavenProject mavenProjects = MavenUtils.createMavenProject(groupID, projectName, version, packaging);
+        MavenUtils.updateMavenRepo(mavenProjects);
+        Repository globalRepositoryFromPreference = getGlobalRepositoryFromPreference();
+
+        //	System.out.println("============== getGlobalRepositoryFromPreference ============");
+        mavenProjects.getModel().addRepository(globalRepositoryFromPreference);
+        mavenProjects.getModel().addPluginRepository(globalRepositoryFromPreference);
+
+        MavenUtils.saveMavenProject(mavenProjects, pomLocation);
+    }
+
+    protected Repository getGlobalRepositoryFromPreference() {
+
+        String repoURL = "http://maven.wso2.org/nexus/content/groups/wso2-public/";
+        String id = "wso2-nexus";
+        Repository repo = new Repository();
+        repo.setUrl(repoURL);
+        repo.setId(id);
+
+        RepositoryPolicy releasePolicy = new RepositoryPolicy();
+
+        releasePolicy.setEnabled(true);
+        releasePolicy.setUpdatePolicy("daily");
+        releasePolicy.setChecksumPolicy("ignore");
+        repo.setReleases(releasePolicy);
+        return repo;
     }
 
     public IProject createProject(String containerName, String natureID) throws CoreException {
@@ -305,8 +421,8 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * Will accept the selection in the workbench to see if we can initialize
-     * from it.
+     * Will accept the selection in the workbench to see if we can initialize from
+     * it.
      *
      * @see IWorkbenchWizard#init(IWorkbench, IStructuredSelection)
      */
@@ -383,4 +499,3 @@ class ArtifactTypeMapping {
     }
 
 }
-
