@@ -1,3 +1,21 @@
+/*
+ *  Copyright (c) 2018, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ *  WSO2 Inc. licenses this file to you under the Apache License,
+ *  Version 2.0 (the "License"); you may not use this file except
+ *  in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard;
 
 import java.io.File;
@@ -35,18 +53,20 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
+/**
+ * Util class to for sample template creation.
+ */
 public class ProjectCreationUtil {
 
-    private static TemplateWizardUtil templateWizardUtil = new TemplateWizardUtil();
     private static final String DISTRIBUTION_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.distribution.project.nature";
-
     private static String MAVEN_CAR_VERSION = "2.1.1";
     private static String MAVEN_CAR_DEPLOY_VERSION = "1.1.1";
-   private static  String version = "1.0.0";
+    private static String version = "1.0.0";
 
     public static IProject createProject(String containerName, String natureID) throws CoreException {
         IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
         IProject project = root.getProject(containerName);
+        TemplateWizardUtil templateWizardUtil = new TemplateWizardUtil();
         if (project.exists()) {
             templateWizardUtil
                     .throwCoreException(TemplateProjectConstants.THE_PROJECT_EXISTS_IN_THE_WORKSPACE_MESSAGE, null);
@@ -74,10 +94,9 @@ public class ProjectCreationUtil {
 
     public static void createCarbonAppPOM(File pomLocation, String groupId, String containerName) throws Exception {
 
-	String artifactID = containerName + "CarbonApplication";
-	
-        MavenProject mavenProject = MavenUtils
-                .createMavenProject(groupId  , artifactID, "1.0.0", "carbon/application");
+        String artifactID = containerName + "CarbonApplication";
+
+        MavenProject mavenProject = MavenUtils.createMavenProject(groupId, artifactID, "1.0.0", "carbon/application");
 
         Repository globalRepositoryFromPreference = getGlobalRepositoryFromPreference();
         mavenProject.getModel().addRepository(globalRepositoryFromPreference);
@@ -144,93 +163,67 @@ public class ProjectCreationUtil {
         repo.setReleases(releasePolicy);
         return repo;
     }
-    
-    public static void copyArtifact(IProject esbProject, String groupId,  String sampleName, String artifactName,
-            ESBProjectArtifact esbProjectArtifact , String type) {
 
-        IContainer location = esbProject.getFolder(
-                "src" + File.separator + "main" + File.separator + "synapse-config" + File.separator
-                        +  type );
-       
+    public static void copyArtifact(IProject esbProject, String groupId, String sampleName, String artifactName,
+            ESBProjectArtifact esbProjectArtifact, String type) {
+
+        IContainer location = esbProject
+                .getFolder("src" + File.separator + "main" + File.separator + "synapse-config" + File.separator + type);
+
         try {
-            File importFile = getResourceFile(sampleName, artifactName ,  type  );
+            File importFile = getResourceFile(sampleName, artifactName, type);
             IFile proxyServiceFile = location.getFile(new Path(artifactName + ".xml"));
             File destFile = proxyServiceFile.getLocation().toFile();
             FileUtils.copy(importFile, destFile);
-           
-            
+
             String relativePath = FileUtils.getRelativePath(location.getProject().getLocation().toFile(),
                     new File(location.getLocation().toFile(), artifactName + ".xml"))
                     .replaceAll(Pattern.quote(File.separator), "/");
-            
+
             String artifactType = type;
-            if ( type.equals( "proxy-services") ) {
-        	artifactType = "proxy-service";
-            } else if (type.equals( "endpoints") ) {
-        	artifactType = "endpoint";
-            }           
-            
-            String grpID = groupId + "." + artifactType ;
-            
-            esbProjectArtifact.addESBArtifact(createArtifact(artifactName, grpID, version, relativePath , artifactType));
-            
-            if ( type.equals( "proxy-services")) {
-        	type = "proxy";
+            if (type.equals("proxy-services")) {
+                artifactType = "proxy-service";
+            } else if (type.equals("endpoints")) {
+                artifactType = "endpoint";
             }
-            updatePomForArtifact(esbProject , type);
+
+            String grpID = groupId + "." + artifactType;
+
+            esbProjectArtifact.addESBArtifact(createArtifact(artifactName, grpID, version, relativePath, artifactType));
+
+            if (type.equals("proxy-services")) {
+                type = "proxy";
+            }
+            updatePomForArtifact(esbProject, type);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
     }
-    
-//    public static void copyAPI(IProject esbProject, String groupId,  String sampleName, String apiName,
-//            ESBProjectArtifact esbProjectArtifact) {
-//
-//        IContainer location = esbProject.getFolder(
-//                "src" + File.separator + "main" + File.separator + "synapse-config" + File.separator
-//                        + "api");
-//
-//        try {
-//            File importFile = getResourceFile(sampleName, apiName , "api");
-//            IFile proxyServiceFile = location.getFile(new Path(apiName + ".xml"));
-//            File destFile = proxyServiceFile.getLocation().toFile();
-//            FileUtils.copy(importFile, destFile);
-//            String grpID = groupId + ".api";
-//            String relativePath = FileUtils.getRelativePath(location.getProject().getLocation().toFile(),
-//                    new File(location.getLocation().toFile(), apiName + ".xml"))
-//                    .replaceAll(Pattern.quote(File.separator), "/");
-//            esbProjectArtifact.addESBArtifact(createArtifact(apiName, grpID, version, relativePath));
-//            updatePomForArtifact(esbProject , "api");
-//        } catch (Exception e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//
-//    }
-    
-    public static void updatePomForArtifact(IProject esbProject , String type) throws IOException, XmlPullParserException {
-      
-	
-	String pluginName = null;
-	
-	if ( type.equals("api")) {
-	    pluginName = "wso2-esb-api-plugin";
-	} else if (type.equals("proxy") ) {
-	    pluginName = "wso2-esb-proxy-plugin";
-	}
-	
-	File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+
+    public static void updatePomForArtifact(IProject esbProject, String type)
+            throws IOException, XmlPullParserException {
+
+        String pluginName = null;
+
+        if (type.equals("api")) {
+            pluginName = "wso2-esb-api-plugin";
+        } else if (type.equals("proxy")) {
+            pluginName = "wso2-esb-proxy-plugin";
+        }
+
+        File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
         MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-       
+
         // Skip changing the pom file if group ID and artifact ID are matched
         if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", pluginName)) {
             return;
         }
 
-        Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", pluginName ,
-                ESBMavenConstants.WSO2_ESB_PROXY_VERSION, true);
+        Plugin plugin = MavenUtils
+                .createPluginEntry(mavenProject, "org.wso2.maven", pluginName, ESBMavenConstants.WSO2_ESB_PROXY_VERSION,
+                        true);
         PluginExecution pluginExecution = new PluginExecution();
         pluginExecution.addGoal("pom-gen");
         pluginExecution.setPhase("process-resources");
@@ -245,52 +238,16 @@ public class ProjectCreationUtil {
         plugin.addExecution(pluginExecution);
         MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
     }
-    
-//    public static void updatePomForAPI(IProject esbProject ) throws IOException, XmlPullParserException {
-//     
-//	
-//	String plugin = null;
-//	
-//	if ( type.equals("api")) {
-//	    plugin = "wso2-esb-api-plugin";
-//	}
-//	
-//	
-//	File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
-//        MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-//       
-//        // Skip changing the pom file if group ID and artifact ID are matched
-//        if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-api-plugin")) {
-//            return;
-//        }
-//
-//        Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-api-plugin",
-//                ESBMavenConstants.WSO2_ESB_PROXY_VERSION, true);
-//        PluginExecution pluginExecution = new PluginExecution();
-//        pluginExecution.addGoal("pom-gen");
-//        pluginExecution.setPhase("process-resources");
-//        pluginExecution.setId("api");
-//
-//        Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
-//        Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
-//        artifactLocationNode.setValue(".");
-//        Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
-//        typeListNode.setValue("${artifact.types}");
-//        pluginExecution.setConfiguration(configurationNode);
-//        plugin.addExecution(pluginExecution);
-//        MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
-//    }
-    
-    protected static  File getResourceFile(String samplename, String name , String type) throws IOException {
-	
-	String fileLocation = "Samples" + File.separator  + samplename + File.separator +
-        	"src" + File.separator + "main" + File.separator + "synapse-config" + File.separator + type + 
-               File.separator  + name   + ".xml";
-	
-	 return ProxyServiceTemplateUtils.getInstance().getResourceFile(fileLocation);
+
+    protected static File getResourceFile(String samplename, String name, String type) throws IOException {
+
+        String fileLocation = "Samples" + File.separator + samplename + File.separator + "src" + File.separator + "main"
+                + File.separator + "synapse-config" + File.separator + type + File.separator + name + ".xml";
+
+        return ProxyServiceTemplateUtils.getInstance().getResourceFile(fileLocation);
     }
-    
-    private static ESBArtifact createArtifact(String name, String groupId, String version, String path , String type) {
+
+    private static ESBArtifact createArtifact(String name, String groupId, String version, String path, String type) {
         ESBArtifact artifact = new ESBArtifact();
         artifact.setName(name);
         artifact.setVersion(version);
@@ -300,8 +257,9 @@ public class ProjectCreationUtil {
         artifact.setFile(path);
         return artifact;
     }
-    
-    public static IProject carbonAppCreation(String projectName, String containerName, String groupId , String sampleName) {
+
+    public static IProject carbonAppCreation(String projectName, String containerName, String groupId,
+            String sampleName) {
 
         try {
 
@@ -314,61 +272,33 @@ public class ProjectCreationUtil {
             MavenUtils.updateWithMavenEclipsePlugin(pomfile, new String[] {},
                     new String[] { DISTRIBUTION_PROJECT_NATURE });
             CarbonAppProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-            
-            
-            ////////////////////
 
-//            List<Dependency> dependencyList = new ArrayList<Dependency>();
-//            MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-//            Properties properties = mavenProject.getModel().getProperties();
-//
-//            Dependency dependency =   addProxyDependencyForCAPP(groupId , sampleName);
-//            dependencyList.add(dependency);
-//            properties.put(getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
-//
-//            ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
-//            properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
-//
-//            mavenProject.getModel().setProperties(properties);
-//
-//            MavenUtils.addMavenDependency(mavenProject, dependencyList);
-//            MavenUtils.saveMavenProject(mavenProject, pomfile);
-//            CarbonAppProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-            
-            
-            /////////////////
-            
-            
-            
             return CarbonAppProject;
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-	return null;
+        return null;
 
     }
-    
-    public static Dependency addDependencyForCAPP(  String groupId  , String artifactName , String type) {
-	Dependency dependency = new Dependency();
-	 dependency.setGroupId(groupId + "." + type );
-         dependency.setArtifactId(artifactName);
-         dependency.setVersion("1.0.0");
-         dependency.setType("xml");
-         return dependency;
-         
+
+    public static Dependency addDependencyForCAPP(String groupId, String artifactName, String type) {
+        Dependency dependency = new Dependency();
+        dependency.setGroupId(groupId + "." + type);
+        dependency.setArtifactId(artifactName);
+        dependency.setVersion("1.0.0");
+        dependency.setType("xml");
+        return dependency;
+
     }
-    
-    
+
     public static String getArtifactInfoAsString(Dependency dep) {
         String suffix = "";
 
         String str = suffix.concat(dep.getGroupId().concat("_._").concat(dep.getArtifactId()));
-      //  System.out.println("str get artifact = " + str);
         return str;
     }
 
-    
     private static IProject createNewProject(String name) throws CoreException {
 
         IProject project = null;
@@ -377,7 +307,7 @@ public class ProjectCreationUtil {
 
         return project;
     }
-    
+
     private static IProject createProjectInDefaultWorkspace(String name) throws CoreException {
 
         IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -388,9 +318,7 @@ public class ProjectCreationUtil {
         return project;
     }
 
-
 }
-
 
 class ProxyServiceTemplateUtils extends TemplateUtil {
 
