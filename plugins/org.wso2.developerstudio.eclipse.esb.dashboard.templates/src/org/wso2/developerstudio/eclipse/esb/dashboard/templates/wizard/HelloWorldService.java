@@ -43,7 +43,7 @@ import org.eclipse.ui.IWorkbenchWizard;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
-public class TemplateProjectWizard extends Wizard implements INewWizard {
+public class HelloWorldService extends Wizard implements INewWizard {
 
     private TemplateProjectWizardPage page;
     private ISelection selection;
@@ -54,7 +54,7 @@ public class TemplateProjectWizard extends Wizard implements INewWizard {
     String containerName;
     String baseId = "com.example1.";
 
-    public TemplateProjectWizard() {
+    public HelloWorldService() {
         super();
         setNeedsProgressMonitor(true);
         templateWizardUtil = new TemplateWizardUtil();

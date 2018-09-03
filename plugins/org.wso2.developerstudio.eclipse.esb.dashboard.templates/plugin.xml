@@ -45,7 +45,7 @@
                 icon="icons/message-store-small.png"
                 project="true"
                 category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
-                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.TemplateProjectWizard"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.HelloWorldService"
                 id="org.wso2.developerstudio.wizards.esb.template">
         </wizard>
          <wizard
