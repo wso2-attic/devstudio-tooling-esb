@@ -44,19 +44,19 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
 /**
- * Provider class for sample "Proxying A SOAP Service"
+ * ContentBasedRoutingTemplate
  */
-public class Sample5 extends Wizard implements INewWizard {
+public class HeaderBasedRoutingTemplate extends Wizard implements INewWizard {
 
     private TemplateProjectWizardPage page;
     private ISelection selection;
     private TemplateWizardUtil templateWizardUtil;
     private String groupId;
-    String sampleName = "ProxyingRestAPITemplate";
+    String sampleName = "HeaderBasedRoutingTemplate";
     String containerName;
-    String baseId = "wso2.sample" + sampleName  + ".";
+    String baseId = "wso2.sample" + sampleName + ".";
 
-    public Sample5() {
+    public HeaderBasedRoutingTemplate() {
         super();
         setNeedsProgressMonitor(true);
         templateWizardUtil = new TemplateWizardUtil();
@@ -161,13 +161,10 @@ public class Sample5 extends Wizard implements INewWizard {
      */
     private void copyFiles(IProject esbProject, ESBProjectArtifact esbProjectArtifact) {
 
-	String artifactName = "Wso2StockQuoteService";
-        String type = "proxy-services";
+        String artifactName = "LanguageAPI";
+        String type = "api";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
 
-        artifactName = "StockQuoteEP";
-        type = "endpoints";
-        ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
     }
 
     /**
@@ -184,13 +181,10 @@ public class Sample5 extends Wizard implements INewWizard {
         MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
         Properties properties = mavenProject.getModel().getProperties();
 
-        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "UsersRestAPI", "api");
+        Dependency dependency = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "LanguageAPI", "api");
         dependencyList.add(dependency);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
-
-        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "UsersHttpEP", "endpoint");
-        dependencyList.add(dependency2);
-        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
 
         ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
         properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
