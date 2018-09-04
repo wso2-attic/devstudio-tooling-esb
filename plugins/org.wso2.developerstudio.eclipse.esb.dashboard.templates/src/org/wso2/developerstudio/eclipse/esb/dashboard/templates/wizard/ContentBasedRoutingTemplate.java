@@ -43,18 +43,20 @@ import org.eclipse.ui.IWorkbenchWizard;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
-public class HelloWorldService extends Wizard implements INewWizard {
+/**
+ * ContentBasedRoutingTemplate
+ */
+public class ContentBasedRoutingTemplate extends Wizard implements INewWizard {
 
     private TemplateProjectWizardPage page;
     private ISelection selection;
     private TemplateWizardUtil templateWizardUtil;
-    // private File pomfile;
     private String groupId;
-    String sampleName = "HelloWorld";
+    String sampleName = "ContentBasedRoutingTemplate";
     String containerName;
-    String baseId = "com.example1.";
+    String baseId = "wso2.sample" + sampleName + ".";
 
-    public HelloWorldService() {
+    public ContentBasedRoutingTemplate() {
         super();
         setNeedsProgressMonitor(true);
         templateWizardUtil = new TemplateWizardUtil();
@@ -105,34 +107,17 @@ public class HelloWorldService extends Wizard implements INewWizard {
     }
 
     /**
-     * Copy each files which belongs to the samples.
-     *
-     * @param esbProject
-     * @param esbProjectArtifact
-     */
-    private void copyFiles(IProject esbProject, ESBProjectArtifact esbProjectArtifact) {
-
-        // Copy HelloWorld Proxy
-        ProjectCreationUtil
-                .copyArtifact(esbProject, groupId, sampleName, sampleName, esbProjectArtifact, "proxy-services");
-
-    }
-
-    /**
      * The worker method. It will find the container, create the file if missing or
      * just replace its contents, and open the editor on the newly created file.
      */
     private void doFinish(String containerName, IProgressMonitor monitor) throws CoreException {
 
         try {
-
             IProject project = ProjectCreationUtil
                     .createProject(containerName, TemplateProjectConstants.ESB_PROJECT_NATURE);
 
             File pomfile = project.getFile("pom.xml").getLocation().toFile();
-
             groupId = baseId + containerName;
-
             ProjectCreationUtil.createProjectPOM(groupId, pomfile, containerName, "pom");
 
             templateWizardUtil.addNature(project, TemplateProjectConstants.ESB_PROJECT_NATURE);
@@ -143,49 +128,17 @@ public class HelloWorldService extends Wizard implements INewWizard {
             ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
             IFile artifactXML = project.getFile("artifact.xml");
             esbProjectArtifact.setSource(artifactXML.getLocation().toFile());
-            esbProjectArtifact.toFile();
-
             copyFiles(project, esbProjectArtifact);
-
             esbProjectArtifact.toFile();
 
             project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 
-            String cappGroupId = groupId + "CarbonApplication";
             IProject cappProject = ProjectCreationUtil
-                    .carbonAppCreation(containerName + "CarbonApplication", containerName, cappGroupId, sampleName);
-
+                    .carbonAppCreation(containerName + "CarbonApplication", containerName, groupId, sampleName);
             addCappDependencies(cappProject);
-
         } catch (Exception ex) {
-            templateWizardUtil.throwCoreException("Error creating pom file for project " + containerName, ex);
+            templateWizardUtil.throwCoreException("Error creating sample project " + containerName, ex);
         }
-    }
-
-    /**
-     * Add the relevant dependencies of the project to the Carbon Application.
-     * @param CarbonAppProject
-     * @throws Exception
-     */
-    private void addCappDependencies(IProject CarbonAppProject) throws Exception {
-
-        File pomfile = CarbonAppProject.getFile("pom.xml").getLocation().toFile();
-
-        List<Dependency> dependencyList = new ArrayList<Dependency>();
-        MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-        Properties properties = mavenProject.getModel().getProperties();
-
-        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "HelloWorld", "proxy-service");
-        dependencyList.add(dependency);
-        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
-
-        ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
-        properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
-        mavenProject.getModel().setProperties(properties);
-        MavenUtils.addMavenDependency(mavenProject, dependencyList);
-        MavenUtils.saveMavenProject(mavenProject, pomfile);
-        CarbonAppProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-
     }
 
     /**
@@ -198,6 +151,54 @@ public class HelloWorldService extends Wizard implements INewWizard {
     public void init(IWorkbench workbench, IStructuredSelection selection) {
         this.selection = selection;
         setHelpAvailable(true);
+    }
+
+    /**
+     * Copy the files which belongs to the samples.
+     *
+     * @param esbProject
+     * @param esbProjectArtifact
+     */
+    private void copyFiles(IProject esbProject, ESBProjectArtifact esbProjectArtifact) {
+
+        String artifactName = "Wso2StockQuoteService";
+        String type = "proxy-services";
+        ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
+
+        artifactName = "StockQuoteEP";
+        type = "endpoints";
+        ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
+    }
+
+    /**
+     * Add the dependencies for the carbon application of the Sample project.
+     *
+     * @param CarbonAppProject
+     * @throws Exception
+     */
+    private void addCappDependencies(IProject CarbonAppProject) throws Exception {
+
+        File pomfile = CarbonAppProject.getFile("pom.xml").getLocation().toFile();
+
+        List<Dependency> dependencyList = new ArrayList<Dependency>();
+        MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+        Properties properties = mavenProject.getModel().getProperties();
+
+        Dependency dependency = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "Wso2StockQuoteService", "proxy-service");
+        dependencyList.add(dependency);
+        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
+
+        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "StockQuoteEP", "endpoint");
+        dependencyList.add(dependency2);
+        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
+
+        ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
+        properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
+        mavenProject.getModel().setProperties(properties);
+        MavenUtils.addMavenDependency(mavenProject, dependencyList);
+        MavenUtils.saveMavenProject(mavenProject, pomfile);
+        CarbonAppProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
     }
 
 }

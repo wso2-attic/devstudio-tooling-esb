@@ -161,11 +161,11 @@ public class ProxyingARESTAPI extends Wizard implements INewWizard {
      */
     private void copyFiles(IProject esbProject, ESBProjectArtifact esbProjectArtifact) {
 
-        String apiName = "EchoRestAPI";
+        String apiName = "UsersRestAPI";
         ProjectCreationUtil
                 .copyArtifact(esbProject, groupId, sampleName, apiName, esbProjectArtifact, "api");
 
-        String endPointName = "EchoHttpEP";
+        String endPointName = "UsersHttpEP";
         ProjectCreationUtil
                 .copyArtifact(esbProject, groupId, sampleName, endPointName, esbProjectArtifact, "endpoints");
     }
@@ -184,11 +184,11 @@ public class ProxyingARESTAPI extends Wizard implements INewWizard {
         MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
         Properties properties = mavenProject.getModel().getProperties();
 
-        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "EchoRestAPI", "api");
+        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "UsersRestAPI", "api");
         dependencyList.add(dependency);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
 
-        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "EchoHttpEP", "endpoint");
+        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "UsersHttpEP", "endpoint");
         dependencyList.add(dependency2);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
 

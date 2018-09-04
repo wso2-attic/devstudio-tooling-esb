@@ -72,6 +72,22 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ProxyingARESTAPI"
                 id="org.wso2.developerstudio.wizards.esb.proxyingARESTAPI">
         </wizard>
+        <wizard
+                name="Content Based Routing Template"
+                icon="icons/message-store-small.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ContentBasedRoutingTemplate"
+                id="org.wso2.developerstudio.wizards.esb.contentBasedRoutingTemplate">
+        </wizard>
+         <wizard
+                name="Sample 5"
+                icon="icons/message-store-small.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.Sample5"
+                id="org.wso2.developerstudio.wizards.esb.Sample5">
+        </wizard>
     </extension>
     <!--<extension point="org.eclipse.ui.navigator.navigatorContent">
      <navigatorContent activeByDefault="true"
@@ -145,6 +161,12 @@
         </wizardLink>
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.proxyingARESTAPI.project"
                     wizard="org.wso2.developerstudio.wizards.esb.proxyingARESTAPI">
+        </wizardLink>
+         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.contentBasedRoutingTemplate.project"
+                    wizard="org.wso2.developerstudio.wizards.esb.contentBasedRoutingTemplate">
+        </wizardLink>
+         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.Sample5.project"
+                    wizard="org.wso2.developerstudio.wizards.esb.Sample5">
         </wizardLink>
     </extension>
 

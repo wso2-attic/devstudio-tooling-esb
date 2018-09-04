@@ -44,7 +44,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
-import org.wso2.developerstudio.eclipse.esb.core.ESBMavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -163,12 +162,13 @@ public class ProjectCreationUtil {
 
     /**
      * Copies the relevant artifacts and add to artifact.xml file
+     *
      * @param esbProject
      * @param groupId
      * @param sampleName
      * @param artifactName
      * @param esbProjectArtifact
-     * @param type - the containing folder name
+     * @param type               - the containing folder name
      */
     public static void copyArtifact(IProject esbProject, String groupId, String sampleName, String artifactName,
             ESBProjectArtifact esbProjectArtifact, String type) {
@@ -187,6 +187,8 @@ public class ProjectCreationUtil {
                     .replaceAll(Pattern.quote(File.separator), "/");
 
             String artifactType = type; // the name appended in artifact.xml file
+            // api | proxy | endpoint | inbound point | sequence 
+            //
             if (type.equals("proxy-services")) {
                 artifactType = "proxy-service";
             } else if (type.equals("endpoints")) {
@@ -195,22 +197,22 @@ public class ProjectCreationUtil {
                 artifactType = "inbound-endpoint";
             } else if (type.equals("sequences")) {
                 artifactType = "sequence";
-            } 
+            }
 
             String grpID = groupId + "." + artifactType;
 
             esbProjectArtifact.addESBArtifact(createArtifact(artifactName, grpID, version, relativePath, artifactType));
 
-            String artifactIdForPomDependency  = artifactType;
-            
+            String artifactIdForPomDependency = artifactType;
+
             if (type.equals("proxy-services")) {
-        	artifactIdForPomDependency = "proxy";
+                artifactIdForPomDependency = "proxy";
             } else if (type.equals("inbound-endpoints")) {
-        	artifactIdForPomDependency = "inboundendpoint";
-            } 
-            
+                artifactIdForPomDependency = "inboundendpoint";
+            }
+
             updatePomForArtifact(esbProject, artifactIdForPomDependency);
-            
+
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -218,21 +220,57 @@ public class ProjectCreationUtil {
 
     }
 
+    /*WSO2_ESB_ENDPOINT_VERSION="2.1.0";
+    WSO2_ESB_LOCAL_ENTRY_VERSION="2.1.0";
+    WSO2_ESB_PROXY_VERSION="2.1.0";
+    WSO2_ESB_SEQUENCE_VERSION="2.1.0";
+    WSO2_ESB_SYNAPSE_VERSION="2.1.0";
+    WSO2_ESB_API_VERSION="2.1.0";
+    WSO2_ESB_TASK_VERSION="2.1.0";
+    WSO2_ESB_TEMPLATE_VERSION="2.1.0";
+
+    WSO2_ESB_INBOUND_ENDPOINT_VERSION="1.0.0";
+    WSO2_ESB_CONNECTOR_VERSION="1.0.0";
+    WSO2_GENERAL_PROJECT_VERSION="2.1.0";
+    WSO2_ESB_MESSAGE_STORE_PLUGIN_VERSION="1.1.0";
+    WSO2_ESB_MESSAGE_PROCESSOR_PLUGIN_VERSION="1.1.0";
+   	 
+   	<plugin>
+        <groupId>org.wso2.maven</groupId>
+        <artifactId>wso2-esb-proxy-plugin</artifactId>
+        <version>2.1.0</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>proxy</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>pom-gen</goal>
+            </goals>
+            <configuration>
+              <artifactLocation>.</artifactLocation>
+              <typeList>${artifact.types}</typeList>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration />
+      </plugin>*/
+
+    /**
+     * @param esbProject
+     * @param type       - Id in project pom .
+     * @throws IOException
+     * @throws XmlPullParserException
+     */
     public static void updatePomForArtifact(IProject esbProject, String type)
             throws IOException, XmlPullParserException {
 
-        String pluginName = null;
+        String pluginName = "wso2-esb-" + type + "-plugin"; // corresponding Belgian name in POM.
 
-        if (type.equals("api")) {
-            pluginName = "wso2-esb-api-plugin";
-        } else if (type.equals("proxy")) {
-            pluginName = "wso2-esb-proxy-plugin";
-        }  else if (type.equals("endpoint")) {
-            pluginName = "wso2-esb-endpoint-plugin";
-        }  else if (type.equals("inboundendpoint")) {
-            pluginName = "wso2-esb-inboundendpoint-plugin";
-        }  else if (type.equals("sequence")) {
-            pluginName = "wso2-esb-sequence-plugin";
+        String pluginVersion = "2.1.0";
+
+        if (type.equals("inboundendpoint")) {
+            pluginVersion = "1.0.0";
         }
 
         File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
@@ -243,9 +281,7 @@ public class ProjectCreationUtil {
             return;
         }
 
-        Plugin plugin = MavenUtils
-                .createPluginEntry(mavenProject, "org.wso2.maven", pluginName, ESBMavenConstants.WSO2_ESB_PROXY_VERSION,
-                        true);
+        Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", pluginName, pluginVersion, true);
         PluginExecution pluginExecution = new PluginExecution();
         pluginExecution.addGoal("pom-gen");
         pluginExecution.setPhase("process-resources");
@@ -305,11 +341,10 @@ public class ProjectCreationUtil {
     }
 
     /**
-     * 
      * @param groupId
      * @param artifactName
-     * @param type - the name appended in carbon app dependency list. Inside <properties> tag
-     * eg. values  endpoint , api , proxy-service , inbound-endpoint , sequence 
+     * @param type         - the name appended in carbon app dependency list. Inside <properties> tag
+     *                     eg. values  endpoint , api , proxy-service , inbound-endpoint , sequence
      * @return
      */
     public static Dependency addDependencyForCAPP(String groupId, String artifactName, String type) {
@@ -332,9 +367,7 @@ public class ProjectCreationUtil {
     private static IProject createNewProject(String name) throws CoreException {
 
         IProject project = null;
-
         project = createProjectInDefaultWorkspace(name);
-
         return project;
     }
 
