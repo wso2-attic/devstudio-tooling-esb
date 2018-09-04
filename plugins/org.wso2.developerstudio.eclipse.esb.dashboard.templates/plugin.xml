@@ -88,14 +88,6 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.HeaderBasedRoutingTemplate"
                 id="org.wso2.developerstudio.wizards.esb.headerBasedRoutingTemplate">
         </wizard>
-         <wizard
-                name="Sample 5"
-                icon="icons/message-store-small.png"
-                project="true"
-                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
-                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.Sample5"
-                id="org.wso2.developerstudio.wizards.esb.Sample5">
-        </wizard>
     </extension>
     <!--<extension point="org.eclipse.ui.navigator.navigatorContent">
      <navigatorContent activeByDefault="true"
@@ -175,9 +167,6 @@
         </wizardLink>
         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.headerBasedRoutingTemplate.project"
                     wizard="org.wso2.developerstudio.wizards.esb.headerBasedRoutingTemplate">
-        </wizardLink>
-         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.Sample5.project"
-                    wizard="org.wso2.developerstudio.wizards.esb.Sample5">
         </wizardLink>
     </extension>
 
