@@ -88,6 +88,14 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.HeaderBasedRoutingTemplate"
                 id="org.wso2.developerstudio.wizards.esb.headerBasedRoutingTemplate">
         </wizard>
+         <wizard
+                name="Message Filtering Template"
+                icon="icons/message-store-small.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.MessageFilteringTemplate"
+                id="org.wso2.developerstudio.wizards.esb.messageFilteringTemplate">
+        </wizard>
     </extension>
     <!--<extension point="org.eclipse.ui.navigator.navigatorContent">
      <navigatorContent activeByDefault="true"
@@ -168,6 +176,10 @@
         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.headerBasedRoutingTemplate.project"
                     wizard="org.wso2.developerstudio.wizards.esb.headerBasedRoutingTemplate">
         </wizardLink>
+         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.messageFilteringTemplate.project"
+                    wizard="org.wso2.developerstudio.wizards.esb.messageFilteringTemplate">
+        </wizardLink>
+        
     </extension>
 
 </plugin>
