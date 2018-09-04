@@ -34,7 +34,7 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
     private TemplateWizardUtil templateWizardUtil;
     // private File pomfile;
     private String groupId;
-    
+
     String sampleName = "Proxying_A_SOAP_API";
     String containerName;
     String baseId = "com.example2.";
@@ -96,46 +96,41 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
      * @param esbProjectArtifact
      */
     private void copyFiles(IProject esbProject, ESBProjectArtifact esbProjectArtifact) {
-	
+
         // Copy  Proxy Files
-	String proxyName = "Sample2";
-	ProjectCreationUtil.copyArtifact(esbProject, groupId ,sampleName, proxyName, esbProjectArtifact , "proxy-services");
-	
-	String apiName = "API1";
-	ProjectCreationUtil.copyArtifact(esbProject, groupId ,sampleName, apiName, esbProjectArtifact,"api");
-	
-	
+        String proxyName = "Sample2";
+        ProjectCreationUtil
+                .copyArtifact(esbProject, groupId, sampleName, proxyName, esbProjectArtifact, "proxy-services");
+
+        String apiName = "API1";
+        ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, apiName, esbProjectArtifact, "api");
 
     }
-    
-    private void addCappDependencies( IProject CarbonAppProject) throws Exception {
-	  
-	  File pomfile = CarbonAppProject.getFile("pom.xml").getLocation().toFile();
-	  
-	            List<Dependency> dependencyList = new ArrayList<Dependency>();
-	            MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-	            Properties properties = mavenProject.getModel().getProperties();
 
-	            
-	            Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(  groupId , "Sample2" , "proxy-service");
-	            dependencyList.add(dependency);	            
-	            properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
-	            
-	            Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(  groupId , "API1" , "api");
-	            dependencyList.add(dependency2);	            
-	            properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
+    private void addCappDependencies(IProject CarbonAppProject) throws Exception {
 
-	           
-	            ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
-	            properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
-	            mavenProject.getModel().setProperties(properties);
-	            MavenUtils.addMavenDependency(mavenProject, dependencyList);
-	            MavenUtils.saveMavenProject(mavenProject, pomfile);
-	            CarbonAppProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-	            
-	            
+        File pomfile = CarbonAppProject.getFile("pom.xml").getLocation().toFile();
+
+        List<Dependency> dependencyList = new ArrayList<Dependency>();
+        MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+        Properties properties = mavenProject.getModel().getProperties();
+
+        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "Sample2", "proxy-service");
+        dependencyList.add(dependency);
+        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
+
+        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "API1", "api");
+        dependencyList.add(dependency2);
+        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
+
+        ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
+        properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
+        mavenProject.getModel().setProperties(properties);
+        MavenUtils.addMavenDependency(mavenProject, dependencyList);
+        MavenUtils.saveMavenProject(mavenProject, pomfile);
+        CarbonAppProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+
     }
-
 
     /**
      * The worker method. It will find the container, create the file if missing or
@@ -143,14 +138,14 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
      */
     private void doFinish(String containerName, IProgressMonitor monitor) throws CoreException {
 
-	  try {
-	      
-	      IProject project = ProjectCreationUtil
-                .createProject(containerName, TemplateProjectConstants.ESB_PROJECT_NATURE);
+        try {
 
-        File pomfile = project.getFile("pom.xml").getLocation().toFile();
+            IProject project = ProjectCreationUtil
+                    .createProject(containerName, TemplateProjectConstants.ESB_PROJECT_NATURE);
 
-          groupId = baseId + containerName;
+            File pomfile = project.getFile("pom.xml").getLocation().toFile();
+
+            groupId = baseId + containerName;
 
             ProjectCreationUtil.createProjectPOM(groupId, pomfile, containerName, "pom");
 
@@ -170,19 +165,16 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
 
             project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 
-           IProject cappProject =  ProjectCreationUtil.carbonAppCreation(containerName + "CarbonApplication", containerName , groupId , sampleName);
+            IProject cappProject = ProjectCreationUtil
+                    .carbonAppCreation(containerName + "CarbonApplication", containerName, groupId, sampleName);
 
-           
-            addCappDependencies(  cappProject);
-            
-            
+            addCappDependencies(cappProject);
+
         } catch (Exception ex) {
             templateWizardUtil.throwCoreException("Error creating pom file for project " + containerName, ex);
         }
     }
 
-
-   
     /**
      * Will accept the selection in the workbench to see if we can initialize from
      * it.

@@ -136,6 +136,9 @@ public class ProxyingASoapService extends Wizard implements INewWizard {
             IProject cappProject = ProjectCreationUtil
                     .carbonAppCreation(containerName + "CarbonApplication", containerName, groupId, sampleName);
             addCappDependencies(cappProject);
+        } catch (CoreException ex) {
+            templateWizardUtil
+                    .throwCoreException(TemplateProjectConstants.THE_PROJECT_EXISTS_IN_THE_WORKSPACE_MESSAGE, null);
         } catch (Exception ex) {
             templateWizardUtil.throwCoreException("Error creating sample project " + containerName, ex);
         }

@@ -136,6 +136,9 @@ public class HeaderBasedRoutingTemplate extends Wizard implements INewWizard {
             IProject cappProject = ProjectCreationUtil
                     .carbonAppCreation(containerName + "CarbonApplication", containerName, groupId, sampleName);
             addCappDependencies(cappProject);
+        } catch (CoreException ex) {
+            templateWizardUtil
+                    .throwCoreException(TemplateProjectConstants.THE_PROJECT_EXISTS_IN_THE_WORKSPACE_MESSAGE, null);
         } catch (Exception ex) {
             templateWizardUtil.throwCoreException("Error creating sample project " + containerName, ex);
         }
@@ -181,8 +184,7 @@ public class HeaderBasedRoutingTemplate extends Wizard implements INewWizard {
         MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
         Properties properties = mavenProject.getModel().getProperties();
 
-        Dependency dependency = ProjectCreationUtil
-                .addDependencyForCAPP(groupId, "LanguageAPI", "api");
+        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "LanguageAPI", "api");
         dependencyList.add(dependency);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
 
