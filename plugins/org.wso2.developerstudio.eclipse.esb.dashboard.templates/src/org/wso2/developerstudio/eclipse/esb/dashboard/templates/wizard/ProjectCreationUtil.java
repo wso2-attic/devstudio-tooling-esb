@@ -86,9 +86,6 @@ public class ProjectCreationUtil {
             throws Exception {
         MavenProject mavenProjects = MavenUtils.createMavenProject(groupID, projectName, "1.0.0", packaging);
         MavenUtils.updateMavenRepo(mavenProjects);
-        Repository globalRepositoryFromPreference = getGlobalRepositoryFromPreference();
-        mavenProjects.getModel().addRepository(globalRepositoryFromPreference);
-        mavenProjects.getModel().addPluginRepository(globalRepositoryFromPreference);
         MavenUtils.saveMavenProject(mavenProjects, pomLocation);
     }
 
