@@ -45,16 +45,16 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 /**
  * ContentBasedRoutingTemplate
  */
-public class MessageFilteringTemplate extends Wizard implements INewWizard {
+public class ProtocolSwitchingTemplate extends Wizard implements INewWizard {
 
     private TemplateProjectWizardPage page;
     private ISelection selection;
     private TemplateWizardUtil templateWizardUtil;
     private String groupId;
-    String sampleName = "MessageFilteringTemplate";
+    String sampleName = "ProtocolSwitchingTemplate";
     String baseId = "wso2.sample" + sampleName + ".";
 
-    public MessageFilteringTemplate() {
+    public ProtocolSwitchingTemplate() {
         super();
         setNeedsProgressMonitor(true);
         templateWizardUtil = new TemplateWizardUtil();
@@ -162,11 +162,11 @@ public class MessageFilteringTemplate extends Wizard implements INewWizard {
      */
     private void copyFiles(IProject esbProject, ESBProjectArtifact esbProjectArtifact) {
 
-        String artifactName = "PhoneVerifyAPI";
-        String type = "api";
+        String artifactName = "StudentRegistrationService";
+        String type = "proxy-services";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
 
-        artifactName = "PhoneVerifyEP";
+        artifactName = "StudentQueueEP";
         type = "endpoints";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
     }
@@ -185,11 +185,11 @@ public class MessageFilteringTemplate extends Wizard implements INewWizard {
         MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
         Properties properties = mavenProject.getModel().getProperties();
 
-        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "PhoneVerifyAPI", "api");
+        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "StudentRegistrationService", "proxy-service");
         dependencyList.add(dependency);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
 
-        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "PhoneVerifyEP", "endpoint");
+        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "StudentQueueEP", "endpoint");
         dependencyList.add(dependency2);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
 
