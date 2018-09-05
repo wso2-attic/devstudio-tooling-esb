@@ -96,6 +96,14 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.MessageFilteringTemplate"
                 id="org.wso2.developerstudio.wizards.esb.messageFilteringTemplate">
         </wizard>
+         <wizard
+                name="Protocol Switching Template"
+                icon="icons/registry.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ProtocolSwitchingTemplate"
+                id="org.wso2.developerstudio.wizards.esb.protocolSwitchingTemplate">
+        </wizard>
     </extension>
     <!--<extension point="org.eclipse.ui.navigator.navigatorContent">
      <navigatorContent activeByDefault="true"
@@ -177,8 +185,12 @@
                     wizard="org.wso2.developerstudio.wizards.esb.headerBasedRoutingTemplate" description="Header based Routing">
         </wizardLink>
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.messageFilteringTemplate.project"
-                    wizard="org.wso2.developerstudio.wizards.esb.messageFilteringTemplate">
+                    wizard="org.wso2.developerstudio.wizards.esb.messageFilteringTemplate" description="Message Filtering Template">
         </wizardLink>
+        <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.protocolSwitchingTemplate"
+                    wizard="org.wso2.developerstudio.wizards.esb.protocolSwitchingTemplate" description="Protocol Switching Template">
+        </wizardLink>
+        
         
     </extension>
 
