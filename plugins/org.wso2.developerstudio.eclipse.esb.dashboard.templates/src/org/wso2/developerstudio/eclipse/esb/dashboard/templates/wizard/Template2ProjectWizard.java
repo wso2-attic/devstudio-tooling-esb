@@ -36,7 +36,6 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
     private String groupId;
 
     String sampleName = "Proxying_A_SOAP_API";
-    String containerName;
     String baseId = "com.example2.";
 
     public Template2ProjectWizard() {
@@ -62,7 +61,7 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
     @Override
     public boolean performFinish() {
 
-        containerName = page.getContainerName();
+        final String containerName = page.getContainerName();
 
         IRunnableWithProgress op = new IRunnableWithProgress() {
             @Override

@@ -52,7 +52,6 @@ public class MessageFilteringTemplate extends Wizard implements INewWizard {
     private TemplateWizardUtil templateWizardUtil;
     private String groupId;
     String sampleName = "MessageFilteringTemplate";
-    String containerName;
     String baseId = "wso2.sample" + sampleName + ".";
 
     public MessageFilteringTemplate() {
@@ -78,7 +77,7 @@ public class MessageFilteringTemplate extends Wizard implements INewWizard {
     @Override
     public boolean performFinish() {
 
-        containerName = page.getContainerName();
+        final String containerName = page.getContainerName();
 
         IRunnableWithProgress op = new IRunnableWithProgress() {
             @Override

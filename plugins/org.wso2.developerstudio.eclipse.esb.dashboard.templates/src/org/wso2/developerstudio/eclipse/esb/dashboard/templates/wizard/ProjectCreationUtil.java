@@ -83,7 +83,7 @@ public class ProjectCreationUtil {
 
     public static void createProjectPOM(String groupID, File pomLocation, String projectName, String packaging)
             throws Exception {
-        MavenProject mavenProjects = MavenUtils.createMavenProject(groupID, projectName, "1.0.0", packaging);
+        MavenProject mavenProjects = MavenUtils.createMavenProject(groupID, projectName, version, packaging);
         MavenUtils.updateMavenRepo(mavenProjects);
         MavenUtils.saveMavenProject(mavenProjects, pomLocation);
     }
@@ -92,7 +92,7 @@ public class ProjectCreationUtil {
 
         String artifactID = containerName + "CarbonApplication";
 
-        MavenProject mavenProject = MavenUtils.createMavenProject(groupId, artifactID, "1.0.0", "carbon/application");
+        MavenProject mavenProject = MavenUtils.createMavenProject(groupId, artifactID, version, "carbon/application");
 
         Repository globalRepositoryFromPreference = getGlobalRepositoryFromPreference();
         mavenProject.getModel().addRepository(globalRepositoryFromPreference);
