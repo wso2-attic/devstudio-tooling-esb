@@ -51,7 +51,6 @@ public class HelloWorldService extends Wizard implements INewWizard {
     // private File pomfile;
     private String groupId;
     String sampleName = "HelloWorld";
-    String containerName;
     String baseId = "com.example1.";
 
     public HelloWorldService() {
@@ -77,7 +76,7 @@ public class HelloWorldService extends Wizard implements INewWizard {
     @Override
     public boolean performFinish() {
 
-        containerName = page.getContainerName();
+        final String containerName = page.getContainerName();
 
         IRunnableWithProgress op = new IRunnableWithProgress() {
             @Override

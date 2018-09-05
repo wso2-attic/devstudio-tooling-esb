@@ -78,7 +78,7 @@ public class ContentBasedRoutingTemplate extends Wizard implements INewWizard {
     @Override
     public boolean performFinish() {
 
-        String containerName = page.getContainerName();
+        final String containerName = page.getContainerName();
 
         IRunnableWithProgress op = new IRunnableWithProgress() {
             @Override

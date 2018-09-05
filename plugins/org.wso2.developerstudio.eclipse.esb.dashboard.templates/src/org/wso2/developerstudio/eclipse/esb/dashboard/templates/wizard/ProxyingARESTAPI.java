@@ -53,7 +53,6 @@ public class ProxyingARESTAPI extends Wizard implements INewWizard {
     private TemplateWizardUtil templateWizardUtil;
     private String groupId;
     String sampleName = "ProxyingRestAPITemplate";
-    String containerName;
     String baseId = "wso2.sample" + sampleName + ".";
 
     public ProxyingARESTAPI() {
@@ -79,7 +78,7 @@ public class ProxyingARESTAPI extends Wizard implements INewWizard {
     @Override
     public boolean performFinish() {
 
-        containerName = page.getContainerName();
+        final String containerName = page.getContainerName();
 
         IRunnableWithProgress op = new IRunnableWithProgress() {
             @Override
