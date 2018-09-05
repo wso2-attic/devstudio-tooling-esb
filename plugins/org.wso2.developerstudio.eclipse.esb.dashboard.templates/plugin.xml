@@ -50,7 +50,7 @@
         </wizard>
          <wizard
                 name="Proxying a SOAP API -- TEST Sample"
-                icon="icons/message-store-small.png"
+                icon="icons/cApp-wizard.png"
                 project="true"
                 category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.Template2ProjectWizard"
@@ -58,7 +58,7 @@
         </wizard>
          <wizard
                 name="Proxying A SOAP Service"
-                icon="icons/message-store-small.png"
+                icon="icons/server.png"
                 project="true"
                 category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ProxyingASoapService"
@@ -66,7 +66,7 @@
         </wizard>
         <wizard
                 name="Proxying A REST API"
-                icon="icons/message-store-small.png"
+                icon="icons/maven-24x24.png"
                 project="true"
                 category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ProxyingARESTAPI"
@@ -74,7 +74,7 @@
         </wizard>
         <wizard
                 name="Content Based Routing Template"
-                icon="icons/message-store-small.png"
+                icon="icons/registry.png"
                 project="true"
                 category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ContentBasedRoutingTemplate"
@@ -82,7 +82,7 @@
         </wizard>
          <wizard
                 name="Header Based Routing Template"
-                icon="icons/message-store-small.png"
+                icon="icons/server.png"
                 project="true"
                 category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.HeaderBasedRoutingTemplate"
@@ -159,22 +159,22 @@
                   priority="1">
         </category>
         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.template.project"
-                    wizard="org.wso2.developerstudio.wizards.esb.template">
+                    wizard="org.wso2.developerstudio.wizards.esb.template" description="Test 1 Description">
         </wizardLink>
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.template2.project"
-                    wizard="org.wso2.developerstudio.wizards.esb.template2">
+                    wizard="org.wso2.developerstudio.wizards.esb.template2" description="Test 2 Description">
         </wizardLink>
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.proxyingASoapService.project"
-                    wizard="org.wso2.developerstudio.wizards.esb.proxyingASoapService">
+                    wizard="org.wso2.developerstudio.wizards.esb.proxyingASoapService" description="Soap Proxy">
         </wizardLink>
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.proxyingARESTAPI.project"
-                    wizard="org.wso2.developerstudio.wizards.esb.proxyingARESTAPI">
+                    wizard="org.wso2.developerstudio.wizards.esb.proxyingARESTAPI" description="Rest Proxy">
         </wizardLink>
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.contentBasedRoutingTemplate.project"
-                    wizard="org.wso2.developerstudio.wizards.esb.contentBasedRoutingTemplate">
+                    wizard="org.wso2.developerstudio.wizards.esb.contentBasedRoutingTemplate" description="CBR Template">
         </wizardLink>
         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.headerBasedRoutingTemplate.project"
-                    wizard="org.wso2.developerstudio.wizards.esb.headerBasedRoutingTemplate">
+                    wizard="org.wso2.developerstudio.wizards.esb.headerBasedRoutingTemplate" description="Header based Routing">
         </wizardLink>
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.messageFilteringTemplate.project"
                     wizard="org.wso2.developerstudio.wizards.esb.messageFilteringTemplate">
