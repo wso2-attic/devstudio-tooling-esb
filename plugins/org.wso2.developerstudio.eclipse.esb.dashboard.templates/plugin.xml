@@ -144,6 +144,14 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ExceptionHandlingTemplate"
                 id="org.wso2.developerstudio.wizards.esb.exceptionHandlingTemplate">
         </wizard>
+          <wizard
+                name="XML To JSON transformation Template"
+                icon="icons/server.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.XmlToJsonTransformationTemplate"
+                id="org.wso2.developerstudio.wizards.esb.xmlToJsonTransformationTemplate">
+        </wizard>
         
         
     </extension>
@@ -259,6 +267,10 @@
         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.exceptionHandlingTemplate"
                     wizard="org.wso2.developerstudio.wizards.esb.exceptionHandlingTemplate"
                     description="Exception Handling Template">
+        </wizardLink>
+         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.xmlToJsonTransformationTemplate"
+                    wizard="org.wso2.developerstudio.wizards.esb.xmlToJsonTransformationTemplate"
+                    description="XML to JSON Transformation template">
         </wizardLink>
         
 
