@@ -206,7 +206,7 @@ public class ProjectCreationUtil {
                 artifactType = "sequence";
             } else if (type.equals("message-stores")) {
                 artifactType = "message-store";
-            }  else if (type.equals("tasks")) {
+            } else if (type.equals("tasks")) {
                 artifactType = "task";
             }
 
@@ -509,7 +509,6 @@ public class ProjectCreationUtil {
             unzip(destFile.toString(), conenctorLocation.toString() + File.separator + connectorName);
 
         }
-
     }
 
     /**
@@ -561,139 +560,4 @@ public class ProjectCreationUtil {
         }
         bos.close();
     }
-
 }
-
-class ProxyServiceTemplateUtils extends TemplateUtil {
-
-    private static TemplateUtil instance;
-
-    public static TemplateUtil getInstance() {
-        if (instance == null) {
-            instance = new ProxyServiceTemplateUtils();
-        }
-        return instance;
-    }
-
-    protected Bundle getBundle() {
-        return Platform.getBundle(org.wso2.developerstudio.eclipse.esb.dashboard.templates.Activator.PLUGIN_ID);
-    }
-}
-
-class ArtifactTypeMapping {
-    private static final String ARTIFACT_TYPE = "artifactType";
-    private static final String FILE_EXTENSION = "fileExtension";
-    private static final String REGISTER_ARTIFACT_MAPPING_EXTENSION_ID = "org.wso2.developerstudio.register.artifact.mapping";
-    private static Map<String, String> type = new HashMap<String, String>();
-    private static Map<String, String> subType = new HashMap<String, String>();
-
-    public ArtifactTypeMapping() {
-        DeveloperStudioProviderUtils devStudioUtils = new DeveloperStudioProviderUtils();
-        IConfigurationElement[] artifactMappings = devStudioUtils
-                .getExtensionPointmembers(REGISTER_ARTIFACT_MAPPING_EXTENSION_ID);
-        for (IConfigurationElement artifactmapping : artifactMappings) {
-            type.put(artifactmapping.getAttribute(ARTIFACT_TYPE), artifactmapping.getAttribute(FILE_EXTENSION));
-        }
-        subType.put("jar", "jar");
-        subType.put("bundle", "jar");
-
-    }
-
-    public boolean isValidArtifactType(final String str) {
-        return type.containsKey(str);
-    }
-
-    public String getType(final String packaging) {
-        String value = "";
-        if (type.containsKey(packaging)) {
-            value = type.get(packaging);
-        } else {
-            if (subType.containsKey(packaging)) {
-                value = subType.get(packaging);
-            } else {
-                value = packaging.replaceAll("/", "_");
-            }
-        }
-        return value;
-    }
-
-    public String getArtifactTypes() {
-        StringBuffer artifactTypes = new StringBuffer();
-        for (String key : type.keySet()) {
-            artifactTypes.append(key);
-            artifactTypes.append("=");
-            artifactTypes.append(type.get(key));
-            artifactTypes.append(',');
-        }
-        return artifactTypes.toString().replaceAll(",$", "");
-    }
-
-}
-
-class ConnectorArtifact {
-
-    private String name;
-    private String version;
-    private String serverRole;
-    private String type;
-    private String groupId;
-
-    private String file;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getServerRole() {
-        return serverRole;
-    }
-
-    public void setServerRole(String serverRole) {
-        this.serverRole = serverRole;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setFile(String file) {
-        this.file = file;
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public boolean isAnonymous() {
-        return name != null ? false : true;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getGroupId() {
-        return groupId;
-    }
-
-}
-
-
-
-
