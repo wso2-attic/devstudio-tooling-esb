@@ -205,7 +205,7 @@ public class ProjectCreationUtil {
 
             esbProjectArtifact.addESBArtifact(createArtifact(artifactName, grpID, version, relativePath, artifactType));
 
-           updatePomForArtifact(esbProject, artifactType );  //artifactIdForPomDependency);
+            updatePomForArtifact(esbProject, artifactType);  //artifactIdForPomDependency);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -258,32 +258,32 @@ public class ProjectCreationUtil {
      */
     public static void updatePomForArtifact(IProject esbProject, String type)
             throws IOException, XmlPullParserException {
-	
-	 String artifactIdForPomDependency = type; // ID in project pom's plugin.
-	 String pluginVersion = "2.1.0";
 
-         if (type.equals("proxy-service")) {
-             artifactIdForPomDependency = "proxy";
-         } else if (type.equals("inbound-endpoint")) {
-             artifactIdForPomDependency = "inboundendpoint";
-         } else if (type.equals("message-store") || type.equals("message-processors") ) {
-             artifactIdForPomDependency = "task";
-             pluginVersion = "1.1.0";
-         }
-         
-         if (type.equals("inboundendpoint")  ) {
-             pluginVersion = "1.0.0";
-         }         
-         
+        String artifactIdForPomDependency = type; // ID in project pom's plugin.
+        String pluginVersion = "2.1.0";
+
+        if (type.equals("proxy-service")) {
+            artifactIdForPomDependency = "proxy";
+        } else if (type.equals("inbound-endpoint")) {
+            artifactIdForPomDependency = "inboundendpoint";
+        } else if (type.equals("message-store") || type.equals("message-processors")) {
+            artifactIdForPomDependency = "task";
+            pluginVersion = "1.1.0";
+        }
+
+        if (type.equals("inboundendpoint")) {
+            pluginVersion = "1.0.0";
+        }
+
         String pluginName = "wso2-esb-" + artifactIdForPomDependency + "-plugin"; // corresponding Belgian name in POM.
-            
-        if (type.equals("message-store") ) {
-            pluginName = "wso2-esb-messagestore-plugin";            
-        } else if ( type.equals("message-processors") ) {
-            pluginName = "wso2-esb-messageprocessor-plugin";
-        }        
 
-               File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+        if (type.equals("message-store")) {
+            pluginName = "wso2-esb-messagestore-plugin";
+        } else if (type.equals("message-processors")) {
+            pluginName = "wso2-esb-messageprocessor-plugin";
+        }
+
+        File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
         MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 
         // Skip changing the pom file if group ID and artifact ID are matched

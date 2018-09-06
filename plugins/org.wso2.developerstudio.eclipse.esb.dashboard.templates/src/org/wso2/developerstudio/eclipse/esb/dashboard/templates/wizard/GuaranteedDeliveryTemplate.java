@@ -169,31 +169,27 @@ public class GuaranteedDeliveryTemplate extends Wizard implements INewWizard {
         artifactName = "NumberCalculateErrorSeq";
         type = "sequences";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-        
+
         artifactName = "NumberCaculateResponseSeq";
         type = "sequences";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-        
-        
+
         artifactName = "NumberCalculateEP";
         type = "endpoints";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-        
-        
+
         artifactName = "NumberCalculateMS";
         type = "message-stores";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-        
+
         artifactName = "NumberCalculateMP";
         type = "message-processors";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-        
-        
-        
+
     }
 
     /**
-     * Add the dependencies for the carbon application of the {@link #sampleName} sample. 
+     * Add the dependencies for the carbon application of the {@link #sampleName} sample.
      *
      * @param CarbonAppProject
      * @throws Exception
@@ -206,31 +202,35 @@ public class GuaranteedDeliveryTemplate extends Wizard implements INewWizard {
         MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
         Properties properties = mavenProject.getModel().getProperties();
 
-        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "NumberCalculateService", "proxy-service");
+        Dependency dependency = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "NumberCalculateService", "proxy-service");
         dependencyList.add(dependency);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
 
-        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "NumberCalculateErrorSeq", "sequence");
+        Dependency dependency2 = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "NumberCalculateErrorSeq", "sequence");
         dependencyList.add(dependency2);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
-        
-        Dependency dependency3 = ProjectCreationUtil.addDependencyForCAPP(groupId, "NumberCaculateResponseSeq", "sequence");
+
+        Dependency dependency3 = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "NumberCaculateResponseSeq", "sequence");
         dependencyList.add(dependency3);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency3), "capp/EnterpriseServiceBus");
-        
+
         Dependency dependency4 = ProjectCreationUtil.addDependencyForCAPP(groupId, "NumberCalculateEP", "endpoint");
         dependencyList.add(dependency4);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency4), "capp/EnterpriseServiceBus");
-        
-        Dependency dependency5 = ProjectCreationUtil.addDependencyForCAPP(groupId, "NumberCalculateMS", "message-store");
+
+        Dependency dependency5 = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "NumberCalculateMS", "message-store");
         dependencyList.add(dependency5);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency5), "capp/EnterpriseServiceBus");
-        
-        Dependency dependency6 = ProjectCreationUtil.addDependencyForCAPP(groupId, "NumberCalculateMP", "message-processors");
+
+        Dependency dependency6 = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "NumberCalculateMP", "message-processors");
         dependencyList.add(dependency6);
-        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency6 	), "capp/EnterpriseServiceBus");
-  
-    
+        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency6), "capp/EnterpriseServiceBus");
+
         ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
         properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
         mavenProject.getModel().setProperties(properties);

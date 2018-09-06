@@ -185,8 +185,7 @@ public class ScatterGatherTemplate extends Wizard implements INewWizard {
         MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
         Properties properties = mavenProject.getModel().getProperties();
 
-        Dependency dependency = ProjectCreationUtil
-                .addDependencyForCAPP(groupId, "MissionService", "proxy-service");
+        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "MissionService", "proxy-service");
         dependencyList.add(dependency);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
 

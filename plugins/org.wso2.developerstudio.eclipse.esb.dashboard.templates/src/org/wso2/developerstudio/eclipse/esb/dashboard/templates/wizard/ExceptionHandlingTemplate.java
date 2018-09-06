@@ -169,16 +169,15 @@ public class ExceptionHandlingTemplate extends Wizard implements INewWizard {
         artifactName = "TimeoutFailureSeq";
         type = "sequences";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-         
+
         artifactName = "DelayHttpEP";
         type = "endpoints";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-               
-        
+
     }
 
     /**
-     * Add the dependencies for the carbon application of the {@link #sampleName} sample. 
+     * Add the dependencies for the carbon application of the {@link #sampleName} sample.
      *
      * @param CarbonAppProject
      * @throws Exception
@@ -198,12 +197,11 @@ public class ExceptionHandlingTemplate extends Wizard implements INewWizard {
         Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "TimeoutFailureSeq", "sequence");
         dependencyList.add(dependency2);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
-        
+
         Dependency dependency3 = ProjectCreationUtil.addDependencyForCAPP(groupId, "DelayHttpEP", "endpoint");
         dependencyList.add(dependency3);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency3), "capp/EnterpriseServiceBus");
-        
-           
+
         ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
         properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
         mavenProject.getModel().setProperties(properties);

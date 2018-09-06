@@ -165,16 +165,15 @@ public class XmlToJsonTransformationTemplate extends Wizard implements INewWizar
         String artifactName = "ScienceLabAPI";
         String type = "api";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-     
+
         artifactName = "ScienceLabEP";
         type = "endpoints";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-        
-           
+
     }
 
     /**
-     * Add the dependencies for the carbon application of the {@link #sampleName} sample. 
+     * Add the dependencies for the carbon application of the {@link #sampleName} sample.
      *
      * @param CarbonAppProject
      * @throws Exception
@@ -194,7 +193,7 @@ public class XmlToJsonTransformationTemplate extends Wizard implements INewWizar
         Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "ScienceLabEP", "endpoint");
         dependencyList.add(dependency2);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
-          
+
         ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
         properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
         mavenProject.getModel().setProperties(properties);

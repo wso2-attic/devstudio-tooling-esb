@@ -169,14 +169,14 @@ public class FileTransferTeamplate extends Wizard implements INewWizard {
         artifactName = "StudentDataFileProcessSeq";
         type = "sequences";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
-        
+
         artifactName = "StudentDataFileErrorSeq";
         type = "sequences";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
     }
 
     /**
-     * Add the dependencies for the carbon application of the {@link #sampleName} sample. 
+     * Add the dependencies for the carbon application of the {@link #sampleName} sample.
      *
      * @param CarbonAppProject
      * @throws Exception
@@ -189,15 +189,18 @@ public class FileTransferTeamplate extends Wizard implements INewWizard {
         MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
         Properties properties = mavenProject.getModel().getProperties();
 
-        Dependency dependency = ProjectCreationUtil.addDependencyForCAPP(groupId, "StudentDataFileProcessInboundEP", "inbound-endpoint");
+        Dependency dependency = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "StudentDataFileProcessInboundEP", "inbound-endpoint");
         dependencyList.add(dependency);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
 
-        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "StudentDataFileProcessSeq", "sequence");
+        Dependency dependency2 = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "StudentDataFileProcessSeq", "sequence");
         dependencyList.add(dependency2);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
-        
-        Dependency dependency3 = ProjectCreationUtil.addDependencyForCAPP(groupId, "StudentDataFileErrorSeq", "sequence");
+
+        Dependency dependency3 = ProjectCreationUtil
+                .addDependencyForCAPP(groupId, "StudentDataFileErrorSeq", "sequence");
         dependencyList.add(dependency3);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency3), "capp/EnterpriseServiceBus");
 
