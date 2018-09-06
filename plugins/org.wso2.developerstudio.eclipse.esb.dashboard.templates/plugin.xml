@@ -128,6 +128,14 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.GuaranteedDeliveryTemplate"
                 id="org.wso2.developerstudio.wizards.esb.guaranteedDeliveryTemplate">
         </wizard>
+         <wizard
+                name="REST to SOAP Template"
+                icon="icons/server.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.RestToSoapTemplate"
+                id="org.wso2.developerstudio.wizards.esb.restToSoapTemplate">
+        </wizard>
         
     </extension>
     <!--<extension point="org.eclipse.ui.navigator.navigatorContent">
@@ -235,6 +243,11 @@
                     wizard="org.wso2.developerstudio.wizards.esb.guaranteedDeliveryTemplate"
                     description="Guranteed Delivery Template">
         </wizardLink>
+         <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.restToSoapTemplate"
+                    wizard="org.wso2.developerstudio.wizards.esb.restToSoapTemplate"
+                    description="REST to SOAP Template">
+        </wizardLink>
+        
 
 
     </extension>
