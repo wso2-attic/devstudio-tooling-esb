@@ -18,11 +18,16 @@
 
 package org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Plugin;
@@ -44,6 +49,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
+import org.wso2.developerstudio.eclipse.esb.core.ESBMavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -58,6 +64,7 @@ import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 public class ProjectCreationUtil {
 
     private static final String DISTRIBUTION_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.distribution.project.nature";
+    private static final String CONNECTOR_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.artifact.connector.project.nature";
     private static String MAVEN_CAR_VERSION = "2.1.1";
     private static String MAVEN_CAR_DEPLOY_VERSION = "1.1.1";
     private static String version = "1.0.0";
@@ -362,8 +369,15 @@ public class ProjectCreationUtil {
         Dependency dependency = new Dependency();
         dependency.setGroupId(groupId + "." + type);
         dependency.setArtifactId(artifactName);
-        dependency.setVersion("1.0.0");
-        dependency.setType("xml");
+
+        if (artifactName.equals("salesforce-connector")) {
+            dependency.setVersion("2.0.2");
+            dependency.setType("zip");
+        } else {
+            dependency.setVersion("1.0.0");
+            dependency.setType("xml");
+        }
+
         return dependency;
 
     }
@@ -390,6 +404,160 @@ public class ProjectCreationUtil {
         project.open(new NullProgressMonitor());
 
         return project;
+    }
+
+    public static IProject createConnectorExporterProject(String groupID, String name) throws Exception {
+
+        String connectorProjectName = name + "ConnectorExporter";
+
+        IProject connectorProject = createNewProject(connectorProjectName);
+        File pomfile = connectorProject.getFile("pom.xml").getLocation().toFile();
+        createProjectPOM(groupID, pomfile, connectorProjectName, "pom");
+        updateConnectorExporterProjectPom(connectorProject);
+
+        ProjectUtils.addNatureToProject(connectorProject, false, CONNECTOR_PROJECT_NATURE);
+        MavenUtils.updateWithMavenEclipsePlugin(pomfile, new String[] {}, new String[] { CONNECTOR_PROJECT_NATURE });
+
+        return connectorProject;
+
+    }
+
+    /**
+     * Copy the relevant connector and artifact xml for the conenctor project.
+     *
+     * @param conenctorProject
+     * @param connectorName
+     * @throws Exception
+     */
+    public static void addConnectorToProject(IProject conenctorProject, String connectorName, String connectorVersion,
+            String groupID) throws Exception {
+
+        String connectorZIPName = connectorName + "-" + connectorVersion + ".zip";
+
+        // copy the connector to the connector project
+        File connectorFile = ProxyServiceTemplateUtils.getInstance()
+                .getResourceFile("Samples" + File.separator + "Connectors" + File.separator + connectorZIPName);
+        File destFile = new File(conenctorProject.getLocation().toString() + File.separator + connectorZIPName);
+        FileUtils.copy(connectorFile, destFile);
+
+        // add the  connector to the artifact
+        ESBProjectArtifact artifact = new ESBProjectArtifact();
+        artifact.fromFile(conenctorProject.getFile("artifact.xml").getLocation().toFile());
+
+        ESBArtifact connectorArtifact = new ESBArtifact();
+        connectorArtifact.setName(connectorName);
+        connectorArtifact.setVersion(connectorVersion);
+        connectorArtifact.setType("synapse/lib");
+        connectorArtifact.setServerRole("EnterpriseServiceBus");
+        connectorArtifact.setGroupId(groupID + ".lib");
+        connectorArtifact.setFile(connectorZIPName);
+
+        artifact.addESBArtifact(connectorArtifact);
+        artifact.toFile();
+
+    }
+
+    public static void updateConnectorExporterProjectPom(IProject project) throws IOException, XmlPullParserException {
+        File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
+        MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+        mavenProject.getModel().getProperties().put("CApp.type", "synapse/lib");
+
+        // Skip changing the pom file if group ID and artifact ID are matched
+        if (MavenUtils.checkOldPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-connector-plugin")) {
+            return;
+        }
+
+        Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-connector-plugin",
+                ESBMavenConstants.WSO2_ESB_CONNECTOR_VERSION, true);
+        PluginExecution pluginExecution = new PluginExecution();
+        pluginExecution.addGoal("pom-gen");
+        pluginExecution.setPhase("process-resources");
+        pluginExecution.setId("connector");
+
+        Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
+        Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
+        artifactLocationNode.setValue(".");
+        Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
+        typeListNode.setValue("${artifact.types}");
+        pluginExecution.setConfiguration(configurationNode);
+        plugin.addExecution(pluginExecution);
+        MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
+    }
+
+    /**
+     * Copy the connector to the workspace to get the conenctor in the design view.
+     *
+     * @param connectorName
+     * @throws IOException
+     */
+    public static void addConnectorToWorkSpace(String connectorName) throws IOException {
+
+        String workSpaceLocation = ResourcesPlugin.getWorkspace().getRoot().getLocation().toString();
+
+        File conenctorLocation = new File(
+                workSpaceLocation + File.separator + ".metadata" + File.separator + ".Connectors");
+
+        String connectorZIPName = connectorName + ".zip";
+
+        if (!new File(conenctorLocation + File.separator + connectorZIPName).exists()) {
+            File connectorFile = ProxyServiceTemplateUtils.getInstance()
+                    .getResourceFile("Samples" + File.separator + "Connectors" + File.separator + connectorZIPName);
+            File destFile = new File(conenctorLocation + File.separator + connectorZIPName);
+            FileUtils.copy(connectorFile, destFile);
+            unzip(destFile.toString(), conenctorLocation.toString() + File.separator + connectorName);
+
+        }
+
+    }
+
+    /**
+     * Extracts a zip file specified by the zipFilePath to a directory specified by
+     * destDirectory (will be created if does not exists)
+     *
+     * @param zipFilePath
+     * @param destDirectory
+     * @throws IOException
+     */
+    public static void unzip(String zipFilePath, String destDirectory) throws IOException {
+        File destDir = new File(destDirectory);
+        if (!destDir.exists()) {
+            destDir.mkdir();
+        }
+        ZipInputStream zipIn = new ZipInputStream(new FileInputStream(zipFilePath));
+        ZipEntry entry = zipIn.getNextEntry();
+        // iterates over entries in the zip file
+        while (entry != null) {
+            String filePath = destDirectory + File.separator + entry.getName();
+            if (!entry.isDirectory()) {
+                // if the entry is a file, extracts it
+                extractFile(zipIn, filePath);
+            } else {
+                // if the entry is a directory, make the directory
+                File dir = new File(filePath);
+                dir.mkdir();
+            }
+            zipIn.closeEntry();
+            entry = zipIn.getNextEntry();
+        }
+        zipIn.close();
+    }
+
+    /**
+     * Extracts a zip entry (file entry)
+     *
+     * @param zipIn
+     * @param filePath
+     * @throws IOException
+     */
+    private static void extractFile(ZipInputStream zipIn, String filePath) throws IOException {
+        int BUFFER_SIZE = 4096;
+        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(filePath));
+        byte[] bytesIn = new byte[BUFFER_SIZE];
+        int read = 0;
+        while ((read = zipIn.read(bytesIn)) != -1) {
+            bos.write(bytesIn, 0, read);
+        }
+        bos.close();
     }
 
 }
@@ -459,4 +627,71 @@ class ArtifactTypeMapping {
     }
 
 }
+
+class ConnectorArtifact {
+
+    private String name;
+    private String version;
+    private String serverRole;
+    private String type;
+    private String groupId;
+
+    private String file;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getServerRole() {
+        return serverRole;
+    }
+
+    public void setServerRole(String serverRole) {
+        this.serverRole = serverRole;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public boolean isAnonymous() {
+        return name != null ? false : true;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+}
+
+
+
 

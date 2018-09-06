@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <proxy name="Sample2" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
-    <target>
-        <inSequence/>
+   <target>
+        <inSequence>
+            <salesforce.create/>
+        </inSequence>
         <outSequence/>
         <faultSequence/>
     </target>

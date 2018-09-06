@@ -36,7 +36,7 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
     private String groupId;
 
     String sampleName = "Proxying_A_SOAP_API";
-    String baseId = "com.example2.";
+    String baseId = "wso2.sample" + sampleName + ".";
 
     public Template2ProjectWizard() {
         super();
@@ -122,6 +122,10 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
         dependencyList.add(dependency2);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
 
+        Dependency dependency3 = ProjectCreationUtil.addDependencyForCAPP(groupId, "salesforce-connector", "lib");
+        dependencyList.add(dependency3);
+        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency3), "capp/EnterpriseServiceBus");
+
         ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
         properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
         mavenProject.getModel().setProperties(properties);
@@ -152,6 +156,13 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
 
             MavenUtils.updateWithMavenEclipsePlugin(pomfile, new String[] {},
                     new String[] { TemplateProjectConstants.ESB_PROJECT_NATURE });
+
+            // add connector
+            String connectorName = "salesforce-connector";
+            String connectorVersion = "2.0.2";
+            ProjectCreationUtil.addConnectorToWorkSpace(connectorName + "-" + connectorVersion);
+            IProject connectorProject = ProjectCreationUtil.createConnectorExporterProject(groupId, containerName);
+            ProjectCreationUtil.addConnectorToProject(connectorProject, connectorName, connectorVersion, groupId);
 
             ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
             IFile artifactXML = project.getFile("artifact.xml");
