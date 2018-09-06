@@ -206,6 +206,8 @@ public class ProjectCreationUtil {
                 artifactType = "sequence";
             } else if (type.equals("message-stores")) {
                 artifactType = "message-store";
+            }  else if (type.equals("tasks")) {
+                artifactType = "task";
             }
 
             String grpID = groupId + "." + artifactType;

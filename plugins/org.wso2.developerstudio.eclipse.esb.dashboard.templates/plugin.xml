@@ -152,6 +152,14 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.XmlToJsonTransformationTemplate"
                 id="org.wso2.developerstudio.wizards.esb.xmlToJsonTransformationTemplate">
         </wizard>
+         <wizard
+                name="Sample Schduled Task Template"
+                icon="icons/server.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.ScheduleTaskTeamplate"
+                id="org.wso2.developerstudio.wizards.esb.scheduleTaskTeamplate">
+        </wizard>
         
         
     </extension>
@@ -271,6 +279,10 @@
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.xmlToJsonTransformationTemplate"
                     wizard="org.wso2.developerstudio.wizards.esb.xmlToJsonTransformationTemplate"
                     description="XML to JSON Transformation template">
+        </wizardLink>
+          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.scheduleTaskTeamplate"
+                    wizard="org.wso2.developerstudio.wizards.esb.scheduleTaskTeamplate"
+                    description="Sample Schdule Task templates">
         </wizardLink>
         
 
