@@ -163,11 +163,15 @@ public class ContentBasedRoutingTemplate extends Wizard implements INewWizard {
      */
     private void copyFiles(IProject esbProject, ESBProjectArtifact esbProjectArtifact) {
 
-        String artifactName = "Wso2StockQuoteService";
+        String artifactName = "ArithmaticOperationService";
         String type = "proxy-services";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
 
-        artifactName = "StockQuoteEP";
+        artifactName = "NumberAdditionEP";
+        type = "endpoints";
+        ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
+        
+        artifactName = "NumberDivisionEP";
         type = "endpoints";
         ProjectCreationUtil.copyArtifact(esbProject, groupId, sampleName, artifactName, esbProjectArtifact, type);
     }
@@ -187,13 +191,17 @@ public class ContentBasedRoutingTemplate extends Wizard implements INewWizard {
         Properties properties = mavenProject.getModel().getProperties();
 
         Dependency dependency = ProjectCreationUtil
-                .addDependencyForCAPP(groupId, "Wso2StockQuoteService", "proxy-service");
+                .addDependencyForCAPP(groupId, "ArithmaticOperationService", "proxy-service");
         dependencyList.add(dependency);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency), "capp/EnterpriseServiceBus");
 
-        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "StockQuoteEP", "endpoint");
+        Dependency dependency2 = ProjectCreationUtil.addDependencyForCAPP(groupId, "NumberAdditionEP", "endpoint");
         dependencyList.add(dependency2);
         properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency2), "capp/EnterpriseServiceBus");
+        
+        Dependency dependency3 = ProjectCreationUtil.addDependencyForCAPP(groupId, "NumberDivisionEP", "endpoint");
+        dependencyList.add(dependency3);
+        properties.put(ProjectCreationUtil.getArtifactInfoAsString(dependency3), "capp/EnterpriseServiceBus");
 
         ArtifactTypeMapping artifactTypeMapping = new ArtifactTypeMapping();
         properties.put("artifact.types", artifactTypeMapping.getArtifactTypes());
