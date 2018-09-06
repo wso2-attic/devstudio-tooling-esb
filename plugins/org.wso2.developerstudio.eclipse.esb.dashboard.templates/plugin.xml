@@ -120,6 +120,14 @@
                 class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.FileTransferTeamplate"
                 id="org.wso2.developerstudio.wizards.esb.fileTransferTeamplate">
         </wizard>
+        <wizard
+                name="Guranteed Delivery Template"
+                icon="icons/server.png"
+                project="true"
+                category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.templates"
+                class="org.wso2.developerstudio.eclipse.esb.dashboard.templates.wizard.GuaranteedDeliveryTemplate"
+                id="org.wso2.developerstudio.wizards.esb.guaranteedDeliveryTemplate">
+        </wizard>
         
     </extension>
     <!--<extension point="org.eclipse.ui.navigator.navigatorContent">
@@ -222,6 +230,10 @@
          <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.fileTransferTeamplate"
                     wizard="org.wso2.developerstudio.wizards.esb.fileTransferTeamplate"
                     description="File Transfer Template">
+        </wizardLink>
+        <wizardLink category="dashboard.category.esb.template" id="dashboard.wizardLink.esb.guaranteedDeliveryTemplate"
+                    wizard="org.wso2.developerstudio.wizards.esb.guaranteedDeliveryTemplate"
+                    description="Guranteed Delivery Template">
         </wizardLink>
 
 

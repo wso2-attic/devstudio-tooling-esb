@@ -187,7 +187,7 @@ public class ProjectCreationUtil {
                     .replaceAll(Pattern.quote(File.separator), "/");
 
             String artifactType = type; // the name appended in artifact.xml file
-            // api | proxy | endpoint | inbound point | sequence 
+            // api | proxy | endpoint | inbound-endpoint | sequence | message-store | message-processors ( same as folder name )
             //
             if (type.equals("proxy-services")) {
                 artifactType = "proxy-service";
@@ -197,21 +197,15 @@ public class ProjectCreationUtil {
                 artifactType = "inbound-endpoint";
             } else if (type.equals("sequences")) {
                 artifactType = "sequence";
+            } else if (type.equals("message-stores")) {
+                artifactType = "message-store";
             }
 
             String grpID = groupId + "." + artifactType;
 
             esbProjectArtifact.addESBArtifact(createArtifact(artifactName, grpID, version, relativePath, artifactType));
 
-            String artifactIdForPomDependency = artifactType;
-
-            if (type.equals("proxy-services")) {
-                artifactIdForPomDependency = "proxy";
-            } else if (type.equals("inbound-endpoints")) {
-                artifactIdForPomDependency = "inboundendpoint";
-            }
-
-            updatePomForArtifact(esbProject, artifactIdForPomDependency);
+           updatePomForArtifact(esbProject, artifactType );  //artifactIdForPomDependency);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -258,22 +252,38 @@ public class ProjectCreationUtil {
 
     /**
      * @param esbProject
-     * @param type       - Id in project pom .
+     * @param type       - the name appended in artifact.xml file
      * @throws IOException
      * @throws XmlPullParserException
      */
     public static void updatePomForArtifact(IProject esbProject, String type)
             throws IOException, XmlPullParserException {
+	
+	 String artifactIdForPomDependency = type; // ID in project pom's plugin.
+	 String pluginVersion = "2.1.0";
 
-        String pluginName = "wso2-esb-" + type + "-plugin"; // corresponding Belgian name in POM.
+         if (type.equals("proxy-service")) {
+             artifactIdForPomDependency = "proxy";
+         } else if (type.equals("inbound-endpoint")) {
+             artifactIdForPomDependency = "inboundendpoint";
+         } else if (type.equals("message-store") || type.equals("message-processors") ) {
+             artifactIdForPomDependency = "task";
+             pluginVersion = "1.1.0";
+         }
+         
+         if (type.equals("inboundendpoint")  ) {
+             pluginVersion = "1.0.0";
+         }         
+         
+        String pluginName = "wso2-esb-" + artifactIdForPomDependency + "-plugin"; // corresponding Belgian name in POM.
+            
+        if (type.equals("message-store") ) {
+            pluginName = "wso2-esb-messagestore-plugin";            
+        } else if ( type.equals("message-processors") ) {
+            pluginName = "wso2-esb-messageprocessor-plugin";
+        }        
 
-        String pluginVersion = "2.1.0";
-
-        if (type.equals("inboundendpoint")) {
-            pluginVersion = "1.0.0";
-        }
-
-        File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+               File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
         MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 
         // Skip changing the pom file if group ID and artifact ID are matched
@@ -285,7 +295,7 @@ public class ProjectCreationUtil {
         PluginExecution pluginExecution = new PluginExecution();
         pluginExecution.addGoal("pom-gen");
         pluginExecution.setPhase("process-resources");
-        pluginExecution.setId(type);
+        pluginExecution.setId(artifactIdForPomDependency);
 
         Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
         Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
@@ -344,7 +354,8 @@ public class ProjectCreationUtil {
      * @param groupId
      * @param artifactName
      * @param type         - the name appended in carbon app dependency list. Inside <properties> tag
-     *                     eg. values  endpoint , api , proxy-service , inbound-endpoint , sequence
+     *                     eg. values  endpoint , api , proxy-service , inbound-endpoint , sequence ,
+     *                     message-store , message-processors
      * @return
      */
     public static Dependency addDependencyForCAPP(String groupId, String artifactName, String type) {
