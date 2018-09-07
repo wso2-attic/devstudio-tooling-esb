@@ -26,12 +26,14 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWizard;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class Template2ProjectWizard extends Wizard implements INewWizard {
 
     private TemplateProjectWizardPage page;
     private ISelection selection;
     private TemplateWizardUtil templateWizardUtil;
+    private static final String CONNECTOR_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.artifact.connector.project.nature";
     // private File pomfile;
     private String groupId;
 
@@ -157,13 +159,23 @@ public class Template2ProjectWizard extends Wizard implements INewWizard {
             MavenUtils.updateWithMavenEclipsePlugin(pomfile, new String[] {},
                     new String[] { TemplateProjectConstants.ESB_PROJECT_NATURE });
 
-            // add connector
+            // add connector.
             String connectorName = "salesforce-connector";
             String connectorVersion = "2.0.2";
             ProjectCreationUtil.addConnectorToWorkSpace(connectorName + "-" + connectorVersion);
             IProject connectorProject = ProjectCreationUtil.createConnectorExporterProject(groupId, containerName);
-            ProjectCreationUtil.addConnectorToProject(connectorProject, connectorName, connectorVersion, groupId);
+            ProjectCreationUtil.addConnectorToProject(connectorProject, connectorName, connectorVersion, groupId); 
+            
+           connectorName = "fileconnector-connector";
+            connectorVersion = "2.0.10";
+            ProjectCreationUtil.addConnectorToWorkSpace(connectorName + "-" + connectorVersion);
+           // IProject connectorProject = ProjectCreationUtil.createConnectorExporterProject(groupId, containerName);
+            ProjectCreationUtil.addConnectorToProject(connectorProject, connectorName, connectorVersion, groupId); 
+            
+            
+            connectorProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 
+            
             ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
             IFile artifactXML = project.getFile("artifact.xml");
             esbProjectArtifact.setSource(artifactXML.getLocation().toFile());
