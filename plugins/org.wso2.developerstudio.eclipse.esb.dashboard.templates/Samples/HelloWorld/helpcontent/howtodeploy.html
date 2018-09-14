@@ -1,20 +1,45 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
 </head>
 <body>
 <div id="content">
-<h1>How to deploy in EI</h1>
+<h1>Hello World</h1>
 <br>
 <br>
-<p>1. Right click on carbon application project </p>
-<p>2. Select export composite application project </p>
-<p>3. Provide a name for the capp and export location </p>
-<p>4. Click finish </p>
-<p>5. Start EI pack by running bin/integrator.sh </p>
-<p>6. </p>
+<p>This template contains a simple service exposed over HTTP protocol.
+
+When a client invokes the service, a simple message get generated and sent back to the client as the response.
+
+Two projects get created with this template. ESB project contains all the ESB artifacts and the Composite Application project is used to package and export the artifacts created within the ESB project.
+
+ESB project contains a simple Proxy service called ‘HelloWorld’ which generates and send a json message when it is invoked.
+Executing the sample
+
+1. Configure EI server
+Attach an EI server runtime into the Developer Studio following the instructions given below if you haven’t already done.
+
+Navigate to the Developer Studio Dashboard and click Server under Add Server.
+In the ‘Define a New Server’ dialog box, expand the WSO2 folder, and select the respective product and version.
+Click Next, click Browse that is next to CARBON_HOME, and select the WSO2 EI distribution directory, to define the server runtime environment and click Next.
+Review the default port details for the ESB profile of WSO2 EI. Typically, you can leave these unchanged, but if you are already running another server on these ports, specify unused ports here. (See Default Ports of WSO2 Products for more information.) Click Next. 
+
+2. Deploy the CApp project.
+To deploy the CApp project in the ESB server that we just added, select relevant project from the list, click Add to move it into the Configured list, and then click Finish.
+Please refer to this resource for more information.
+The ESB server of WSO2 EI is now added inside Eclipse tooling. On the Servers tab, 
+
+3. Start the server
+you see that the server is currently stopped. Click Play button on the Servers tab's toolbar to start the server. 
+If you are prompted to save changes to any of the artifact files, click Yes. 
+As the server starts, the Console tab appear. You should see messages indicating that the C-App was successfully deployed. The C-App will now be available in the ESB profile's management console (Manage -> Carbon Applications -> List).
+ 
+4. Invoke the service
+
+Invoke the service using a HTTP client like cURL.
+
+curl http://localhost:8280/services/HelloWorld
+</p>
 </div>
 </body>
 </html>
