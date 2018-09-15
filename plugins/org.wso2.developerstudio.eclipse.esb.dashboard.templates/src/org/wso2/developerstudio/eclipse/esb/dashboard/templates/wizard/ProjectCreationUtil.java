@@ -44,6 +44,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.browser.IWebBrowser;
+import org.eclipse.ui.help.AbstractHelpUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.wso2.developerstudio.eclipse.esb.core.ESBMavenConstants;
@@ -379,14 +380,14 @@ public class ProjectCreationUtil {
             public void run() {
                 IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
                 try {
-                    final IWebBrowser browser = PlatformUI.getWorkbench().getBrowserSupport().createBrowser( "Template" );
-                    browser.openURL( url1 );
+//                  final IWebBrowser browser = PlatformUI.getWorkbench().getBrowserSupport().createBrowser( "Template" );
+//                  browser.openURL( url1 );
                     
                     IDE.openEditor(page, fileRef, editorID, true);
                     IViewPart view = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
                             .findView(IPageLayout.ID_PROJECT_EXPLORER);
                     ((ISetSelectionTarget) view).selectReveal(new StructuredSelection(fileRef));
-                   
+                    openHelp(shellV, url1);
                 } catch (PartInitException e) {
                     MessageDialog
                             .openError(shellV, TemplateProjectConstants.ERROR_MESSAGE_OPENING_EDITOR, e.getMessage());
@@ -422,14 +423,21 @@ public class ProjectCreationUtil {
      * @param shell  Eclipse shell reference
      * @param helpId ID of the help which used to open this file
      */
-    public static void openHelp(Shell shell, String helpId) {
-        final Shell shellV = shell;
-        final String helpID = helpId;
-        shellV.getDisplay().asyncExec(new Runnable() {
+    public static void openHelp(Shell shell, URL helpURL) {
+        final Shell shellRef = shell;
+        final URL helpUrl = helpURL;
+        shellRef.getDisplay().asyncExec(new Runnable() {
             @Override
             public void run() {
-                PlatformUI.getWorkbench().getHelpSystem().displayHelpResource(helpID);
-            }
+                try {
+                       TemplateGuideView templateGuideView = (TemplateGuideView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+                               .showView(TemplateProjectConstants.TEMPLATE_GUIDE_VIEW_ID);
+                       templateGuideView.setURL(helpUrl);
+                    } catch (PartInitException e) {
+                        MessageDialog
+                        .openError(shellRef, TemplateProjectConstants.ERROR_MESSAGE_OPENING_EDITOR, e.getMessage());
+                    }
+                }
         });
     }
 
