@@ -69,5 +69,10 @@ public abstract class AbstractDMOperatorTransformer implements DMOperatorTransfo
 		}
 		return operationBuilder.toString();
 	}
+	
+	protected SchemaDataType getOutputVariableType(List<DMVariable> outputVariables) throws DataMapperException {
+		DMVariable lastVariable = outputVariables.get(outputVariables.size() - 1);
+		return lastVariable.getSchemaVariableType();
+	}
 
 }
