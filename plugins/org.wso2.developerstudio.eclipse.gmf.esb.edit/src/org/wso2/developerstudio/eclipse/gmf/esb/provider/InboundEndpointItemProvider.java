@@ -2748,7 +2748,7 @@ public class InboundEndpointItemProvider extends EsbElementItemProvider {
 	 * This adds a property descriptor for the Transport JMSDB Url feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTransportJMSDBUrlPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
