@@ -69,7 +69,7 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 		//Setting aggregate expression.
 		if(aggregateMediator.getAggregationExpression() != null){
 			
-			SynapseXPath xpath  = aggregateMediator.getAggregationExpression();
+			SynapsePath xpath = aggregateMediator.getAggregationExpression();
 			
 			NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
 			
@@ -163,7 +163,7 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 		
 		if(aggregateMediator.getCorrelateExpression() != null){
 			
-			SynapseXPath xpath = aggregateMediator.getCorrelateExpression();
+			SynapsePath xpath = aggregateMediator.getCorrelateExpression();
 			
 			NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
 			

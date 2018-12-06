@@ -32,6 +32,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.SynapseXPathExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformerException;
 
@@ -156,7 +157,7 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 							.getPropertyValue() != null
 					&& !visualAggregate.getCorrelationExpression()
 							.getPropertyValue().equals("")) {
-				SynapseXPath correlationExpression = new SynapseXPath(visualAggregate
+				SynapseXPath correlationExpression = (SynapseXPath) SynapseXPathExt.createSynapsePath(visualAggregate
 						.getCorrelationExpression().getPropertyValue());
 				for(int i=0;i<visualAggregate.getCorrelationExpression().getNamespaces().keySet().size();++i){				
 					String prefix=(String)visualAggregate.getCorrelationExpression().getNamespaces().keySet().toArray()[i];
@@ -166,7 +167,7 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 				
 				aggregateMediator.setCorrelateExpression(correlationExpression);
 			}
-			SynapseXPath aggregateExpression = new SynapseXPath(visualAggregate.getAggregationExpression()
+			SynapseXPath aggregateExpression = (SynapseXPath) SynapseXPathExt.createSynapsePath(visualAggregate.getAggregationExpression()
 					.getPropertyValue());
 			for (int i = 0; i < visualAggregate.
 					getAggregationExpression().getNamespaces().keySet().size(); ++i) {

@@ -32,6 +32,7 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.DropMediator;
 import org.apache.synapse.mediators.eip.aggregator.AggregateMediator;
 import org.jaxen.JaxenException;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.SynapseXPathExt;
 
 public class AggregateMediatorExtFactory extends AggregateMediatorFactory {
 
@@ -66,7 +67,9 @@ public class AggregateMediatorExtFactory extends AggregateMediatorFactory {
 		    ((AggregateMediator) mediator)
 			    .setCorrelateExpression(SynapseXPathFactory.getSynapseXPath(corelateOn, EXPRESSION_Q));
 		} catch (JaxenException e) {
-		    // ignore
+                    // If the xPath is not a valid synapse xpath this will add the invalid xpath to the model
+                    ((AggregateMediator) mediator).setCorrelateExpression(SynapseXPathExt
+                            .createSynapsePath(corelateOn.getAttribute(EXPRESSION_Q).getAttributeValue()));
 		}
 	    }
 	}
@@ -104,7 +107,9 @@ public class AggregateMediatorExtFactory extends AggregateMediatorFactory {
 		    ((AggregateMediator) mediator)
 			    .setAggregationExpression(SynapseXPathFactory.getSynapseXPath(onComplete, EXPRESSION_Q));
 		} catch (JaxenException e) {
-		    // ignore
+                    // If the xPath is not a valid synapse xpath this will add the invalid xpath to the model
+                    ((AggregateMediator) mediator).setAggregationExpression(SynapseXPathExt
+                            .createSynapsePath(onComplete.getAttribute(EXPRESSION_Q).getAttributeValue()));
 		}
 	    }
 
