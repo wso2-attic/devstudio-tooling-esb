@@ -322,6 +322,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		correlateOnExpression.setPrettyName("Correlation Expression");
 		correlateOnExpression.setPropertyName("expression");
 		correlateOnExpression.setPropertyValue("");
+		correlateOnExpression.setSupportJsonPaths(true);
 		setCorrelationExpression(correlateOnExpression);	
 		
 		// Aggregation Expression
@@ -329,6 +330,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		aggregationExpression.setPrettyName("Aggregation Expression");
 		aggregationExpression.setPropertyName("expression");
 		aggregationExpression.setPropertyValue("/default/expression");
+		aggregationExpression.setSupportJsonPaths(true);
 		setAggregationExpression(aggregationExpression);
 		
 		NamespacedProperty completionMaxMessagesExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();

@@ -83,6 +83,8 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 				nsp.setNamespaces(map);
 			}
 			
+			nsp.setSupportJsonPaths(true);
+			
 			//vishualAggrigate.setAggregationExpression(nsp);
 			executeSetValueCommand(AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION, nsp);
 			
@@ -177,6 +179,8 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 				nsp.setNamespaces(map);
 			}
 			
+	        nsp.setSupportJsonPaths(true);
+
 			//vishualAggrigate.setCorrelationExpression(nsp);
 			executeSetValueCommand(AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, nsp);
 			
