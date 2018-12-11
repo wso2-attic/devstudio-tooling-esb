@@ -1805,7 +1805,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		copy.getNamespaces().putAll(namespacedProperty.getNamespaces());
 		copy.setSupportsDynamicXPaths(namespacedProperty.isSupportsDynamicXPaths());
 		copy.setDynamic(namespacedProperty.isDynamic());
-		
+		copy.setSupportJsonPaths(namespacedProperty.isSupportJsonPaths());
 		return copy;
 	}
 

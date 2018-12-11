@@ -62,6 +62,7 @@ public class NamespacedPropertyItemProvider
 			addNamespacesPropertyDescriptor(object);
 			addSupportsDynamicXPathsPropertyDescriptor(object);
 			addDynamicPropertyDescriptor(object);
+			addSupportJsonPathsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -199,6 +200,28 @@ public class NamespacedPropertyItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Support Json Paths feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSupportJsonPathsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NamespacedProperty_supportJsonPaths_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamespacedProperty_supportJsonPaths_feature", "_UI_NamespacedProperty_type"),
+				 EsbPackage.Literals.NAMESPACED_PROPERTY__SUPPORT_JSON_PATHS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns NamespacedProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,6 +269,7 @@ public class NamespacedPropertyItemProvider
 			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
 			case EsbPackage.NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS:
 			case EsbPackage.NAMESPACED_PROPERTY__DYNAMIC:
+			case EsbPackage.NAMESPACED_PROPERTY__SUPPORT_JSON_PATHS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

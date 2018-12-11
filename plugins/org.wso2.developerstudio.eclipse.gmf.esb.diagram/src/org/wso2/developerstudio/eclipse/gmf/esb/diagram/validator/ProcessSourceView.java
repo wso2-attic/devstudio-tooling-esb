@@ -996,6 +996,7 @@ public class ProcessSourceView {
 
             } else if (qTag.equals("aggregate")) {
                 AggregateMediatorFactory factory = new AggregateMediatorFactory();
+                setNamespaceForChildren(omElement);
                 factory.createMediator(omElement, null);
 
             } else if (qTag.equals("callout")) {
