@@ -834,18 +834,21 @@ public class ProcessSourceView {
                 Iterator iterator = omElement.getChildrenWithLocalName("source");
                 if (iterator.hasNext()) {
                     OMElement source = (OMElement) iterator.next();
+                    setNamespaceForChildren(source);
                     source.setNamespace(new OMNamespaceImpl("http://ws.apache.org/ns/synapse", ""));
                 }
 
                 iterator = omElement.getChildrenWithLocalName("target");
                 if (iterator.hasNext()) {
                     OMElement target = (OMElement) iterator.next();
+                    setNamespaceForChildren(target);
                     target.setNamespace(new OMNamespaceImpl("http://ws.apache.org/ns/synapse", ""));
                 }
                 factory.createMediator(omElement, null);
 
             } else if (qTag.equals("property")) {
                 PropertyMediatorFactory factory = new PropertyMediatorFactory();
+                setNamespaceForChildren(omElement);
                 factory.createMediator(omElement, null);
 
             } else if (qTag.equals("filter")) {
