@@ -37,6 +37,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CustomSynapsePathFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.SynapseXPathExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformerException;
@@ -169,7 +170,7 @@ public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
 					}
 				} else {
 					if (visualProp.getValueExpression() != null) {
-						SynapsePath xpath = CustomSynapsePathFactory.getSynapsePath(visualProp
+						SynapsePath xpath = SynapseXPathExt.createSynapsePath(visualProp
 								.getValueExpression().getPropertyValue());
 
 						// SynapseJsonPath doesn't allow namespaces

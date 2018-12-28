@@ -280,6 +280,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 		NamespacedProperty sourceXpath = EsbFactory.eINSTANCE.createNamespacedProperty();
 		sourceXpath.setPrettyName("Source XPath");
 		sourceXpath.setPropertyName("xpath");
+		sourceXpath.setSupportJsonPaths(true);
 		sourceXpath.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);		
 		setSourceXpath(sourceXpath);
 		
@@ -287,6 +288,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 		NamespacedProperty targetXpath = EsbFactory.eINSTANCE.createNamespacedProperty();
 		targetXpath.setPrettyName("Target XPath");
 		targetXpath.setPropertyName("xpath");
+		targetXpath.setSupportJsonPaths(true);
 		targetXpath.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
 		setTargetXpath(targetXpath);
 		
