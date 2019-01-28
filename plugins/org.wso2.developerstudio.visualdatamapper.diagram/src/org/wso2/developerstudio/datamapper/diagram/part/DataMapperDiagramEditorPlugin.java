@@ -1,8 +1,14 @@
 package org.wso2.developerstudio.datamapper.diagram.part;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -16,22 +22,37 @@ import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.tooling.runtime.LogHelper;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.ContextHandler;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.servlet.DefaultServlet;
+import org.eclipse.jetty.servlet.FilterHolder;
+import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.wso2.developerstudio.datamapper.diagram.custom.util.DataMapperEditorStartupUtils;
 import org.wso2.developerstudio.datamapper.diagram.edit.policies.DataMapperBaseItemSemanticEditPolicy;
 import org.wso2.developerstudio.datamapper.diagram.expressions.DataMapperOCLFactory;
 import org.wso2.developerstudio.datamapper.diagram.providers.ElementInitializers;
 import org.wso2.developerstudio.datamapper.provider.DataMapperItemProviderAdapterFactory;
+import org.wso2.developerstudio.datamapper.servlets.RegistryReaderServlet;
 import org.wso2.developerstudio.eclipse.platform.ui.startup.DataMapperEditor;
+import org.wso2.developerstudio.eclipse.templates.dashboard.handlers.JettyServerHandler;
+import org.wso2.developerstudio.eclipse.templates.dashboard.web.function.server.JSEmbeddedFunctions;
 
 /**
  * @generated
  */
 public class DataMapperDiagramEditorPlugin extends AbstractUIPlugin {
-
+    
+    private static final String DATAMAPPER_BUNDLE = "org.wso2.developerstudio.visualdatamapper.diagram";
+    private static final String SERVLET_PATH = "/getRegistryResources";
+    private static final String WEB_APP_LOCATION = "HTMLPages";
+    
 	/**
 	 * @generated
 	 */
@@ -86,16 +107,59 @@ public class DataMapperDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	public void start(BundleContext context) throws Exception {
-	    if (DataMapperEditor.getOpenable() == null) {
-	        DataMapperEditor.setOpenable(new DataMapperEditorStartupUtils());
-	    }
-		super.start(context);
-		instance = this;
-		myLogHelper = new LogHelper(this);
-		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT, getPreferenceStore());
-		adapterFactory = createAdapterFactory();
-	}
+    public void start(BundleContext context) throws Exception {
+        if (DataMapperEditor.getOpenable() == null) {
+            DataMapperEditor.setOpenable(new DataMapperEditorStartupUtils());
+        }
+        super.start(context);
+        instance = this;
+        myLogHelper = new LogHelper(this);
+        PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT, getPreferenceStore());
+        adapterFactory = createAdapterFactory();
+
+        JettyServerHandler jettyServerHandler = JettyServerHandler.getInstance();
+
+        // Registering servlet context handler of datamapper test window
+        ServletContextHandler datamapperContext = new ServletContextHandler();
+
+        // Context path where static webpages are hosted
+        datamapperContext.setContextPath("/dataMapper");
+        String dataMapperWebAppPath = WEB_APP_LOCATION;
+        try {
+            // Get web app path from current bundle
+            dataMapperWebAppPath = getDatamapperWebAppPath();
+        } catch (URISyntaxException uriException) {
+            // log.error("Error resolving web app path", uriException);
+        } catch (IOException ioException) {
+            // log.error("Error resolving web app path", ioException);
+        }
+
+        // Adding Default servlet and Registry reader servlet
+        datamapperContext.addServlet(RegistryReaderServlet.class, SERVLET_PATH);
+        datamapperContext.addServlet(DefaultServlet.class, "/");
+        datamapperContext.setResourceBase(dataMapperWebAppPath);
+        // Registering the handler in the jetty server
+        jettyServerHandler.getHandlerCollection().addHandler(datamapperContext);
+    }
+	
+    /**
+     * This method returns the web app path of datamapper test window
+     * 
+     * @return web app folder absolute path
+     * @throws URISyntaxException
+     * @throws IOException
+     */
+    public String getDatamapperWebAppPath() throws URISyntaxException, IOException {
+        Bundle bundle = Platform.getBundle(DATAMAPPER_BUNDLE);
+        if (bundle == null) {
+            return null;
+        }
+        URL webAppURL = bundle.getEntry(WEB_APP_LOCATION);
+        URL resolvedFolderURL = FileLocator.toFileURL(webAppURL);
+        URI resolvedFolderURI = new URI(resolvedFolderURL.getProtocol(), resolvedFolderURL.getPath(), null);
+        File resolvedWebAppFolder = new File(resolvedFolderURI);
+        return resolvedWebAppFolder.getAbsolutePath();
+    }
 
 	/**
 	 * @generated
