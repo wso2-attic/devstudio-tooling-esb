@@ -1055,7 +1055,7 @@ public class ProcessSourceView {
         } catch (SynapseException | MediatorException e) {
             return e.getMessage();
 
-        } catch (XMLStreamException e) {
+        } catch (Exception e) {
             // ignore
         }
         return "";
