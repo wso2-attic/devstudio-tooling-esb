@@ -18,6 +18,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Map;
 
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMText;
 import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.elementary.Source;
@@ -97,9 +99,13 @@ public class EnrichMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 				if(source.getInlineOMNode() != null){
 					
 					//vishualEnrich.setSourceXML(source.getInlineOMNode().toString());
-					executeSetValueCommand(ENRICH_MEDIATOR__SOURCE_XML, source.getInlineOMNode().toString());
+					if (source.getInlineOMNode() instanceof OMElement) {
+						executeSetValueCommand(ENRICH_MEDIATOR__SOURCE_XML, source.getInlineOMNode().toString());
+					} else if (source.getInlineOMNode() instanceof OMText) {
+						executeSetValueCommand(ENRICH_MEDIATOR__SOURCE_XML, ((OMText) source.getInlineOMNode()).getText());
+					}
 					executeSetValueCommand(ENRICH_MEDIATOR__INLINE_TYPE, EnrichSourceInlineType.CONTENT);
-				}else if(source.getInlineKey()!=null){
+				} else if(source.getInlineKey() != null) {
 					executeSetValueCommand(visualEnrichMediator.getInlineRegistryKey(),REGISTRY_KEY_PROPERTY__KEY_VALUE, source.getInlineKey());
 					executeSetValueCommand(ENRICH_MEDIATOR__INLINE_TYPE, EnrichSourceInlineType.KEY);
 				}
