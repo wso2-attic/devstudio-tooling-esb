@@ -1,8 +1,17 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright 2009-2012 WSO2, Inc. (http://wso2.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
@@ -14,93 +23,95 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Cache Implementation Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Cache Scope Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheImplementationType()
+ * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheScopeType()
  * @model
  * @generated
  */
-public enum CacheImplementationType implements Enumerator {
+public enum CacheScopeType implements Enumerator {
 	/**
-	 * The '<em><b>Memory</b></em>' literal object.
+	 * The '<em><b>Per Host</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MEMORY_VALUE
+	 * @see #PER_HOST_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MEMORY(0, "memory", "memory"), /**
-	 * The '<em><b>Disk</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DISK_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	DISK(1, "disk", "disk");
+	PER_HOST(0, "Per_Host", "Per_Host"),
 
 	/**
-	 * The '<em><b>Memory</b></em>' literal value.
+	 * The '<em><b>Per Mediator</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PER_MEDIATOR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PER_MEDIATOR(1, "Per_Mediator", "Per_Mediator");
+
+	/**
+	 * The '<em><b>Per Host</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Memory</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Per Host</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #MEMORY
-	 * @model name="memory"
+	 * @see #PER_HOST
+	 * @model name="Per_Host"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEMORY_VALUE = 0;
+	public static final int PER_HOST_VALUE = 0;
 
 	/**
-	 * The '<em><b>Disk</b></em>' literal value.
+	 * The '<em><b>Per Mediator</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Disk</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Per Mediator</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #DISK
-	 * @model name="disk"
+	 * @see #PER_MEDIATOR
+	 * @model name="Per_Mediator"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DISK_VALUE = 1;
+	public static final int PER_MEDIATOR_VALUE = 1;
 
 	/**
-	 * An array of all the '<em><b>Cache Implementation Type</b></em>' enumerators.
+	 * An array of all the '<em><b>Cache Scope Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final CacheImplementationType[] VALUES_ARRAY =
-		new CacheImplementationType[] {
-			MEMORY,
-			DISK,
+	private static final CacheScopeType[] VALUES_ARRAY =
+		new CacheScopeType[] {
+			PER_HOST,
+			PER_MEDIATOR,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Cache Implementation Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Cache Scope Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<CacheImplementationType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<CacheScopeType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Cache Implementation Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Cache Scope Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static CacheImplementationType get(String literal) {
+	public static CacheScopeType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			CacheImplementationType result = VALUES_ARRAY[i];
+			CacheScopeType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -109,16 +120,16 @@ public enum CacheImplementationType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Cache Implementation Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Cache Scope Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static CacheImplementationType getByName(String name) {
+	public static CacheScopeType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			CacheImplementationType result = VALUES_ARRAY[i];
+			CacheScopeType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -127,17 +138,17 @@ public enum CacheImplementationType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Cache Implementation Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Cache Scope Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static CacheImplementationType get(int value) {
+	public static CacheScopeType get(int value) {
 		switch (value) {
-			case MEMORY_VALUE: return MEMORY;
-			case DISK_VALUE: return DISK;
+			case PER_HOST_VALUE: return PER_HOST;
+			case PER_MEDIATOR_VALUE: return PER_MEDIATOR;
 		}
 		return null;
 	}
@@ -169,7 +180,7 @@ public enum CacheImplementationType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private CacheImplementationType(int value, String name, String literal) {
+	private CacheScopeType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -208,10 +219,9 @@ public enum CacheImplementationType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public String toString() {
 		return literal;
 	}
 	
-} //CacheImplementationType
+} //CacheScopeType

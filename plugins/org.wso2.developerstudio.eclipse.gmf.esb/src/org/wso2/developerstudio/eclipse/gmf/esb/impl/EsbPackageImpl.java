@@ -74,9 +74,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOnHitOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheProtocolType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheScopeType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallMediator;
@@ -3987,6 +3989,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum apiVersionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cacheScopeTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cacheImplementationTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cacheMediatorTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -14249,6 +14272,51 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCacheMediator_Id() {
+		return (EAttribute)cacheMediatorEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCacheMediator_HashGeneratorAttribute() {
+		return (EAttribute)cacheMediatorEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCacheMediator_Scope() {
+		return (EAttribute)cacheMediatorEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCacheMediator_ImplementationType() {
+		return (EAttribute)cacheMediatorEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCacheMediator_CacheMediatorImplementation() {
+		return (EAttribute)cacheMediatorEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCacheMediatorInputConnector() {
 		return cacheMediatorInputConnectorEClass;
 	}
@@ -19208,6 +19276,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getCacheScopeType() {
+		return cacheScopeTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCacheImplementationType() {
+		return cacheImplementationTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCacheMediatorType() {
+		return cacheMediatorTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMap() {
 		return mapEDataType;
 	}
@@ -20073,6 +20168,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__RESPONSE_CODES);
 		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__ENABLE_CACHE_CONTROL);
 		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__INCLUDE_AGE_HEADER);
+		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__ID);
+		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__HASH_GENERATOR_ATTRIBUTE);
+		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__SCOPE);
+		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__IMPLEMENTATION_TYPE);
+		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__CACHE_MEDIATOR_IMPLEMENTATION);
 
 		cacheMediatorInputConnectorEClass = createEClass(CACHE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -21287,6 +21387,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		feedTypeEEnum = createEEnum(FEED_TYPE);
 		enableDisableStateEEnum = createEEnum(ENABLE_DISABLE_STATE);
 		apiVersionTypeEEnum = createEEnum(API_VERSION_TYPE);
+		cacheScopeTypeEEnum = createEEnum(CACHE_SCOPE_TYPE);
+		cacheImplementationTypeEEnum = createEEnum(CACHE_IMPLEMENTATION_TYPE);
+		cacheMediatorTypeEEnum = createEEnum(CACHE_MEDIATOR_TYPE);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -22510,6 +22613,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getCacheMediator_ResponseCodes(), ecorePackage.getEString(), "responseCodes", ".*", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCacheMediator_EnableCacheControl(), ecorePackage.getEBoolean(), "enableCacheControl", "false", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCacheMediator_IncludeAgeHeader(), ecorePackage.getEBoolean(), "includeAgeHeader", "false", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCacheMediator_Id(), ecorePackage.getEString(), "id", "", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCacheMediator_HashGeneratorAttribute(), ecorePackage.getEString(), "hashGeneratorAttribute", "org.wso2.carbon.mediator.cache.digest.DOMHASHGenerator", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCacheMediator_Scope(), this.getCacheScopeType(), "scope", "Per_Host", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCacheMediator_ImplementationType(), this.getCacheImplementationType(), "implementationType", "memory", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCacheMediator_CacheMediatorImplementation(), this.getCacheMediatorType(), "cacheMediatorImplementation", "New_implementation", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cacheMediatorInputConnectorEClass, CacheMediatorInputConnector.class, "CacheMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -24361,6 +24469,18 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(apiVersionTypeEEnum, APIVersionType.NONE);
 		addEEnumLiteral(apiVersionTypeEEnum, APIVersionType.CONTEXT);
 		addEEnumLiteral(apiVersionTypeEEnum, APIVersionType.URL);
+
+		initEEnum(cacheScopeTypeEEnum, CacheScopeType.class, "CacheScopeType");
+		addEEnumLiteral(cacheScopeTypeEEnum, CacheScopeType.PER_HOST);
+		addEEnumLiteral(cacheScopeTypeEEnum, CacheScopeType.PER_MEDIATOR);
+
+		initEEnum(cacheImplementationTypeEEnum, CacheImplementationType.class, "CacheImplementationType");
+		addEEnumLiteral(cacheImplementationTypeEEnum, CacheImplementationType.MEMORY);
+		addEEnumLiteral(cacheImplementationTypeEEnum, CacheImplementationType.DISK);
+
+		initEEnum(cacheMediatorTypeEEnum, CacheMediatorType.class, "CacheMediatorType");
+		addEEnumLiteral(cacheMediatorTypeEEnum, CacheMediatorType.NEW_IMPLEMENTATION);
+		addEEnumLiteral(cacheMediatorTypeEEnum, CacheMediatorType.PREVIOUS_IMPLEMENTATION);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
