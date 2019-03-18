@@ -11417,13 +11417,58 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CACHE_MEDIATOR__INCLUDE_AGE_HEADER = MEDIATOR_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CACHE_MEDIATOR__ID = MEDIATOR_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Hash Generator Attribute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CACHE_MEDIATOR__HASH_GENERATOR_ATTRIBUTE = MEDIATOR_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Scope</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CACHE_MEDIATOR__SCOPE = MEDIATOR_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Implementation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CACHE_MEDIATOR__IMPLEMENTATION_TYPE = MEDIATOR_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Cache Mediator Implementation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CACHE_MEDIATOR__CACHE_MEDIATOR_IMPLEMENTATION = MEDIATOR_FEATURE_COUNT + 21;
+
+	/**
 	 * The number of structural features of the '<em>Cache Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 17;
+	int CACHE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 22;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorInputConnectorImpl <em>Cache Mediator Input Connector</em>}' class.
@@ -26781,6 +26826,36 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int API_VERSION_TYPE = 491;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheScopeType <em>Cache Scope Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheScopeType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheScopeType()
+	 * @generated
+	 */
+	int CACHE_SCOPE_TYPE = 492;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType <em>Cache Implementation Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheImplementationType()
+	 * @generated
+	 */
+	int CACHE_IMPLEMENTATION_TYPE = 493;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorType <em>Cache Mediator Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediatorType()
+	 * @generated
+	 */
+	int CACHE_MEDIATOR_TYPE = 494;
+
+	/**
 	 * The meta object id for the '<em>Map</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -26788,7 +26863,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 492;
+	int MAP = 495;
 
 
 	/**
@@ -38997,6 +39072,61 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getCacheMediator_IncludeAgeHeader();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getId()
+	 * @see #getCacheMediator()
+	 * @generated
+	 */
+	EAttribute getCacheMediator_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getHashGeneratorAttribute <em>Hash Generator Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hash Generator Attribute</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getHashGeneratorAttribute()
+	 * @see #getCacheMediator()
+	 * @generated
+	 */
+	EAttribute getCacheMediator_HashGeneratorAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getScope <em>Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scope</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getScope()
+	 * @see #getCacheMediator()
+	 * @generated
+	 */
+	EAttribute getCacheMediator_Scope();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getImplementationType <em>Implementation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Implementation Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getImplementationType()
+	 * @see #getCacheMediator()
+	 * @generated
+	 */
+	EAttribute getCacheMediator_ImplementationType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheMediatorImplementation <em>Cache Mediator Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cache Mediator Implementation</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getCacheMediatorImplementation()
+	 * @see #getCacheMediator()
+	 * @generated
+	 */
+	EAttribute getCacheMediator_CacheMediatorImplementation();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorInputConnector <em>Cache Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44811,6 +44941,36 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EEnum getAPIVersionType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheScopeType <em>Cache Scope Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Cache Scope Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheScopeType
+	 * @generated
+	 */
+	EEnum getCacheScopeType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType <em>Cache Implementation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Cache Implementation Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType
+	 * @generated
+	 */
+	EEnum getCacheImplementationType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorType <em>Cache Mediator Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Cache Mediator Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorType
+	 * @generated
+	 */
+	EEnum getCacheMediatorType();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.Map <em>Map</em>}'.
@@ -54396,6 +54556,46 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute CACHE_MEDIATOR__INCLUDE_AGE_HEADER = eINSTANCE.getCacheMediator_IncludeAgeHeader();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CACHE_MEDIATOR__ID = eINSTANCE.getCacheMediator_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Hash Generator Attribute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CACHE_MEDIATOR__HASH_GENERATOR_ATTRIBUTE = eINSTANCE.getCacheMediator_HashGeneratorAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Scope</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CACHE_MEDIATOR__SCOPE = eINSTANCE.getCacheMediator_Scope();
+
+		/**
+		 * The meta object literal for the '<em><b>Implementation Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CACHE_MEDIATOR__IMPLEMENTATION_TYPE = eINSTANCE.getCacheMediator_ImplementationType();
+
+		/**
+		 * The meta object literal for the '<em><b>Cache Mediator Implementation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CACHE_MEDIATOR__CACHE_MEDIATOR_IMPLEMENTATION = eINSTANCE.getCacheMediator_CacheMediatorImplementation();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorInputConnectorImpl <em>Cache Mediator Input Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -59292,6 +59492,36 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EEnum API_VERSION_TYPE = eINSTANCE.getAPIVersionType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheScopeType <em>Cache Scope Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheScopeType
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheScopeType()
+		 * @generated
+		 */
+		EEnum CACHE_SCOPE_TYPE = eINSTANCE.getCacheScopeType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType <em>Cache Implementation Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheImplementationType()
+		 * @generated
+		 */
+		EEnum CACHE_IMPLEMENTATION_TYPE = eINSTANCE.getCacheImplementationType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorType <em>Cache Mediator Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorType
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediatorType()
+		 * @generated
+		 */
+		EEnum CACHE_MEDIATOR_TYPE = eINSTANCE.getCacheMediatorType();
 
 		/**
 		 * The meta object literal for the '<em>Map</em>' data type.
