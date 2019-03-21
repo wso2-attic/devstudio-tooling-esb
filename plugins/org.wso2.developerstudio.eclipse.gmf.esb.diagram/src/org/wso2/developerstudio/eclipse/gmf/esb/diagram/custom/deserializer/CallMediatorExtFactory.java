@@ -29,6 +29,7 @@ import org.apache.synapse.config.xml.CallMediatorFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.builtin.CallMediator;
+import org.apache.synapse.mediators.eip.aggregator.AggregateMediator;
 
 public class CallMediatorExtFactory extends CallMediatorFactory {
     
@@ -97,6 +98,8 @@ public class CallMediatorExtFactory extends CallMediatorFactory {
                 }
             }
         }
+        
+        addAllCommentChildrenToList(omElement, ((CallMediator) mediator).getCommentsList());
 
         return mediator;
     }
