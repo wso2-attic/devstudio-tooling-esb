@@ -7,7 +7,6 @@ import org.apache.synapse.config.xml.AbstractMediatorFactory;
 import org.apache.synapse.config.xml.SynapseXPathFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.builtin.CalloutMediator;
-import org.apache.synapse.mediators.builtin.LogMediator;
 import org.jaxen.JaxenException;
 
 import javax.xml.namespace.QName;

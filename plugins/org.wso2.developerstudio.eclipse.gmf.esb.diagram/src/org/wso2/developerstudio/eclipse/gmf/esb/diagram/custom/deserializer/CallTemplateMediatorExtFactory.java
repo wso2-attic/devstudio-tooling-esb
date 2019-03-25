@@ -26,10 +26,8 @@ import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.config.xml.InvokeMediatorFactory;
-import org.apache.synapse.config.xml.ValueFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.Value;
-import org.apache.synapse.mediators.filters.router.ConditionalRouterMediator;
 import org.apache.synapse.mediators.template.InvokeMediator;
 
 public class CallTemplateMediatorExtFactory extends InvokeMediatorFactory {

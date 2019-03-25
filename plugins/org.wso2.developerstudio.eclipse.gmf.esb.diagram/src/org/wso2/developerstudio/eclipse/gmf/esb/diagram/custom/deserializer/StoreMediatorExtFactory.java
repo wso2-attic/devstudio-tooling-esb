@@ -27,7 +27,6 @@ import org.apache.synapse.config.xml.MessageStoreMediatorFactory;
 import org.apache.synapse.config.xml.SynapsePathFactory;
 import org.apache.synapse.mediators.store.MessageStoreMediator;
 import org.jaxen.JaxenException;
-import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
 
 public class StoreMediatorExtFactory extends MessageStoreMediatorFactory {
     
@@ -82,7 +81,7 @@ public class StoreMediatorExtFactory extends MessageStoreMediatorFactory {
             ((MessageStoreMediator) mediator).setOnStoreSequence(sequenceAtt.getAttributeValue());
         }
         
-        addAllCommentChildrenToList(omElement, ((StoreMediator) mediator).getCommentsList());
+        addAllCommentChildrenToList(omElement, ((MessageStoreMediator) mediator).getCommentsList());
 
         return mediator;
     }
