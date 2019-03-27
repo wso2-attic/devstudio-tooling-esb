@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.eip.Target;
@@ -30,6 +31,7 @@ import org.jaxen.JaxenException;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.SynapseXPathExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformerException;
 
@@ -81,7 +83,7 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 			
 			if(iterateExp != null && !iterateExp.getPropertyValue().equals("")){
 				
-				SynapseXPath xpath = new SynapseXPath(iterateExp.getPropertyValue());
+				SynapsePath xpath = SynapseXPathExt.createSynapsePath(iterateExp.getPropertyValue());
 				Map<String, String> nameSpaceMap = iterateExp.getNamespaces();
 				
 				
@@ -94,18 +96,21 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 				
 			}
 			
-			if(visualIterate.isPreservePayload()){
+			if (visualIterate.isPreservePayload()) {
 				iterateMediator.setPreservePayload(true);
 				NamespacedProperty attachedPath = visualIterate.getAttachPath();
-				if(attachedPath != null && !attachedPath.getPropertyValue().equals("")){
-					SynapseXPath xpath = new SynapseXPath(attachedPath.getPropertyValue());
+				if (attachedPath != null && !attachedPath.getPropertyValue().equals("")) {
+					SynapsePath xpath = SynapseXPathExt.createSynapsePath(attachedPath.getPropertyValue());
 					Map<String, String> nameSpaceMap = attachedPath.getNamespaces();
-					for(String key : nameSpaceMap.keySet()){
+					for (String key : nameSpaceMap.keySet()) {
 						xpath.addNamespace(key, nameSpaceMap.get(key));
 					}
 					iterateMediator.setAttachPath(xpath);
+					iterateMediator.setAttachPathPresent(true);
+				} else {
+					iterateMediator.setAttachPathPresent(false);
 				}
-			} else{
+			} else {
 				iterateMediator.setPreservePayload(false);
 			}
 			

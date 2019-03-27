@@ -1043,15 +1043,16 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	protected NamespacedProperty createNamespacedProperty(SynapsePath path) {			
 		NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();	
 		nsp.setPropertyValue(path.toString());
-		if(path.getPathType()==SynapsePath.X_PATH){
+		if (path.getPathType() == SynapsePath.X_PATH) {
 			//nsp.setPropertyValue(path.getExpression());	
 			if (path.getNamespaces() != null) {
 				@SuppressWarnings("unchecked")
 				Map<String, String> map = path.getNamespaces();
 				nsp.setNamespaces(map);
 			}
-		}else if(path.getPathType()==SynapsePath.JSON_PATH){
-			//nsp.setPropertyValue(path.getExpression());	
+		} else if (path.getPathType() == SynapsePath.JSON_PATH) {
+			//nsp.setPropertyValue(path.getExpression());
+			nsp.setSupportJsonPaths(true);
 		}	
 		return nsp;
 	}
