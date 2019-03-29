@@ -1052,7 +1052,6 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			}
 		} else if (path.getPathType() == SynapsePath.JSON_PATH) {
 			//nsp.setPropertyValue(path.getExpression());
-			nsp.setSupportJsonPaths(true);
 		}	
 		return nsp;
 	}
