@@ -183,6 +183,8 @@ public class AddressEndPointPropertiesEditionPartForm extends SectionPropertiesE
     
     protected GridData propertiesData;
     
+    protected Composite filterAdvancedSubPropertiesGroup;
+    
 	// End of user code
 
 	protected Text timeOutDuration;
@@ -279,6 +281,7 @@ public class AddressEndPointPropertiesEditionPartForm extends SectionPropertiesE
 
 			@Override
 			public Composite addToPart(Composite parent, Object key) {
+			    // Start of user code
 				if (key == EsbViewsRepository.AddressEndPoint.Basic.class) {
 					return createBasicGroup(widgetFactory, parent);
 				}
@@ -331,7 +334,7 @@ public class AddressEndPointPropertiesEditionPartForm extends SectionPropertiesE
 					return createSuspendProgressionFactorText(widgetFactory, parent);
 				}
 				if (key == EsbViewsRepository.AddressEndPoint.EndpointTimeoutState.class) {
-					return createEndpointTimeoutStateGroup(widgetFactory, parent);
+					return createEndpointTimeoutStateGroup(widgetFactory, filterAdvancedSubPropertiesGroup);
 				}
 				if (key == EsbViewsRepository.AddressEndPoint.EndpointTimeoutState.retryErrorCodes) {
 					return createRetryErrorCodesText(widgetFactory, parent);
@@ -349,13 +352,13 @@ public class AddressEndPointPropertiesEditionPartForm extends SectionPropertiesE
 					return createPropertiesTableComposition(widgetFactory, parent);
 				}
 				if (key == EsbViewsRepository.AddressEndPoint.Misc.optimize) {
-					return createOptimizeEMFComboViewer(widgetFactory, parent);
+					return createOptimizeEMFComboViewer(widgetFactory, filterAdvancedSubPropertiesGroup);
 				}
 				if (key == EsbViewsRepository.AddressEndPoint.Misc.description) {
 					return createDescriptionText(widgetFactory, parent);
 				}
 				if (key == EsbViewsRepository.AddressEndPoint.QoS.class) {
-					return createQoSGroup(widgetFactory, parent);
+					return createQoSGroup(widgetFactory, filterAdvancedSubPropertiesGroup);
 				}
 				if (key == EsbViewsRepository.AddressEndPoint.QoS.reliableMessagingEnabled) {
 					return createReliableMessagingEnabledCheckbox(widgetFactory, parent);
@@ -372,28 +375,20 @@ public class AddressEndPointPropertiesEditionPartForm extends SectionPropertiesE
 				if (key == EsbViewsRepository.AddressEndPoint.QoS.addressingSeparateListener) {
 					return createAddressingSeparateListenerCheckbox(widgetFactory, parent);
 				}
-				// Start of user code for Reliable Messaging Policy addToPart creation
 				if (key == EsbViewsRepository.AddressEndPoint.QoS.reliableMessagingPolicy) {
 					return createReliableMessagingPolicy(widgetFactory, parent);
 				}
-				// End of user code
-				// Start of user code for Inbound Policy addToPart creation
 				if (key == EsbViewsRepository.AddressEndPoint.QoS.inboundPolicy) {
 					return createInboundPolicy(widgetFactory, parent);
 				}
-				// End of user code
-				// Start of user code for Outbound Policy addToPart creation
 				if (key == EsbViewsRepository.AddressEndPoint.QoS.outboundPolicy) {
 					return createOutboundPolicy(widgetFactory, parent);
 				}
-				// End of user code
-				// Start of user code for Security Policy addToPart creation
 				if (key == EsbViewsRepository.AddressEndPoint.QoS.securityPolicy) {
 					return createSecurityPolicy(widgetFactory, parent);
 				}
-				// End of user code
 				if (key == EsbViewsRepository.AddressEndPoint.Timeout.class) {
-					return createTimeoutGroup(widgetFactory, parent);
+					return createTimeoutGroup(widgetFactory, filterAdvancedSubPropertiesGroup);
 				}
 				if (key == EsbViewsRepository.AddressEndPoint.Timeout.timeOutDuration) {
 					return createTimeOutDurationText(widgetFactory, parent);
@@ -401,6 +396,7 @@ public class AddressEndPointPropertiesEditionPartForm extends SectionPropertiesE
 				if (key == EsbViewsRepository.AddressEndPoint.Timeout.timeOutAction) {
 					return createTimeOutActionEMFComboViewer(widgetFactory, parent);
 				}
+				// End of user code
 				return parent;
 			}
 		};
@@ -875,7 +871,9 @@ public class AddressEndPointPropertiesEditionPartForm extends SectionPropertiesE
      * @generated NOT
      */
 	protected Composite createEndpointSuspendStateGroup(FormToolkit widgetFactory, final Composite parent) {
-		Section endpointSuspendStateSection = widgetFactory.createSection(parent, Section.TITLE_BAR | Section.TWISTIE | Section.EXPANDED);
+	    filterAdvancedSubPropertiesGroup = EEFPropertyViewUtil.createSubsectionGroup(widgetFactory, parent, "Advanced", false);
+	    
+		Section endpointSuspendStateSection = widgetFactory.createSection(filterAdvancedSubPropertiesGroup, Section.TITLE_BAR | Section.TWISTIE | Section.EXPANDED);
 		endpointSuspendStateSection.setText(EsbMessages.AddressEndPointPropertiesEditionPart_EndpointSuspendStateGroupLabel);
 		GridData endpointSuspendStateSectionData = new GridData(GridData.FILL_HORIZONTAL);
 		endpointSuspendStateSectionData.horizontalSpan = 3;
