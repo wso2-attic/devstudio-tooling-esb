@@ -69,6 +69,8 @@ public class CallTemplateMediatorExtFactory extends InvokeMediatorFactory {
                 Value paramValue = new ValueFactoryExtended().createValue("value", child);
                 if (paramNameAttr != null) {
                     invoker.addExpressionForParamName(paramNameAttr.getAttributeValue(), paramValue);
+                } else {
+                    invoker.addExpressionForParamName("", paramValue);
                 }
             }
         }
