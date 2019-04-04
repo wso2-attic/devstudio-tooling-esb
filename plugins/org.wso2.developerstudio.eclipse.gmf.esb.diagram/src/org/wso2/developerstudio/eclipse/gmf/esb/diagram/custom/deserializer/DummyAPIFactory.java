@@ -130,7 +130,7 @@ public class DummyAPIFactory {
             }
         }
         
-        CommentListUtil.addAllCommentChildrenToList(apiElt, api.getCommentsList());
+        CommentListUtil.populateComments(apiElt, api.getCommentsList());
 
         return api;
     }

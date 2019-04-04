@@ -321,7 +321,7 @@ public class DummyProxyServiceFactory {
             proxy.setWsSecEnabled(true);
         }
         
-        CommentListUtil.addAllCommentChildrenToList(elem, proxy.getCommentsList());
+        CommentListUtil.populateComments(elem, proxy.getCommentsList());
 
         return proxy;
     }
