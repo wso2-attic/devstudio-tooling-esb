@@ -456,6 +456,37 @@
     <eLiterals name="CUSTOM" value="3" literal="CUSTOM"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogProperty" eSuperTypes="#//AbstractNameValueExpressionProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataServiceCallMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//DataServiceCallMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//DataServiceCallMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DSName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationType" eType="#//OperationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Operations" upperBound="-1"
+        eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetType" eType="#//TargetType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataServiceCallMediatorInputConnector"
+      eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataServiceCallMediatorOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationType">
+    <eLiterals name="SINGLE_REQUEST"/>
+    <eLiterals name="BATCH_REQUEST" value="1" literal="BATCH_REQUEST"/>
+    <eLiterals name="REQUEST_BOX" value="2" literal="REQUEST_BOX"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TargetType">
+    <eLiterals name="ENVELOPE"/>
+    <eLiterals name="PROPERTY" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Param" eSuperTypes="#//AbstractNameValueParam"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OperationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Param" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PublishEventMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//PublishEventMediatorInputConnector"
         containment="true"/>
@@ -982,6 +1013,10 @@
         defaultValueLiteral="property_name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="property_value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractNameValueParam">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="entitlementServerURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

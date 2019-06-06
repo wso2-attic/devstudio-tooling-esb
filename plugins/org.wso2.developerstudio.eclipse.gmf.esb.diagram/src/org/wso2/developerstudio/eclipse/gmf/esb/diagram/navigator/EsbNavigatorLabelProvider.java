@@ -1328,6 +1328,17 @@ public class EsbNavigatorLabelProvider extends LabelProvider implements ICommonL
             return getImage(
                     "Navigator?Node?http:///org/wso2/developerstudio/eclipse/gmf/esb?PropertyGroupMediatorOutputConnector", //$NON-NLS-1$
                     EsbElementTypes.PropertyGroupMediatorOutputConnector_3790);
+        case DataServiceCallMediatorEditPart.VISUAL_ID:
+            return getImage("Navigator?Node?http:///org/wso2/developerstudio/eclipse/gmf/esb?DataServiceCallMediator", //$NON-NLS-1$
+                    EsbElementTypes.DataServiceCallMediator_3791);
+        case DataServiceCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http:///org/wso2/developerstudio/eclipse/gmf/esb?DataServiceCallMediatorInputConnector", //$NON-NLS-1$
+                    EsbElementTypes.DataServiceCallMediatorInputConnector_3792);
+        case DataServiceCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http:///org/wso2/developerstudio/eclipse/gmf/esb?DataServiceCallMediatorOutputConnector", //$NON-NLS-1$
+                    EsbElementTypes.DataServiceCallMediatorOutputConnector_3793);
         case EsbLinkEditPart.VISUAL_ID:
             return getImage("Navigator?Link?http:///org/wso2/developerstudio/eclipse/gmf/esb?EsbLink", //$NON-NLS-1$
                     EsbElementTypes.EsbLink_4001);
@@ -2059,6 +2070,12 @@ public class EsbNavigatorLabelProvider extends LabelProvider implements ICommonL
             return getPropertyGroupMediatorInputConnector_3789Text(view);
         case PropertyGroupMediatorOutputConnectorEditPart.VISUAL_ID:
             return getPropertyGroupMediatorOutputConnector_3790Text(view);
+        case DataServiceCallMediatorEditPart.VISUAL_ID:
+            return getDataServiceCallMediator_3791Text(view);
+        case DataServiceCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return getDataServiceCallMediatorInputConnector_3792Text(view);
+        case DataServiceCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return getDataServiceCallMediatorOutputConnector_3793Text(view);
         case EsbLinkEditPart.VISUAL_ID:
             return getEsbLink_4001Text(view);
         }
@@ -3484,8 +3501,8 @@ public class EsbNavigatorLabelProvider extends LabelProvider implements ICommonL
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     private String getPropertyGroupMediator_3788Text(View view) {
         IParser parser = EsbParserProvider.getParser(EsbElementTypes.PropertyGroupMediator_3788,
                 view.getElement() != null ? view.getElement() : view,
@@ -3500,16 +3517,46 @@ public class EsbNavigatorLabelProvider extends LabelProvider implements ICommonL
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     private String getPropertyGroupMediatorInputConnector_3789Text(View view) {
         return ""; //$NON-NLS-1$
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     private String getPropertyGroupMediatorOutputConnector_3790Text(View view) {
+        return ""; //$NON-NLS-1$
+    }
+
+    /**
+     * @generated
+     */
+    private String getDataServiceCallMediator_3791Text(View view) {
+        IParser parser = EsbParserProvider.getParser(EsbElementTypes.DataServiceCallMediator_3791,
+                view.getElement() != null ? view.getElement() : view,
+                EsbVisualIDRegistry.getType(DataServiceCallMediatorDescriptionEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            EsbDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5216); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getDataServiceCallMediatorInputConnector_3792Text(View view) {
+        return ""; //$NON-NLS-1$
+    }
+
+    /**
+     * @generated
+     */
+    private String getDataServiceCallMediatorOutputConnector_3793Text(View view) {
         return ""; //$NON-NLS-1$
     }
 

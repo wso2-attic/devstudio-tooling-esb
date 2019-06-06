@@ -31,6 +31,9 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_DEFAULT"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_HTTP"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_WSDL"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_LOADBALANCE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_FAILOVER"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_RECIPIENTLIST"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CallMediatorEndpointType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/INLINE"/>
@@ -1067,6 +1070,12 @@
     <genClasses ecoreClass="esb.ecore#//LogMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//LogMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//LogProperty"/>
+    <genClasses ecoreClass="esb.ecore#//DataServiceCallMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServiceCallMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServiceCallMediator/outputConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//DataServiceCallMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//DataServiceCallMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//PublishEventMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PublishEventMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PublishEventMediator/outputconnector"/>

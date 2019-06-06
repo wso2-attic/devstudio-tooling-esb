@@ -333,6 +333,18 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
                 return createLogPropertyAdapter();
             }
             @Override
+            public Adapter caseDataServiceCallMediator(DataServiceCallMediator object) {
+                return createDataServiceCallMediatorAdapter();
+            }
+            @Override
+            public Adapter caseDataServiceCallMediatorInputConnector(DataServiceCallMediatorInputConnector object) {
+                return createDataServiceCallMediatorInputConnectorAdapter();
+            }
+            @Override
+            public Adapter caseDataServiceCallMediatorOutputConnector(DataServiceCallMediatorOutputConnector object) {
+                return createDataServiceCallMediatorOutputConnectorAdapter();
+            }
+            @Override
             public Adapter casePublishEventMediator(PublishEventMediator object) {
                 return createPublishEventMediatorAdapter();
             }
@@ -2463,6 +2475,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createLogPropertyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator <em>Data Service Call Mediator</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator
+     * @generated
+     */
+    public Adapter createDataServiceCallMediatorAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediatorInputConnector <em>Data Service Call Mediator Input Connector</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediatorInputConnector
+     * @generated
+     */
+    public Adapter createDataServiceCallMediatorInputConnectorAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediatorOutputConnector <em>Data Service Call Mediator Output Connector</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediatorOutputConnector
+     * @generated
+     */
+    public Adapter createDataServiceCallMediatorOutputConnectorAdapter() {
         return null;
     }
 

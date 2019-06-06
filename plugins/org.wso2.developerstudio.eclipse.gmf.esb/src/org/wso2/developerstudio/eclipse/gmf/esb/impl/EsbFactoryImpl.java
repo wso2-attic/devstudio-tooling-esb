@@ -120,6 +120,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
             case EsbPackage.LOG_MEDIATOR_INPUT_CONNECTOR: return createLogMediatorInputConnector();
             case EsbPackage.LOG_MEDIATOR_OUTPUT_CONNECTOR: return createLogMediatorOutputConnector();
             case EsbPackage.LOG_PROPERTY: return createLogProperty();
+            case EsbPackage.DATA_SERVICE_CALL_MEDIATOR: return createDataServiceCallMediator();
+            case EsbPackage.DATA_SERVICE_CALL_MEDIATOR_INPUT_CONNECTOR: return createDataServiceCallMediatorInputConnector();
+            case EsbPackage.DATA_SERVICE_CALL_MEDIATOR_OUTPUT_CONNECTOR: return createDataServiceCallMediatorOutputConnector();
             case EsbPackage.PUBLISH_EVENT_MEDIATOR: return createPublishEventMediator();
             case EsbPackage.PUBLISH_EVENT_MEDIATOR_INPUT_CONNECTOR: return createPublishEventMediatorInputConnector();
             case EsbPackage.PUBLISH_EVENT_MEDIATOR_OUTPUT_CONNECTOR: return createPublishEventMediatorOutputConnector();
@@ -1504,6 +1507,38 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
         logProperty.setPropertyName("");
         logProperty.setPropertyValue("");
         return logProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public DataServiceCallMediator createDataServiceCallMediator() {
+        DataServiceCallMediatorImpl dataServiceCallMediator = new DataServiceCallMediatorImpl();
+        dataServiceCallMediator.setInputConnector(createDataServiceCallMediatorInputConnector());
+        dataServiceCallMediator.setOutputConnector(createDataServiceCallMediatorOutputConnector());
+        return dataServiceCallMediator;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataServiceCallMediatorInputConnector createDataServiceCallMediatorInputConnector() {
+        DataServiceCallMediatorInputConnectorImpl dataServiceCallMediatorInputConnector = new DataServiceCallMediatorInputConnectorImpl();
+        return dataServiceCallMediatorInputConnector;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataServiceCallMediatorOutputConnector createDataServiceCallMediatorOutputConnector() {
+        DataServiceCallMediatorOutputConnectorImpl dataServiceCallMediatorOutputConnector = new DataServiceCallMediatorOutputConnectorImpl();
+        return dataServiceCallMediatorOutputConnector;
     }
 
     /**

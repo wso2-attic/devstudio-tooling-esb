@@ -161,6 +161,18 @@ public class EsbEditPartFactory implements EditPartFactory {
             case LogMediatorOutputConnectorEditPart.VISUAL_ID:
                 return new LogMediatorOutputConnectorEditPart(view);
 
+            case DataServiceCallMediatorEditPart.VISUAL_ID:
+                return new DataServiceCallMediatorEditPart(view);
+
+            case DataServiceCallMediatorDescriptionEditPart.VISUAL_ID:
+                return new DataServiceCallMediatorDescriptionEditPart(view);
+
+            case DataServiceCallMediatorInputConnectorEditPart.VISUAL_ID:
+                return new DataServiceCallMediatorInputConnectorEditPart(view);
+
+            case DataServiceCallMediatorOutputConnectorEditPart.VISUAL_ID:
+                return new DataServiceCallMediatorOutputConnectorEditPart(view);
+
             case EnrichMediatorEditPart.VISUAL_ID:
                 return new EnrichMediatorEditPart(view);
 

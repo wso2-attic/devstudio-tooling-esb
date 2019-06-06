@@ -144,6 +144,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.DataMapperMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataMapperMediatorDataTypes;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataMapperMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataMapperMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPointOutputConnector;
@@ -1005,6 +1008,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
      * @generated
      */
     private EClass logPropertyEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass dataServiceCallMediatorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass dataServiceCallMediatorInputConnectorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass dataServiceCallMediatorOutputConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -6070,6 +6094,51 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
      */
     public EClass getLogProperty() {
         return logPropertyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDataServiceCallMediator() {
+        return dataServiceCallMediatorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDataServiceCallMediator_InputConnector() {
+        return (EReference)dataServiceCallMediatorEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDataServiceCallMediator_OutputConnector() {
+        return (EReference)dataServiceCallMediatorEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDataServiceCallMediatorInputConnector() {
+        return dataServiceCallMediatorInputConnectorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDataServiceCallMediatorOutputConnector() {
+        return dataServiceCallMediatorOutputConnectorEClass;
     }
 
     /**
@@ -19855,6 +19924,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
         logPropertyEClass = createEClass(LOG_PROPERTY);
 
+        dataServiceCallMediatorEClass = createEClass(DATA_SERVICE_CALL_MEDIATOR);
+        createEReference(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__INPUT_CONNECTOR);
+        createEReference(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__OUTPUT_CONNECTOR);
+
+        dataServiceCallMediatorInputConnectorEClass = createEClass(DATA_SERVICE_CALL_MEDIATOR_INPUT_CONNECTOR);
+
+        dataServiceCallMediatorOutputConnectorEClass = createEClass(DATA_SERVICE_CALL_MEDIATOR_OUTPUT_CONNECTOR);
+
         publishEventMediatorEClass = createEClass(PUBLISH_EVENT_MEDIATOR);
         createEReference(publishEventMediatorEClass, PUBLISH_EVENT_MEDIATOR__INPUT_CONNECTOR);
         createEReference(publishEventMediatorEClass, PUBLISH_EVENT_MEDIATOR__OUTPUTCONNECTOR);
@@ -21746,6 +21823,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         logMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
         logMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
         logPropertyEClass.getESuperTypes().add(this.getAbstractNameValueExpressionProperty());
+        dataServiceCallMediatorEClass.getESuperTypes().add(this.getMediator());
+        dataServiceCallMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+        dataServiceCallMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
         publishEventMediatorEClass.getESuperTypes().add(this.getMediator());
         publishEventMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
         publishEventMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -22317,6 +22397,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         initEClass(logMediatorOutputConnectorEClass, LogMediatorOutputConnector.class, "LogMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(logPropertyEClass, LogProperty.class, "LogProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(dataServiceCallMediatorEClass, DataServiceCallMediator.class, "DataServiceCallMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getDataServiceCallMediator_InputConnector(), this.getDataServiceCallMediatorInputConnector(), null, "inputConnector", null, 0, 1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getDataServiceCallMediator_OutputConnector(), this.getDataServiceCallMediatorOutputConnector(), null, "outputConnector", null, 0, 1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(dataServiceCallMediatorInputConnectorEClass, DataServiceCallMediatorInputConnector.class, "DataServiceCallMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(dataServiceCallMediatorOutputConnectorEClass, DataServiceCallMediatorOutputConnector.class, "DataServiceCallMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(publishEventMediatorEClass, PublishEventMediator.class, "PublishEventMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getPublishEventMediator_InputConnector(), this.getPublishEventMediatorInputConnector(), null, "inputConnector", null, 0, 1, PublishEventMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

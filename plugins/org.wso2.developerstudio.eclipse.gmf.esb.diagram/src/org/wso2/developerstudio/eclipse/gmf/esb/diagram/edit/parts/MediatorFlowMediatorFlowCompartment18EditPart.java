@@ -177,6 +177,9 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
             if (type == EsbElementTypes.LogMediator_3495) {
                 return this;
             }
+            if (type == EsbElementTypes.DataServiceCallMediator_3791) {
+                return this;
+            }
             if (type == EsbElementTypes.EnrichMediator_3496) {
                 return this;
             }

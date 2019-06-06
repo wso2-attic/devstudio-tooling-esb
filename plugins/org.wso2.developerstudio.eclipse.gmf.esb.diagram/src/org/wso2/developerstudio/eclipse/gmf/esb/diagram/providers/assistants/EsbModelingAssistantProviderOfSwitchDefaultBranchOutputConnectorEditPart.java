@@ -31,6 +31,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRo
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataMapperMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataServiceCallMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointInputConnector2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorInputConnectorEditPart;
@@ -158,6 +159,9 @@ public class EsbModelingAssistantProviderOfSwitchDefaultBranchOutputConnectorEdi
             types.add(EsbElementTypes.EsbLink_4001);
         }
         if (targetEditPart instanceof LogMediatorInputConnectorEditPart) {
+            types.add(EsbElementTypes.EsbLink_4001);
+        }
+        if (targetEditPart instanceof DataServiceCallMediatorInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
         if (targetEditPart instanceof EnrichMediatorInputConnectorEditPart) {
@@ -415,6 +419,7 @@ public class EsbModelingAssistantProviderOfSwitchDefaultBranchOutputConnectorEdi
             types.add(EsbElementTypes.ThrottleMediatorInputConnector_3121);
             types.add(EsbElementTypes.FilterMediatorInputConnector_3010);
             types.add(EsbElementTypes.LogMediatorInputConnector_3018);
+            types.add(EsbElementTypes.DataServiceCallMediatorInputConnector_3792);
             types.add(EsbElementTypes.EnrichMediatorInputConnector_3036);
             types.add(EsbElementTypes.XSLTMediatorInputConnector_3039);
             types.add(EsbElementTypes.SwitchMediatorInputConnector_3042);

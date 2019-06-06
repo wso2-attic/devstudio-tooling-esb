@@ -607,6 +607,24 @@ public class EsbElementTypes {
     /**
      * @generated
      */
+    public static final IElementType DataServiceCallMediator_3791 = getElementType(
+            "org.wso2.developerstudio.eclipse.gmf.esb.diagram.DataServiceCallMediator_3791"); //$NON-NLS-1$
+
+    /**
+     * @generated
+     */
+    public static final IElementType DataServiceCallMediatorInputConnector_3792 = getElementType(
+            "org.wso2.developerstudio.eclipse.gmf.esb.diagram.DataServiceCallMediatorInputConnector_3792"); //$NON-NLS-1$
+
+    /**
+     * @generated
+     */
+    public static final IElementType DataServiceCallMediatorOutputConnector_3793 = getElementType(
+            "org.wso2.developerstudio.eclipse.gmf.esb.diagram.DataServiceCallMediatorOutputConnector_3793"); //$NON-NLS-1$
+
+    /**
+     * @generated
+     */
     public static final IElementType EnrichMediator_3496 = getElementType(
             "org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediator_3496"); //$NON-NLS-1$
 
@@ -623,20 +641,20 @@ public class EsbElementTypes {
             "org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorOutputConnector_3034"); //$NON-NLS-1$
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static final IElementType PropertyGroupMediator_3788 = getElementType(
             "org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyGroupMediator_3788"); //$NON-NLS-1$
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static final IElementType PropertyGroupMediatorInputConnector_3789 = getElementType(
             "org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyGroupMediatorInputConnector_3789"); //$NON-NLS-1$
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static final IElementType PropertyGroupMediatorOutputConnector_3790 = getElementType(
             "org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyGroupMediatorOutputConnector_3790"); //$NON-NLS-1$
 
@@ -2208,6 +2226,14 @@ public class EsbElementTypes {
 
             elements.put(LogMediatorOutputConnector_3019, EsbPackage.eINSTANCE.getLogMediatorOutputConnector());
 
+            elements.put(DataServiceCallMediator_3791, EsbPackage.eINSTANCE.getDataServiceCallMediator());
+
+            elements.put(DataServiceCallMediatorInputConnector_3792,
+                    EsbPackage.eINSTANCE.getDataServiceCallMediatorInputConnector());
+
+            elements.put(DataServiceCallMediatorOutputConnector_3793,
+                    EsbPackage.eINSTANCE.getDataServiceCallMediatorOutputConnector());
+
             elements.put(EnrichMediator_3496, EsbPackage.eINSTANCE.getEnrichMediator());
 
             elements.put(EnrichMediatorInputConnector_3036, EsbPackage.eINSTANCE.getEnrichMediatorInputConnector());
@@ -2943,6 +2969,9 @@ public class EsbElementTypes {
             KNOWN_ELEMENT_TYPES.add(LogMediator_3495);
             KNOWN_ELEMENT_TYPES.add(LogMediatorInputConnector_3018);
             KNOWN_ELEMENT_TYPES.add(LogMediatorOutputConnector_3019);
+            KNOWN_ELEMENT_TYPES.add(DataServiceCallMediator_3791);
+            KNOWN_ELEMENT_TYPES.add(DataServiceCallMediatorInputConnector_3792);
+            KNOWN_ELEMENT_TYPES.add(DataServiceCallMediatorOutputConnector_3793);
             KNOWN_ELEMENT_TYPES.add(EnrichMediator_3496);
             KNOWN_ELEMENT_TYPES.add(EnrichMediatorInputConnector_3036);
             KNOWN_ELEMENT_TYPES.add(EnrichMediatorOutputConnector_3037);
@@ -3329,6 +3358,12 @@ public class EsbElementTypes {
             return LogMediatorInputConnector_3018;
         case LogMediatorOutputConnectorEditPart.VISUAL_ID:
             return LogMediatorOutputConnector_3019;
+        case DataServiceCallMediatorEditPart.VISUAL_ID:
+            return DataServiceCallMediator_3791;
+        case DataServiceCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return DataServiceCallMediatorInputConnector_3792;
+        case DataServiceCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return DataServiceCallMediatorOutputConnector_3793;
         case EnrichMediatorEditPart.VISUAL_ID:
             return EnrichMediator_3496;
         case EnrichMediatorInputConnectorEditPart.VISUAL_ID:
@@ -3948,6 +3983,7 @@ public class EsbElementTypes {
          * @generated
          */
         @Override
+
         public boolean isKnownElementType(IElementType elementType) {
             return org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes
                     .isKnownElementType(elementType);
@@ -3957,6 +3993,7 @@ public class EsbElementTypes {
          * @generated
          */
         @Override
+
         public IElementType getElementTypeForVisualId(int visualID) {
             return org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes.getElementType(visualID);
         }
@@ -3965,6 +4002,7 @@ public class EsbElementTypes {
          * @generated
          */
         @Override
+
         public ENamedElement getDefiningNamedElement(IAdaptable elementTypeAdapter) {
             return org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes
                     .getElement(elementTypeAdapter);

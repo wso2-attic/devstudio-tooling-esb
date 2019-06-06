@@ -22,6 +22,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.Conditiona
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBLookupMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBReportMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DataMapperMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DataServiceCallMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DefaultEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DropMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EJBMediatorCreateCommand;
@@ -101,6 +102,9 @@ public class MediatorFlowMediatorFlowCompartment7ItemSemanticEditPolicy extends 
         }
         if (EsbElementTypes.LogMediator_3495 == req.getElementType()) {
             return getGEFWrapper(new LogMediatorCreateCommand(req));
+        }
+        if (EsbElementTypes.DataServiceCallMediator_3791 == req.getElementType()) {
+            return getGEFWrapper(new DataServiceCallMediatorCreateCommand(req));
         }
         if (EsbElementTypes.EnrichMediator_3496 == req.getElementType()) {
             return getGEFWrapper(new EnrichMediatorCreateCommand(req));

@@ -56,6 +56,8 @@ public class EsbDiagramUpdater {
             return getFilterPassContainer_3535SemanticChildren(view);
         case LogMediatorEditPart.VISUAL_ID:
             return getLogMediator_3495SemanticChildren(view);
+        case DataServiceCallMediatorEditPart.VISUAL_ID:
+            return getDataServiceCallMediator_3791SemanticChildren(view);
         case EnrichMediatorEditPart.VISUAL_ID:
             return getEnrichMediator_3496SemanticChildren(view);
         case XSLTMediatorEditPart.VISUAL_ID:
@@ -492,8 +494,8 @@ public class EsbDiagramUpdater {
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbNodeDescriptor> getPropertyGroupMediator_3788SemanticChildren(View view) {
         if (!view.isSetElement()) {
             return Collections.emptyList();
@@ -721,6 +723,32 @@ public class EsbDiagramUpdater {
             LogMediatorOutputConnector childElement = modelElement.getOutputConnector();
             int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == LogMediatorOutputConnectorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+            }
+        }
+        return result;
+    }
+
+    /**
+     * @generated
+     */
+    public static List<EsbNodeDescriptor> getDataServiceCallMediator_3791SemanticChildren(View view) {
+        if (!view.isSetElement()) {
+            return Collections.emptyList();
+        }
+        DataServiceCallMediator modelElement = (DataServiceCallMediator) view.getElement();
+        LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+        {
+            DataServiceCallMediatorInputConnector childElement = modelElement.getInputConnector();
+            int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+            if (visualID == DataServiceCallMediatorInputConnectorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+            }
+        }
+        {
+            DataServiceCallMediatorOutputConnector childElement = modelElement.getOutputConnector();
+            int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+            if (visualID == DataServiceCallMediatorOutputConnectorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
             }
         }
@@ -3531,6 +3559,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -3804,6 +3836,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -4083,6 +4119,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -4356,6 +4396,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -4635,6 +4679,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -4908,6 +4956,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -5187,6 +5239,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -5460,6 +5516,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -5739,6 +5799,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -6012,6 +6076,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -6291,6 +6359,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -6564,6 +6636,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -6843,6 +6919,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -7116,6 +7196,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -7395,6 +7479,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -7668,6 +7756,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -7947,6 +8039,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -8220,6 +8316,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -8499,6 +8599,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -8772,6 +8876,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -9051,6 +9159,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -9324,6 +9436,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -9603,6 +9719,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -9876,6 +9996,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -10199,6 +10323,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -10475,6 +10603,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -10748,6 +10880,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -11121,6 +11257,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -11397,6 +11537,10 @@ public class EsbDiagramUpdater {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
             if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
@@ -11670,6 +11814,10 @@ public class EsbDiagramUpdater {
                 continue;
             }
             if (visualID == LogMediatorEditPart.VISUAL_ID) {
+                result.add(new EsbNodeDescriptor(childElement, visualID));
+                continue;
+            }
+            if (visualID == DataServiceCallMediatorEditPart.VISUAL_ID) {
                 result.add(new EsbNodeDescriptor(childElement, visualID));
                 continue;
             }
@@ -12007,6 +12155,12 @@ public class EsbDiagramUpdater {
             return getLogMediatorInputConnector_3018ContainedLinks(view);
         case LogMediatorOutputConnectorEditPart.VISUAL_ID:
             return getLogMediatorOutputConnector_3019ContainedLinks(view);
+        case DataServiceCallMediatorEditPart.VISUAL_ID:
+            return getDataServiceCallMediator_3791ContainedLinks(view);
+        case DataServiceCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return getDataServiceCallMediatorInputConnector_3792ContainedLinks(view);
+        case DataServiceCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return getDataServiceCallMediatorOutputConnector_3793ContainedLinks(view);
         case EnrichMediatorEditPart.VISUAL_ID:
             return getEnrichMediator_3496ContainedLinks(view);
         case EnrichMediatorInputConnectorEditPart.VISUAL_ID:
@@ -12694,6 +12848,12 @@ public class EsbDiagramUpdater {
             return getLogMediatorInputConnector_3018IncomingLinks(view);
         case LogMediatorOutputConnectorEditPart.VISUAL_ID:
             return getLogMediatorOutputConnector_3019IncomingLinks(view);
+        case DataServiceCallMediatorEditPart.VISUAL_ID:
+            return getDataServiceCallMediator_3791IncomingLinks(view);
+        case DataServiceCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return getDataServiceCallMediatorInputConnector_3792IncomingLinks(view);
+        case DataServiceCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return getDataServiceCallMediatorOutputConnector_3793IncomingLinks(view);
         case EnrichMediatorEditPart.VISUAL_ID:
             return getEnrichMediator_3496IncomingLinks(view);
         case EnrichMediatorInputConnectorEditPart.VISUAL_ID:
@@ -13381,6 +13541,12 @@ public class EsbDiagramUpdater {
             return getLogMediatorInputConnector_3018OutgoingLinks(view);
         case LogMediatorOutputConnectorEditPart.VISUAL_ID:
             return getLogMediatorOutputConnector_3019OutgoingLinks(view);
+        case DataServiceCallMediatorEditPart.VISUAL_ID:
+            return getDataServiceCallMediator_3791OutgoingLinks(view);
+        case DataServiceCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return getDataServiceCallMediatorInputConnector_3792OutgoingLinks(view);
+        case DataServiceCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return getDataServiceCallMediatorOutputConnector_3793OutgoingLinks(view);
         case EnrichMediatorEditPart.VISUAL_ID:
             return getEnrichMediator_3496OutgoingLinks(view);
         case EnrichMediatorInputConnectorEditPart.VISUAL_ID:
@@ -14723,6 +14889,31 @@ public class EsbDiagramUpdater {
     /**
      * @generated
      */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediator_3791ContainedLinks(View view) {
+        return Collections.emptyList();
+    }
+
+    /**
+     * @generated
+     */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediatorInputConnector_3792ContainedLinks(View view) {
+        return Collections.emptyList();
+    }
+
+    /**
+     * @generated
+     */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediatorOutputConnector_3793ContainedLinks(View view) {
+        DataServiceCallMediatorOutputConnector modelElement = (DataServiceCallMediatorOutputConnector) view
+                .getElement();
+        LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+        result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+        return result;
+    }
+
+    /**
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getEnrichMediator_3496ContainedLinks(View view) {
         return Collections.emptyList();
     }
@@ -14745,22 +14936,22 @@ public class EsbDiagramUpdater {
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediator_3788ContainedLinks(View view) {
         return Collections.emptyList();
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediatorInputConnector_3789ContainedLinks(View view) {
         return Collections.emptyList();
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediatorOutputConnector_3790ContainedLinks(View view) {
         PropertyGroupMediatorOutputConnector modelElement = (PropertyGroupMediatorOutputConnector) view.getElement();
         LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
@@ -17480,6 +17671,32 @@ public class EsbDiagramUpdater {
     /**
      * @generated
      */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediator_3791IncomingLinks(View view) {
+        return Collections.emptyList();
+    }
+
+    /**
+     * @generated
+     */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediatorInputConnector_3792IncomingLinks(View view) {
+        DataServiceCallMediatorInputConnector modelElement = (DataServiceCallMediatorInputConnector) view.getElement();
+        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+        result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement, crossReferences));
+        return result;
+    }
+
+    /**
+     * @generated
+     */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediatorOutputConnector_3793IncomingLinks(View view) {
+        return Collections.emptyList();
+    }
+
+    /**
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getEnrichMediator_3496IncomingLinks(View view) {
         return Collections.emptyList();
     }
@@ -17504,15 +17721,15 @@ public class EsbDiagramUpdater {
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediator_3788IncomingLinks(View view) {
         return Collections.emptyList();
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediatorInputConnector_3789IncomingLinks(View view) {
         PropertyGroupMediatorInputConnector modelElement = (PropertyGroupMediatorInputConnector) view.getElement();
         Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
@@ -17523,8 +17740,8 @@ public class EsbDiagramUpdater {
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediatorOutputConnector_3790IncomingLinks(View view) {
         return Collections.emptyList();
     }
@@ -20238,6 +20455,31 @@ public class EsbDiagramUpdater {
     /**
      * @generated
      */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediator_3791OutgoingLinks(View view) {
+        return Collections.emptyList();
+    }
+
+    /**
+     * @generated
+     */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediatorInputConnector_3792OutgoingLinks(View view) {
+        return Collections.emptyList();
+    }
+
+    /**
+     * @generated
+     */
+    public static List<EsbLinkDescriptor> getDataServiceCallMediatorOutputConnector_3793OutgoingLinks(View view) {
+        DataServiceCallMediatorOutputConnector modelElement = (DataServiceCallMediatorOutputConnector) view
+                .getElement();
+        LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+        result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+        return result;
+    }
+
+    /**
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getEnrichMediator_3496OutgoingLinks(View view) {
         return Collections.emptyList();
     }
@@ -20260,22 +20502,22 @@ public class EsbDiagramUpdater {
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediator_3788OutgoingLinks(View view) {
         return Collections.emptyList();
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediatorInputConnector_3789OutgoingLinks(View view) {
         return Collections.emptyList();
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     public static List<EsbLinkDescriptor> getPropertyGroupMediatorOutputConnector_3790OutgoingLinks(View view) {
         PropertyGroupMediatorOutputConnector modelElement = (PropertyGroupMediatorOutputConnector) view.getElement();
         LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();

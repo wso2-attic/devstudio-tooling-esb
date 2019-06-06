@@ -530,6 +530,33 @@ public interface EsbFactory extends EFactory {
     LogProperty createLogProperty();
 
     /**
+     * Returns a new object of class '<em>Data Service Call Mediator</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Service Call Mediator</em>'.
+     * @generated
+     */
+    DataServiceCallMediator createDataServiceCallMediator();
+
+    /**
+     * Returns a new object of class '<em>Data Service Call Mediator Input Connector</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Service Call Mediator Input Connector</em>'.
+     * @generated
+     */
+    DataServiceCallMediatorInputConnector createDataServiceCallMediatorInputConnector();
+
+    /**
+     * Returns a new object of class '<em>Data Service Call Mediator Output Connector</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Service Call Mediator Output Connector</em>'.
+     * @generated
+     */
+    DataServiceCallMediatorOutputConnector createDataServiceCallMediatorOutputConnector();
+
+    /**
      * Returns a new object of class '<em>Publish Event Mediator</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

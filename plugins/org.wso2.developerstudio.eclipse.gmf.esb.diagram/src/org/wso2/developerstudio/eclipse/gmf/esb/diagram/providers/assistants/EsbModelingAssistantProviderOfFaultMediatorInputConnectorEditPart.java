@@ -60,6 +60,7 @@ public class EsbModelingAssistantProviderOfFaultMediatorInputConnectorEditPart e
             types.add(EsbElementTypes.FilterMediatorPassOutputConnector_3011);
             types.add(EsbElementTypes.FilterMediatorFailOutputConnector_3012);
             types.add(EsbElementTypes.LogMediatorOutputConnector_3019);
+            types.add(EsbElementTypes.DataServiceCallMediatorOutputConnector_3793);
             types.add(EsbElementTypes.EnrichMediatorOutputConnector_3037);
             types.add(EsbElementTypes.XSLTMediatorOutputConnector_3040);
             types.add(EsbElementTypes.SwitchMediatorOutputConnector_3499);
