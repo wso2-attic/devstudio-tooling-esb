@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,8 +26,17 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getInputConnector <em>Input Connector</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getOutputConnector <em>Output Connector</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getInputConnector <em>Input
+ * Connector</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getOutputConnector <em>Output
+ * Connector</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getDSName <em>DS Name</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getOperationType <em>Operation
+ * Type</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getOperations <em>Operations</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getTargetType <em>Target Type</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getPropertyName <em>Property
+ * Name</em>}</li>
  * </ul>
  *
  * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator()
@@ -43,6 +53,7 @@ public interface DataServiceCallMediator extends Mediator {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Input Connector</em>' containment reference.
      * @see #setInputConnector(DataServiceCallMediatorInputConnector)
      * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator_InputConnector()
@@ -52,9 +63,11 @@ public interface DataServiceCallMediator extends Mediator {
     DataServiceCallMediatorInputConnector getInputConnector();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getInputConnector <em>Input Connector</em>}' containment reference.
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getInputConnector
+     * <em>Input Connector</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @param value the new value of the '<em>Input Connector</em>' containment reference.
      * @see #getInputConnector()
      * @generated
@@ -69,6 +82,7 @@ public interface DataServiceCallMediator extends Mediator {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Output Connector</em>' containment reference.
      * @see #setOutputConnector(DataServiceCallMediatorOutputConnector)
      * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator_OutputConnector()
@@ -78,12 +92,153 @@ public interface DataServiceCallMediator extends Mediator {
     DataServiceCallMediatorOutputConnector getOutputConnector();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getOutputConnector <em>Output Connector</em>}' containment reference.
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getOutputConnector
+     * <em>Output Connector</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @param value the new value of the '<em>Output Connector</em>' containment reference.
      * @see #getOutputConnector()
      * @generated
      */
     void setOutputConnector(DataServiceCallMediatorOutputConnector value);
+
+    /**
+     * Returns the value of the '<em><b>DS Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>DS Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>DS Name</em>' attribute.
+     * @see #setDSName(String)
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator_DSName()
+     * @model
+     * @generated
+     */
+    String getDSName();
+
+    /**
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getDSName <em>DS
+     * Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @param value the new value of the '<em>DS Name</em>' attribute.
+     * @see #getDSName()
+     * @generated
+     */
+    void setDSName(String value);
+
+    /**
+     * Returns the value of the '<em><b>Operation Type</b></em>' attribute.
+     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.OperationType}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Operation Type</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>Operation Type</em>' attribute.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.OperationType
+     * @see #setOperationType(OperationType)
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator_OperationType()
+     * @model
+     * @generated
+     */
+    OperationType getOperationType();
+
+    /**
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getOperationType
+     * <em>Operation Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @param value the new value of the '<em>Operation Type</em>' attribute.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.OperationType
+     * @see #getOperationType()
+     * @generated
+     */
+    void setOperationType(OperationType value);
+
+    /**
+     * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
+     * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.Operation}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Operations</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>Operations</em>' containment reference list.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator_Operations()
+     * @model containment="true"
+     * @generated
+     */
+    EList<Operation> getOperations();
+
+    /**
+     * Returns the value of the '<em><b>Target Type</b></em>' attribute.
+     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.TargetType}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Target Type</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>Target Type</em>' attribute.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.TargetType
+     * @see #setTargetType(TargetType)
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator_TargetType()
+     * @model
+     * @generated
+     */
+    TargetType getTargetType();
+
+    /**
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getTargetType
+     * <em>Target Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @param value the new value of the '<em>Target Type</em>' attribute.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.TargetType
+     * @see #getTargetType()
+     * @generated
+     */
+    void setTargetType(TargetType value);
+
+    /**
+     * Returns the value of the '<em><b>Property Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Property Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * 
+     * @return the value of the '<em>Property Name</em>' attribute.
+     * @see #setPropertyName(String)
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator_PropertyName()
+     * @model
+     * @generated
+     */
+    String getPropertyName();
+
+    /**
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getPropertyName
+     * <em>Property Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @param value the new value of the '<em>Property Name</em>' attribute.
+     * @see #getPropertyName()
+     * @generated
+     */
+    void setPropertyName(String value);
 } // DataServiceCallMediator

@@ -87,6 +87,15 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LogLevel/FULL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LogLevel/CUSTOM"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//OperationType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//OperationType/SINGLE_REQUEST"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//OperationType/BATCH_REQUEST"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//OperationType/REQUEST_BOX"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//TargetType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TargetType/ENVELOPE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TargetType/PROPERTY"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//AttributeValueType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//AttributeValueType/VALUE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//AttributeValueType/EXPRESSION"/>
@@ -1073,9 +1082,19 @@
     <genClasses ecoreClass="esb.ecore#//DataServiceCallMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServiceCallMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServiceCallMediator/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/DSName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/operationType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServiceCallMediator/Operations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/targetType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/PropertyName"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//DataServiceCallMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//DataServiceCallMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//Param"/>
+    <genClasses ecoreClass="esb.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Operation/OperationName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Operation/params"/>
+    </genClasses>
     <genClasses ecoreClass="esb.ecore#//PublishEventMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PublishEventMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PublishEventMediator/outputconnector"/>
@@ -1311,6 +1330,10 @@
     <genClasses image="false" ecoreClass="esb.ecore#//AbstractNameValueProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractNameValueProperty/propertyName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractNameValueProperty/propertyValue"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//AbstractNameValueParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractNameValueParam/paramName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractNameValueParam/paramValue"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//EntitlementMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/entitlementServerURL"/>

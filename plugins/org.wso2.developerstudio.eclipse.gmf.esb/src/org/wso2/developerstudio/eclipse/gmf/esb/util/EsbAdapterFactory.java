@@ -345,6 +345,14 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
                 return createDataServiceCallMediatorOutputConnectorAdapter();
             }
             @Override
+            public Adapter caseParam(Param object) {
+                return createParamAdapter();
+            }
+            @Override
+            public Adapter caseOperation(Operation object) {
+                return createOperationAdapter();
+            }
+            @Override
             public Adapter casePublishEventMediator(PublishEventMediator object) {
                 return createPublishEventMediatorAdapter();
             }
@@ -575,6 +583,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter caseAbstractNameValueProperty(AbstractNameValueProperty object) {
                 return createAbstractNameValuePropertyAdapter();
+            }
+            @Override
+            public Adapter caseAbstractNameValueParam(AbstractNameValueParam object) {
+                return createAbstractNameValueParamAdapter();
             }
             @Override
             public Adapter caseEntitlementMediator(EntitlementMediator object) {
@@ -2519,6 +2531,34 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
     public Adapter createDataServiceCallMediatorOutputConnectorAdapter() {
         return null;
     }
+    
+    /**
+     * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.Param <em>Param</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.Param
+     * @generated
+     */
+    public Adapter createParamAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.Operation <em>Operation</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.Operation
+     * @generated
+     */
+    public Adapter createOperationAdapter() {
+        return null;
+    }
 
     /**
      * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.PublishEventMediator <em>Publish Event Mediator</em>}'.
@@ -3329,6 +3369,21 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createAbstractNameValuePropertyAdapter() {
+        return null;
+    }
+    
+    /**
+     * Creates a new adapter for an object of class
+     * '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam <em>Abstract Name Value Param</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam
+     * @generated
+     */
+    public Adapter createAbstractNameValueParamAdapter() {
         return null;
     }
 

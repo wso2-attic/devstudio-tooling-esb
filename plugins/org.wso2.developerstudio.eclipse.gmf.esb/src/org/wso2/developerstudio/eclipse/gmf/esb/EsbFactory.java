@@ -555,6 +555,26 @@ public interface EsbFactory extends EFactory {
      * @generated
      */
     DataServiceCallMediatorOutputConnector createDataServiceCallMediatorOutputConnector();
+    
+    /**
+     * Returns a new object of class '<em>Param</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return a new object of class '<em>Param</em>'.
+     * @generated
+     */
+    Param createParam();
+
+    /**
+     * Returns a new object of class '<em>Operation</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return a new object of class '<em>Operation</em>'.
+     * @generated
+     */
+    Operation createOperation();
 
     /**
      * Returns a new object of class '<em>Publish Event Mediator</em>'.
@@ -1055,6 +1075,16 @@ public interface EsbFactory extends EFactory {
      * @generated
      */
     EventMediatorOutputConnector createEventMediatorOutputConnector();
+    
+    /**
+     * Returns a new object of class '<em>Abstract Name Value Param</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return a new object of class '<em>Abstract Name Value Param</em>'.
+     * @generated
+     */
+    AbstractNameValueParam createAbstractNameValueParam();
 
     /**
      * Returns a new object of class '<em>Entitlement Mediator</em>'.

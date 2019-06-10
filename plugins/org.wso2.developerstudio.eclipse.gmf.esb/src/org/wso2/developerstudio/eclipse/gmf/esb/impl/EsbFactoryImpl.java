@@ -123,6 +123,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR: return createDataServiceCallMediator();
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR_INPUT_CONNECTOR: return createDataServiceCallMediatorInputConnector();
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR_OUTPUT_CONNECTOR: return createDataServiceCallMediatorOutputConnector();
+            case EsbPackage.PARAM: return createParam();
+            case EsbPackage.OPERATION: return createOperation();
             case EsbPackage.PUBLISH_EVENT_MEDIATOR: return createPublishEventMediator();
             case EsbPackage.PUBLISH_EVENT_MEDIATOR_INPUT_CONNECTOR: return createPublishEventMediatorInputConnector();
             case EsbPackage.PUBLISH_EVENT_MEDIATOR_OUTPUT_CONNECTOR: return createPublishEventMediatorOutputConnector();
@@ -176,6 +178,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
             case EsbPackage.EVENT_MEDIATOR: return createEventMediator();
             case EsbPackage.EVENT_MEDIATOR_INPUT_CONNECTOR: return createEventMediatorInputConnector();
             case EsbPackage.EVENT_MEDIATOR_OUTPUT_CONNECTOR: return createEventMediatorOutputConnector();
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM: return createAbstractNameValueParam();
             case EsbPackage.ENTITLEMENT_MEDIATOR: return createEntitlementMediator();
             case EsbPackage.ENTITLEMENT_MEDIATOR_INPUT_CONNECTOR: return createEntitlementMediatorInputConnector();
             case EsbPackage.ENTITLEMENT_MEDIATOR_OUTPUT_CONNECTOR: return createEntitlementMediatorOutputConnector();
@@ -450,6 +453,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
                 return createLogCategoryFromString(eDataType, initialValue);
             case EsbPackage.LOG_LEVEL:
                 return createLogLevelFromString(eDataType, initialValue);
+            case EsbPackage.OPERATION_TYPE:
+                return createOperationTypeFromString(eDataType, initialValue);
+            case EsbPackage.TARGET_TYPE:
+                return createTargetTypeFromString(eDataType, initialValue);
             case EsbPackage.ATTRIBUTE_VALUE_TYPE:
                 return createAttributeValueTypeFromString(eDataType, initialValue);
             case EsbPackage.ATTRIBUTE_TYPE:
@@ -734,6 +741,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
                 return convertLogCategoryToString(eDataType, instanceValue);
             case EsbPackage.LOG_LEVEL:
                 return convertLogLevelToString(eDataType, instanceValue);
+            case EsbPackage.OPERATION_TYPE:
+                return convertOperationTypeToString(eDataType, instanceValue);
+            case EsbPackage.TARGET_TYPE:
+                return convertTargetTypeToString(eDataType, instanceValue);
             case EsbPackage.ATTRIBUTE_VALUE_TYPE:
                 return convertAttributeValueTypeToString(eDataType, instanceValue);
             case EsbPackage.ATTRIBUTE_TYPE:
@@ -1540,6 +1551,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
         DataServiceCallMediatorOutputConnectorImpl dataServiceCallMediatorOutputConnector = new DataServiceCallMediatorOutputConnectorImpl();
         return dataServiceCallMediatorOutputConnector;
     }
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Param createParam() {
+        ParamImpl param = new ParamImpl();
+        return param;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Operation createOperation() {
+        OperationImpl operation = new OperationImpl();
+        return operation;
+    }
 
     /**
      * <!-- begin-user-doc -->
@@ -2255,6 +2286,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
     public EventMediatorOutputConnector createEventMediatorOutputConnector() {
         EventMediatorOutputConnectorImpl eventMediatorOutputConnector = new EventMediatorOutputConnectorImpl();
         return eventMediatorOutputConnector;
+    }
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AbstractNameValueParam createAbstractNameValueParam() {
+        AbstractNameValueParamImpl abstractNameValueParam = new AbstractNameValueParamImpl();
+        return abstractNameValueParam;
     }
 
     /**
@@ -5098,6 +5139,51 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
     public String convertLogLevelToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public OperationType createOperationTypeFromString(EDataType eDataType, String initialValue) {
+        OperationType result = OperationType.get(initialValue);
+        if (result == null)
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertOperationTypeToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TargetType createTargetTypeFromString(EDataType eDataType, String initialValue) {
+        TargetType result = TargetType.get(initialValue);
+        if (result == null)
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertTargetTypeToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
 
     /**
      * <!-- begin-user-doc -->

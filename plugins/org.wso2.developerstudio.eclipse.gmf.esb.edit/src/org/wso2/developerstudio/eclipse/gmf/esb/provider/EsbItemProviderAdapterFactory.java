@@ -1226,6 +1226,57 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
 
         return dataServiceCallMediatorOutputConnectorItemProvider;
     }
+    
+    /**
+    * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Param} instances.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * 
+    * @generated
+    */
+   protected ParamItemProvider paramItemProvider;
+
+   /**
+    * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Param}.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * 
+    * @generated
+    */
+   @Override
+   public Adapter createParamAdapter() {
+       if (paramItemProvider == null) {
+           paramItemProvider = new ParamItemProvider(this);
+       }
+
+       return paramItemProvider;
+   }
+
+   /**
+    * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Operation} instances.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * 
+    * @generated
+    */
+   protected OperationItemProvider operationItemProvider;
+
+   /**
+    * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Operation}.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * 
+    * @generated
+    */
+   @Override
+   public Adapter createOperationAdapter() {
+       if (operationItemProvider == null) {
+           operationItemProvider = new OperationItemProvider(this);
+       }
+
+       return operationItemProvider;
+   }
+
 
     /**
      * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.PublishEventMediator} instances.
@@ -2708,6 +2759,32 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
 
         return eventMediatorOutputConnectorItemProvider;
     }
+    
+    /**
+    * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam} instances.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * 
+    * @generated
+    */
+    protected AbstractNameValueParamItemProvider abstractNameValueParamItemProvider;
+    
+    /**
+    * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam}.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * 
+    * @generated
+    */
+    @Override
+    public Adapter createAbstractNameValueParamAdapter() {
+        if (abstractNameValueParamItemProvider == null) {
+            abstractNameValueParamItemProvider = new AbstractNameValueParamItemProvider(this);
+        }
+         
+        return abstractNameValueParamItemProvider;
+    }
+
 
     /**
      * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator} instances.
@@ -8510,6 +8587,8 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
         if (dataServiceCallMediatorItemProvider != null) dataServiceCallMediatorItemProvider.dispose();
         if (dataServiceCallMediatorInputConnectorItemProvider != null) dataServiceCallMediatorInputConnectorItemProvider.dispose();
         if (dataServiceCallMediatorOutputConnectorItemProvider != null) dataServiceCallMediatorOutputConnectorItemProvider.dispose();
+        if (paramItemProvider != null) paramItemProvider.dispose();
+        if (operationItemProvider != null) operationItemProvider.dispose();
         if (publishEventMediatorItemProvider != null) publishEventMediatorItemProvider.dispose();
         if (publishEventMediatorInputConnectorItemProvider != null) publishEventMediatorInputConnectorItemProvider.dispose();
         if (publishEventMediatorOutputConnectorItemProvider != null) publishEventMediatorOutputConnectorItemProvider.dispose();
@@ -8563,6 +8642,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
         if (eventMediatorItemProvider != null) eventMediatorItemProvider.dispose();
         if (eventMediatorInputConnectorItemProvider != null) eventMediatorInputConnectorItemProvider.dispose();
         if (eventMediatorOutputConnectorItemProvider != null) eventMediatorOutputConnectorItemProvider.dispose();
+        if (abstractNameValueParamItemProvider != null) abstractNameValueParamItemProvider.dispose();
         if (entitlementMediatorItemProvider != null) entitlementMediatorItemProvider.dispose();
         if (entitlementMediatorInputConnectorItemProvider != null) entitlementMediatorInputConnectorItemProvider.dispose();
         if (entitlementMediatorOutputConnectorItemProvider != null) entitlementMediatorOutputConnectorItemProvider.dispose();

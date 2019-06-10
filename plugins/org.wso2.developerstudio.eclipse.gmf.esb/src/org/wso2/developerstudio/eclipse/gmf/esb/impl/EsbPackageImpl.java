@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AbstractLocationKeyResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueExpressionAttribute;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueExpressionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractSqlExecutorMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
@@ -327,8 +328,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OffsetsStorageType;
+import org.wso2.developerstudio.eclipse.gmf.esb.Operation;
+import org.wso2.developerstudio.eclipse.gmf.esb.OperationType;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod;
+import org.wso2.developerstudio.eclipse.gmf.esb.Param;
 import org.wso2.developerstudio.eclipse.gmf.esb.ParentEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.PartitionAssignmentStrategyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
@@ -474,6 +478,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.TargetType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointInputConnector;
@@ -1029,6 +1034,21 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
      * @generated
      */
     private EClass dataServiceCallMediatorOutputConnectorEClass = null;
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass paramEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass operationEClass = null;
+
 
     /**
      * <!-- begin-user-doc -->
@@ -1435,6 +1455,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
      * @generated
      */
     private EClass abstractNameValuePropertyEClass = null;
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractNameValueParamEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -3199,6 +3226,21 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
      * @generated
      */
     private EEnum logLevelEEnum = null;
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum operationTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum targetTypeEEnum = null;
+
 
     /**
      * <!-- begin-user-doc -->
@@ -6122,6 +6164,52 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
     public EReference getDataServiceCallMediator_OutputConnector() {
         return (EReference)dataServiceCallMediatorEClass.getEStructuralFeatures().get(1);
     }
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public EAttribute getDataServiceCallMediator_DSName() {
+        return (EAttribute) dataServiceCallMediatorEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDataServiceCallMediator_OperationType() {
+        return (EAttribute) dataServiceCallMediatorEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDataServiceCallMediator_Operations() {
+        return (EReference) dataServiceCallMediatorEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDataServiceCallMediator_TargetType() {
+        return (EAttribute) dataServiceCallMediatorEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDataServiceCallMediator_PropertyName() {
+        return (EAttribute) dataServiceCallMediatorEClass.getEStructuralFeatures().get(6);
+    }
 
     /**
      * <!-- begin-user-doc -->
@@ -6139,6 +6227,42 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
      */
     public EClass getDataServiceCallMediatorOutputConnector() {
         return dataServiceCallMediatorOutputConnectorEClass;
+    }
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getParam() {
+        return paramEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getOperation() {
+        return operationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getOperation_OperationName() {
+        return (EAttribute) operationEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getOperation_Params() {
+        return (EReference) operationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -8002,6 +8126,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
      */
     public EAttribute getAbstractNameValueProperty_PropertyValue() {
         return (EAttribute)abstractNameValuePropertyEClass.getEStructuralFeatures().get(1);
+    }
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAbstractNameValueParam() {
+        return abstractNameValueParamEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractNameValueParam_ParamName() {
+        return (EAttribute) abstractNameValueParamEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractNameValueParam_ParamValue() {
+        return (EAttribute) abstractNameValueParamEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -18479,6 +18630,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
     public EEnum getLogLevel() {
         return logLevelEEnum;
     }
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getOperationType() {
+        return operationTypeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getTargetType() {
+        return targetTypeEEnum;
+    }
 
     /**
      * <!-- begin-user-doc -->
@@ -19927,10 +20096,21 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         dataServiceCallMediatorEClass = createEClass(DATA_SERVICE_CALL_MEDIATOR);
         createEReference(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__INPUT_CONNECTOR);
         createEReference(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__OUTPUT_CONNECTOR);
+        createEAttribute(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__DS_NAME);
+        createEAttribute(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__OPERATION_TYPE);
+        createEReference(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__OPERATIONS);
+        createEAttribute(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__TARGET_TYPE);
+        createEAttribute(dataServiceCallMediatorEClass, DATA_SERVICE_CALL_MEDIATOR__PROPERTY_NAME);
 
         dataServiceCallMediatorInputConnectorEClass = createEClass(DATA_SERVICE_CALL_MEDIATOR_INPUT_CONNECTOR);
 
         dataServiceCallMediatorOutputConnectorEClass = createEClass(DATA_SERVICE_CALL_MEDIATOR_OUTPUT_CONNECTOR);
+        
+        paramEClass = createEClass(PARAM);
+
+        operationEClass = createEClass(OPERATION);
+        createEAttribute(operationEClass, OPERATION__OPERATION_NAME);
+        createEReference(operationEClass, OPERATION__PARAMS);
 
         publishEventMediatorEClass = createEClass(PUBLISH_EVENT_MEDIATOR);
         createEReference(publishEventMediatorEClass, PUBLISH_EVENT_MEDIATOR__INPUT_CONNECTOR);
@@ -20196,6 +20376,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         abstractNameValuePropertyEClass = createEClass(ABSTRACT_NAME_VALUE_PROPERTY);
         createEAttribute(abstractNameValuePropertyEClass, ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME);
         createEAttribute(abstractNameValuePropertyEClass, ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE);
+        
+        abstractNameValueParamEClass = createEClass(ABSTRACT_NAME_VALUE_PARAM);
+        createEAttribute(abstractNameValueParamEClass, ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME);
+        createEAttribute(abstractNameValueParamEClass, ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE);
 
         entitlementMediatorEClass = createEClass(ENTITLEMENT_MEDIATOR);
         createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ENTITLEMENT_SERVER_URL);
@@ -21605,6 +21789,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         filterMediatorConditionTypeEEnum = createEEnum(FILTER_MEDIATOR_CONDITION_TYPE);
         logCategoryEEnum = createEEnum(LOG_CATEGORY);
         logLevelEEnum = createEEnum(LOG_LEVEL);
+        operationTypeEEnum = createEEnum(OPERATION_TYPE);
+        targetTypeEEnum = createEEnum(TARGET_TYPE);
         attributeValueTypeEEnum = createEEnum(ATTRIBUTE_VALUE_TYPE);
         attributeTypeEEnum = createEEnum(ATTRIBUTE_TYPE);
         beanMediatorActionEEnum = createEEnum(BEAN_MEDIATOR_ACTION);
@@ -21826,6 +22012,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         dataServiceCallMediatorEClass.getESuperTypes().add(this.getMediator());
         dataServiceCallMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
         dataServiceCallMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+        paramEClass.getESuperTypes().add(this.getAbstractNameValueParam());
         publishEventMediatorEClass.getESuperTypes().add(this.getMediator());
         publishEventMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
         publishEventMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -22401,11 +22588,22 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         initEClass(dataServiceCallMediatorEClass, DataServiceCallMediator.class, "DataServiceCallMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getDataServiceCallMediator_InputConnector(), this.getDataServiceCallMediatorInputConnector(), null, "inputConnector", null, 0, 1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getDataServiceCallMediator_OutputConnector(), this.getDataServiceCallMediatorOutputConnector(), null, "outputConnector", null, 0, 1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDataServiceCallMediator_DSName(), ecorePackage.getEString(), "DSName", null, 0, 1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDataServiceCallMediator_OperationType(), this.getOperationType(), "operationType", null, 0, 1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getDataServiceCallMediator_Operations(), this.getOperation(), null, "Operations", null, 0, -1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDataServiceCallMediator_TargetType(), this.getTargetType(), "targetType", null, 0, 1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDataServiceCallMediator_PropertyName(), ecorePackage.getEString(), "PropertyName", null, 0, 1, DataServiceCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dataServiceCallMediatorInputConnectorEClass, DataServiceCallMediatorInputConnector.class, "DataServiceCallMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(dataServiceCallMediatorOutputConnectorEClass, DataServiceCallMediatorOutputConnector.class, "DataServiceCallMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+        initEClass(paramEClass, Param.class, "Param", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getOperation_OperationName(), ecorePackage.getEString(), "OperationName", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getOperation_Params(), this.getParam(), null, "params", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        
         initEClass(publishEventMediatorEClass, PublishEventMediator.class, "PublishEventMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getPublishEventMediator_InputConnector(), this.getPublishEventMediatorInputConnector(), null, "inputConnector", null, 0, 1, PublishEventMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getPublishEventMediator_Outputconnector(), this.getPublishEventMediatorOutputConnector(), null, "outputconnector", null, 0, 1, PublishEventMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -22681,6 +22879,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         initEAttribute(getAbstractNameValueProperty_PropertyName(), ecorePackage.getEString(), "propertyName", "property_name", 0, 1, AbstractNameValueProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getAbstractNameValueProperty_PropertyValue(), ecorePackage.getEString(), "propertyValue", "property_value", 0, 1, AbstractNameValueProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+        initEClass(abstractNameValueParamEClass, AbstractNameValueParam.class, "AbstractNameValueParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getAbstractNameValueParam_ParamName(), ecorePackage.getEString(), "paramName", null, 0, 1, AbstractNameValueParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getAbstractNameValueParam_ParamValue(), ecorePackage.getEString(), "paramValue", null, 0, 1, AbstractNameValueParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        
         initEClass(entitlementMediatorEClass, EntitlementMediator.class, "EntitlementMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getEntitlementMediator_EntitlementServerURL(), ecorePackage.getEString(), "entitlementServerURL", "", 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getEntitlementMediator_Username(), ecorePackage.getEString(), "username", "", 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -24159,6 +24361,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         addEEnumLiteral(logLevelEEnum, LogLevel.HEADERS);
         addEEnumLiteral(logLevelEEnum, LogLevel.FULL);
         addEEnumLiteral(logLevelEEnum, LogLevel.CUSTOM);
+        
+        initEEnum(operationTypeEEnum, OperationType.class, "OperationType");
+        addEEnumLiteral(operationTypeEEnum, OperationType.SINGLE_REQUEST);
+        addEEnumLiteral(operationTypeEEnum, OperationType.BATCH_REQUEST);
+        addEEnumLiteral(operationTypeEEnum, OperationType.REQUEST_BOX);
+
+        initEEnum(targetTypeEEnum, TargetType.class, "TargetType");
+        addEEnumLiteral(targetTypeEEnum, TargetType.ENVELOPE);
+        addEEnumLiteral(targetTypeEEnum, TargetType.PROPERTY);
 
         initEEnum(attributeValueTypeEEnum, AttributeValueType.class, "AttributeValueType");
         addEEnumLiteral(attributeValueTypeEEnum, AttributeValueType.VALUE);
