@@ -951,6 +951,126 @@ public class EsbViewsRepository {
 		}
 	
 	}
+	
+	/**
+	 * DataServiceCallMediator view descriptor
+	 * 
+	 */
+	public static class DataServiceCallMediator {
+		public static class Properties {
+	
+			
+			public static String description = "esb::DataServiceCallMediator::properties::description";
+			
+			
+			public static String commentsList = "esb::DataServiceCallMediator::properties::commentsList";
+			
+			
+			public static String reverse = "esb::DataServiceCallMediator::properties::Reverse";
+			
+			
+			public static String dSName = "esb::DataServiceCallMediator::properties::DSName";
+			
+			
+			public static String operationType = "esb::DataServiceCallMediator::properties::operationType";
+			
+			
+			public static String operations = "esb::DataServiceCallMediator::properties::Operations";
+			
+			
+			public static String targetType = "esb::DataServiceCallMediator::properties::targetType";
+			
+			
+			public static String propertyName = "esb::DataServiceCallMediator::properties::PropertyName";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * DataServiceCallMediatorInputConnector view descriptor
+	 * 
+	 */
+	public static class DataServiceCallMediatorInputConnector {
+		public static class Properties {
+	
+			
+			public static String incomingLinks = "esb::DataServiceCallMediatorInputConnector::properties::incomingLinks";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * DataServiceCallMediatorOutputConnector view descriptor
+	 * 
+	 */
+	public static class DataServiceCallMediatorOutputConnector {
+		public static class Properties {
+	
+			
+			public static String commentMediators = "esb::DataServiceCallMediatorOutputConnector::properties::commentMediators";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * Param view descriptor
+	 * 
+	 */
+	public static class Param {
+		public static class Properties {
+	
+			
+			public static String paramName = "esb::Param::properties::paramName";
+			
+			
+			public static String paramValue = "esb::Param::properties::paramValue";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * Operation view descriptor
+	 * 
+	 */
+	public static class Operation {
+		public static class Properties {
+	
+			
+			public static String operationName = "esb::Operation::properties::OperationName";
+			
+			
+			public static String params = "esb::Operation::properties::params";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * AbstractNameValueParam view descriptor
+	 * 
+	 */
+	public static class AbstractNameValueParam {
+		public static class Properties {
+	
+			
+			public static String paramName = "esb::AbstractNameValueParam::properties::paramName";
+			
+			
+			public static String paramValue = "esb::AbstractNameValueParam::properties::paramValue";
+			
+	
+		}
+	
+	}
 
 	/**
 	 * TemplateEndpoint view descriptor

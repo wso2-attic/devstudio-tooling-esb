@@ -415,6 +415,54 @@ public class EsbEEFAdapterFactory extends EsbAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createDataServiceCallMediatorAdapter()
+	 * 
+	 */
+	public Adapter createDataServiceCallMediatorAdapter() {
+		return new DataServiceCallMediatorPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createDataServiceCallMediatorInputConnectorAdapter()
+	 * 
+	 */
+	public Adapter createDataServiceCallMediatorInputConnectorAdapter() {
+		return new DataServiceCallMediatorInputConnectorPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createDataServiceCallMediatorOutputConnectorAdapter()
+	 * 
+	 */
+	public Adapter createDataServiceCallMediatorOutputConnectorAdapter() {
+		return new DataServiceCallMediatorOutputConnectorPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createAbstractNameValueParamAdapter()
+	 * 
+	 */
+	public Adapter createAbstractNameValueParamAdapter() {
+		return new AbstractNameValueParamPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createParamAdapter()
+	 * 
+	 */
+	public Adapter createParamAdapter() {
+		return new ParamPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createOperationAdapter()
+	 * 
+	 */
+	public Adapter createOperationAdapter() {
+		return new OperationPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createPublishEventMediatorAdapter()
 	 * 
 	 */

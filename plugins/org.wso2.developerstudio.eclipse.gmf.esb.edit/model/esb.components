@@ -905,6 +905,72 @@
         </properties>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//LogProperty"/>
       </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_b82osotZEemQ15tTnR54XA" name="DataServiceCallMediator" views="_b88wrItZEemQ15tTnR54XA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82os4tZEemQ15tTnR54XA" name="description" views="_b88wrotZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbElement/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82otItZEemQ15tTnR54XA" name="commentsList" views="_b88wr4tZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbElement/commentsList"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82otYtZEemQ15tTnR54XA" name="Reverse" views="_b88wsItZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//Mediator/Reverse"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82ototZEemQ15tTnR54XA" name="DSName" views="_b88wsYtZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DataServiceCallMediator/DSName"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82ot4tZEemQ15tTnR54XA" name="operationType" views="_b88wsotZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DataServiceCallMediator/operationType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82ouItZEemQ15tTnR54XA" name="Operations" views="_b88ws4tZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DataServiceCallMediator/Operations"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82ouYtZEemQ15tTnR54XA" name="targetType" views="_b88wtItZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DataServiceCallMediator/targetType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82ouotZEemQ15tTnR54XA" name="PropertyName" views="_b88wtYtZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DataServiceCallMediator/PropertyName"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DataServiceCallMediator"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_b82ou4tZEemQ15tTnR54XA" name="DataServiceCallMediatorInputConnector" views="_b88wtotZEemQ15tTnR54XA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82ovItZEemQ15tTnR54XA" name="incomingLinks" views="_b88wuItZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//InputConnector/incomingLinks"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DataServiceCallMediatorInputConnector"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_b82ovYtZEemQ15tTnR54XA" name="DataServiceCallMediatorOutputConnector" views="_b88wuYtZEemQ15tTnR54XA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82ovotZEemQ15tTnR54XA" name="commentMediators" views="_b88wu4tZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//OutputConnector/commentMediators"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DataServiceCallMediatorOutputConnector"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_b82ov4tZEemQ15tTnR54XA" name="Param" views="_b88wvItZEemQ15tTnR54XA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82owItZEemQ15tTnR54XA" name="paramName" views="_b88wvotZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractNameValueParam/paramName"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82owYtZEemQ15tTnR54XA" name="paramValue" views="_b88wv4tZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractNameValueParam/paramValue"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//Param"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_b82owotZEemQ15tTnR54XA" name="Operation" views="_b89WQItZEemQ15tTnR54XA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82ow4tZEemQ15tTnR54XA" name="OperationName" views="_b89WQotZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//Operation/OperationName"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82oxItZEemQ15tTnR54XA" name="params" views="_b89WQ4tZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//Operation/params"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//Operation"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_b82pl4tZEemQ15tTnR54XA" name="AbstractNameValueParam" views="_b89XS4tZEemQ15tTnR54XA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82pmItZEemQ15tTnR54XA" name="paramName" views="_b89XTYtZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractNameValueParam/paramName"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b82pmYtZEemQ15tTnR54XA" name="paramValue" views="_b89XTotZEemQ15tTnR54XA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractNameValueParam/paramValue"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractNameValueParam"/>
+      </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E7vVAvJnEei6boXzpRIfnA" name="PublishEventMediator" views="_E7wjffJnEei6boXzpRIfnA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E7vVA_JnEei6boXzpRIfnA" name="description" views="_E7wjf_JnEei6boXzpRIfnA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbElement/description"/>
@@ -6502,6 +6568,84 @@
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E7wi6fJnEei6boXzpRIfnA" name="commentMediators">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_b88wrItZEemQ15tTnR54XA" name="DataServiceCallMediator">
+        <elements xsi:type="eef-views:Container" xmi:id="_b88wrYtZEemQ15tTnR54XA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wrotZEemQ15tTnR54XA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wr4tZEemQ15tTnR54XA" name="commentsList">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wsItZEemQ15tTnR54XA" name="Reverse">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wsYtZEemQ15tTnR54XA" name="DSName">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wsotZEemQ15tTnR54XA" name="operationType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88ws4tZEemQ15tTnR54XA" name="Operations">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wtItZEemQ15tTnR54XA" name="targetType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wtYtZEemQ15tTnR54XA" name="PropertyName">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_b88wtotZEemQ15tTnR54XA" name="DataServiceCallMediatorInputConnector">
+        <elements xsi:type="eef-views:Container" xmi:id="_b88wt4tZEemQ15tTnR54XA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wuItZEemQ15tTnR54XA" name="incomingLinks">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_b88wuYtZEemQ15tTnR54XA" name="DataServiceCallMediatorOutputConnector">
+        <elements xsi:type="eef-views:Container" xmi:id="_b88wuotZEemQ15tTnR54XA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wu4tZEemQ15tTnR54XA" name="commentMediators">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_b88wvItZEemQ15tTnR54XA" name="Param">
+        <elements xsi:type="eef-views:Container" xmi:id="_b88wvYtZEemQ15tTnR54XA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wvotZEemQ15tTnR54XA" name="paramName">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b88wv4tZEemQ15tTnR54XA" name="paramValue">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_b89WQItZEemQ15tTnR54XA" name="Operation">
+        <elements xsi:type="eef-views:Container" xmi:id="_b89WQYtZEemQ15tTnR54XA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b89WQotZEemQ15tTnR54XA" name="OperationName">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b89WQ4tZEemQ15tTnR54XA" name="params">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_b89XS4tZEemQ15tTnR54XA" name="AbstractNameValueParam">
+        <elements xsi:type="eef-views:Container" xmi:id="_b89XTItZEemQ15tTnR54XA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b89XTYtZEemQ15tTnR54XA" name="paramName">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_b89XTotZEemQ15tTnR54XA" name="paramValue">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
         </elements>
       </views>

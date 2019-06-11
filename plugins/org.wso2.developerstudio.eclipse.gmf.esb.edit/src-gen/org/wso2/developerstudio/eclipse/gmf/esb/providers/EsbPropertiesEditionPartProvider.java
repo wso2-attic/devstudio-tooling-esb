@@ -23,6 +23,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.APIResourceOutSequen
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.APIResourceOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.APIResourcePropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.AbstractCommonTargetPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.AbstractNameValueParamPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.AddressEndPointInputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.AddressEndPointOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.AddressEndPointPropertiesEditionPartForm;
@@ -97,6 +98,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DBReportMediatorProp
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataMapperMediatorInputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataMapperMediatorOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataMapperMediatorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorInputConnectorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorOutputConnectorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointInputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointPropertiesEditionPartForm;
@@ -217,6 +221,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.NamespacedPropertyPr
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.OAuthMediatorInputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.OAuthMediatorOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.OAuthMediatorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.OperationPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.ParamPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.ParentEndPointPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.PayloadFactoryArgumentPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.PayloadFactoryMediatorInputConnectorPropertiesEditionPartForm;
@@ -373,6 +379,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.APIResourceOutSequenc
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.APIResourceOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.APIResourcePropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.AbstractCommonTargetPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.AbstractNameValueParamPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.AddressEndPointInputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.AddressEndPointOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.AddressEndPointPropertiesEditionPartImpl;
@@ -447,6 +454,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DBReportMediatorPrope
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataMapperMediatorInputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataMapperMediatorOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataMapperMediatorPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServiceCallMediatorInputConnectorPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServiceCallMediatorOutputConnectorPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServiceCallMediatorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointInputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointPropertiesEditionPartImpl;
@@ -567,6 +577,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.NamespacedPropertyPro
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.OAuthMediatorInputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.OAuthMediatorOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.OAuthMediatorPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.OperationPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.ParamPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.ParentEndPointPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.PayloadFactoryArgumentPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.PayloadFactoryMediatorInputConnectorPropertiesEditionPartImpl;
@@ -917,6 +929,42 @@ public class EsbPropertiesEditionPartProvider implements IPropertiesEditionPartP
 				return new AddressEndPointOutputConnectorPropertiesEditionPartImpl(component);
 			if (kind == EsbViewsRepository.FORM_KIND)
 				return new AddressEndPointOutputConnectorPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.DataServiceCallMediator.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new DataServiceCallMediatorPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new DataServiceCallMediatorPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.DataServiceCallMediatorInputConnector.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new DataServiceCallMediatorInputConnectorPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new DataServiceCallMediatorInputConnectorPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.DataServiceCallMediatorOutputConnector.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new DataServiceCallMediatorOutputConnectorPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new DataServiceCallMediatorOutputConnectorPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.Param.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new ParamPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new ParamPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.Operation.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new OperationPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new OperationPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.AbstractNameValueParam.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new AbstractNameValueParamPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new AbstractNameValueParamPropertiesEditionPartForm(component);
 		}
 		if (key == EsbViewsRepository.TemplateEndpoint.class) {
 			if (kind == EsbViewsRepository.SWT_KIND)

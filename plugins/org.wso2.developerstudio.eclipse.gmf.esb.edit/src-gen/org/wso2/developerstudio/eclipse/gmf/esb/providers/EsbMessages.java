@@ -170,6 +170,24 @@ public class EsbMessages extends NLS {
 	public static String AddressEndPointOutputConnectorPropertiesEditionPart_PropertiesGroupLabel;
 
 	
+	public static String DataServiceCallMediatorPropertiesEditionPart_PropertiesGroupLabel;
+
+	
+	public static String DataServiceCallMediatorInputConnectorPropertiesEditionPart_PropertiesGroupLabel;
+
+	
+	public static String DataServiceCallMediatorOutputConnectorPropertiesEditionPart_PropertiesGroupLabel;
+
+	
+	public static String ParamPropertiesEditionPart_PropertiesGroupLabel;
+
+	
+	public static String OperationPropertiesEditionPart_PropertiesGroupLabel;
+
+	
+	public static String AbstractNameValueParamPropertiesEditionPart_PropertiesGroupLabel;
+
+	
 	public static String TemplateEndpointPropertiesEditionPart_PropertiesGroupLabel;
 
 	
@@ -1468,6 +1486,42 @@ public class EsbMessages extends NLS {
 
 	
 	public static String AddressEndPointOutputConnector_Part_Title;
+
+	
+	public static String DataServiceCallMediator_ReadOnly;
+
+	
+	public static String DataServiceCallMediator_Part_Title;
+
+	
+	public static String DataServiceCallMediatorInputConnector_ReadOnly;
+
+	
+	public static String DataServiceCallMediatorInputConnector_Part_Title;
+
+	
+	public static String DataServiceCallMediatorOutputConnector_ReadOnly;
+
+	
+	public static String DataServiceCallMediatorOutputConnector_Part_Title;
+
+	
+	public static String Param_ReadOnly;
+
+	
+	public static String Param_Part_Title;
+
+	
+	public static String Operation_ReadOnly;
+
+	
+	public static String Operation_Part_Title;
+
+	
+	public static String AbstractNameValueParam_ReadOnly;
+
+	
+	public static String AbstractNameValueParam_Part_Title;
 
 	
 	public static String TemplateEndpoint_ReadOnly;
@@ -3827,6 +3881,54 @@ public class EsbMessages extends NLS {
 
 	
 	public static String AddressEndPointOutputConnectorPropertiesEditionPart_CommentMediatorsLabel;
+
+	
+	public static String DataServiceCallMediatorPropertiesEditionPart_DescriptionLabel;
+
+	
+	public static String DataServiceCallMediatorPropertiesEditionPart_CommentsListLabel;
+
+	
+	public static String DataServiceCallMediatorPropertiesEditionPart_ReverseLabel;
+
+	
+	public static String DataServiceCallMediatorPropertiesEditionPart_DSNameLabel;
+
+	
+	public static String DataServiceCallMediatorPropertiesEditionPart_OperationTypeLabel;
+
+	
+	public static String DataServiceCallMediatorPropertiesEditionPart_OperationsLabel;
+
+	
+	public static String DataServiceCallMediatorPropertiesEditionPart_TargetTypeLabel;
+
+	
+	public static String DataServiceCallMediatorPropertiesEditionPart_PropertyNameLabel;
+
+	
+	public static String DataServiceCallMediatorInputConnectorPropertiesEditionPart_IncomingLinksLabel;
+
+	
+	public static String DataServiceCallMediatorOutputConnectorPropertiesEditionPart_CommentMediatorsLabel;
+
+	
+	public static String ParamPropertiesEditionPart_ParamNameLabel;
+
+	
+	public static String ParamPropertiesEditionPart_ParamValueLabel;
+
+	
+	public static String OperationPropertiesEditionPart_OperationNameLabel;
+
+	
+	public static String OperationPropertiesEditionPart_ParamsLabel;
+
+	
+	public static String AbstractNameValueParamPropertiesEditionPart_ParamNameLabel;
+
+	
+	public static String AbstractNameValueParamPropertiesEditionPart_ParamValueLabel;
 
 	
 	public static String TemplateEndpointPropertiesEditionPart_DescriptionLabel;

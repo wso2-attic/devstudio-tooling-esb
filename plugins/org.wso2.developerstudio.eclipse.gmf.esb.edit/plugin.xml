@@ -361,6 +361,42 @@
                tab="Base">
          </propertySection>
          <propertySection
+               class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorPropertiesEditionPartForm"
+               filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServiceCallMediatorPropertiesEditionProvider$EditionFilter"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServiceCallMediator"
+               tab="Base">
+         </propertySection>
+         <propertySection
+               class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorInputConnectorPropertiesEditionPartForm"
+               filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServiceCallMediatorInputConnectorPropertiesEditionProvider$EditionFilter"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServiceCallMediatorInputConnector"
+               tab="Base">
+         </propertySection>
+         <propertySection
+               class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorOutputConnectorPropertiesEditionPartForm"
+               filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServiceCallMediatorOutputConnectorPropertiesEditionProvider$EditionFilter"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServiceCallMediatorOutputConnector"
+               tab="Base">
+         </propertySection>
+         <propertySection
+               class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.ParamPropertiesEditionPartForm"
+               filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.ParamPropertiesEditionProvider$EditionFilter"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.section.Param"
+               tab="Base">
+         </propertySection>
+         <propertySection
+               class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.OperationPropertiesEditionPartForm"
+               filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.OperationPropertiesEditionProvider$EditionFilter"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.section.Operation"
+               tab="Base">
+         </propertySection>
+         <propertySection
+               class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.AbstractNameValueParamPropertiesEditionPartForm"
+               filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.AbstractNameValueParamPropertiesEditionProvider$EditionFilter"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.section.AbstractNameValueParam"
+               tab="Base">
+         </propertySection>
+         <propertySection
                class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.PublishEventMediatorPropertiesEditionPartForm"
                filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.PublishEventMediatorPropertiesEditionProvider$EditionFilter"
                id="org.wso2.developerstudio.eclipse.gmf.esb.section.PublishEventMediator"

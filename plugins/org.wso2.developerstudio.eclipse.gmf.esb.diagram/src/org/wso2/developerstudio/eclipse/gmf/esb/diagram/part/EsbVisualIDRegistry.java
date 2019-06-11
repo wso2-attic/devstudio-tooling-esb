@@ -6586,6 +6586,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -6779,6 +6782,9 @@ public class EsbVisualIDRegistry {
             }
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
+            }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
             }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
@@ -6974,6 +6980,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -7167,6 +7176,9 @@ public class EsbVisualIDRegistry {
             }
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
+            }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
             }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
@@ -7362,6 +7374,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -7555,6 +7570,9 @@ public class EsbVisualIDRegistry {
             }
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
+            }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
             }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
@@ -7750,6 +7768,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -7943,6 +7964,9 @@ public class EsbVisualIDRegistry {
             }
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
+            }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
             }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
@@ -8138,6 +8162,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -8331,6 +8358,9 @@ public class EsbVisualIDRegistry {
             }
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
+            }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
             }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
@@ -8526,6 +8556,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -8719,6 +8752,9 @@ public class EsbVisualIDRegistry {
             }
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
+            }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
             }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
@@ -8940,6 +8976,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -9134,6 +9173,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -9327,6 +9369,9 @@ public class EsbVisualIDRegistry {
             }
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
+            }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
             }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
@@ -9561,6 +9606,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -9755,6 +9803,9 @@ public class EsbVisualIDRegistry {
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
             }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
+            }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
             }
@@ -9948,6 +9999,9 @@ public class EsbVisualIDRegistry {
             }
             if (EsbPackage.eINSTANCE.getLogMediator().isSuperTypeOf(domainElement.eClass())) {
                 return LogMediatorEditPart.VISUAL_ID;
+            }
+            if (EsbPackage.eINSTANCE.getDataServiceCallMediator().isSuperTypeOf(domainElement.eClass())) {
+                return DataServiceCallMediatorEditPart.VISUAL_ID;
             }
             if (EsbPackage.eINSTANCE.getEnrichMediator().isSuperTypeOf(domainElement.eClass())) {
                 return EnrichMediatorEditPart.VISUAL_ID;
