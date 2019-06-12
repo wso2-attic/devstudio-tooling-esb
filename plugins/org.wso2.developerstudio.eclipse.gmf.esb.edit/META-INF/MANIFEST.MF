@@ -35,4 +35,6 @@ Import-Package: org.apache.commons.io;version="2.0.0.wso2v1",
  org.wso2.developerstudio.eclipse.esb.project.artifact,
  org.wso2.developerstudio.eclipse.gmf.esb.persistence,
  org.wso2.developerstudio.eclipse.logging.core,
- org.wso2.developerstudio.esb.form.editors.article.providers
+ org.wso2.developerstudio.esb.form.editors.article.providers,
+ org.wso2.developerstudio.eclipse.artifact.dataservice.artifact,
+ org.wso2.developerstudio.eclipse.platform.core.manifest

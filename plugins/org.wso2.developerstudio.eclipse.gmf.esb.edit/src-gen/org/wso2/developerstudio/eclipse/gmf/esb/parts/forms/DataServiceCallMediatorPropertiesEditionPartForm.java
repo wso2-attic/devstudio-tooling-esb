@@ -3,10 +3,14 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.parts.forms;
 
+import java.io.File;
 // Start of user code for imports
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.Enumerator;
@@ -46,7 +50,7 @@ import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableLis
 
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -70,13 +74,18 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.internal.WorkbenchWindow;
+import org.wso2.developerstudio.eclipse.artifact.dataservice.artifact.DSSArtifact;
+import org.wso2.developerstudio.eclipse.artifact.dataservice.artifact.DSSProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServiceCallMediatorPropertiesEditionPart;
@@ -97,16 +106,19 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 	protected Button editCommentsList;
 	protected EList commentsListList;
 	protected Button reverse;
-	protected Text dSName;
+	protected EMFComboViewer dSName;
 	protected EMFComboViewer operationType;
 	protected ReferencesTable operations;
 	protected List<ViewerFilter> operationsBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> operationsFilters = new ArrayList<ViewerFilter>();
 	protected EMFComboViewer targetType;
 	protected Text propertyName;
+	protected Control[] availableDataServicesElements;
 	protected Control[] reverseElements;
     protected Control[] commentsElements;
+    protected Control[] availableOperationsElements;
     protected Composite propertiesGroup;
+    protected static String DS_NAME_DEFAULT_VALUE = "Select From Data Services";
 
 
 
@@ -364,77 +376,95 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 		return parent;
 	}
 
-	
+	/**
+     * @generated NOT
+     */
 	protected Composite createDSNameText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, EsbViewsRepository.DataServiceCallMediator.Properties.dSName, EsbMessages.DataServiceCallMediatorPropertiesEditionPart_DSNameLabel);
-		dSName = widgetFactory.createText(parent, ""); //$NON-NLS-1$
+		
+		dSName = new EMFComboViewer(parent);
+		dSName.setContentProvider(new ArrayContentProvider());
+		dSName.setInput(getAvailableDataServicesListFromProject(parent));
+		dSName.getCombo().select(0);
 		dSName.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData dSNameData = new GridData(GridData.FILL_HORIZONTAL);
-		dSName.setLayoutData(dSNameData);
-		dSName.addFocusListener(new FocusAdapter() {
-			/**
-			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
-			 * 
-			 */
+		dSName.getCombo().setLayoutData(dSNameData);
+		dSName.getCombo().addListener(SWT.MouseVerticalWheel, new Listener() {
 			@Override
-			@SuppressWarnings("synthetic-access")
-			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
-							DataServiceCallMediatorPropertiesEditionPartForm.this,
-							EsbViewsRepository.DataServiceCallMediator.Properties.dSName,
-							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, dSName.getText()));
-					propertiesEditionComponent
-							.firePropertiesChanged(new PropertiesEditionEvent(
-									DataServiceCallMediatorPropertiesEditionPartForm.this,
-									EsbViewsRepository.DataServiceCallMediator.Properties.dSName,
-									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
-									null, dSName.getText()));
-				}
-			}
-
-			/**
-			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
-			 */
-			@Override
-			public void focusGained(FocusEvent e) {
-				if (propertiesEditionComponent != null) {
-					propertiesEditionComponent
-							.firePropertiesChanged(new PropertiesEditionEvent(
-									DataServiceCallMediatorPropertiesEditionPartForm.this,
-									null,
-									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
-									null, null));
-				}
-			}
-		});
-		dSName.addKeyListener(new KeyAdapter() {
-			/**
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServiceCallMediatorPropertiesEditionPartForm.this, EsbViewsRepository.DataServiceCallMediator.Properties.dSName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, dSName.getText()));
-				}
-			}
-		});
-		EditingUtils.setID(dSName, EsbViewsRepository.DataServiceCallMediator.Properties.dSName);
-		EditingUtils.setEEFtype(dSName, "eef::Text"); //$NON-NLS-1$
+            public void handleEvent(Event arg0) {
+                arg0.doit = false;
+            }
+        });
+		EditingUtils.setID(dSName.getCombo(), EsbViewsRepository.DataServiceCallMediator.Properties.dSName);
+		EditingUtils.setEEFtype(dSName.getCombo(), "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.DataServiceCallMediator.Properties.dSName, EsbViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDSNameText
+		// Start of user code for createAvailableDSNameText
+		dSName.addSelectionChangedListener(new ISelectionChangedListener() {
 
-		// End of user code
+            /**
+             * {@inheritDoc}
+             * 
+             * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+             *  
+             */
+            public void selectionChanged(SelectionChangedEvent event) {
+                refresh();
+            }
+
+        });
+        // End of user code
 		return parent;
 	}
+	
+	protected ArrayList<String> getAvailableDataServicesListFromProject(Composite parent) {
+
+        String dssArtifcatCategory = "service/dataservice";
+        String comboBoxDefaultValue = DS_NAME_DEFAULT_VALUE;
+        ArrayList<String> availableList = new ArrayList<String>();
+        availableList.add(comboBoxDefaultValue);
+        File projectPath = null;
+        final Shell shell = (Shell) parent.getShell();
+        final IEditorPart editor = (IEditorPart) ((WorkbenchWindow) shell.getDisplay().getActiveShell().getData())
+                .getActivePage().getActiveEditor();
+        if (editor != null) {
+            // IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
+            // IFile file = input.getFile();
+            // IProject workspaceProject = file.getProject();
+
+            // Fixing TOOLS-2322
+            IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+            for (IProject workspaceProject : projects) {
+                try {
+                    if (workspaceProject.hasNature("org.wso2.developerstudio.eclipse.ds.project.nature")) {
+                    	DSSProjectArtifact dssProjectArtifact = new DSSProjectArtifact();
+                        projectPath = workspaceProject.getLocation().toFile();
+                        try {
+                        	dssProjectArtifact
+                                    .fromFile(workspaceProject.getFile("artifact.xml").getLocation().toFile());
+                            List<DSSArtifact> allDSSArtifacts = dssProjectArtifact.getAllDSSArtifacts();
+                            for (DSSArtifact dssArtifact : allDSSArtifacts) {
+                                if (dssArtifcatCategory.equals(dssArtifact.getType())) {
+                                    File artifact = new File(projectPath, dssArtifact.getFile());
+                                    availableList.add(artifact.getName().replaceAll("[.]dbs$", ""));
+                                }
+                            }
+                        } catch (Exception e) {
+                            ErrorDialog.openError(shell, "Error occured while scanning the project for "
+                                    + dssArtifcatCategory + " artifacts", e.getMessage(), null);
+                        }
+                    }
+                } catch (CoreException e) {
+                    ErrorDialog.openError(shell, "Error occured while scanning the project", e.getMessage(), null);
+                }
+            }
+        }
+        return availableList;
+    }
 
 	
 	protected Composite createOperationTypeEMFComboViewer(FormToolkit widgetFactory, Composite parent) {
-		createDescription(parent, EsbViewsRepository.DataServiceCallMediator.Properties.operationType, EsbMessages.DataServiceCallMediatorPropertiesEditionPart_OperationTypeLabel);
+	    Control operatioTypeLabel = createDescription(parent, EsbViewsRepository.DataServiceCallMediator.Properties.operationType, EsbMessages.DataServiceCallMediatorPropertiesEditionPart_OperationTypeLabel);
 		operationType = new EMFComboViewer(parent);
 		operationType.setContentProvider(new ArrayContentProvider());
 		operationType.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
@@ -455,7 +485,8 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 
 		});
 		operationType.setID(EsbViewsRepository.DataServiceCallMediator.Properties.operationType);
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.DataServiceCallMediator.Properties.operationType, EsbViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		Control operationTypeHelp = FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.DataServiceCallMediator.Properties.operationType, EsbViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		availableOperationsElements = new Control [] {operatioTypeLabel, operationType.getCombo(), operationTypeHelp};
 		// Start of user code for createOperationTypeEMFComboViewer
 
 		// End of user code
@@ -746,7 +777,7 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 	 * 
 	 */
 	public String getDSName() {
-		return dSName.getText();
+		return dSName.getCombo().getText();
 	}
 
 	/**
@@ -757,18 +788,10 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 	 */
 	public void setDSName(String newValue) {
 		if (newValue != null) {
-			dSName.setText(newValue);
+			dSName.getCombo().setText(newValue);
 		} else {
-			dSName.setText(""); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.DataServiceCallMediator.Properties.dSName);
-		if (eefElementEditorReadOnlyState && dSName.isEnabled()) {
-			dSName.setEnabled(false);
-			dSName.setToolTipText(EsbMessages.DataServiceCallMediator_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !dSName.isEnabled()) {
-			dSName.setEnabled(true);
-		}	
-		
+			dSName.getCombo().setText(""); //$NON-NLS-1$
+		}		
 	}
 
 	/**
@@ -989,6 +1012,12 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
         EEFPropertyViewUtil epv = new EEFPropertyViewUtil(view);
         epv.hideEntry(commentsElements, false);
         epv.hideEntry(reverseElements, false);
+        
+        if (getDSName() != DS_NAME_DEFAULT_VALUE) {
+        	epv.showEntry(availableOperationsElements, false);
+        } else {
+        	epv.hideEntry(availableOperationsElements, false);
+        }
         view.layout(true, true);
     }
 
