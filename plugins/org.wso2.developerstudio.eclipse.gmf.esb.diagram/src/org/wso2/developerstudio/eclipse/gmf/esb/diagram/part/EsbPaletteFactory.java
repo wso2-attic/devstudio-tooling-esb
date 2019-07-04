@@ -163,7 +163,6 @@ public class EsbPaletteFactory {
         paletteContainer.add(createCallTemplateMediator33CreationTool());
         paletteContainer.add(createDropMediator1CreationTool());
         paletteContainer.add(createLogMediator3CreationTool());
-        paletteContainer.add(createDataServiceCallMediator4CreationTool());
         paletteContainer.add(createLoopBackMediator45CreationTool());
         paletteContainer.add(createPropertyMediator5CreationTool());
         paletteContainer.add(createPropertyGroupMediator5CreationTool());
@@ -210,6 +209,7 @@ public class EsbPaletteFactory {
         paletteContainer.add(createCacheMediator25CreationTool());
         paletteContainer.add(createDBLookupMediator18CreationTool());
         paletteContainer.add(createDBReportMediator19CreationTool());
+        paletteContainer.add(createDataServiceCallMediator4CreationTool());
         paletteContainer.add(createEnqueueMediator37CreationTool());
         paletteContainer.add(createEventMediator10CreationTool());
         // paletteContainer.add(createRMSequenceMediator28CreationTool());
@@ -260,7 +260,6 @@ public class EsbPaletteFactory {
         // paletteContainer.add(createCallTemplateMediator33CreationTool());
         paletteContainer.add(createDropMediator1CreationTool());
         paletteContainer.add(createLogMediator3CreationTool());
-        paletteContainer.add(createDataServiceCallMediator4CreationTool());
         // paletteContainer.add(createLoopBackMediator43CreationTool());
         paletteContainer.add(createPropertyMediator5CreationTool());
         paletteContainer.add(createPropertyGroupMediator5CreationTool());
@@ -307,6 +306,7 @@ public class EsbPaletteFactory {
         paletteContainer.add(createCacheMediator25CreationTool());
         paletteContainer.add(createDBLookupMediator18CreationTool());
         paletteContainer.add(createDBReportMediator19CreationTool());
+        paletteContainer.add(createDataServiceCallMediator4CreationTool());
         paletteContainer.add(createEnqueueMediator37CreationTool());
         paletteContainer.add(createEventMediator10CreationTool());
         // paletteContainer.add(createRMSequenceMediator28CreationTool());

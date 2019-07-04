@@ -3,6 +3,9 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.components;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
 
@@ -48,7 +51,8 @@ import org.eclipse.jface.viewers.ViewerFilter;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Operation;
 import org.wso2.developerstudio.eclipse.gmf.esb.Param;
-
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServiceCallMediatorImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.ParamImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.OperationPropertiesEditionPart;
 
@@ -156,6 +160,14 @@ public class OperationPropertiesEditionComponent extends SinglePartPropertiesEdi
 		Operation operation = (Operation)semanticObject;
 		if (EsbViewsRepository.Operation.Properties.operationName == event.getAffectedEditor()) {
 			operation.setOperationName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
+			List<EObject> paramsList = new ArrayList<>();
+			for (String paramName : (List<String>)event.getOldValue()) {
+				ParamImpl param = new ParamImpl();
+	            param.setParamName(paramName);
+	            param.setParamValue("");
+	            paramsList.add(param);
+			}
+			paramsSettings.setToReference(paramsList);
 		}
 		if (EsbViewsRepository.Operation.Properties.params == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {

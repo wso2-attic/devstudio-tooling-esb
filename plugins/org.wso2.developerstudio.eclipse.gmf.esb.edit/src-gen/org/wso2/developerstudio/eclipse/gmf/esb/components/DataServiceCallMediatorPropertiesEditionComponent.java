@@ -59,6 +59,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TargetType;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServiceCallMediatorPropertiesEditionPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorPropertiesEditionPartForm;
 
 
 // End of user code

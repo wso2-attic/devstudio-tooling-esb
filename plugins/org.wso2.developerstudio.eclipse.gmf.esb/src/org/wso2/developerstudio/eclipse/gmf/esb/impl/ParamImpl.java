@@ -32,9 +32,9 @@ public class ParamImpl extends AbstractNameValueParamImpl implements Param {
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
-     * @generated
+     * @generated NOT
      */
-    protected ParamImpl() {
+    public ParamImpl() {
         super();
     }
 

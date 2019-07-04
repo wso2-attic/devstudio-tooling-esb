@@ -1,7 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EditPartConstants.DEFAULT_PROPERTY_VALUE_TEXT;
-import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EditPartConstants.LOG_MEDIATOR_ICON_PATH;
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EditPartConstants.DS_CALL_MEDIATOR_ICON_PATH;
 
 import java.util.Collections;
 import java.util.List;
@@ -355,7 +355,7 @@ public class DataServiceCallMediatorEditPart extends FixedSizedAbstractMediator 
         }
 
         public String getIconPath() {
-            return LOG_MEDIATOR_ICON_PATH;
+            return DS_CALL_MEDIATOR_ICON_PATH;
         }
 
     }

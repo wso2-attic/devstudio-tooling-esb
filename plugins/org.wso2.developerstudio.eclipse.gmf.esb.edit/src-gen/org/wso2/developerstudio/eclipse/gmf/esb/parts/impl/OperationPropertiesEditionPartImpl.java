@@ -5,7 +5,9 @@ package org.wso2.developerstudio.eclipse.gmf.esb.parts.impl;
 
 // Start of user code for imports
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -14,7 +16,7 @@ import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
+import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
@@ -26,7 +28,7 @@ import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
 
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
 
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
@@ -35,7 +37,9 @@ import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
 
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 import org.eclipse.swt.SWT;
@@ -51,12 +55,23 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
-
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServiceCallMediatorImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.ParamImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.OperationPropertiesEditionPart;
-
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorPropertiesUtil;
+import org.wso2.developerstudio.eclipse.gmf.esb.presentation.EEFPropertyViewUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.providers.EsbMessages;
 
 // End of user code
@@ -67,11 +82,15 @@ import org.wso2.developerstudio.eclipse.gmf.esb.providers.EsbMessages;
  */
 public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, OperationPropertiesEditionPart {
 
-	protected Text operationName;
+	protected EMFComboViewer operationName;
 	protected ReferencesTable params;
 	protected List<ViewerFilter> paramsBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> paramsFilters = new ArrayList<ViewerFilter>();
-
+	private String dsName; 
+	protected Control[] paramsElements;
+	protected Group propertiesGroup;
+	Map<String, Document> availableDataServicesMap;
+	protected static String OPERATION_DEFAULT_VALUE = "Select From Operations";
 
 
 	/**
@@ -81,6 +100,12 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	 */
 	public OperationPropertiesEditionPartImpl(IPropertiesEditionComponent editionComponent) {
 		super(editionComponent);
+		if (editionComponent.getEditingContext() != null && editionComponent.getEditingContext().getEObject() != null && 
+				editionComponent.getEditingContext().getEObject().eContainer() != null && editionComponent.getEditingContext().getEObject().eContainer() 
+				instanceof DataServiceCallMediatorImpl) {
+			dsName = ((DataServiceCallMediatorImpl)editionComponent.getEditingContext().getEObject().eContainer()).getDSName();
+		}
+	
 	}
 
 	/**
@@ -136,7 +161,7 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	 * 
 	 */
 	protected Composite createPropertiesGroup(Composite parent) {
-		Group propertiesGroup = new Group(parent, SWT.NONE);
+		propertiesGroup = new Group(parent, SWT.NONE);
 		propertiesGroup.setText(EsbMessages.OperationPropertiesEditionPart_PropertiesGroupLabel);
 		GridData propertiesGroupData = new GridData(GridData.FILL_HORIZONTAL);
 		propertiesGroupData.horizontalSpan = 3;
@@ -150,48 +175,52 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	
 	protected Composite createOperationNameText(Composite parent) {
 		createDescription(parent, EsbViewsRepository.Operation.Properties.operationName, EsbMessages.OperationPropertiesEditionPart_OperationNameLabel);
-		operationName = SWTUtils.createScrollableText(parent, SWT.BORDER);
-		GridData operationNameData = new GridData(GridData.FILL_HORIZONTAL);
-		operationName.setLayoutData(operationNameData);
-		operationName.addFocusListener(new FocusAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
-			 * 
-			 */
+		operationName = new EMFComboViewer(parent);
+		operationName.setContentProvider(new ArrayContentProvider());
+		Map<String, Document> currentDataServicesMap = DataServiceCallMediatorPropertiesUtil.getAvailableDataServicesListFromProject(parent);
+		if (!currentDataServicesMap.isEmpty()) {
+			availableDataServicesMap = currentDataServicesMap;
+		}
+		Map<String, List<String>> operationsMap = getAllAvailableOperations(getDsName(), availableDataServicesMap);
+		List <String> availableOperationsList = new ArrayList<>();
+		availableOperationsList.add(OPERATION_DEFAULT_VALUE);
+		availableOperationsList.addAll(operationsMap.keySet());
+		operationName.setInput(availableOperationsList);
+		operationName.getCombo().select(0);
+		operationName.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
+		GridData dSNameData = new GridData(GridData.FILL_HORIZONTAL);
+		operationName.getCombo().setLayoutData(dSNameData);
+		operationName.getCombo().addListener(SWT.MouseVerticalWheel, new Listener() {
 			@Override
-			@SuppressWarnings("synthetic-access")
-			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OperationPropertiesEditionPartImpl.this, EsbViewsRepository.Operation.Properties.operationName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, operationName.getText()));
-			}
-
-		});
-		operationName.addKeyListener(new KeyAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OperationPropertiesEditionPartImpl.this, EsbViewsRepository.Operation.Properties.operationName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, operationName.getText()));
-				}
-			}
-
-		});
-		EditingUtils.setID(operationName, EsbViewsRepository.Operation.Properties.operationName);
-		EditingUtils.setEEFtype(operationName, "eef::Text"); //$NON-NLS-1$
+            public void handleEvent(Event arg0) {
+                arg0.doit = false;
+            }
+        });
+		EditingUtils.setID(operationName.getCombo(), EsbViewsRepository.Operation.Properties.operationName);
+		EditingUtils.setEEFtype(operationName.getCombo(), "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.Operation.Properties.operationName, EsbViewsRepository.SWT_KIND), null); //$NON-NLS-1$
 		// Start of user code for createOperationNameText
+		operationName.addSelectionChangedListener(new ISelectionChangedListener() {
 
+            /**
+             * {@inheritDoc}
+             * 
+             * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+             *  
+             */
+            public void selectionChanged(SelectionChangedEvent event) {
+            	propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OperationPropertiesEditionPartImpl.this, EsbViewsRepository.Operation.Properties.operationName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.CHANGE, operationsMap.get(operationName.getCombo().getText()), operationName.getCombo().getText()));
+            	params.refresh();
+//            	refresh();
+//                for (String paramName : operationsMap.get(operationName.getCombo().getText())) {
+//                	ParamImpl param = new ParamImpl();
+//                    param.setParamName(paramName);		
+//	                propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OperationPropertiesEditionPartImpl.this, EsbViewsRepository.Operation.Properties.params, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, param));
+//					params.refresh();
+//                }
+            }
+
+        });
 		// End of user code
 		return parent;
 	}
@@ -201,6 +230,7 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	 * 
 	 */
 	protected Composite createParamsAdvancedTableComposition(Composite parent) {
+		Control[] previousControls = propertiesGroup.getChildren();
 		this.params = new ReferencesTable(getDescription(EsbViewsRepository.Operation.Properties.params, EsbMessages.OperationPropertiesEditionPart_ParamsLabel), new ReferencesTableListener() {
 			public void handleAdd() { 
 				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OperationPropertiesEditionPartImpl.this, EsbViewsRepository.Operation.Properties.params, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null));
@@ -242,7 +272,10 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 		params.setID(EsbViewsRepository.Operation.Properties.params);
 		params.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
 		// Start of user code for createParamsAdvancedTableComposition
-
+		Control[] newControls = propertiesGroup.getChildren();
+		paramsElements = EEFPropertyViewUtil.getTableElements(previousControls, newControls);
+		EEFPropertyViewUtil propertyView = new EEFPropertyViewUtil(view);
+		propertyView.clearTableButtons(paramsElements);
 		// End of user code
 		return parent;
 	}
@@ -267,7 +300,7 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	 * 
 	 */
 	public String getOperationName() {
-		return operationName.getText();
+		return operationName.getCombo().getText();
 	}
 
 	/**
@@ -278,9 +311,9 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	 */
 	public void setOperationName(String newValue) {
 		if (newValue != null) {
-			operationName.setText(newValue);
+			operationName.getCombo().setText(newValue);
 		} else {
-			operationName.setText(""); //$NON-NLS-1$
+			operationName.getCombo().setText(""); //$NON-NLS-1$
 		}
 		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.Operation.Properties.operationName);
 		if (eefElementEditorReadOnlyState && operationName.isEnabled()) {
@@ -322,8 +355,8 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	 * 
 	 */
 	public void updateParams() {
-	params.refresh();
-}
+		params.refresh();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -375,6 +408,43 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 
 	// Start of user code additional methods
 	
+	protected Map<String, List<String>> getAllAvailableOperations(String DSName, Map<String, Document> availableDataServicesMap) {		
+    	Map<String, List<String>> operationsMap = new HashMap<>();
+    	Document dataserviceFile = availableDataServicesMap.get(getDsName()); 
+    	NodeList operationNodes = dataserviceFile.getElementsByTagName("operation");
+    	for (int i = 0; i < operationNodes.getLength(); i++) {
+    		Node operationNode = operationNodes.item(i);
+    		List<String> paramList = new ArrayList<>();
+    		Node callQueryNode = ((Element)operationNode).getElementsByTagName("call-query").item(0);
+    		NodeList paramNodes = ((Element)callQueryNode).getElementsByTagName("with-param");
+    		for (int j = 0; j < paramNodes.getLength(); j++) {
+    			if (Node.ELEMENT_NODE == paramNodes.item(j).getNodeType()) {
+	    			Element paramEle = (Element) paramNodes.item(j);
+	    			paramList.add(paramEle.getAttribute("name"));  			
+    			}
+    		}
+    		operationsMap.put(((Element)operationNode).getAttribute("name"), paramList);
+    	}
+    	return operationsMap ;
+    }
+
+	private String getDsName() {
+		return dsName;
+	}
+	
+	@Override
+	public void refresh() {
+	   super.refresh();
+	   validate();
+   }
+	
+   public void validate() {
+       EEFPropertyViewUtil epv = new EEFPropertyViewUtil(view);
+       epv.clearElements(new Composite[] { propertiesGroup });
+       epv.showEntry(paramsElements, false);
+       epv.clearTableButtons(paramsElements);
+       view.layout(true, true);
+   }
 	// End of user code
 
 

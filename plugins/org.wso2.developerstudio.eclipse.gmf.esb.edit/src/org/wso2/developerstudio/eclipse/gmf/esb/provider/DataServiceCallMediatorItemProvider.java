@@ -183,7 +183,7 @@ public class DataServiceCallMediatorItemProvider extends MediatorItemProvider {
      */
     @Override
     public Object getImage(Object object) {
-    	return overlayImage(object, getResourceLocator().getImage("full/obj16/LogMediator.png"));
+    	return overlayImage(object, getResourceLocator().getImage("full/obj16/DSCallMediator.png"));
     }
 
     /**
