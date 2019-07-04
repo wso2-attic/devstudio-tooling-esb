@@ -26,8 +26,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam#getParamName <em>Param Name</em>}</li>
- * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam#getParamValue <em>Param Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam#getParamName <em>Param Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam#getParamValue <em>Param Value</em>}</li>
  * </ul>
  *
  * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractNameValueParam()
@@ -43,7 +43,6 @@ public interface AbstractNameValueParam extends EObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Param Name</em>' attribute.
      * @see #setParamName(String)
      * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractNameValueParam_ParamName()
@@ -53,11 +52,9 @@ public interface AbstractNameValueParam extends EObject {
     String getParamName();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam#getParamName
-     * <em>Param Name</em>}' attribute.
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam#getParamName <em>Param Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @param value the new value of the '<em>Param Name</em>' attribute.
      * @see #getParamName()
      * @generated
@@ -72,7 +69,6 @@ public interface AbstractNameValueParam extends EObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Param Value</em>' attribute.
      * @see #setParamValue(String)
      * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractNameValueParam_ParamValue()
@@ -82,11 +78,9 @@ public interface AbstractNameValueParam extends EObject {
     String getParamValue();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam#getParamValue
-     * <em>Param Value</em>}' attribute.
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam#getParamValue <em>Param Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @param value the new value of the '<em>Param Value</em>' attribute.
      * @see #getParamValue()
      * @generated

@@ -44,7 +44,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Operation;
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Operation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class OperationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -53,7 +52,6 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public OperationItemProvider(AdapterFactory adapterFactory) {
@@ -64,7 +62,6 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -81,17 +78,22 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
      * This adds a property descriptor for the Operation Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void addOperationNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(), getString("_UI_Operation_OperationName_feature"),
-                        getString("_UI_PropertyDescriptor_description", "_UI_Operation_OperationName_feature",
-                                "_UI_Operation_type"),
-                        EsbPackage.Literals.OPERATION__OPERATION_NAME, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Operation_OperationName_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Operation_OperationName_feature", "_UI_Operation_type"),
+                 EsbPackage.Literals.OPERATION__OPERATION_NAME,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
@@ -100,7 +102,6 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -115,7 +116,6 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -130,7 +130,6 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
      * This returns Operation.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -142,14 +141,14 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getText(Object object) {
-        String label = ((Operation) object).getOperationName();
-        return label == null || label.length() == 0 ? getString("_UI_Operation_type")
-                : getString("_UI_Operation_type") + " " + label;
+        String label = ((Operation)object).getOperationName();
+        return label == null || label.length() == 0 ?
+            getString("_UI_Operation_type") :
+            getString("_UI_Operation_type") + " " + label;
     }
 
     /**
@@ -157,7 +156,6 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -165,12 +163,12 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
         updateChildren(notification);
 
         switch (notification.getFeatureID(Operation.class)) {
-        case EsbPackage.OPERATION__OPERATION_NAME:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-            return;
-        case EsbPackage.OPERATION__PARAMS:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-            return;
+            case EsbPackage.OPERATION__OPERATION_NAME:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
+            case EsbPackage.OPERATION__PARAMS:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                return;
         }
         super.notifyChanged(notification);
     }
@@ -180,22 +178,22 @@ public class OperationItemProvider extends ItemProviderAdapter implements IEditi
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(createChildParameter(EsbPackage.Literals.OPERATION__PARAMS, EsbFactory.eINSTANCE.createParam()));
+        newChildDescriptors.add
+            (createChildParameter
+                (EsbPackage.Literals.OPERATION__PARAMS,
+                 EsbFactory.eINSTANCE.createParam()));
     }
 
     /**
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

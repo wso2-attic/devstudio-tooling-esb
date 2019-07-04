@@ -33,10 +33,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractNameValueParamImpl#getParamName <em>Param
- * Name</em>}</li>
- * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractNameValueParamImpl#getParamValue <em>Param
- * Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractNameValueParamImpl#getParamName <em>Param Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractNameValueParamImpl#getParamValue <em>Param Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,7 +44,6 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
      * The default value of the '{@link #getParamName() <em>Param Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getParamName()
      * @generated
      * @ordered
@@ -57,7 +54,6 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
      * The cached value of the '{@link #getParamName() <em>Param Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getParamName()
      * @generated
      * @ordered
@@ -68,7 +64,6 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
      * The default value of the '{@link #getParamValue() <em>Param Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getParamValue()
      * @generated
      * @ordered
@@ -79,7 +74,6 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
      * The cached value of the '{@link #getParamValue() <em>Param Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getParamValue()
      * @generated
      * @ordered
@@ -89,7 +83,6 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected AbstractNameValueParamImpl() {
@@ -99,7 +92,6 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -110,7 +102,6 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public String getParamName() {
@@ -120,21 +111,18 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void setParamName(String newParamName) {
         String oldParamName = paramName;
         paramName = newParamName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME,
-                    oldParamName, paramName));
+            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME, oldParamName, paramName));
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public String getParamValue() {
@@ -144,30 +132,27 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void setParamValue(String newParamValue) {
         String oldParamValue = paramValue;
         paramValue = newParamValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE,
-                    oldParamValue, paramValue));
+            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE, oldParamValue, paramValue));
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
-            return getParamName();
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
-            return getParamValue();
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
+                return getParamName();
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
+                return getParamValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -175,18 +160,17 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
-            setParamName((String) newValue);
-            return;
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
-            setParamValue((String) newValue);
-            return;
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
+                setParamName((String)newValue);
+                return;
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
+                setParamValue((String)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -194,18 +178,17 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
-            setParamName(PARAM_NAME_EDEFAULT);
-            return;
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
-            setParamValue(PARAM_VALUE_EDEFAULT);
-            return;
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
+                setParamName(PARAM_NAME_EDEFAULT);
+                return;
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
+                setParamValue(PARAM_VALUE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -213,16 +196,15 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
-            return PARAM_NAME_EDEFAULT == null ? paramName != null : !PARAM_NAME_EDEFAULT.equals(paramName);
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
-            return PARAM_VALUE_EDEFAULT == null ? paramValue != null : !PARAM_VALUE_EDEFAULT.equals(paramValue);
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
+                return PARAM_NAME_EDEFAULT == null ? paramName != null : !PARAM_NAME_EDEFAULT.equals(paramName);
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
+                return PARAM_VALUE_EDEFAULT == null ? paramValue != null : !PARAM_VALUE_EDEFAULT.equals(paramValue);
         }
         return super.eIsSet(featureID);
     }
@@ -230,13 +212,11 @@ public class AbstractNameValueParamImpl extends EObjectImpl implements AbstractN
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString() {
-        if (eIsProxy())
-            return super.toString();
+        if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (paramName: ");

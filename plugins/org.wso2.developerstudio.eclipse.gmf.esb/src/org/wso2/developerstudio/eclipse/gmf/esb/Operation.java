@@ -28,8 +28,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Operation#getOperationName <em>Operation Name</em>}</li>
- * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Operation#getParams <em>Params</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Operation#getOperationName <em>Operation Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Operation#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getOperation()
@@ -45,7 +45,6 @@ public interface Operation extends EObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Operation Name</em>' attribute.
      * @see #setOperationName(String)
      * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getOperation_OperationName()
@@ -55,11 +54,9 @@ public interface Operation extends EObject {
     String getOperationName();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Operation#getOperationName <em>Operation
-     * Name</em>}' attribute.
+     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Operation#getOperationName <em>Operation Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @param value the new value of the '<em>Operation Name</em>' attribute.
      * @see #getOperationName()
      * @generated
@@ -75,7 +72,6 @@ public interface Operation extends EObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Params</em>' containment reference list.
      * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getOperation_Params()
      * @model containment="true"

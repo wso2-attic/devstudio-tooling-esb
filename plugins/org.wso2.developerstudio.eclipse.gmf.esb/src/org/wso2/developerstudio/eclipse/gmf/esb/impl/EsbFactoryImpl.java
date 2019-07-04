@@ -5147,9 +5147,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
      */
     public OperationType createOperationTypeFromString(EDataType eDataType, String initialValue) {
         OperationType result = OperationType.get(initialValue);
-        if (result == null)
-            throw new IllegalArgumentException(
-                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         return result;
     }
 
@@ -5169,9 +5167,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
      */
     public TargetType createTargetTypeFromString(EDataType eDataType, String initialValue) {
         TargetType result = TargetType.get(initialValue);
-        if (result == null)
-            throw new IllegalArgumentException(
-                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         return result;
     }
 

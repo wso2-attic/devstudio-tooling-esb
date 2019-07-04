@@ -1084,13 +1084,21 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServiceCallMediator/outputConnector"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/DSName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/operationType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/OperationName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServiceCallMediator/Operations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/targetType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServiceCallMediator/PropertyName"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//DataServiceCallMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//DataServiceCallMediatorOutputConnector"/>
-    <genClasses ecoreClass="esb.ecore#//Param"/>
+    <genClasses ecoreClass="esb.ecore#//Param">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Param/paramName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Param/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Param/paramValueType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Param/paramValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Param/paramExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Param/evauator"/>
+    </genClasses>
     <genClasses ecoreClass="esb.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Operation/OperationName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Operation/params"/>

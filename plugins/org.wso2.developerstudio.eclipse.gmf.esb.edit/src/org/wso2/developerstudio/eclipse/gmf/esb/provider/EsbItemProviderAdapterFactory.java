@@ -1228,54 +1228,50 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
     }
     
     /**
-    * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Param} instances.
-    * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Param} instances.
+     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @generated
-    */
+     * @generated
+     */
    protected ParamItemProvider paramItemProvider;
 
    /**
-    * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Param}.
-    * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Param}.
+     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @generated
-    */
+     * @generated
+     */
    @Override
    public Adapter createParamAdapter() {
-       if (paramItemProvider == null) {
-           paramItemProvider = new ParamItemProvider(this);
-       }
+        if (paramItemProvider == null) {
+            paramItemProvider = new ParamItemProvider(this);
+        }
 
-       return paramItemProvider;
-   }
+        return paramItemProvider;
+    }
 
    /**
-    * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Operation} instances.
-    * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Operation} instances.
+     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @generated
-    */
+     * @generated
+     */
    protected OperationItemProvider operationItemProvider;
 
    /**
-    * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Operation}.
-    * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Operation}.
+     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @generated
-    */
+     * @generated
+     */
    @Override
    public Adapter createOperationAdapter() {
-       if (operationItemProvider == null) {
-           operationItemProvider = new OperationItemProvider(this);
-       }
+        if (operationItemProvider == null) {
+            operationItemProvider = new OperationItemProvider(this);
+        }
 
-       return operationItemProvider;
-   }
+        return operationItemProvider;
+    }
 
 
     /**
@@ -2761,27 +2757,25 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
     }
     
     /**
-    * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam} instances.
-    * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam} instances.
+     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @generated
-    */
+     * @generated
+     */
     protected AbstractNameValueParamItemProvider abstractNameValueParamItemProvider;
     
     /**
-    * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam}.
-    * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam}.
+     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @generated
-    */
+     * @generated
+     */
     @Override
     public Adapter createAbstractNameValueParamAdapter() {
         if (abstractNameValueParamItemProvider == null) {
             abstractNameValueParamItemProvider = new AbstractNameValueParamItemProvider(this);
         }
-         
+
         return abstractNameValueParamItemProvider;
     }
 

@@ -38,11 +38,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam}
- * object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class AbstractNameValueParamItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -51,7 +49,6 @@ public class AbstractNameValueParamItemProvider extends ItemProviderAdapter impl
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public AbstractNameValueParamItemProvider(AdapterFactory adapterFactory) {
@@ -62,7 +59,6 @@ public class AbstractNameValueParamItemProvider extends ItemProviderAdapter impl
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -80,41 +76,50 @@ public class AbstractNameValueParamItemProvider extends ItemProviderAdapter impl
      * This adds a property descriptor for the Param Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void addParamNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_AbstractNameValueParam_paramName_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_AbstractNameValueParam_paramName_feature",
-                        "_UI_AbstractNameValueParam_type"),
-                EsbPackage.Literals.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_AbstractNameValueParam_paramName_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_AbstractNameValueParam_paramName_feature", "_UI_AbstractNameValueParam_type"),
+                 EsbPackage.Literals.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
      * This adds a property descriptor for the Param Value feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void addParamValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_AbstractNameValueParam_paramValue_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_AbstractNameValueParam_paramValue_feature",
-                        "_UI_AbstractNameValueParam_type"),
-                EsbPackage.Literals.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_AbstractNameValueParam_paramValue_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_AbstractNameValueParam_paramValue_feature", "_UI_AbstractNameValueParam_type"),
+                 EsbPackage.Literals.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
      * This returns AbstractNameValueParam.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -126,14 +131,14 @@ public class AbstractNameValueParamItemProvider extends ItemProviderAdapter impl
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getText(Object object) {
-        String label = ((AbstractNameValueParam) object).getParamName();
-        return label == null || label.length() == 0 ? getString("_UI_AbstractNameValueParam_type")
-                : getString("_UI_AbstractNameValueParam_type") + " " + label;
+        String label = ((AbstractNameValueParam)object).getParamName();
+        return label == null || label.length() == 0 ?
+            getString("_UI_AbstractNameValueParam_type") :
+            getString("_UI_AbstractNameValueParam_type") + " " + label;
     }
 
     /**
@@ -141,7 +146,6 @@ public class AbstractNameValueParamItemProvider extends ItemProviderAdapter impl
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -149,10 +153,10 @@ public class AbstractNameValueParamItemProvider extends ItemProviderAdapter impl
         updateChildren(notification);
 
         switch (notification.getFeatureID(AbstractNameValueParam.class)) {
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
-        case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-            return;
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_NAME:
+            case EsbPackage.ABSTRACT_NAME_VALUE_PARAM__PARAM_VALUE:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
         }
         super.notifyChanged(notification);
     }
@@ -162,7 +166,6 @@ public class AbstractNameValueParamItemProvider extends ItemProviderAdapter impl
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -174,7 +177,6 @@ public class AbstractNameValueParamItemProvider extends ItemProviderAdapter impl
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

@@ -579,54 +579,41 @@ public class EsbSwitch<T> extends Switch<T> {
                 return result;
             }
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR: {
-                DataServiceCallMediator dataServiceCallMediator = (DataServiceCallMediator) theEObject;
+                DataServiceCallMediator dataServiceCallMediator = (DataServiceCallMediator)theEObject;
                 T result = caseDataServiceCallMediator(dataServiceCallMediator);
-                if (result == null)
-                    result = caseMediator(dataServiceCallMediator);
-                if (result == null)
-                    result = caseEsbElement(dataServiceCallMediator);
-                if (result == null)
-                    result = caseEsbNode(dataServiceCallMediator);
-                if (result == null)
-                    result = defaultCase(theEObject);
+                if (result == null) result = caseMediator(dataServiceCallMediator);
+                if (result == null) result = caseEsbElement(dataServiceCallMediator);
+                if (result == null) result = caseEsbNode(dataServiceCallMediator);
+                if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR_INPUT_CONNECTOR: {
-                DataServiceCallMediatorInputConnector dataServiceCallMediatorInputConnector = (DataServiceCallMediatorInputConnector) theEObject;
+                DataServiceCallMediatorInputConnector dataServiceCallMediatorInputConnector = (DataServiceCallMediatorInputConnector)theEObject;
                 T result = caseDataServiceCallMediatorInputConnector(dataServiceCallMediatorInputConnector);
-                if (result == null)
-                    result = caseInputConnector(dataServiceCallMediatorInputConnector);
-                if (result == null)
-                    result = caseEsbConnector(dataServiceCallMediatorInputConnector);
-                if (result == null)
-                    result = defaultCase(theEObject);
+                if (result == null) result = caseInputConnector(dataServiceCallMediatorInputConnector);
+                if (result == null) result = caseEsbConnector(dataServiceCallMediatorInputConnector);
+                if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR_OUTPUT_CONNECTOR: {
-                DataServiceCallMediatorOutputConnector dataServiceCallMediatorOutputConnector = (DataServiceCallMediatorOutputConnector) theEObject;
+                DataServiceCallMediatorOutputConnector dataServiceCallMediatorOutputConnector = (DataServiceCallMediatorOutputConnector)theEObject;
                 T result = caseDataServiceCallMediatorOutputConnector(dataServiceCallMediatorOutputConnector);
-                if (result == null)
-                    result = caseOutputConnector(dataServiceCallMediatorOutputConnector);
-                if (result == null)
-                    result = caseEsbConnector(dataServiceCallMediatorOutputConnector);
-                if (result == null)
-                    result = defaultCase(theEObject);
+                if (result == null) result = caseOutputConnector(dataServiceCallMediatorOutputConnector);
+                if (result == null) result = caseEsbConnector(dataServiceCallMediatorOutputConnector);
+                if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case EsbPackage.PARAM: {
-                Param param = (Param) theEObject;
+                Param param = (Param)theEObject;
                 T result = caseParam(param);
-                if (result == null)
-                    result = caseAbstractNameValueParam(param);
-                if (result == null)
-                    result = defaultCase(theEObject);
+                if (result == null) result = caseEsbNode(param);
+                if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case EsbPackage.OPERATION: {
-                Operation operation = (Operation) theEObject;
+                Operation operation = (Operation)theEObject;
                 T result = caseOperation(operation);
-                if (result == null)
-                    result = defaultCase(theEObject);
+                if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case EsbPackage.PUBLISH_EVENT_MEDIATOR: {
@@ -1086,10 +1073,9 @@ public class EsbSwitch<T> extends Switch<T> {
                 return result;
             }
             case EsbPackage.ABSTRACT_NAME_VALUE_PARAM: {
-                AbstractNameValueParam abstractNameValueParam = (AbstractNameValueParam) theEObject;
+                AbstractNameValueParam abstractNameValueParam = (AbstractNameValueParam)theEObject;
                 T result = caseAbstractNameValueParam(abstractNameValueParam);
-                if (result == null)
-                    result = defaultCase(theEObject);
+                if (result == null) result = defaultCase(theEObject);
                 return result;
             }
             case EsbPackage.ENTITLEMENT_MEDIATOR: {

@@ -560,7 +560,6 @@ public interface EsbFactory extends EFactory {
      * Returns a new object of class '<em>Param</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Param</em>'.
      * @generated
      */
@@ -570,7 +569,6 @@ public interface EsbFactory extends EFactory {
      * Returns a new object of class '<em>Operation</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Operation</em>'.
      * @generated
      */
@@ -1080,7 +1078,6 @@ public interface EsbFactory extends EFactory {
      * Returns a new object of class '<em>Abstract Name Value Param</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Abstract Name Value Param</em>'.
      * @generated
      */

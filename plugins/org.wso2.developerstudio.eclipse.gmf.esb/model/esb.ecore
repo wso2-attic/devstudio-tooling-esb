@@ -463,6 +463,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DSName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationType" eType="#//OperationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OperationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Operations" upperBound="-1"
         eType="#//Operation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetType" eType="#//TargetType"/>
@@ -481,7 +482,15 @@
     <eLiterals name="ENVELOPE"/>
     <eLiterals name="PROPERTY" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Param" eSuperTypes="#//AbstractNameValueParam"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Param" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramValueType" eType="#//PayloadFactoryArgumentType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="paramExpression" eType="#//NamespacedProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="evauator" eType="#//MediaType"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="OperationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"

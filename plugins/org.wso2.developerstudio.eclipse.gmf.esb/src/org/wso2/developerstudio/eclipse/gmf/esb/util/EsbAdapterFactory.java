@@ -3373,8 +3373,7 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
     }
     
     /**
-     * Creates a new adapter for an object of class
-     * '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam <em>Abstract Name Value Param</em>}'.
+     * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueParam <em>Abstract Name Value Param</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.

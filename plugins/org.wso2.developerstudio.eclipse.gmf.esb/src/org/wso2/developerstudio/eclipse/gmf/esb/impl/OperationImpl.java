@@ -43,8 +43,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Param;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OperationImpl#getOperationName <em>Operation Name</em>}</li>
- * <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OperationImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OperationImpl#getOperationName <em>Operation Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OperationImpl#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,7 +54,6 @@ public class OperationImpl extends EObjectImpl implements Operation {
      * The default value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getOperationName()
      * @generated
      * @ordered
@@ -65,7 +64,6 @@ public class OperationImpl extends EObjectImpl implements Operation {
      * The cached value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getOperationName()
      * @generated
      * @ordered
@@ -76,7 +74,6 @@ public class OperationImpl extends EObjectImpl implements Operation {
      * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getParams()
      * @generated
      * @ordered
@@ -86,7 +83,6 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected OperationImpl() {
@@ -96,7 +92,6 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -107,7 +102,6 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public String getOperationName() {
@@ -117,21 +111,18 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void setOperationName(String newOperationName) {
         String oldOperationName = operationName;
         operationName = newOperationName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.OPERATION__OPERATION_NAME,
-                    oldOperationName, operationName));
+            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.OPERATION__OPERATION_NAME, oldOperationName, operationName));
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public EList<Param> getParams() {
@@ -144,14 +135,13 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-        case EsbPackage.OPERATION__PARAMS:
-            return ((InternalEList<?>) getParams()).basicRemove(otherEnd, msgs);
+            case EsbPackage.OPERATION__PARAMS:
+                return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -159,16 +149,15 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-        case EsbPackage.OPERATION__OPERATION_NAME:
-            return getOperationName();
-        case EsbPackage.OPERATION__PARAMS:
-            return getParams();
+            case EsbPackage.OPERATION__OPERATION_NAME:
+                return getOperationName();
+            case EsbPackage.OPERATION__PARAMS:
+                return getParams();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -176,20 +165,19 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-        case EsbPackage.OPERATION__OPERATION_NAME:
-            setOperationName((String) newValue);
-            return;
-        case EsbPackage.OPERATION__PARAMS:
-            getParams().clear();
-            getParams().addAll((Collection<? extends Param>) newValue);
-            return;
+            case EsbPackage.OPERATION__OPERATION_NAME:
+                setOperationName((String)newValue);
+                return;
+            case EsbPackage.OPERATION__PARAMS:
+                getParams().clear();
+                getParams().addAll((Collection<? extends Param>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -197,18 +185,17 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-        case EsbPackage.OPERATION__OPERATION_NAME:
-            setOperationName(OPERATION_NAME_EDEFAULT);
-            return;
-        case EsbPackage.OPERATION__PARAMS:
-            getParams().clear();
-            return;
+            case EsbPackage.OPERATION__OPERATION_NAME:
+                setOperationName(OPERATION_NAME_EDEFAULT);
+                return;
+            case EsbPackage.OPERATION__PARAMS:
+                getParams().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -216,17 +203,15 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-        case EsbPackage.OPERATION__OPERATION_NAME:
-            return OPERATION_NAME_EDEFAULT == null ? operationName != null
-                    : !OPERATION_NAME_EDEFAULT.equals(operationName);
-        case EsbPackage.OPERATION__PARAMS:
-            return params != null && !params.isEmpty();
+            case EsbPackage.OPERATION__OPERATION_NAME:
+                return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
+            case EsbPackage.OPERATION__PARAMS:
+                return params != null && !params.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -234,13 +219,11 @@ public class OperationImpl extends EObjectImpl implements Operation {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString() {
-        if (eIsProxy())
-            return super.toString();
+        if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (OperationName: ");
