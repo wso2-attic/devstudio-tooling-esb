@@ -1,3 +1,4 @@
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
 import org.eclipse.osgi.util.NLS;
@@ -393,7 +394,7 @@ public class Messages extends NLS {
      * @generated
      */
     public static String LogMediator3CreationTool_desc;
-
+    
     /**
      * @generated
      */
@@ -1502,16 +1503,6 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_DataServiceCallMediatorInputConnector_3792_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_DataServiceCallMediatorOutputConnector_3793_outgoinglinks;
-
-    /**
-     * @generated
-     */
     public static String NavigatorGroupName_AddressingEndpointInputConnector_3690_incominglinks;
 
     /**
@@ -2043,6 +2034,16 @@ public class Messages extends NLS {
      * @generated
      */
     public static String NavigatorGroupName_LogMediatorInputConnector_3018_incominglinks;
+    
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_DataServiceCallMediatorInputConnector_3792_incominglinks;
+    
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_DataServiceCallMediatorOutputConnector_3793_outgoinglinks;
 
     /**
      * @generated
