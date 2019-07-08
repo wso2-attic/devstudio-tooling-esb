@@ -86,11 +86,12 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	protected ReferencesTable params;
 	protected List<ViewerFilter> paramsBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> paramsFilters = new ArrayList<ViewerFilter>();
+	Map<String, Document> availableDataServicesMap;
 	private String dsName; 
 	protected Control[] paramsElements;
 	protected Group propertiesGroup;
-	Map<String, Document> availableDataServicesMap;
 	protected static String OPERATION_DEFAULT_VALUE = "Select From Operations";
+
 
 
 	/**
@@ -105,7 +106,6 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 				instanceof DataServiceCallMediatorImpl) {
 			dsName = ((DataServiceCallMediatorImpl)editionComponent.getEditingContext().getEObject().eContainer()).getDSName();
 		}
-	
 	}
 
 	/**
@@ -158,8 +158,8 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	}
 
 	/**
-	 * 
-	 */
+     * @generated NOT
+     */
 	protected Composite createPropertiesGroup(Composite parent) {
 		propertiesGroup = new Group(parent, SWT.NONE);
 		propertiesGroup.setText(EsbMessages.OperationPropertiesEditionPart_PropertiesGroupLabel);
@@ -172,11 +172,14 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 		return propertiesGroup;
 	}
 
-	
+	/**
+     * @generated NOT
+     */
 	protected Composite createOperationNameText(Composite parent) {
 		createDescription(parent, EsbViewsRepository.Operation.Properties.operationName, EsbMessages.OperationPropertiesEditionPart_OperationNameLabel);
 		operationName = new EMFComboViewer(parent);
 		operationName.setContentProvider(new ArrayContentProvider());
+		GridData operationNameData = new GridData(GridData.FILL_HORIZONTAL);
 		Map<String, Document> currentDataServicesMap = DataServiceCallMediatorPropertiesUtil.getAvailableDataServicesListFromProject(parent);
 		if (!currentDataServicesMap.isEmpty()) {
 			availableDataServicesMap = currentDataServicesMap;
@@ -226,9 +229,8 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	}
 
 	/**
-	 * @param container
-	 * 
-	 */
+     * @generated NOT
+     */
 	protected Composite createParamsAdvancedTableComposition(Composite parent) {
 		Control[] previousControls = propertiesGroup.getChildren();
 		this.params = new ReferencesTable(getDescription(EsbViewsRepository.Operation.Properties.params, EsbMessages.OperationPropertiesEditionPart_ParamsLabel), new ReferencesTableListener() {
@@ -275,7 +277,7 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 		Control[] newControls = propertiesGroup.getChildren();
 		paramsElements = EEFPropertyViewUtil.getTableElements(previousControls, newControls);
 		EEFPropertyViewUtil propertyView = new EEFPropertyViewUtil(view);
-		propertyView.clearTableButtons(paramsElements);
+//		propertyView.clearTableButtons(paramsElements);
 		// End of user code
 		return parent;
 	}
@@ -355,8 +357,8 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	 * 
 	 */
 	public void updateParams() {
-		params.refresh();
-	}
+	params.refresh();
+}
 
 	/**
 	 * {@inheritDoc}
@@ -442,7 +444,7 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
        EEFPropertyViewUtil epv = new EEFPropertyViewUtil(view);
        epv.clearElements(new Composite[] { propertiesGroup });
        epv.showEntry(paramsElements, false);
-       epv.clearTableButtons(paramsElements);
+//       epv.clearTableButtons(paramsElements);
        view.layout(true, true);
    }
 	// End of user code

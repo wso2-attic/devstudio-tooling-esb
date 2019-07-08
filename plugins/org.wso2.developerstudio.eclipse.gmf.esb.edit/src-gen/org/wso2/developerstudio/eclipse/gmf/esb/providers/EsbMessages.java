@@ -3898,6 +3898,9 @@ public class EsbMessages extends NLS {
 	public static String DataServiceCallMediatorPropertiesEditionPart_OperationTypeLabel;
 
 	
+	public static String DataServiceCallMediatorPropertiesEditionPart_OperationNameLabel;
+
+	
 	public static String DataServiceCallMediatorPropertiesEditionPart_OperationsLabel;
 
 	
@@ -3916,7 +3919,16 @@ public class EsbMessages extends NLS {
 	public static String ParamPropertiesEditionPart_ParamNameLabel;
 
 	
+	public static String ParamPropertiesEditionPart_TypeLabel;
+
+	
+	public static String ParamPropertiesEditionPart_ParamValueTypeLabel;
+
+	
 	public static String ParamPropertiesEditionPart_ParamValueLabel;
+
+	
+	public static String ParamPropertiesEditionPart_EvauatorLabel;
 
 	
 	public static String OperationPropertiesEditionPart_OperationNameLabel;

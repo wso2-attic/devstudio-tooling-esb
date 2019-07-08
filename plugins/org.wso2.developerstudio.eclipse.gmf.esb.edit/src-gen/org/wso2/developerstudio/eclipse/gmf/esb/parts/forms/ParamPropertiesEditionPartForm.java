@@ -3,6 +3,9 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.parts.forms;
 
+import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
 // Start of user code for imports
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 
@@ -21,9 +24,12 @@ import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
 
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
-
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 
 import org.eclipse.swt.events.FocusAdapter;
@@ -41,7 +47,6 @@ import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart;
 
@@ -56,7 +61,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.providers.EsbMessages;
 public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, ParamPropertiesEditionPart {
 
 	protected Text paramName;
+	protected Text type;
+	protected EMFComboViewer paramValueType;
 	protected Text paramValue;
+	protected EMFComboViewer evauator;
 
 
 
@@ -103,7 +111,10 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		CompositionSequence paramStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = paramStep.addStep(EsbViewsRepository.Param.Properties.class);
 		propertiesStep.addStep(EsbViewsRepository.Param.Properties.paramName);
+		propertiesStep.addStep(EsbViewsRepository.Param.Properties.type);
+		propertiesStep.addStep(EsbViewsRepository.Param.Properties.paramValueType);
 		propertiesStep.addStep(EsbViewsRepository.Param.Properties.paramValue);
+		propertiesStep.addStep(EsbViewsRepository.Param.Properties.evauator);
 		
 		
 		composer = new PartComposer(paramStep) {
@@ -116,8 +127,17 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 				if (key == EsbViewsRepository.Param.Properties.paramName) {
 					return createParamNameText(widgetFactory, parent);
 				}
+				if (key == EsbViewsRepository.Param.Properties.type) {
+					return createTypeText(widgetFactory, parent);
+				}
+				if (key == EsbViewsRepository.Param.Properties.paramValueType) {
+					return createParamValueTypeEMFComboViewer(widgetFactory, parent);
+				}
 				if (key == EsbViewsRepository.Param.Properties.paramValue) {
 					return createParamValueText(widgetFactory, parent);
+				}
+				if (key == EsbViewsRepository.Param.Properties.evauator) {
+					return createEvauatorEMFComboViewer(widgetFactory, parent);
 				}
 				return parent;
 			}
@@ -210,6 +230,104 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	}
 
 	
+	protected Composite createTypeText(FormToolkit widgetFactory, Composite parent) {
+		createDescription(parent, EsbViewsRepository.Param.Properties.type, EsbMessages.ParamPropertiesEditionPart_TypeLabel);
+		type = widgetFactory.createText(parent, ""); //$NON-NLS-1$
+		type.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
+		widgetFactory.paintBordersFor(parent);
+		GridData typeData = new GridData(GridData.FILL_HORIZONTAL);
+		type.setLayoutData(typeData);
+		type.addFocusListener(new FocusAdapter() {
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
+			 * 
+			 */
+			@Override
+			@SuppressWarnings("synthetic-access")
+			public void focusLost(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							ParamPropertiesEditionPartForm.this,
+							EsbViewsRepository.Param.Properties.type,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, type.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									ParamPropertiesEditionPartForm.this,
+									EsbViewsRepository.Param.Properties.type,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, type.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									ParamPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
+		});
+		type.addKeyListener(new KeyAdapter() {
+			/**
+			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
+			 * 
+			 */
+			@Override
+			@SuppressWarnings("synthetic-access")
+			public void keyPressed(KeyEvent e) {
+				if (e.character == SWT.CR) {
+					if (propertiesEditionComponent != null)
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParamPropertiesEditionPartForm.this, EsbViewsRepository.Param.Properties.type, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, type.getText()));
+				}
+			}
+		});
+		EditingUtils.setID(type, EsbViewsRepository.Param.Properties.type);
+		EditingUtils.setEEFtype(type, "eef::Text"); //$NON-NLS-1$
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.Param.Properties.type, EsbViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeText
+
+		// End of user code
+		return parent;
+	}
+
+	
+	protected Composite createParamValueTypeEMFComboViewer(FormToolkit widgetFactory, Composite parent) {
+		createDescription(parent, EsbViewsRepository.Param.Properties.paramValueType, EsbMessages.ParamPropertiesEditionPart_ParamValueTypeLabel);
+		paramValueType = new EMFComboViewer(parent);
+		paramValueType.setContentProvider(new ArrayContentProvider());
+		paramValueType.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
+		GridData paramValueTypeData = new GridData(GridData.FILL_HORIZONTAL);
+		paramValueType.getCombo().setLayoutData(paramValueTypeData);
+		paramValueType.addSelectionChangedListener(new ISelectionChangedListener() {
+
+			/**
+			 * {@inheritDoc}
+			 * 
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+			 * 	
+			 */
+			public void selectionChanged(SelectionChangedEvent event) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParamPropertiesEditionPartForm.this, EsbViewsRepository.Param.Properties.paramValueType, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getParamValueType()));
+			}
+
+		});
+		paramValueType.setID(EsbViewsRepository.Param.Properties.paramValueType);
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.Param.Properties.paramValueType, EsbViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createParamValueTypeEMFComboViewer
+
+		// End of user code
+		return parent;
+	}
+
+	
 	protected Composite createParamValueText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, EsbViewsRepository.Param.Properties.paramValue, EsbMessages.ParamPropertiesEditionPart_ParamValueLabel);
 		paramValue = widgetFactory.createText(parent, ""); //$NON-NLS-1$
@@ -277,6 +395,36 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		return parent;
 	}
 
+	
+	protected Composite createEvauatorEMFComboViewer(FormToolkit widgetFactory, Composite parent) {
+		createDescription(parent, EsbViewsRepository.Param.Properties.evauator, EsbMessages.ParamPropertiesEditionPart_EvauatorLabel);
+		evauator = new EMFComboViewer(parent);
+		evauator.setContentProvider(new ArrayContentProvider());
+		evauator.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
+		GridData evauatorData = new GridData(GridData.FILL_HORIZONTAL);
+		evauator.getCombo().setLayoutData(evauatorData);
+		evauator.addSelectionChangedListener(new ISelectionChangedListener() {
+
+			/**
+			 * {@inheritDoc}
+			 * 
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+			 * 	
+			 */
+			public void selectionChanged(SelectionChangedEvent event) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParamPropertiesEditionPartForm.this, EsbViewsRepository.Param.Properties.evauator, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getEvauator()));
+			}
+
+		});
+		evauator.setID(EsbViewsRepository.Param.Properties.evauator);
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.Param.Properties.evauator, EsbViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createEvauatorEMFComboViewer
+
+		// End of user code
+		return parent;
+	}
+
 
 	/**
 	 * {@inheritDoc}
@@ -325,6 +473,85 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	/**
 	 * {@inheritDoc}
 	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#getType()
+	 * 
+	 */
+	public String getType() {
+		return type.getText();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#setType(String newValue)
+	 * 
+	 */
+	public void setType(String newValue) {
+		if (newValue != null) {
+			type.setText(newValue);
+		} else {
+			type.setText(""); //$NON-NLS-1$
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.Param.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(EsbMessages.Param_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#getParamValueType()
+	 * 
+	 */
+	public Enumerator getParamValueType() {
+		Enumerator selection = (Enumerator) ((StructuredSelection) paramValueType.getSelection()).getFirstElement();
+		return selection;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#initParamValueType(Object input, Enumerator current)
+	 */
+	public void initParamValueType(Object input, Enumerator current) {
+		paramValueType.setInput(input);
+		paramValueType.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.Param.Properties.paramValueType);
+		if (eefElementEditorReadOnlyState && paramValueType.isEnabled()) {
+			paramValueType.setEnabled(false);
+			paramValueType.setToolTipText(EsbMessages.Param_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !paramValueType.isEnabled()) {
+			paramValueType.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#setParamValueType(Enumerator newValue)
+	 * 
+	 */
+	public void setParamValueType(Enumerator newValue) {
+		paramValueType.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.Param.Properties.paramValueType);
+		if (eefElementEditorReadOnlyState && paramValueType.isEnabled()) {
+			paramValueType.setEnabled(false);
+			paramValueType.setToolTipText(EsbMessages.Param_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !paramValueType.isEnabled()) {
+			paramValueType.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#getParamValue()
 	 * 
 	 */
@@ -354,6 +581,59 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#getEvauator()
+	 * 
+	 */
+	public Enumerator getEvauator() {
+		Enumerator selection = (Enumerator) ((StructuredSelection) evauator.getSelection()).getFirstElement();
+		return selection;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#initEvauator(Object input, Enumerator current)
+	 */
+	public void initEvauator(Object input, Enumerator current) {
+		evauator.setInput(input);
+		evauator.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.Param.Properties.evauator);
+		if (eefElementEditorReadOnlyState && evauator.isEnabled()) {
+			evauator.setEnabled(false);
+			evauator.setToolTipText(EsbMessages.Param_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !evauator.isEnabled()) {
+			evauator.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart#setEvauator(Enumerator newValue)
+	 * 
+	 */
+	public void setEvauator(Enumerator newValue) {
+		evauator.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.Param.Properties.evauator);
+		if (eefElementEditorReadOnlyState && evauator.isEnabled()) {
+			evauator.setEnabled(false);
+			evauator.setToolTipText(EsbMessages.Param_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !evauator.isEnabled()) {
+			evauator.setEnabled(true);
+		}	
+		
+	}
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 
@@ -365,9 +645,6 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	 * @see org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart#getTitle()
 	 * 
 	 */
-	public String getTitle() {
-		return EsbMessages.Param_Part_Title;
-	}
 
 	// Start of user code additional methods
 	

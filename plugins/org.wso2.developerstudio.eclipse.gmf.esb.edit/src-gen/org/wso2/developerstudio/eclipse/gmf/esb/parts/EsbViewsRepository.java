@@ -951,7 +951,7 @@ public class EsbViewsRepository {
 		}
 	
 	}
-	
+
 	/**
 	 * DataServiceCallMediator view descriptor
 	 * 
@@ -973,6 +973,9 @@ public class EsbViewsRepository {
 			
 			
 			public static String operationType = "esb::DataServiceCallMediator::properties::operationType";
+			
+			
+			public static String operationName = "esb::DataServiceCallMediator::properties::OperationName";
 			
 			
 			public static String operations = "esb::DataServiceCallMediator::properties::Operations";
@@ -1029,7 +1032,16 @@ public class EsbViewsRepository {
 			public static String paramName = "esb::Param::properties::paramName";
 			
 			
+			public static String type = "esb::Param::properties::type";
+			
+			
+			public static String paramValueType = "esb::Param::properties::paramValueType";
+			
+			
 			public static String paramValue = "esb::Param::properties::paramValue";
+			
+			
+			public static String evauator = "esb::Param::properties::evauator";
 			
 	
 		}
@@ -1699,7 +1711,7 @@ public class EsbViewsRepository {
 			public static String propertyValue = "esb::LogProperty::properties::propertyValue";
 			
 			// Start of user code for propertyExpression ElementEditor key
-			public static String propertyExpression = "esb::ClassProperty::properties::propertyExpression";
+			public static String propertyExpression = "esb::RuleFact::properties::propertyExpression";
 			// End of user code
 			
 	
@@ -5370,7 +5382,7 @@ public class EsbViewsRepository {
 			public static String connectionPassword = "esb::DBLookupMediator::connection::connectionPassword";
 			
 			// Start of user code for Database Configuration ElementEditor key
-			public static String databaseConfiguration = "esb::DBLookupMediator::connection::Database Configuration";
+			public static String databaseConfiguration = "esb::DBReportMediator::connection::Database Configuration";
 			// End of user code
 			
 	

@@ -28,10 +28,11 @@ import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediaType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Param;
-
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart;
 
@@ -78,10 +79,22 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 			if (isAccessible(EsbViewsRepository.Param.Properties.paramName))
 				basePart.setParamName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, param.getParamName()));
 			
+			if (isAccessible(EsbViewsRepository.Param.Properties.type))
+				basePart.setType(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, param.getType()));
+			
+			if (isAccessible(EsbViewsRepository.Param.Properties.paramValueType)) {
+				basePart.initParamValueType(EEFUtils.choiceOfValues(param, EsbPackage.eINSTANCE.getParam_ParamValueType()), param.getParamValueType());
+			}
 			if (isAccessible(EsbViewsRepository.Param.Properties.paramValue))
 				basePart.setParamValue(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, param.getParamValue()));
 			
+			if (isAccessible(EsbViewsRepository.Param.Properties.evauator)) {
+				basePart.initEvauator(EEFUtils.choiceOfValues(param, EsbPackage.eINSTANCE.getParam_Evauator()), param.getEvauator());
+			}
 			// init filters
+			
+			
+			
 			
 			
 			// init values for referenced views
@@ -96,16 +109,28 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 
 
 
+
+
+
 	/**
 	 * {@inheritDoc}
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
 	 */
 	public EStructuralFeature associatedFeature(Object editorKey) {
 		if (editorKey == EsbViewsRepository.Param.Properties.paramName) {
-			return EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamName();
+			return EsbPackage.eINSTANCE.getParam_ParamName();
+		}
+		if (editorKey == EsbViewsRepository.Param.Properties.type) {
+			return EsbPackage.eINSTANCE.getParam_Type();
+		}
+		if (editorKey == EsbViewsRepository.Param.Properties.paramValueType) {
+			return EsbPackage.eINSTANCE.getParam_ParamValueType();
 		}
 		if (editorKey == EsbViewsRepository.Param.Properties.paramValue) {
-			return EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamValue();
+			return EsbPackage.eINSTANCE.getParam_ParamValue();
+		}
+		if (editorKey == EsbViewsRepository.Param.Properties.evauator) {
+			return EsbPackage.eINSTANCE.getParam_Evauator();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -120,8 +145,17 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 		if (EsbViewsRepository.Param.Properties.paramName == event.getAffectedEditor()) {
 			param.setParamName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
+		if (EsbViewsRepository.Param.Properties.type == event.getAffectedEditor()) {
+			param.setType((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
+		}
+		if (EsbViewsRepository.Param.Properties.paramValueType == event.getAffectedEditor()) {
+			param.setParamValueType((PayloadFactoryArgumentType)event.getNewValue());
+		}
 		if (EsbViewsRepository.Param.Properties.paramValue == event.getAffectedEditor()) {
 			param.setParamValue((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
+		}
+		if (EsbViewsRepository.Param.Properties.evauator == event.getAffectedEditor()) {
+			param.setEvauator((MediaType)event.getNewValue());
 		}
 	}
 
@@ -133,20 +167,33 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ParamPropertiesEditionPart basePart = (ParamPropertiesEditionPart)editingPart;
-			if (EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamName().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.Param.Properties.paramName)) {
+			if (EsbPackage.eINSTANCE.getParam_ParamName().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.Param.Properties.paramName)) {
 				if (msg.getNewValue() != null) {
 					basePart.setParamName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					basePart.setParamName("");
 				}
 			}
-			if (EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamValue().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.Param.Properties.paramValue)) {
+			if (EsbPackage.eINSTANCE.getParam_Type().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.Param.Properties.type)) {
+				if (msg.getNewValue() != null) {
+					basePart.setType(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
+				} else {
+					basePart.setType("");
+				}
+			}
+			if (EsbPackage.eINSTANCE.getParam_ParamValueType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EsbViewsRepository.Param.Properties.paramValueType))
+				basePart.setParamValueType((PayloadFactoryArgumentType)msg.getNewValue());
+			
+			if (EsbPackage.eINSTANCE.getParam_ParamValue().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.Param.Properties.paramValue)) {
 				if (msg.getNewValue() != null) {
 					basePart.setParamValue(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					basePart.setParamValue("");
 				}
 			}
+			if (EsbPackage.eINSTANCE.getParam_Evauator().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EsbViewsRepository.Param.Properties.evauator))
+				basePart.setEvauator((MediaType)msg.getNewValue());
+			
 			
 		}
 	}
@@ -159,8 +206,11 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 	@Override
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
-			EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamName(),
-			EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamValue()		);
+			EsbPackage.eINSTANCE.getParam_ParamName(),
+			EsbPackage.eINSTANCE.getParam_Type(),
+			EsbPackage.eINSTANCE.getParam_ParamValueType(),
+			EsbPackage.eINSTANCE.getParam_ParamValue(),
+			EsbPackage.eINSTANCE.getParam_Evauator()		);
 		return new NotificationFilter[] {filter,};
 	}
 
@@ -178,16 +228,37 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 				if (EsbViewsRepository.Param.Properties.paramName == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamName().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getParam_ParamName().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamName().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getParam_ParamName().getEAttributeType(), newValue);
+				}
+				if (EsbViewsRepository.Param.Properties.type == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getParam_Type().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getParam_Type().getEAttributeType(), newValue);
+				}
+				if (EsbViewsRepository.Param.Properties.paramValueType == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getParam_ParamValueType().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getParam_ParamValueType().getEAttributeType(), newValue);
 				}
 				if (EsbViewsRepository.Param.Properties.paramValue == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamValue().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getParam_ParamValue().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getAbstractNameValueParam_ParamValue().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getParam_ParamValue().getEAttributeType(), newValue);
+				}
+				if (EsbViewsRepository.Param.Properties.evauator == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getParam_Evauator().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getParam_Evauator().getEAttributeType(), newValue);
 				}
 			} catch (IllegalArgumentException iae) {
 				ret = BasicDiagnostic.toDiagnostic(iae);

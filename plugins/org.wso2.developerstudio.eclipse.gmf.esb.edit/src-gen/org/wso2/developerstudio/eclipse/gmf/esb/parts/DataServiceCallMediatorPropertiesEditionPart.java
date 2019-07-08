@@ -111,6 +111,20 @@ public interface DataServiceCallMediatorPropertiesEditionPart {
 	public void setOperationType(Enumerator newValue);
 
 
+	/**
+	 * @return the OperationName
+	 * 
+	 */
+	public String getOperationName();
+
+	/**
+	 * Defines a new OperationName
+	 * @param newValue the new OperationName to set
+	 * 
+	 */
+	public void setOperationName(String newValue);
+
+
 
 
 	/**

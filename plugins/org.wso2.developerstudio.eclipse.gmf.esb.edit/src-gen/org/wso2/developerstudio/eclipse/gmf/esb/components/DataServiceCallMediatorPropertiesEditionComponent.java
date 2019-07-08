@@ -121,6 +121,9 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 			if (isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationType)) {
 				basePart.initOperationType(EEFUtils.choiceOfValues(dataServiceCallMediator, EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType()), dataServiceCallMediator.getOperationType());
 			}
+			if (isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationName))
+				basePart.setOperationName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dataServiceCallMediator.getOperationName()));
+			
 			if (isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operations)) {
 				operationsSettings = new ReferencesTableSettings(dataServiceCallMediator, EsbPackage.eINSTANCE.getDataServiceCallMediator_Operations());
 				basePart.initOperations(operationsSettings);
@@ -132,6 +135,7 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 				basePart.setPropertyName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dataServiceCallMediator.getPropertyName()));
 			
 			// init filters
+			
 			
 			
 			
@@ -172,6 +176,7 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 
 
 
+
 	/**
 	 * {@inheritDoc}
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
@@ -191,6 +196,9 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 		}
 		if (editorKey == EsbViewsRepository.DataServiceCallMediator.Properties.operationType) {
 			return EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType();
+		}
+		if (editorKey == EsbViewsRepository.DataServiceCallMediator.Properties.operationName) {
+			return EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationName();
 		}
 		if (editorKey == EsbViewsRepository.DataServiceCallMediator.Properties.operations) {
 			return EsbPackage.eINSTANCE.getDataServiceCallMediator_Operations();
@@ -228,6 +236,9 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 		}
 		if (EsbViewsRepository.DataServiceCallMediator.Properties.operationType == event.getAffectedEditor()) {
 			dataServiceCallMediator.setOperationType((OperationType)event.getNewValue());
+		}
+		if (EsbViewsRepository.DataServiceCallMediator.Properties.operationName == event.getAffectedEditor()) {
+			dataServiceCallMediator.setOperationName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
 		if (EsbViewsRepository.DataServiceCallMediator.Properties.operations == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
@@ -302,6 +313,13 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 			if (EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationType))
 				basePart.setOperationType((OperationType)msg.getNewValue());
 			
+			if (EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationName().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationName)) {
+				if (msg.getNewValue() != null) {
+					basePart.setOperationName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
+				} else {
+					basePart.setOperationName("");
+				}
+			}
 			if (EsbPackage.eINSTANCE.getDataServiceCallMediator_Operations().equals(msg.getFeature()) && isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operations))
 				basePart.updateOperations();
 			if (EsbPackage.eINSTANCE.getDataServiceCallMediator_TargetType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.targetType))
@@ -331,6 +349,7 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 			EsbPackage.eINSTANCE.getMediator_Reverse(),
 			EsbPackage.eINSTANCE.getDataServiceCallMediator_DSName(),
 			EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType(),
+			EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationName(),
 			EsbPackage.eINSTANCE.getDataServiceCallMediator_Operations(),
 			EsbPackage.eINSTANCE.getDataServiceCallMediator_TargetType(),
 			EsbPackage.eINSTANCE.getDataServiceCallMediator_PropertyName()		);
@@ -382,6 +401,13 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType().getEAttributeType(), newValue);
+				}
+				if (EsbViewsRepository.DataServiceCallMediator.Properties.operationName == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationName().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationName().getEAttributeType(), newValue);
 				}
 				if (EsbViewsRepository.DataServiceCallMediator.Properties.targetType == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();

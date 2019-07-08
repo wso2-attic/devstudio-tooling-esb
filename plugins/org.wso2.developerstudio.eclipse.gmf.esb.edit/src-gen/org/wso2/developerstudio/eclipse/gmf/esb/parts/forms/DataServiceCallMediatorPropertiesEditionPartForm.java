@@ -109,10 +109,11 @@ import org.xml.sax.SAXException;
 
 /**
  * 
- * @generated NOT
+ * @generated
  */
 public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, DataServiceCallMediatorPropertiesEditionPart {
 
+	// Start of user code additional methods
 	protected Text description;
 	protected Text commentsList;
 	protected Button editCommentsList;
@@ -120,7 +121,8 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 	protected Button reverse;
 	protected EMFComboViewer dSName;
 	protected EMFComboViewer operationType;
-	protected ReferencesTable operations;
+	protected Text operationName;
+  protected ReferencesTable operations;
 	protected List<ViewerFilter> operationsBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> operationsFilters = new ArrayList<ViewerFilter>();
 	protected EMFComboViewer targetType;
@@ -135,6 +137,7 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
     protected static String REQUEST_BOX = "REQUEST_BOX";
     protected static String DS_NAME_DEFAULT_VALUE = "Select From Data Services";
     Map<String, Document> availableDataServicesMap = new HashMap<String, Document>();    
+    // End of user code additional methods
 
 	/**
 	 * For {@link ISection} use only.
@@ -436,6 +439,9 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 		return parent;
 	}
 	
+	/**
+     * @generated NOT
+     */
 	protected Composite createOperationTypeEMFComboViewer(FormToolkit widgetFactory, Composite parent) {
 	    Control operatioTypeLabel = createDescription(parent, EsbViewsRepository.DataServiceCallMediator.Properties.operationType, EsbMessages.DataServiceCallMediatorPropertiesEditionPart_OperationTypeLabel);
 		operationType = new EMFComboViewer(parent);
@@ -467,9 +473,78 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 	}
 
 	/**
-	 * @param container
-	 * 
-	 */
+     * @generated NOT
+     */
+	protected Composite createOperationNameText(FormToolkit widgetFactory, Composite parent) {
+    createDescription(parent, EsbViewsRepository.DataServiceCallMediator.Properties.operationName, EsbMessages.DataServiceCallMediatorPropertiesEditionPart_OperationNameLabel);
+    operationName = widgetFactory.createText(parent, ""); //$NON-NLS-1$
+    operationName.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
+    widgetFactory.paintBordersFor(parent);
+    GridData operationNameData = new GridData(GridData.FILL_HORIZONTAL);
+    operationName.setLayoutData(operationNameData);
+    operationName.addFocusListener(new FocusAdapter() {
+      /**
+       * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
+       * 
+       */
+      @Override
+      @SuppressWarnings("synthetic-access")
+      public void focusLost(FocusEvent e) {
+        if (propertiesEditionComponent != null) {
+          propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+              DataServiceCallMediatorPropertiesEditionPartForm.this,
+              EsbViewsRepository.DataServiceCallMediator.Properties.operationName,
+              PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, operationName.getText()));
+          propertiesEditionComponent
+              .firePropertiesChanged(new PropertiesEditionEvent(
+                  DataServiceCallMediatorPropertiesEditionPartForm.this,
+                  EsbViewsRepository.DataServiceCallMediator.Properties.operationName,
+                  PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+                  null, operationName.getText()));
+        }
+      }
+
+      /**
+       * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+       */
+      @Override
+      public void focusGained(FocusEvent e) {
+        if (propertiesEditionComponent != null) {
+          propertiesEditionComponent
+              .firePropertiesChanged(new PropertiesEditionEvent(
+                  DataServiceCallMediatorPropertiesEditionPartForm.this,
+                  null,
+                  PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+                  null, null));
+        }
+      }
+    });
+    operationName.addKeyListener(new KeyAdapter() {
+      /**
+       * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
+       * 
+       */
+      @Override
+      @SuppressWarnings("synthetic-access")
+      public void keyPressed(KeyEvent e) {
+        if (e.character == SWT.CR) {
+          if (propertiesEditionComponent != null)
+            propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServiceCallMediatorPropertiesEditionPartForm.this, EsbViewsRepository.DataServiceCallMediator.Properties.operationName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, operationName.getText()));
+        }
+      }
+    });
+    EditingUtils.setID(operationName, EsbViewsRepository.DataServiceCallMediator.Properties.operationName);
+    EditingUtils.setEEFtype(operationName, "eef::Text"); //$NON-NLS-1$
+    FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.DataServiceCallMediator.Properties.operationName, EsbViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+    // Start of user code for createOperationNameText
+
+    // End of user code
+    return parent;
+  }
+
+	/**
+     * @generated NOT
+     */
 	protected Composite createOperationsTableComposition(FormToolkit widgetFactory, Composite parent) {
 		Control[] previousControls = propertiesGroup.getChildren();
 		this.operations = new ReferencesTable(getDescription(EsbViewsRepository.DataServiceCallMediator.Properties.operations, EsbMessages.DataServiceCallMediatorPropertiesEditionPart_OperationsLabel), new ReferencesTableListener() {
@@ -1013,6 +1088,18 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 		}
     }
     // End of user code
+
+	@Override
+	public String getOperationName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setOperationName(String newValue) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

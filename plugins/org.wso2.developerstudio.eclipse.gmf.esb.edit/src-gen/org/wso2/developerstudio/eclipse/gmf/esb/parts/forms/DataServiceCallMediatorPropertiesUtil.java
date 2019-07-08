@@ -43,6 +43,7 @@ public class DataServiceCallMediatorPropertiesUtil {
 	                try {
 	                    if (workspaceProject.hasNature("org.wso2.developerstudio.eclipse.ds.project.nature")) {
 	                    	DSSProjectArtifact dssProjectArtifact = new DSSProjectArtifact();
+	                    	String projectName = workspaceProject.getFullPath().segment(workspaceProject.getFullPath().segmentCount() -1);
 	                        projectPath = workspaceProject.getLocation().toFile();
 	                        try {
 	                        	dssProjectArtifact
@@ -51,7 +52,7 @@ public class DataServiceCallMediatorPropertiesUtil {
 	                            for (DSSArtifact dssArtifact : allDSSArtifacts) {
 	                                if (dssArtifcatCategory.equals(dssArtifact.getType())) {
 	                                    File artifact = new File(projectPath, dssArtifact.getFile());
-	                                    String name = artifact.getName().replaceAll("[.]dbs$", "");
+	                                    String name = projectName + "/" + artifact.getName().replaceAll("[.]dbs$", "");
 	                                    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	                                	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	                            	    Document doc = dBuilder.parse(artifact);
