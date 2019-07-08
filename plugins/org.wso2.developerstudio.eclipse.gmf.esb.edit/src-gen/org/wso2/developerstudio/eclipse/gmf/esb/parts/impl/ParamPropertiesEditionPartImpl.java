@@ -36,17 +36,20 @@ import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
-
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart;
-
+import org.wso2.developerstudio.eclipse.gmf.esb.presentation.EEFNameSpacedPropertyEditorDialog;
 import org.wso2.developerstudio.eclipse.gmf.esb.providers.EsbMessages;
 
 // End of user code
@@ -62,6 +65,11 @@ public class ParamPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 	protected EMFComboViewer paramValueType;
 	protected Text paramValue;
 	protected EMFComboViewer evauator;
+	// Start of user code  for ExpressionView widgets declarations
+	protected NamespacedProperty paramExpression;
+	protected Text paramExpressionText;
+	// End of user code
+
 
 
 
@@ -105,6 +113,7 @@ public class ParamPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		propertiesStep.addStep(EsbViewsRepository.Param.Properties.paramValueType);
 		propertiesStep.addStep(EsbViewsRepository.Param.Properties.paramValue);
 		propertiesStep.addStep(EsbViewsRepository.Param.Properties.evauator);
+		propertiesStep.addStep(EsbViewsRepository.Param.Properties.expressionView);
 		
 		
 		composer = new PartComposer(paramStep) {
@@ -129,6 +138,11 @@ public class ParamPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 				if (key == EsbViewsRepository.Param.Properties.evauator) {
 					return createEvauatorEMFComboViewer(parent);
 				}
+				// Start of user code for ExpressionView addToPart creation
+				if (key == EsbViewsRepository.Param.Properties.expressionView) {
+					return createParamExpression(parent);
+				}
+				// End of user code
 				return parent;
 			}
 		};
@@ -356,6 +370,48 @@ public class ParamPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		// End of user code
 		return parent;
 	}
+	
+	protected Composite createParamExpression(final Composite parent) {
+		Control argumentExpressionLabel = createDescription(parent, EsbViewsRepository.PayloadFactoryArgument.Properties.argumentExpression, EsbMessages.PayloadFactoryArgumentPropertiesEditionPart_ArgumentExpressionLabel);
+
+        if (paramExpression == null) {
+        	paramExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+        }
+        
+        paramExpressionText = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.READ_ONLY);
+        GridData valueData = new GridData(GridData.FILL_HORIZONTAL);
+        paramExpressionText.setLayoutData(valueData);
+        paramExpressionText.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseUp(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseDown(MouseEvent e) {
+				EEFNameSpacedPropertyEditorDialog nspd = new EEFNameSpacedPropertyEditorDialog(parent.getShell(), SWT.NULL, paramExpression);
+                nspd.open();
+                paramExpressionText.setText(paramExpression.getPropertyValue());
+                propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParamPropertiesEditionPartImpl.this, 
+                		EsbViewsRepository.PayloadFactoryArgument.Properties.argumentExpression, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getParamExpression()));
+			}
+			
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+
+        EditingUtils.setID(paramExpressionText, EsbViewsRepository.PayloadFactoryArgument.Properties.argumentExpression);
+        EditingUtils.setEEFtype(paramExpressionText, "eef::Text");
+//        Control argumentExpressionHelp = SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.PayloadFactoryArgument.Properties.argumentExpression, EsbViewsRepository.SWT_KIND), null);
+//        argumentExpressionElements = new Control[] {argumentExpressionLabel, argumentExpressionText, argumentExpressionHelp};
+        return parent;
+
+	}
 
 
 	/**
@@ -565,6 +621,10 @@ public class ParamPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 
 
 
+	// Start of user code for ExpressionView specific getters and setters implementation
+	
+	// End of user code
+
 	/**
 	 * {@inheritDoc}
 	 *
@@ -576,6 +636,18 @@ public class ParamPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 	}
 
 	// Start of user code additional methods
+	@Override
+	public void setParamExpression(NamespacedProperty namespacedProperty) {
+		if (namespacedProperty != null) {
+			paramExpression = namespacedProperty;
+			paramExpressionText.setText(namespacedProperty.getPropertyValue());
+		}
+	}
+
+	@Override
+	public NamespacedProperty getParamExpression() {
+		return paramExpression;
+	}
 	
 	// End of user code
 

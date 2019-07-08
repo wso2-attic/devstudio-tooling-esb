@@ -3931,6 +3931,9 @@ public class EsbMessages extends NLS {
 	public static String ParamPropertiesEditionPart_EvauatorLabel;
 
 	
+	public static String ParamPropertiesEditionPart_ExpressionViewLabel;
+
+	
 	public static String OperationPropertiesEditionPart_OperationNameLabel;
 
 	

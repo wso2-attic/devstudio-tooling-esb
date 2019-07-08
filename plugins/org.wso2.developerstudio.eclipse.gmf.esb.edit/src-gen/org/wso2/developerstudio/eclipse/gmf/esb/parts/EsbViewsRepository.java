@@ -1043,6 +1043,10 @@ public class EsbViewsRepository {
 			
 			public static String evauator = "esb::Param::properties::evauator";
 			
+			// Start of user code for ExpressionView ElementEditor key
+			public static String expressionView = "esb::Param::properties::ExpressionView";
+			// End of user code
+			
 	
 		}
 	

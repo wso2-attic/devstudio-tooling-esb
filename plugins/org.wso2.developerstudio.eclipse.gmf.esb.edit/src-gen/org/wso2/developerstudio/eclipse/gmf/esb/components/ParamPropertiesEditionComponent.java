@@ -91,11 +91,17 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 			if (isAccessible(EsbViewsRepository.Param.Properties.evauator)) {
 				basePart.initEvauator(EEFUtils.choiceOfValues(param, EsbPackage.eINSTANCE.getParam_Evauator()), param.getEvauator());
 			}
+			// Start of user code  for ParamExpression command update
+			// End of user code
+			
 			// init filters
 			
 			
 			
 			
+			
+			// Start of user code  for ParamExpression filter update
+			// End of user code
 			
 			// init values for referenced views
 			
@@ -104,6 +110,7 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 		}
 		setInitializing(false);
 	}
+
 
 
 
@@ -132,6 +139,9 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 		if (editorKey == EsbViewsRepository.Param.Properties.evauator) {
 			return EsbPackage.eINSTANCE.getParam_Evauator();
 		}
+		if (editorKey == EsbViewsRepository.Param.Properties.expressionView) {
+			return EsbPackage.eINSTANCE.getParam_ParamExpression();
+		}
 		return super.associatedFeature(editorKey);
 	}
 
@@ -156,6 +166,11 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 		}
 		if (EsbViewsRepository.Param.Properties.evauator == event.getAffectedEditor()) {
 			param.setEvauator((MediaType)event.getNewValue());
+		}
+		if (EsbViewsRepository.Param.Properties.expressionView == event.getAffectedEditor()) {
+			// Start of user code for updateParamExpression method body
+			// End of user code
+			
 		}
 	}
 
@@ -194,6 +209,10 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 			if (EsbPackage.eINSTANCE.getParam_Evauator().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EsbViewsRepository.Param.Properties.evauator))
 				basePart.setEvauator((MediaType)msg.getNewValue());
 			
+					// Start of user code for ParamExpression live update
+					
+					// End of user code
+			
 			
 		}
 	}
@@ -210,7 +229,8 @@ public class ParamPropertiesEditionComponent extends SinglePartPropertiesEditing
 			EsbPackage.eINSTANCE.getParam_Type(),
 			EsbPackage.eINSTANCE.getParam_ParamValueType(),
 			EsbPackage.eINSTANCE.getParam_ParamValue(),
-			EsbPackage.eINSTANCE.getParam_Evauator()		);
+			EsbPackage.eINSTANCE.getParam_Evauator(),
+			EsbPackage.eINSTANCE.getParam_ParamExpression()		);
 		return new NotificationFilter[] {filter,};
 	}
 

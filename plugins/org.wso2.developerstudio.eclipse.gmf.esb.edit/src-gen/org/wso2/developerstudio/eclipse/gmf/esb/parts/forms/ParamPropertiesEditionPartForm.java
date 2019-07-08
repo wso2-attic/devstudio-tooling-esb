@@ -47,6 +47,7 @@ import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.ParamPropertiesEditionPart;
 
@@ -65,6 +66,10 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	protected EMFComboViewer paramValueType;
 	protected Text paramValue;
 	protected EMFComboViewer evauator;
+	// Start of user code  for ExpressionView widgets declarations
+	
+	// End of user code
+
 
 
 
@@ -115,6 +120,7 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		propertiesStep.addStep(EsbViewsRepository.Param.Properties.paramValueType);
 		propertiesStep.addStep(EsbViewsRepository.Param.Properties.paramValue);
 		propertiesStep.addStep(EsbViewsRepository.Param.Properties.evauator);
+		propertiesStep.addStep(EsbViewsRepository.Param.Properties.expressionView);
 		
 		
 		composer = new PartComposer(paramStep) {
@@ -139,6 +145,9 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 				if (key == EsbViewsRepository.Param.Properties.evauator) {
 					return createEvauatorEMFComboViewer(widgetFactory, parent);
 				}
+				// Start of user code for ExpressionView addToPart creation
+				
+				// End of user code
 				return parent;
 			}
 		};
@@ -628,16 +637,14 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		
 	}
 
-	@Override
-	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 
 
 
+	// Start of user code for ExpressionView specific getters and setters implementation
+	
+	// End of user code
 
 	/**
 	 * {@inheritDoc}
@@ -645,6 +652,19 @@ public class ParamPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	 * @see org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart#getTitle()
 	 * 
 	 */
+	public String getTitle() {
+		return EsbMessages.Param_Part_Title;
+	}
+
+	@Override
+	public void setParamExpression(NamespacedProperty namespacedProperty) {
+		
+	}
+
+	@Override
+	public NamespacedProperty getParamExpression() {
+		return null;
+	}
 
 	// Start of user code additional methods
 	
