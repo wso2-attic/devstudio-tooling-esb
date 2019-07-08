@@ -963,6 +963,9 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_w4W46qE1Eemva4E6XzXxfg" name="evauator" views="_w4Z8iaE1Eemva4E6XzXxfg">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//Param/evauator"/>
         </properties>
+	<properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_x7CisKFIEemva4E6XzXxfg" name="ParamExpression" views="_j9RnUKFIEemva4E6XzXxfg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//Param/paramExpression"/>
+        </properties>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//Param"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_w4W466E1Eemva4E6XzXxfg" name="Operation" views="_w4Z8iqE1Eemva4E6XzXxfg">
@@ -6649,6 +6652,7 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_w4Z8iaE1Eemva4E6XzXxfg" name="evauator">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
           </elements>
+          <elements xsi:type="eef-views:CustomElementEditor" xmi:id="_j9RnUKFIEemva4E6XzXxfg" name="ExpressionView"/>
         </elements>
       </views>
       <views xmi:id="_w4Z8iqE1Eemva4E6XzXxfg" name="Operation">
