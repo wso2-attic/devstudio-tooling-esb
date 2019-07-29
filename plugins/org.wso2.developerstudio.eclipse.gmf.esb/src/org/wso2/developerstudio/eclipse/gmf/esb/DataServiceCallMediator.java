@@ -122,7 +122,6 @@ public interface DataServiceCallMediator extends Mediator {
 
     /**
      * Returns the value of the '<em><b>Operation Type</b></em>' attribute.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.OperationType}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Operation Type</em>' attribute isn't clear,
@@ -130,24 +129,22 @@ public interface DataServiceCallMediator extends Mediator {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Operation Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.gmf.esb.OperationType
-     * @see #setOperationType(OperationType)
+     * @see #setOperationType(String)
      * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDataServiceCallMediator_OperationType()
      * @model
      * @generated
      */
-    OperationType getOperationType();
+    String getOperationType();
 
     /**
      * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServiceCallMediator#getOperationType <em>Operation Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Operation Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.gmf.esb.OperationType
      * @see #getOperationType()
      * @generated
      */
-    void setOperationType(OperationType value);
+    void setOperationType(String value);
 
     /**
      * Returns the value of the '<em><b>Operation Name</b></em>' attribute.

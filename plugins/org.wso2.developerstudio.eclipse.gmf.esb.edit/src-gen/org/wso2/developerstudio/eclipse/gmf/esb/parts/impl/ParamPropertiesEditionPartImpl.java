@@ -340,39 +340,12 @@ public class ParamPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		// End of user code
 		return parent;
 	}
-
 	
-	protected Composite createEvauatorEMFComboViewer(Composite parent) {
-		createDescription(parent, EsbViewsRepository.Param.Properties.evauator, EsbMessages.ParamPropertiesEditionPart_EvauatorLabel);
-		evauator = new EMFComboViewer(parent);
-		evauator.setContentProvider(new ArrayContentProvider());
-		evauator.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
-		GridData evauatorData = new GridData(GridData.FILL_HORIZONTAL);
-		evauator.getCombo().setLayoutData(evauatorData);
-		evauator.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
-			 * 	
-			 */
-			public void selectionChanged(SelectionChangedEvent event) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParamPropertiesEditionPartImpl.this, EsbViewsRepository.Param.Properties.evauator, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getEvauator()));
-			}
-
-		});
-		evauator.setID(EsbViewsRepository.Param.Properties.evauator);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.Param.Properties.evauator, EsbViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createEvauatorEMFComboViewer
-
-		// End of user code
-		return parent;
-	}
-	
+	/*
+	 * generated NOT
+	 */
 	protected Composite createParamExpression(final Composite parent) {
-		Control argumentExpressionLabel = createDescription(parent, EsbViewsRepository.PayloadFactoryArgument.Properties.argumentExpression, EsbMessages.PayloadFactoryArgumentPropertiesEditionPart_ArgumentExpressionLabel);
+		Control paramExpressionLabel = createDescription(parent, EsbViewsRepository.Param.Properties.expressionView, EsbMessages.ParamExpressionPropertiesEditionPart_ParamExpressionLabel);
 
         if (paramExpression == null) {
         	paramExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
@@ -407,10 +380,40 @@ public class ParamPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 
         EditingUtils.setID(paramExpressionText, EsbViewsRepository.PayloadFactoryArgument.Properties.argumentExpression);
         EditingUtils.setEEFtype(paramExpressionText, "eef::Text");
-//        Control argumentExpressionHelp = SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.PayloadFactoryArgument.Properties.argumentExpression, EsbViewsRepository.SWT_KIND), null);
-//        argumentExpressionElements = new Control[] {argumentExpressionLabel, argumentExpressionText, argumentExpressionHelp};
+        Control paramExpressionHelp = SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.PayloadFactoryArgument.Properties.argumentExpression, EsbViewsRepository.SWT_KIND), null);
+//        paramExpressionElements = new Control[] {argumentExpressionLabel, argumentExpressionText, argumentExpressionHelp};
         return parent;
 
+	}
+
+	
+	protected Composite createEvauatorEMFComboViewer(Composite parent) {
+		createDescription(parent, EsbViewsRepository.Param.Properties.evauator, EsbMessages.ParamPropertiesEditionPart_EvauatorLabel);
+		evauator = new EMFComboViewer(parent);
+		evauator.setContentProvider(new ArrayContentProvider());
+		evauator.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
+		GridData evauatorData = new GridData(GridData.FILL_HORIZONTAL);
+		evauator.getCombo().setLayoutData(evauatorData);
+		evauator.addSelectionChangedListener(new ISelectionChangedListener() {
+
+			/**
+			 * {@inheritDoc}
+			 * 
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+			 * 	
+			 */
+			public void selectionChanged(SelectionChangedEvent event) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParamPropertiesEditionPartImpl.this, EsbViewsRepository.Param.Properties.evauator, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getEvauator()));
+			}
+
+		});
+		evauator.setID(EsbViewsRepository.Param.Properties.evauator);
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.Param.Properties.evauator, EsbViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createEvauatorEMFComboViewer
+
+		// End of user code
+		return parent;
 	}
 
 

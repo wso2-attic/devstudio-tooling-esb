@@ -462,7 +462,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//DataServiceCallMediatorOutputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DSName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationType" eType="#//OperationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="OperationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Operations" upperBound="-1"
         eType="#//Operation" containment="true"/>

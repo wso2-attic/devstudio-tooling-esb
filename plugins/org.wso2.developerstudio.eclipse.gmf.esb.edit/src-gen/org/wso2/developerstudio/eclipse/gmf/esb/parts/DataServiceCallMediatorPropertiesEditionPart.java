@@ -94,21 +94,14 @@ public interface DataServiceCallMediatorPropertiesEditionPart {
 	 * @return the operationType
 	 * 
 	 */
-	public Enumerator getOperationType();
-
-	/**
-	 * Init the operationType
-	 * @param input the viewer input
-	 * @param current the current value
-	 */
-	public void initOperationType(Object input, Enumerator current);
+	public String getOperationType();
 
 	/**
 	 * Defines a new operationType
 	 * @param newValue the new operationType to set
 	 * 
 	 */
-	public void setOperationType(Enumerator newValue);
+	public void setOperationType(String newValue);
 
 
 	/**

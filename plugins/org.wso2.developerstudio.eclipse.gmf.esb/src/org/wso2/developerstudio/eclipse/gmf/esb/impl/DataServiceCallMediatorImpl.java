@@ -99,7 +99,7 @@ public class DataServiceCallMediatorImpl extends MediatorImpl implements DataSer
      * @generated
      * @ordered
      */
-    protected static final OperationType OPERATION_TYPE_EDEFAULT = OperationType.SINGLE_REQUEST;
+    protected static final String OPERATION_TYPE_EDEFAULT = null;
     /**
      * The cached value of the '{@link #getOperationType() <em>Operation Type</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -108,7 +108,7 @@ public class DataServiceCallMediatorImpl extends MediatorImpl implements DataSer
      * @generated
      * @ordered
      */
-    protected OperationType operationType = OPERATION_TYPE_EDEFAULT;
+    protected String operationType = OPERATION_TYPE_EDEFAULT;
     /**
      * The default value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -306,7 +306,7 @@ public class DataServiceCallMediatorImpl extends MediatorImpl implements DataSer
      * <!-- end-user-doc -->
      * @generated
      */
-    public OperationType getOperationType() {
+    public String getOperationType() {
         return operationType;
     }
 
@@ -315,9 +315,9 @@ public class DataServiceCallMediatorImpl extends MediatorImpl implements DataSer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOperationType(OperationType newOperationType) {
-        OperationType oldOperationType = operationType;
-        operationType = newOperationType == null ? OPERATION_TYPE_EDEFAULT : newOperationType;
+    public void setOperationType(String newOperationType) {
+        String oldOperationType = operationType;
+        operationType = newOperationType;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.DATA_SERVICE_CALL_MEDIATOR__OPERATION_TYPE, oldOperationType, operationType));
     }
@@ -462,7 +462,7 @@ public class DataServiceCallMediatorImpl extends MediatorImpl implements DataSer
                 setDSName((String)newValue);
                 return;
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR__OPERATION_TYPE:
-                setOperationType((OperationType)newValue);
+                setOperationType((String)newValue);
                 return;
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR__OPERATION_NAME:
                 setOperationName((String)newValue);
@@ -532,7 +532,7 @@ public class DataServiceCallMediatorImpl extends MediatorImpl implements DataSer
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR__DS_NAME:
                 return DS_NAME_EDEFAULT == null ? dsName != null : !DS_NAME_EDEFAULT.equals(dsName);
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR__OPERATION_TYPE:
-                return operationType != OPERATION_TYPE_EDEFAULT;
+                return OPERATION_TYPE_EDEFAULT == null ? operationType != null : !OPERATION_TYPE_EDEFAULT.equals(operationType);
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR__OPERATION_NAME:
                 return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
             case EsbPackage.DATA_SERVICE_CALL_MEDIATOR__OPERATIONS:

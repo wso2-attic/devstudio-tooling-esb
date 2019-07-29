@@ -56,7 +56,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Operation;
 import org.wso2.developerstudio.eclipse.gmf.esb.OperationType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetType;
-
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.OperationImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServiceCallMediatorPropertiesEditionPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServiceCallMediatorPropertiesEditionPartForm;
@@ -118,9 +118,9 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 			if (isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.dSName))
 				basePart.setDSName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dataServiceCallMediator.getDSName()));
 			
-			if (isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationType)) {
-				basePart.initOperationType(EEFUtils.choiceOfValues(dataServiceCallMediator, EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType()), dataServiceCallMediator.getOperationType());
-			}
+			if (isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationType))
+				basePart.setOperationType(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dataServiceCallMediator.getOperationType()));
+			
 			if (isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationName))
 				basePart.setOperationName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dataServiceCallMediator.getOperationName()));
 			
@@ -235,10 +235,18 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 			dataServiceCallMediator.setDSName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
 		if (EsbViewsRepository.DataServiceCallMediator.Properties.operationType == event.getAffectedEditor()) {
-			dataServiceCallMediator.setOperationType((OperationType)event.getNewValue());
+			dataServiceCallMediator.setOperationType((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
 		if (EsbViewsRepository.DataServiceCallMediator.Properties.operationName == event.getAffectedEditor()) {
 			dataServiceCallMediator.setOperationName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
+			Object[] existingOps = operationsSettings.getValue();
+			for (Object existingOp : existingOps) {
+				OperationImpl operation = (OperationImpl)existingOp;
+				operationsSettings.removeFromReference(operation);
+			}
+			OperationImpl newOperation = new OperationImpl();
+			newOperation.setOperationName((String)event.getNewValue());
+			operationsSettings.addToReference(newOperation);
 		}
 		if (EsbViewsRepository.DataServiceCallMediator.Properties.operations == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
@@ -310,9 +318,13 @@ public class DataServiceCallMediatorPropertiesEditionComponent extends SinglePar
 					basePart.setDSName("");
 				}
 			}
-			if (EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationType))
-				basePart.setOperationType((OperationType)msg.getNewValue());
-			
+			if (EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationType)) {
+				if (msg.getNewValue() != null) {
+					basePart.setOperationType(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
+				} else {
+					basePart.setOperationType("");
+				}
+			}
 			if (EsbPackage.eINSTANCE.getDataServiceCallMediator_OperationName().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.DataServiceCallMediator.Properties.operationName)) {
 				if (msg.getNewValue() != null) {
 					basePart.setOperationName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));

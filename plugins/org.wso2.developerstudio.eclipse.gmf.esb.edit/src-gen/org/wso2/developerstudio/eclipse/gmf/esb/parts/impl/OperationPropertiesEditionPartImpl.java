@@ -87,7 +87,8 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 	protected List<ViewerFilter> paramsBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> paramsFilters = new ArrayList<ViewerFilter>();
 	Map<String, Document> availableDataServicesMap;
-	private String dsName; 
+	private String dsName;
+	private String opName; 
 	protected Control[] paramsElements;
 	protected Group propertiesGroup;
 	protected static String OPERATION_DEFAULT_VALUE = "Select From Operations";
@@ -105,6 +106,7 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
 				editionComponent.getEditingContext().getEObject().eContainer() != null && editionComponent.getEditingContext().getEObject().eContainer() 
 				instanceof DataServiceCallMediatorImpl) {
 			dsName = ((DataServiceCallMediatorImpl)editionComponent.getEditingContext().getEObject().eContainer()).getDSName();
+			opName = ((DataServiceCallMediatorImpl)editionComponent.getEditingContext().getEObject().eContainer()).getOperationName();
 		}
 	}
 
@@ -214,13 +216,6 @@ public class OperationPropertiesEditionPartImpl extends CompositePropertiesEditi
             public void selectionChanged(SelectionChangedEvent event) {
             	propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OperationPropertiesEditionPartImpl.this, EsbViewsRepository.Operation.Properties.operationName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.CHANGE, operationsMap.get(operationName.getCombo().getText()), operationName.getCombo().getText()));
             	params.refresh();
-//            	refresh();
-//                for (String paramName : operationsMap.get(operationName.getCombo().getText())) {
-//                	ParamImpl param = new ParamImpl();
-//                    param.setParamName(paramName);		
-//	                propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OperationPropertiesEditionPartImpl.this, EsbViewsRepository.Operation.Properties.params, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, param));
-//					params.refresh();
-//                }
             }
 
         });

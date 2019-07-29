@@ -85,7 +85,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
      * <!-- end-user-doc -->
      * @generated
      */
-    protected OperationImpl() {
+    public OperationImpl() {
         super();
     }
 

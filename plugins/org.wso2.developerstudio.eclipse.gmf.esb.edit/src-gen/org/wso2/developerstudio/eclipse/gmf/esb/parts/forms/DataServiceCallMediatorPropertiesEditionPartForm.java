@@ -102,6 +102,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServiceCallMediatorPropertiesEditionPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.EsbViewsRepository;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.OperationPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.presentation.EEFPropertyViewUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.providers.EsbMessages;
 import org.xml.sax.SAXException;
@@ -139,7 +140,8 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
     protected static String BATCH_REQUEST = "BATCH_REQUEST";
     protected static String REQUEST_BOX = "REQUEST_BOX";
     protected static String DS_NAME_DEFAULT_VALUE = "Select From Data Services";
-    protected static String OP_TYPE_DEFAULT_VALUE = "Select From Operation Type";
+    protected static String OPERATION_TYPE_DEFAULT_VALUE = "Select From Operation Types";
+    protected static String OPERATION_DEFAULT_VALUE = "Select From Operations";
     Map<String, Document> availableDataServicesMap = new HashMap<String, Document>();    
     // End of user code additional methods
 
@@ -216,7 +218,7 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 					return createDSNameText(widgetFactory, parent);
 				}
 				if (key == EsbViewsRepository.DataServiceCallMediator.Properties.operationType) {
-					return createOperationTypeEMFComboViewer(widgetFactory, parent);
+					return createOperationTypeText(widgetFactory, parent);
 				}
 				if (key == EsbViewsRepository.DataServiceCallMediator.Properties.operationName) {
 					return createOperationNameText(widgetFactory, parent);
@@ -439,6 +441,7 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
              */
             public void selectionChanged(SelectionChangedEvent event) {
             	propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServiceCallMediatorPropertiesEditionPartForm.this, EsbViewsRepository.DataServiceCallMediator.Properties.dSName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.CHANGE, null, dSName.getCombo().getText()));
+            	loadSupportedOperationTypes();
             	refresh();
             }
 
@@ -450,8 +453,8 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 	/**
      * @generated NOT
      */
-	protected Composite createOperationTypeEMFComboViewer(FormToolkit widgetFactory, Composite parent) {
-	    Control operatioTypeLabel = createDescription(parent, EsbViewsRepository.DataServiceCallMediator.Properties.operationType, EsbMessages.DataServiceCallMediatorPropertiesEditionPart_OperationTypeLabel);
+	protected Composite createOperationTypeText(FormToolkit widgetFactory, Composite parent) {
+		Control operatioTypeLabel = createDescription(parent, EsbViewsRepository.DataServiceCallMediator.Properties.operationType, EsbMessages.DataServiceCallMediatorPropertiesEditionPart_OperationTypeLabel);
 		operationType = new EMFComboViewer(parent);
 		operationType.setContentProvider(new ArrayContentProvider());
 		operationType.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
@@ -501,9 +504,10 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 			 * 	
 			 */
 			public void selectionChanged(SelectionChangedEvent event) {
-				if (propertiesEditionComponent != null)
+				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServiceCallMediatorPropertiesEditionPartForm.this, EsbViewsRepository.DataServiceCallMediator.Properties.operationName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getOperationName()));
-				 refresh();
+					operations.refresh();
+				}
 			}
 
 		});
@@ -817,34 +821,6 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
 		}		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServiceCallMediatorPropertiesEditionPart#getOperationType()
-	 * 
-	 */
-	public Enumerator getOperationType() {
-		Enumerator selection = (Enumerator) ((StructuredSelection) operationType.getSelection()).getFirstElement();
-		return selection;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServiceCallMediatorPropertiesEditionPart#initOperationType(Object input, Enumerator current)
-	 */
-	public void initOperationType(Object input, Enumerator current) {
-		operationType.setInput(OP_TYPE_DEFAULT_VALUE);
-		operationType.modelUpdating(new StructuredSelection(current));
-		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.DataServiceCallMediator.Properties.operationType);
-		if (eefElementEditorReadOnlyState && operationType.isEnabled()) {
-			operationType.setEnabled(false);
-			operationType.setToolTipText(EsbMessages.DataServiceCallMediator_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !operationType.isEnabled()) {
-			operationType.setEnabled(true);
-		}	
-		
-	}
 
 	/**
 	 * {@inheritDoc}
@@ -1037,14 +1013,16 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
         epv.hideEntry(reverseElements, false);
         
         if (getDSName() != DS_NAME_DEFAULT_VALUE) {
-        	String seletctedValue = operationType.getCombo().getText();
-        	loadSupportedOperationTypes();
-        	operationType.getCombo().setText(seletctedValue);
         	epv.showEntry(availableOperationTypesElements, false);
         	if (!operationType.getCombo().getText().equals(REQUEST_BOX)) {
+        		loadAvailableOperations();
         		epv.showEntry(operationNameElements, false);
+                EEFPropertyViewUtil propertyView = new EEFPropertyViewUtil(view);
+        		propertyView.clearTableButtons(availableOperationsElements);
         	} else {
         		epv.hideEntry(operationNameElements, false);
+        		EEFPropertyViewUtil propertyView = new EEFPropertyViewUtil(view);
+        		propertyView.showTableButtons(availableOperationsElements);
         	}
         	epv.showEntry(availableOperationsElements, false);
         } else {
@@ -1062,29 +1040,66 @@ public class DataServiceCallMediatorPropertiesEditionPartForm extends SectionPro
     	if (Arrays.asList(operationType.getCombo().getItems()).contains(REQUEST_BOX)) {
     		operationType.getCombo().remove(REQUEST_BOX);
     	}
-    	if (!Arrays.asList(operationType.getCombo().getItems()).contains(SINGLE_REQUEST)) {
-    		operationType.getCombo().setText(SINGLE_REQUEST);
+    	if (Arrays.asList(operationType.getCombo().getItems()).contains(SINGLE_REQUEST)) {
+    		operationType.getCombo().remove(SINGLE_REQUEST);
     	}
-    	Document dataserviceFile = availableDataServicesMap.get(getDSName());   	
-		String enableBoxCar = dataserviceFile.getDocumentElement().getAttribute("enableBoxcarring");
-		if ("true".equals(enableBoxCar)) {
-			operationType.getCombo().add(REQUEST_BOX);
-		}
-		String batchReq = dataserviceFile.getDocumentElement().getAttribute("enableBatchRequests");
-		if ("true".equals(batchReq)) {
-			operationType.getCombo().add(BATCH_REQUEST);
-		}
+		operationType.getCombo().add(OPERATION_TYPE_DEFAULT_VALUE);
+		operationType.getCombo().setText(OPERATION_TYPE_DEFAULT_VALUE);
+		operationType.getCombo().add(SINGLE_REQUEST);
+    	if (getDSName() != DS_NAME_DEFAULT_VALUE) {
+        	Document dataserviceFile = availableDataServicesMap.get(getDSName());   	
+    		String enableBoxCar = dataserviceFile.getDocumentElement().getAttribute("enableBoxcarring");
+    		if ("true".equals(enableBoxCar)) {
+    			operationType.getCombo().add(REQUEST_BOX);
+    		}
+    		String batchReq = dataserviceFile.getDocumentElement().getAttribute("enableBatchRequests");
+    		if ("true".equals(batchReq)) {
+    			operationType.getCombo().add(BATCH_REQUEST);
+    		}
+    	}
     }
+    
+    protected void loadAvailableOperations() {
+    	operationName.getCombo().removeAll();
+		operationName.getCombo().add(OPERATION_DEFAULT_VALUE);
+    	operationName.getCombo().setText(OPERATION_DEFAULT_VALUE);
+    	Document dataserviceFile = availableDataServicesMap.get(getDSName()); 
+    	NodeList operationNodes = dataserviceFile.getElementsByTagName("operation");
+    	for (int i = 0; i < operationNodes.getLength(); i++) {
+    		Node operationNode = operationNodes.item(i);
+    		operationName.getCombo().add(((Element)operationNode).getAttribute("name"));
+    	}
+    }
+    
+    
     // End of user code
 
 	@Override
 	public String getOperationName() {
-		return null;
+		return operationName.getCombo().getText();
 	}
 
 	@Override
 	public void setOperationName(String newValue) {
-		
+		if (newValue != null) {
+			operationName.getCombo().setText(newValue);
+		} else {
+			operationName.getCombo().setText(""); //$NON-NLS-1$
+		}		
+	}
+
+	@Override
+	public String getOperationType() {
+		return operationType.getCombo().getText();
+	}
+
+	@Override
+	public void setOperationType(String newValue) {
+		if (newValue != null) {
+			operationType.getCombo().setText(newValue);
+		} else {
+			operationType.getCombo().setText(""); //$NON-NLS-1$
+		}		
 	}
 
 

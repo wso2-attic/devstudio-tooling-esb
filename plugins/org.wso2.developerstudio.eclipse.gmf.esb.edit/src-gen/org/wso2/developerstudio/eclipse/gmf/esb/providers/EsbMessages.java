@@ -186,6 +186,9 @@ public class EsbMessages extends NLS {
 
 	
 	public static String AbstractNameValueParamPropertiesEditionPart_PropertiesGroupLabel;
+	
+
+	public static String ParamExpressionPropertiesEditionPart_ParamExpressionLabel;
 
 	
 	public static String TemplateEndpointPropertiesEditionPart_PropertiesGroupLabel;
