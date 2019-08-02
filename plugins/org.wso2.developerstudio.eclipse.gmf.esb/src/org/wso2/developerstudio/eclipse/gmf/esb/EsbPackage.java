@@ -27723,6 +27723,16 @@ public interface EsbPackage extends EPackage {
     int CACHE_MEDIATOR_TYPE = 507;
 
     /**
+     * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryEvaluatorType <em>Payload Factory Evaluator Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryEvaluatorType
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryEvaluatorType()
+     * @generated
+     */
+    int PAYLOAD_FACTORY_EVALUATOR_TYPE = 500;
+
+    /**
      * The meta object id for the '<em>Map</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -46354,6 +46364,16 @@ public interface EsbPackage extends EPackage {
     EEnum getCacheMediatorType();
 
     /**
+     * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryEvaluatorType <em>Payload Factory Evaluator Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Payload Factory Evaluator Type</em>'.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryEvaluatorType
+     * @generated
+     */
+    EEnum getPayloadFactoryEvaluatorType();
+
+    /**
      * Returns the meta object for data type '{@link java.util.Map <em>Map</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -61313,6 +61333,16 @@ public interface EsbPackage extends EPackage {
          * @generated
          */
         EEnum CACHE_MEDIATOR_TYPE = eINSTANCE.getCacheMediatorType();
+
+        /**
+         * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryEvaluatorType <em>Payload Factory Evaluator Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryEvaluatorType
+         * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryEvaluatorType()
+         * @generated
+         */
+        EEnum PAYLOAD_FACTORY_EVALUATOR_TYPE = eINSTANCE.getPayloadFactoryEvaluatorType();
 
         /**
          * The meta object literal for the '<em>Map</em>' data type.

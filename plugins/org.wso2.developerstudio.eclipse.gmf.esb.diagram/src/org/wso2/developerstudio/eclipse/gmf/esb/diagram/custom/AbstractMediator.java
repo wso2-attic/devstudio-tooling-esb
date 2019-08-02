@@ -47,8 +47,10 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.papyrus.infra.gmfdiag.css.CSSNodeImpl;
 import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
@@ -76,6 +78,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMe
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoopBackMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
@@ -119,6 +122,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -135,7 +139,11 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
     
     private static final String LOOPBACK_ERROR_MESSAGE = " moves messages from the in-flow to the out-flow."
     		+ "\n" + "Therefore, mediators defined after the loopback within the in-flow mediator will not be considered.";
-    		
+    
+    private static final String CACHE_MEDIATOR_ERROR_MESSAGE = "Cannot add mediators inside the cache mediator when the cache type is set to Collector mode."
+            + "\n"
+            + "Adding mediators inside the cache mediator is only allowed when the cache type is set to Finder mode.";
+
     public boolean isForward = true;
     private int i = 0;
 
@@ -600,10 +608,14 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
             if (!mediatorRestricted) {
                 if (restrictAddingOfMediator(nearestInputConnector, nearestEsbLinkInputConnector)) {
                     mediatorRestricted = true;
-                    // Allow send mediators to be added inside aggregate mediator
+                    // Allow send mediators to be added inside aggregate mediator and iterate mediator
+                    // MediatorFlowMediatorFlowCompartment3EditPart is the editpart canvas inside the aggregate mediator
+                    // MediatorFlowMediatorFlowCompartment12EditPart is the editpart canvas inside the iterate mediator
                     if (this instanceof SendMediatorEditPart
-                            && !((nearestInputConnector instanceof AggregateMediatorInputConnectorEditPart)
-                                    && (this.getParent() instanceof MediatorFlowMediatorFlowCompartment3EditPart))) {
+                            && !(((nearestInputConnector instanceof AggregateMediatorInputConnectorEditPart)
+                                    || (nearestInputConnector instanceof IterateMediatorInputConnectorEditPart))
+                                    && ((this.getParent() instanceof MediatorFlowMediatorFlowCompartment3EditPart)
+                                            || (this.getParent() instanceof MediatorFlowMediatorFlowCompartment12EditPart)))) {
                         mediatorType = "Send Mediator";
                         deleteNewlyAddedMediator(mediatorType + SEND_ERROR_MESSAGE);
                         return;
@@ -648,6 +660,23 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
                     return;
                 }
             }
+        }
+
+        // Validation for allowing adding mediators to cache mediator only in Finder mode
+        try {
+            if (this.getParent().getParent().getParent() != null
+                    && this.getParent().getParent().getParent() instanceof CacheMediatorEditPart) {
+                CSSNodeImpl model = (CSSNodeImpl) this.getParent().getParent().getParent().getModel();
+                if (model.getElement() instanceof CacheMediatorImpl) {
+                    CacheMediatorImpl cacheMediatorDataModel = (CacheMediatorImpl) model.getElement();
+                    if (cacheMediatorDataModel.getCacheType() == CacheType.COLLECTOR) {
+                        deleteNewlyAddedMediator(CACHE_MEDIATOR_ERROR_MESSAGE);
+                        return;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            log.error("Unable to validate mediators inside a cache mediator in collector mode", e);
         }
 
         if (nearestESBLink == null) {

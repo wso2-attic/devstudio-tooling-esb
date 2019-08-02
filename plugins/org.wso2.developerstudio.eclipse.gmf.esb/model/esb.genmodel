@@ -809,6 +809,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheMediatorType/Default"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CacheMediatorType/Compatibility_611"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//PayloadFactoryEvaluatorType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFactoryEvaluatorType/XML"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFactoryEvaluatorType/JSON"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
