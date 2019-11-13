@@ -48,15 +48,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.papyrus.infra.gmfdiag.css.CSSNodeImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.jaxen.JaxenException;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-<<<<<<< HEAD
-=======
-import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
 import org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
->>>>>>> ea44cd304... Merge pull request #1058 from rosensilva/master
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
@@ -67,10 +61,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ScriptMedi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ScriptMediatorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.validator.GraphicalValidatorUtil;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.validator.MediatorValidationUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl;
-import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ScriptMediatorTransformer;
-import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformerException;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -403,35 +394,6 @@ public class ScriptMediatorEditPart extends FixedSizedAbstractMediator {
     }
     
     @Override
-<<<<<<< HEAD
-    public void notifyChanged(Notification notification) {
-        // this.getModel() will get EMF datamodel of the script mediator datamodel
-        if (this.getModel() instanceof CSSNodeImpl) {
-            // The following part will check for validation issues with the current data in the model
-            CSSNodeImpl model = (CSSNodeImpl) this.getModel();
-            if (model.getElement() instanceof ScriptMediatorImpl) {
-                ScriptMediatorImpl scriptMediatorDataModel = (ScriptMediatorImpl) model.getElement();
-                try {
-                    org.apache.synapse.mediators.bsf.ScriptMediator scriptMediator = ScriptMediatorTransformer
-                            .createScriptMediator((EsbNode) scriptMediatorDataModel, true);
-
-                    ScriptMediatorSerializer scriptMediatorSerializer = new ScriptMediatorSerializer();
-                    OMElement omElement = scriptMediatorSerializer.serializeSpecificMediator(scriptMediator);
-
-                    if (StringUtils
-                            .isEmpty(MediatorValidationUtil.validateMediatorsFromOEMElement(omElement, "script"))) {
-                        GraphicalValidatorUtil.removeValidationMark(this);
-                    } else {
-                        GraphicalValidatorUtil.addValidationMark(this);
-                    }
-                } catch (JaxenException | TransformerException | SynapseException e) {
-                    GraphicalValidatorUtil.addValidationMark(this);
-                }
-            }
-        }
-        super.notifyChanged(notification);
-    }
-=======
 	public void notifyChanged(Notification notification) {
 		// this.getModel() will get EMF datamodel of the script mediator datamodel
 		if (notification.getEventType() == Notification.SET && this.getModel() instanceof CSSNodeImpl) {
@@ -466,7 +428,6 @@ public class ScriptMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.notifyChanged(notification);
 	}
->>>>>>> ea44cd304... Merge pull request #1058 from rosensilva/master
 
     /**
      * @generated

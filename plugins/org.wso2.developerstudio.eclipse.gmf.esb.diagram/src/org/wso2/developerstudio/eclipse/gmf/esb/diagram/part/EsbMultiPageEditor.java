@@ -609,17 +609,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements IGotoMark
             try {
 
                 deleteMarkers();
-<<<<<<< HEAD
-                if (ProcessSourceView.validateSynapseContent(source) != null) {
-=======
-                
-                if (currArtifactType.toString().equals(MOCK_SERVICE) || 
-                		currArtifactType.toString().equals(SYNAPSE_UNIT_TEST)) {
-                	sourceError = null;
-                }
-                
                 if (sourceError != null) {
->>>>>>> 97b579161... Merge pull request #1055 from prabushi/master
                     sourceDirty = true;
                 }
 

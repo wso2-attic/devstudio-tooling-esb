@@ -290,18 +290,6 @@ public class Deserializer {
                     }
                 }
             }
-<<<<<<< HEAD
-
-        } else if ("messageStore".equals(localName)) {
-            artifactType = ArtifactType.MESSAGE_STORE;
-        } else if ("messageProcessor".equals(localName)) {
-            artifactType = ArtifactType.MESSAGE_PROCESSOR;
-        } else if ("inboundEndpoint".equals(localName)) {
-            artifactType = ArtifactType.INBOUND_ENDPOINT;
-        } else {
-            throw new UnrecogizedArtifactTypeException("Unrecognized source configuration section " + localName);
-        }
-=======
 			break;
 		case "messageStore":
 			artifactType = ArtifactType.MESSAGE_STORE;
@@ -312,16 +300,9 @@ public class Deserializer {
 		case "inboundEndpoint":
 			artifactType = ArtifactType.INBOUND_ENDPOINT;
 			break;
-		case "mock-service":
-			artifactType = ArtifactType.MOCK_SERVICE;
-			break;
-		case "unit-test":
-			artifactType = ArtifactType.SYNAPSE_UNIT_TEST;
-			break;
 		default:
 			throw new UnrecogizedArtifactTypeException("Unrecognized source configuration section " + localName);
 		}
->>>>>>> 97b579161... Merge pull request #1055 from prabushi/master
         return artifactType;
     }
 
