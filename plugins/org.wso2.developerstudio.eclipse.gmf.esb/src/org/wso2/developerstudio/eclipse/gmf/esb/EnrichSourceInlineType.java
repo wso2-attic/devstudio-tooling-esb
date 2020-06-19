@@ -60,7 +60,7 @@ public enum EnrichSourceInlineType implements Enumerator {
      * </p>
      * <!-- end-user-doc -->
      * @see #CONTENT
-     * @model literal="SourceXML"
+     * @model literal="Inline XML/JSON"
      * @generated
      * @ordered
      */

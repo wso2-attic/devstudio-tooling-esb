@@ -34,6 +34,8 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_LOADBALANCE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_FAILOVER"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT_RECIPIENTLIST"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MOCK_SERVICE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/SYNAPSE_UNIT_TEST"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CallMediatorEndpointType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/INLINE"/>

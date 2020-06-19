@@ -24268,6 +24268,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         addEEnumLiteral(artifactTypeEEnum, ArtifactType.ENDPOINT_LOADBALANCE);
         addEEnumLiteral(artifactTypeEEnum, ArtifactType.ENDPOINT_FAILOVER);
         addEEnumLiteral(artifactTypeEEnum, ArtifactType.ENDPOINT_RECIPIENTLIST);
+        addEEnumLiteral(artifactTypeEEnum, ArtifactType.MOCK_SERVICE);
+        addEEnumLiteral(artifactTypeEEnum, ArtifactType.SYNAPSE_UNIT_TEST);
 
         initEEnum(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.class, "CallMediatorEndpointType");
         addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.INLINE);
