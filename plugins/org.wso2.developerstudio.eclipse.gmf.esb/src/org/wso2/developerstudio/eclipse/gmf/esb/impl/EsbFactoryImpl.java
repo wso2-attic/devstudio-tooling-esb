@@ -419,6 +419,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
             case EsbPackage.JSON_TRANSFORM_MEDIATOR_OUTPUT_CONNECTOR: return createJsonTransformMediatorOutputConnector();
             case EsbPackage.JSON_TRANSFORM_MEDIATOR_INPUT_CONNECTOR: return createJsonTransformMediatorInputConnector();
             case EsbPackage.JSON_TRANSFORM_MEDIATOR_PROPERTY: return createJsonTransformMediatorProperty();
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR: return createDataServicesCallMediator();
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR_OUTPUT_CONNECTOR: return createDataServicesCallMediatorOutputConnector();
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR_INPUT_CONNECTOR: return createDataServicesCallMediatorInputConnector();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -705,6 +708,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
                 return createCacheMediatorTypeFromString(eDataType, initialValue);
             case EsbPackage.PAYLOAD_FACTORY_EVALUATOR_TYPE:
                 return createPayloadFactoryEvaluatorTypeFromString(eDataType, initialValue);
+            case EsbPackage.DATA_SERVICES_CALL_SOURCE_TYPE:
+                return createDataServicesCallSourceTypeFromString(eDataType, initialValue);
+            case EsbPackage.DATA_SERVICES_CALL_TARGET_TYPE:
+                return createDataServicesCallTargetTypeFromString(eDataType, initialValue);
             case EsbPackage.MAP:
                 return createMapFromString(eDataType, initialValue);
             default:
@@ -993,6 +1000,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
                 return convertCacheMediatorTypeToString(eDataType, instanceValue);
             case EsbPackage.PAYLOAD_FACTORY_EVALUATOR_TYPE:
                 return convertPayloadFactoryEvaluatorTypeToString(eDataType, instanceValue);
+            case EsbPackage.DATA_SERVICES_CALL_SOURCE_TYPE:
+                return convertDataServicesCallSourceTypeToString(eDataType, instanceValue);
+            case EsbPackage.DATA_SERVICES_CALL_TARGET_TYPE:
+                return convertDataServicesCallTargetTypeToString(eDataType, instanceValue);
             case EsbPackage.MAP:
                 return convertMapToString(eDataType, instanceValue);
             default:
@@ -3204,6 +3215,36 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
     public JsonTransformMediatorProperty createJsonTransformMediatorProperty() {
         JsonTransformMediatorPropertyImpl jsonTransformMediatorProperty = new JsonTransformMediatorPropertyImpl();
         return jsonTransformMediatorProperty;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataServicesCallMediator createDataServicesCallMediator() {
+        DataServicesCallMediatorImpl dataServicesCallMediator = new DataServicesCallMediatorImpl();
+        return dataServicesCallMediator;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataServicesCallMediatorOutputConnector createDataServicesCallMediatorOutputConnector() {
+        DataServicesCallMediatorOutputConnectorImpl dataServicesCallMediatorOutputConnector = new DataServicesCallMediatorOutputConnectorImpl();
+        return dataServicesCallMediatorOutputConnector;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataServicesCallMediatorInputConnector createDataServicesCallMediatorInputConnector() {
+        DataServicesCallMediatorInputConnectorImpl dataServicesCallMediatorInputConnector = new DataServicesCallMediatorInputConnectorImpl();
+        return dataServicesCallMediatorInputConnector;
     }
 
     /**
@@ -7672,6 +7713,46 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
      * @generated
      */
     public String convertPayloadFactoryEvaluatorTypeToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataServicesCallSourceType createDataServicesCallSourceTypeFromString(EDataType eDataType, String initialValue) {
+        DataServicesCallSourceType result = DataServicesCallSourceType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertDataServicesCallSourceTypeToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataServicesCallTargetType createDataServicesCallTargetTypeFromString(EDataType eDataType, String initialValue) {
+        DataServicesCallTargetType result = DataServicesCallTargetType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertDataServicesCallTargetTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 

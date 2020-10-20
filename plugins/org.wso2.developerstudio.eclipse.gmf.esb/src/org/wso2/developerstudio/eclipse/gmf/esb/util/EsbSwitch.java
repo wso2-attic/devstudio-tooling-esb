@@ -2997,6 +2997,31 @@ public class EsbSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR: {
+                DataServicesCallMediator dataServicesCallMediator = (DataServicesCallMediator)theEObject;
+                T result = caseDataServicesCallMediator(dataServicesCallMediator);
+                if (result == null) result = caseMediator(dataServicesCallMediator);
+                if (result == null) result = caseEsbElement(dataServicesCallMediator);
+                if (result == null) result = caseEsbNode(dataServicesCallMediator);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR_OUTPUT_CONNECTOR: {
+                DataServicesCallMediatorOutputConnector dataServicesCallMediatorOutputConnector = (DataServicesCallMediatorOutputConnector)theEObject;
+                T result = caseDataServicesCallMediatorOutputConnector(dataServicesCallMediatorOutputConnector);
+                if (result == null) result = caseOutputConnector(dataServicesCallMediatorOutputConnector);
+                if (result == null) result = caseEsbConnector(dataServicesCallMediatorOutputConnector);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR_INPUT_CONNECTOR: {
+                DataServicesCallMediatorInputConnector dataServicesCallMediatorInputConnector = (DataServicesCallMediatorInputConnector)theEObject;
+                T result = caseDataServicesCallMediatorInputConnector(dataServicesCallMediatorInputConnector);
+                if (result == null) result = caseInputConnector(dataServicesCallMediatorInputConnector);
+                if (result == null) result = caseEsbConnector(dataServicesCallMediatorInputConnector);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             default: return defaultCase(theEObject);
         }
     }
@@ -6178,6 +6203,51 @@ public class EsbSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseJsonTransformMediatorProperty(JsonTransformMediatorProperty object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Data Services Call Mediator</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Data Services Call Mediator</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDataServicesCallMediator(DataServicesCallMediator object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Data Services Call Mediator Output Connector</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Data Services Call Mediator Output Connector</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDataServicesCallMediatorOutputConnector(DataServicesCallMediatorOutputConnector object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Data Services Call Mediator Input Connector</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Data Services Call Mediator Input Connector</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDataServicesCallMediatorInputConnector(DataServicesCallMediatorInputConnector object) {
         return null;
     }
 

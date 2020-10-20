@@ -4702,6 +4702,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediator} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataServicesCallMediatorItemProvider dataServicesCallMediatorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediator}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDataServicesCallMediatorAdapter() {
+        if (dataServicesCallMediatorItemProvider == null) {
+            dataServicesCallMediatorItemProvider = new DataServicesCallMediatorItemProvider(this);
+        }
+
+        return dataServicesCallMediatorItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediatorOutputConnector} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataServicesCallMediatorOutputConnectorItemProvider dataServicesCallMediatorOutputConnectorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediatorOutputConnector}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDataServicesCallMediatorOutputConnectorAdapter() {
+        if (dataServicesCallMediatorOutputConnectorItemProvider == null) {
+            dataServicesCallMediatorOutputConnectorItemProvider = new DataServicesCallMediatorOutputConnectorItemProvider(this);
+        }
+
+        return dataServicesCallMediatorOutputConnectorItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediatorInputConnector} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataServicesCallMediatorInputConnectorItemProvider dataServicesCallMediatorInputConnectorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediatorInputConnector}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDataServicesCallMediatorInputConnectorAdapter() {
+        if (dataServicesCallMediatorInputConnectorItemProvider == null) {
+            dataServicesCallMediatorInputConnectorItemProvider = new DataServicesCallMediatorInputConnectorItemProvider(this);
+        }
+
+        return dataServicesCallMediatorInputConnectorItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8829,6 +8898,9 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
         if (jsonTransformMediatorOutputConnectorItemProvider != null) jsonTransformMediatorOutputConnectorItemProvider.dispose();
         if (jsonTransformMediatorInputConnectorItemProvider != null) jsonTransformMediatorInputConnectorItemProvider.dispose();
         if (jsonTransformMediatorPropertyItemProvider != null) jsonTransformMediatorPropertyItemProvider.dispose();
+        if (dataServicesCallMediatorItemProvider != null) dataServicesCallMediatorItemProvider.dispose();
+        if (dataServicesCallMediatorOutputConnectorItemProvider != null) dataServicesCallMediatorOutputConnectorItemProvider.dispose();
+        if (dataServicesCallMediatorInputConnectorItemProvider != null) dataServicesCallMediatorInputConnectorItemProvider.dispose();
     }
 
 }

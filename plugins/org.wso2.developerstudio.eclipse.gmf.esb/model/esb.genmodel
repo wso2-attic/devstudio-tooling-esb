@@ -811,6 +811,14 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFactoryEvaluatorType/XML"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFactoryEvaluatorType/JSON"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//DataServicesCallSourceType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallSourceType/BODY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallSourceType/INLINE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//DataServicesCallTargetType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallTargetType/BODY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallTargetType/PROPERTY"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
@@ -2695,5 +2703,14 @@
     <genClasses ecoreClass="esb.ecore#//JsonTransformMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//JsonTransformMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//JsonTransformMediatorProperty"/>
+    <genClasses ecoreClass="esb.ecore#//DataServicesCallMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServicesCallMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServicesCallMediator/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/sourceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/targetType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/serviceName"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//DataServicesCallMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//DataServicesCallMediatorInputConnector"/>
   </genPackages>
 </genmodel:GenModel>

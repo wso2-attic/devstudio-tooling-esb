@@ -1831,6 +1831,33 @@ public interface EsbFactory extends EFactory {
     JsonTransformMediatorProperty createJsonTransformMediatorProperty();
 
     /**
+     * Returns a new object of class '<em>Data Services Call Mediator</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Services Call Mediator</em>'.
+     * @generated
+     */
+    DataServicesCallMediator createDataServicesCallMediator();
+
+    /**
+     * Returns a new object of class '<em>Data Services Call Mediator Output Connector</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Services Call Mediator Output Connector</em>'.
+     * @generated
+     */
+    DataServicesCallMediatorOutputConnector createDataServicesCallMediatorOutputConnector();
+
+    /**
+     * Returns a new object of class '<em>Data Services Call Mediator Input Connector</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Services Call Mediator Input Connector</em>'.
+     * @generated
+     */
+    DataServicesCallMediatorInputConnector createDataServicesCallMediatorInputConnector();
+
+    /**
      * Returns a new object of class '<em>Script Mediator</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -3569,4 +3569,27 @@
   <eClassifiers xsi:type="ecore:EClass" name="JsonTransformMediatorInputConnector"
       eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="JsonTransformMediatorProperty" eSuperTypes="#//AbstractNameValueExpressionProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataServicesCallMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//DataServicesCallMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//DataServicesCallMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="#//DataServicesCallSourceType"
+        defaultValueLiteral="body"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetType" eType="#//DataServicesCallTargetType"
+        defaultValueLiteral="body"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataServicesCallMediatorOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataServicesCallMediatorInputConnector"
+      eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataServicesCallSourceType">
+    <eLiterals name="BODY" literal="body"/>
+    <eLiterals name="INLINE" value="1" literal="inline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataServicesCallTargetType">
+    <eLiterals name="BODY" literal="body"/>
+    <eLiterals name="PROPERTY" value="1" literal="property"/>
+  </eClassifiers>
 </ecore:EPackage>
