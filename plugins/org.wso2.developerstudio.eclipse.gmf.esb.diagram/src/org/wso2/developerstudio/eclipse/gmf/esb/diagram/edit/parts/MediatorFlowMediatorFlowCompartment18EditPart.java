@@ -138,7 +138,6 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
         installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
         installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
                 new MediatorFlowMediatorFlowCompartment18CanonicalEditPolicy());
-        removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
     /**
@@ -351,6 +350,9 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
                 return this;
             }
             if (type == EsbElementTypes.JsonTransformMediator_3791) {
+                return this;
+            }
+            if (type == EsbElementTypes.DataServicesCallMediator_3794) {
                 return this;
             }
             return getParent().getTargetEditPart(request);

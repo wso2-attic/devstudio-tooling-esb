@@ -431,9 +431,6 @@ public class EsbEditPartFactory implements EditPartFactory {
             case CacheMediatorEditPart.VISUAL_ID:
                 return new CacheMediatorEditPart(view);
 
-            case CacheMediatorCacheIdEditPart.VISUAL_ID:
-                return new CacheMediatorCacheIdEditPart(view);
-
             case CacheMediatorInputConnectorEditPart.VISUAL_ID:
                 return new CacheMediatorInputConnectorEditPart(view);
 
@@ -973,6 +970,18 @@ public class EsbEditPartFactory implements EditPartFactory {
 
             case JsonTransformMediatorOutputConnectorEditPart.VISUAL_ID:
                 return new JsonTransformMediatorOutputConnectorEditPart(view);
+
+            case DataServicesCallMediatorEditPart.VISUAL_ID:
+                return new DataServicesCallMediatorEditPart(view);
+
+            case DataServicesCallMediatorDescriptionEditPart.VISUAL_ID:
+                return new DataServicesCallMediatorDescriptionEditPart(view);
+
+            case DataServicesCallMediatorInputConnectorEditPart.VISUAL_ID:
+                return new DataServicesCallMediatorInputConnectorEditPart(view);
+
+            case DataServicesCallMediatorOutputConnectorEditPart.VISUAL_ID:
+                return new DataServicesCallMediatorOutputConnectorEditPart(view);
 
             case EntitlementOnAcceptContainerEditPart.VISUAL_ID:
                 return new EntitlementOnAcceptContainerEditPart(view);

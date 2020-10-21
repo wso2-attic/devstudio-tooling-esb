@@ -1339,6 +1339,17 @@ public class EsbNavigatorLabelProvider extends LabelProvider implements ICommonL
             return getImage(
                     "Navigator?Node?http:///org/wso2/developerstudio/eclipse/gmf/esb?JsonTransformMediatorOutputConnector", //$NON-NLS-1$
                     EsbElementTypes.JsonTransformMediatorOutputConnector_3793);
+        case DataServicesCallMediatorEditPart.VISUAL_ID:
+            return getImage("Navigator?Node?http:///org/wso2/developerstudio/eclipse/gmf/esb?DataServicesCallMediator", //$NON-NLS-1$
+                    EsbElementTypes.DataServicesCallMediator_3794);
+        case DataServicesCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http:///org/wso2/developerstudio/eclipse/gmf/esb?DataServicesCallMediatorInputConnector", //$NON-NLS-1$
+                    EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
+        case DataServicesCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http:///org/wso2/developerstudio/eclipse/gmf/esb?DataServicesCallMediatorOutputConnector", //$NON-NLS-1$
+                    EsbElementTypes.DataServicesCallMediatorOutputConnector_3796);
         case EsbLinkEditPart.VISUAL_ID:
             return getImage("Navigator?Link?http:///org/wso2/developerstudio/eclipse/gmf/esb?EsbLink", //$NON-NLS-1$
                     EsbElementTypes.EsbLink_4001);
@@ -2076,6 +2087,12 @@ public class EsbNavigatorLabelProvider extends LabelProvider implements ICommonL
             return getJsonTransformMediatorInputConnector_3792Text(view);
         case JsonTransformMediatorOutputConnectorEditPart.VISUAL_ID:
             return getJsonTransformMediatorOutputConnector_3793Text(view);
+        case DataServicesCallMediatorEditPart.VISUAL_ID:
+            return getDataServicesCallMediator_3794Text(view);
+        case DataServicesCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return getDataServicesCallMediatorInputConnector_3795Text(view);
+        case DataServicesCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return getDataServicesCallMediatorOutputConnector_3796Text(view);
         case EsbLinkEditPart.VISUAL_ID:
             return getEsbLink_4001Text(view);
         }
@@ -3561,6 +3578,36 @@ public class EsbNavigatorLabelProvider extends LabelProvider implements ICommonL
     }
 
     /**
+    * @generated
+    */
+    private String getDataServicesCallMediator_3794Text(View view) {
+        IParser parser = EsbParserProvider.getParser(EsbElementTypes.DataServicesCallMediator_3794,
+                view.getElement() != null ? view.getElement() : view,
+                EsbVisualIDRegistry.getType(DataServicesCallMediatorDescriptionEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            EsbDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5217); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+    * @generated
+    */
+    private String getDataServicesCallMediatorInputConnector_3795Text(View view) {
+        return ""; //$NON-NLS-1$
+    }
+
+    /**
+    * @generated
+    */
+    private String getDataServicesCallMediatorOutputConnector_3796Text(View view) {
+        return ""; //$NON-NLS-1$
+    }
+
+    /**
      * @generated
      */
     private String getProxyFaultInputConnector_3489Text(View view) {
@@ -4643,7 +4690,7 @@ public class EsbNavigatorLabelProvider extends LabelProvider implements ICommonL
     private String getCacheMediator_3518Text(View view) {
         CacheMediator domainModelElement = (CacheMediator) view.getElement();
         if (domainModelElement != null) {
-            return domainModelElement.getDescription();
+            return domainModelElement.getId();
         } else {
             EsbDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 3518); //$NON-NLS-1$
             return ""; //$NON-NLS-1$

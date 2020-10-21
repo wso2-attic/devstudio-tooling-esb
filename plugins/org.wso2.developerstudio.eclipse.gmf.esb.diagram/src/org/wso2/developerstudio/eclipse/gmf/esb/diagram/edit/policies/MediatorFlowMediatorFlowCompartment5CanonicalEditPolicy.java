@@ -40,6 +40,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRo
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataMapperMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataServicesCallMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EJBMediatorEditPart;
@@ -206,6 +207,7 @@ public class MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy extends Can
         case ForEachMediatorEditPart.VISUAL_ID:
         case PublishEventMediatorEditPart.VISUAL_ID:
         case JsonTransformMediatorEditPart.VISUAL_ID:
+        case DataServicesCallMediatorEditPart.VISUAL_ID:
             return true;
         }
         return false;
@@ -367,8 +369,8 @@ public class MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy extends Can
  * CanonicalEditPolicy {
  * 
  *//**
-         * @generated
-         */
+          * @generated
+          */
 /*
  * protected void refreshOnActivate() {
  * // Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
@@ -380,16 +382,16 @@ public class MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy extends Can
  * }
  * 
  *//**
-         * @generated
-         */
+          * @generated
+          */
 /*
  * protected EStructuralFeature getFeatureToSynchronize() {
  * return EsbPackage.eINSTANCE.getMediatorFlow_Children();
  * }
  * 
  *//**
-         * @generated
-         */
+          * @generated
+          */
 /*
  * @SuppressWarnings("rawtypes")
  * protected List getSemanticChildrenList() {
@@ -404,8 +406,8 @@ public class MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy extends Can
  * }
  * 
  *//**
-         * @generated
-         */
+          * @generated
+          */
 /*
  * protected boolean isOrphaned(Collection<EObject> semanticChildren,
  * final View view) {
@@ -414,8 +416,8 @@ public class MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy extends Can
  * }
  * 
  *//**
-         * @generated
-         */
+          * @generated
+          */
 /*
  * private boolean isMyDiagramElement(View view) {
  * int visualID = EsbVisualIDRegistry.getVisualID(view);
@@ -462,8 +464,8 @@ public class MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy extends Can
  * }
  * 
  *//**
-         * @generated
-         */
+          * @generated
+          */
 /*
  * protected void refreshSemantic() {
  * if (resolveSemanticElement() == null) {

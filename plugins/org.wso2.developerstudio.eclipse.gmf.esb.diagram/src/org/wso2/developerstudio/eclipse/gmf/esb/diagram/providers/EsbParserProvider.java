@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataMapperMediatorDescriptionEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataServicesCallMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointNameEditPart;
@@ -1096,6 +1097,23 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
     }
 
     /**
+    * @generated
+    */
+    private IParser dataServicesCallMediatorDescription_5217Parser;
+
+    /**
+    * @generated
+    */
+    private IParser getDataServicesCallMediatorDescription_5217Parser() {
+        if (dataServicesCallMediatorDescription_5217Parser == null) {
+            EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE.getEsbElement_Description() };
+            MessageFormatParser parser = new MessageFormatParser(features);
+            dataServicesCallMediatorDescription_5217Parser = parser;
+        }
+        return dataServicesCallMediatorDescription_5217Parser;
+    }
+
+    /**
      * @generated
      */
     private IParser defaultEndPointEndPointName_5160Parser;
@@ -1302,6 +1320,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
             return getPublishEventMediatorDescription_5214Parser();
         case JsonTransformMediatorDescriptionEditPart.VISUAL_ID:
             return getJsonTransformMediatorDescription_5216Parser();
+        case DataServicesCallMediatorDescriptionEditPart.VISUAL_ID:
+            return getDataServicesCallMediatorDescription_5217Parser();
         case DefaultEndPointEndPointName2EditPart.VISUAL_ID:
             return getDefaultEndPointEndPointName_5160Parser();
         case AddressEndPointEndPointName2EditPart.VISUAL_ID:

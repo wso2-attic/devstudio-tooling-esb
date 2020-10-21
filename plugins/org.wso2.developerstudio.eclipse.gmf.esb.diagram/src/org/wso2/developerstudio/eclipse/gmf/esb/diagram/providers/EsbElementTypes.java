@@ -1403,6 +1403,24 @@ public class EsbElementTypes {
             "org.wso2.developerstudio.eclipse.gmf.esb.diagram.JsonTransformMediatorOutputConnector_3793"); //$NON-NLS-1$
 
     /**
+    * @generated
+    */
+    public static final IElementType DataServicesCallMediator_3794 = getElementType(
+            "org.wso2.developerstudio.eclipse.gmf.esb.diagram.DataServicesCallMediator_3794"); //$NON-NLS-1$
+
+    /**
+    * @generated
+    */
+    public static final IElementType DataServicesCallMediatorInputConnector_3795 = getElementType(
+            "org.wso2.developerstudio.eclipse.gmf.esb.diagram.DataServicesCallMediatorInputConnector_3795"); //$NON-NLS-1$
+
+    /**
+    * @generated
+    */
+    public static final IElementType DataServicesCallMediatorOutputConnector_3796 = getElementType(
+            "org.wso2.developerstudio.eclipse.gmf.esb.diagram.DataServicesCallMediatorOutputConnector_3796"); //$NON-NLS-1$
+
+    /**
      * @generated
      */
     public static final IElementType EntitlementOnAcceptContainer_3755 = getElementType(
@@ -2723,6 +2741,14 @@ public class EsbElementTypes {
             elements.put(JsonTransformMediatorOutputConnector_3793,
                     EsbPackage.eINSTANCE.getJsonTransformMediatorOutputConnector());
 
+            elements.put(DataServicesCallMediator_3794, EsbPackage.eINSTANCE.getDataServicesCallMediator());
+
+            elements.put(DataServicesCallMediatorInputConnector_3795,
+                    EsbPackage.eINSTANCE.getDataServicesCallMediatorInputConnector());
+
+            elements.put(DataServicesCallMediatorOutputConnector_3796,
+                    EsbPackage.eINSTANCE.getDataServicesCallMediatorOutputConnector());
+
             elements.put(EntitlementOnAcceptContainer_3755, EsbPackage.eINSTANCE.getEntitlementOnAcceptContainer());
 
             elements.put(MediatorFlow_3756, EsbPackage.eINSTANCE.getMediatorFlow());
@@ -3188,6 +3214,9 @@ public class EsbElementTypes {
             KNOWN_ELEMENT_TYPES.add(JsonTransformMediator_3791);
             KNOWN_ELEMENT_TYPES.add(JsonTransformMediatorInputConnector_3792);
             KNOWN_ELEMENT_TYPES.add(JsonTransformMediatorOutputConnector_3793);
+            KNOWN_ELEMENT_TYPES.add(DataServicesCallMediator_3794);
+            KNOWN_ELEMENT_TYPES.add(DataServicesCallMediatorInputConnector_3795);
+            KNOWN_ELEMENT_TYPES.add(DataServicesCallMediatorOutputConnector_3796);
             KNOWN_ELEMENT_TYPES.add(EntitlementOnAcceptContainer_3755);
             KNOWN_ELEMENT_TYPES.add(MediatorFlow_3756);
             KNOWN_ELEMENT_TYPES.add(EntitlementAdviceContainer_3757);
@@ -3796,6 +3825,12 @@ public class EsbElementTypes {
             return JsonTransformMediatorInputConnector_3792;
         case JsonTransformMediatorOutputConnectorEditPart.VISUAL_ID:
             return JsonTransformMediatorOutputConnector_3793;
+        case DataServicesCallMediatorEditPart.VISUAL_ID:
+            return DataServicesCallMediator_3794;
+        case DataServicesCallMediatorInputConnectorEditPart.VISUAL_ID:
+            return DataServicesCallMediatorInputConnector_3795;
+        case DataServicesCallMediatorOutputConnectorEditPart.VISUAL_ID:
+            return DataServicesCallMediatorOutputConnector_3796;
         case EntitlementOnAcceptContainerEditPart.VISUAL_ID:
             return EntitlementOnAcceptContainer_3755;
         case MediatorFlow22EditPart.VISUAL_ID:

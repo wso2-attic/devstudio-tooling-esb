@@ -31,6 +31,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRo
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataMapperMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DataServicesCallMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointInputConnector2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorInputConnectorEditPart;
@@ -338,6 +339,9 @@ public class EsbModelingAssistantProviderOfURLRewriteMediatorOutputConnectorEdit
         if (targetEditPart instanceof JsonTransformMediatorInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
+        if (targetEditPart instanceof DataServicesCallMediatorInputConnectorEditPart) {
+            types.add(EsbElementTypes.EsbLink_4001);
+        }
         if (targetEditPart instanceof ProxyInSequenceInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
@@ -478,6 +482,7 @@ public class EsbModelingAssistantProviderOfURLRewriteMediatorOutputConnectorEdit
             types.add(EsbElementTypes.ForEachMediatorInputConnector_3781);
             types.add(EsbElementTypes.PublishEventMediatorInputConnector_3786);
             types.add(EsbElementTypes.JsonTransformMediatorInputConnector_3792);
+            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
             types.add(EsbElementTypes.ProxyInSequenceInputConnector_3731);
             types.add(EsbElementTypes.MessageInputConnector_3046);
             types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
