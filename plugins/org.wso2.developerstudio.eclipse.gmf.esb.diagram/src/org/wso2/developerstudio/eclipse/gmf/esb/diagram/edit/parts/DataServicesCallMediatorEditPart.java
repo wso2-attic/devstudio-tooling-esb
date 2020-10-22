@@ -1,5 +1,6 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -26,9 +27,11 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.CustomToolTip;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.DataServicesCallMediatorCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.DataServicesCallMediatorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EditPartConstants.DATASERVICESCALL_MEDIATOR_ICON_PATH;
 
 /**
  * @generated
@@ -351,6 +354,22 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
          */
         public WrappingLabel getFigureDataServicesCallMediatorDescriptionFigure() {
             return fFigureDataServicesCallMediatorDescriptionFigure;
+        }
+
+        public String getIconPath() {
+            return DATASERVICESCALL_MEDIATOR_ICON_PATH;
+        }
+
+        public String getNodeName() {
+            return Messages.DataServicesCallMediatorEditPart_NodeName;
+        }
+
+        public IFigure getToolTip() {
+            String toolTipMessage = null;
+            if (StringUtils.isEmpty(toolTipMessage)) {
+                toolTipMessage = Messages.DataServicesCallMediatorEditPart_ToolTipMessage;
+            }
+            return new CustomToolTip().getCustomToolTipShape(toolTipMessage);
         }
 
     }
