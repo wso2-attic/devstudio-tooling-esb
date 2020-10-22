@@ -446,6 +446,9 @@ public class EntitlementMediatorOnRejectOutputConnectorEditPart extends Addition
         if (targetEditPart instanceof JsonTransformMediatorInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
+        if (targetEditPart instanceof DataServicesCallMediatorInputConnectorEditPart) {
+            types.add(EsbElementTypes.EsbLink_4001);
+        }
         return types;
     }
 
@@ -534,6 +537,7 @@ public class EntitlementMediatorOnRejectOutputConnectorEditPart extends Addition
             types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
             types.add(EsbElementTypes.APIResourceInSequenceInputConnector_3747);
             types.add(EsbElementTypes.JsonTransformMediatorInputConnector_3792);
+            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
         }
         return types;
     }

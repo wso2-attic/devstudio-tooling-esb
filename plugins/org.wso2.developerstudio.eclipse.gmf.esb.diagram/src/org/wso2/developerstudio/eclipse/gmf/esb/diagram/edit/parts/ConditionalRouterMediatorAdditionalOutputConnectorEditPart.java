@@ -368,6 +368,9 @@ public class ConditionalRouterMediatorAdditionalOutputConnectorEditPart extends 
         if (targetEditPart instanceof JsonTransformMediatorInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
+        if (targetEditPart instanceof DataServicesCallMediatorInputConnectorEditPart) {
+            types.add(EsbElementTypes.EsbLink_4001);
+        }
         return types;
     }
 
@@ -430,6 +433,7 @@ public class ConditionalRouterMediatorAdditionalOutputConnectorEditPart extends 
             types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);
             types.add(EsbElementTypes.SequencesInputConnector_3616);
             types.add(EsbElementTypes.JsonTransformMediatorInputConnector_3792);
+            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
         }
         return types;
     }

@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
+    package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -256,6 +256,7 @@ public class SwitchMediatorInputConnectorEditPart extends AbstractMediatorInputC
             types.add(EsbElementTypes.MessageOutputConnector_3047);
             types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
             types.add(EsbElementTypes.JsonTransformMediatorOutputConnector_3793);
+            types.add(EsbElementTypes.DataServicesCallMediatorOutputConnector_3796);
         }
         return types;
     }

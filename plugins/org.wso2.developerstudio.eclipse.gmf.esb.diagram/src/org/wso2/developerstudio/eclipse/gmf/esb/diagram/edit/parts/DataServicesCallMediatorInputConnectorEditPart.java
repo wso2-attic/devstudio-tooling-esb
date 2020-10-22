@@ -186,6 +186,92 @@ public class DataServicesCallMediatorInputConnectorEditPart extends AbstractBord
     /**
      * @generated
      */
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+        types.add(EsbElementTypes.EsbLink_4001);
+        return types;
+    }
+
+    /**
+     * @generated
+     */
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
+        if (relationshipType == EsbElementTypes.EsbLink_4001) {
+            types.add(EsbElementTypes.ProxyOutputConnector_3002);
+            types.add(EsbElementTypes.PropertyMediatorOutputConnector_3034);
+            types.add(EsbElementTypes.PropertyGroupMediatorOutputConnector_3790);
+            types.add(EsbElementTypes.ThrottleMediatorOutputConnector_3122);
+            types.add(EsbElementTypes.ThrottleMediatorOnAcceptOutputConnector_3581);
+            types.add(EsbElementTypes.ThrottleMediatorOnRejectOutputConnector_3582);
+            types.add(EsbElementTypes.FilterMediatorOutputConnector_3534);
+            types.add(EsbElementTypes.FilterMediatorPassOutputConnector_3011);
+            types.add(EsbElementTypes.FilterMediatorFailOutputConnector_3012);
+            types.add(EsbElementTypes.LogMediatorOutputConnector_3019);
+            types.add(EsbElementTypes.EnrichMediatorOutputConnector_3037);
+            types.add(EsbElementTypes.XSLTMediatorOutputConnector_3040);
+            types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
+            types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3044);
+            types.add(EsbElementTypes.SwitchMediatorOutputConnector_3499);
+            types.add(EsbElementTypes.SequenceOutputConnector_3050);
+            types.add(EsbElementTypes.EventMediatorOutputConnector_3053);
+            types.add(EsbElementTypes.EntitlementMediatorOutputConnector_3056);
+            types.add(EsbElementTypes.ClassMediatorOutputConnector_3059);
+            types.add(EsbElementTypes.SpringMediatorOutputConnector_3062);
+            types.add(EsbElementTypes.ScriptMediatorOutputConnector_3065);
+            types.add(EsbElementTypes.FaultMediatorOutputConnector_3068);
+            types.add(EsbElementTypes.XQueryMediatorOutputConnector_3071);
+            types.add(EsbElementTypes.CommandMediatorOutputConnector_3074);
+            types.add(EsbElementTypes.DBLookupMediatorOutputConnector_3077);
+            types.add(EsbElementTypes.DBReportMediatorOutputConnector_3080);
+            types.add(EsbElementTypes.SmooksMediatorOutputConnector_3083);
+            types.add(EsbElementTypes.SendMediatorOutputConnector_3086);
+            types.add(EsbElementTypes.SendMediatorEndpointOutputConnector_3539);
+            types.add(EsbElementTypes.HeaderMediatorOutputConnector_3101);
+            types.add(EsbElementTypes.CloneMediatorOutputConnector_3104);
+            types.add(EsbElementTypes.CloneMediatorTargetOutputConnector_3133);
+            types.add(EsbElementTypes.CacheMediatorOutputConnector_3107);
+            types.add(EsbElementTypes.CacheMediatorOnHitOutputConnector_3618);
+            types.add(EsbElementTypes.IterateMediatorOutputConnector_3110);
+            types.add(EsbElementTypes.IterateMediatorTargetOutputConnector_3606);
+            types.add(EsbElementTypes.CalloutMediatorOutputConnector_3116);
+            types.add(EsbElementTypes.TransactionMediatorOutputConnector_3119);
+            types.add(EsbElementTypes.RMSequenceMediatorOutputConnector_3125);
+            types.add(EsbElementTypes.RuleMediatorOutputConnector_3128);
+            types.add(EsbElementTypes.OAuthMediatorOutputConnector_3131);
+            types.add(EsbElementTypes.AggregateMediatorOutputConnector_3113);
+            types.add(EsbElementTypes.AggregateMediatorOnCompleteOutputConnector_3132);
+            types.add(EsbElementTypes.StoreMediatorOutputConnector_3590);
+            types.add(EsbElementTypes.BuilderMediatorOutputConector_3593);
+            types.add(EsbElementTypes.CallTemplateMediatorOutputConnector_3596);
+            types.add(EsbElementTypes.PayloadFactoryMediatorOutputConnector_3599);
+            types.add(EsbElementTypes.EnqueueMediatorOutputConnector_3602);
+            types.add(EsbElementTypes.URLRewriteMediatorOutputConnector_3622);
+            types.add(EsbElementTypes.ValidateMediatorOutputConnector_3625);
+            types.add(EsbElementTypes.ValidateMediatorOnFailOutputConnector_3626);
+            types.add(EsbElementTypes.RouterMediatorOutputConnector_3630);
+            types.add(EsbElementTypes.RouterMediatorTargetOutputConnector_3631);
+            types.add(EsbElementTypes.ConditionalRouterMediatorOutputConnector_3637);
+            types.add(EsbElementTypes.ConditionalRouterMediatorAdditionalOutputConnector_3638);
+            types.add(EsbElementTypes.DefaultEndPointOutputConnector_3022);
+            types.add(EsbElementTypes.AddressEndPointOutputConnector_3031);
+            types.add(EsbElementTypes.FailoverEndPointOutputConnector_3090);
+            types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3097);
+            types.add(EsbElementTypes.WSDLEndPointOutputConnector_3093);
+            types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3096);
+            types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098);
+            types.add(EsbElementTypes.MessageOutputConnector_3047);
+            types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
+            types.add(EsbElementTypes.SequencesOutputConnector_3617);
+            types.add(EsbElementTypes.JsonTransformMediatorOutputConnector_3793);
+            types.add(EsbElementTypes.DataServicesCallMediatorOutputConnector_3796);
+        }
+        return types;
+    }
+
+    /**
+     * @generated
+     */
     public class EastPointerFigure extends EastPointerShape {
 
         /**

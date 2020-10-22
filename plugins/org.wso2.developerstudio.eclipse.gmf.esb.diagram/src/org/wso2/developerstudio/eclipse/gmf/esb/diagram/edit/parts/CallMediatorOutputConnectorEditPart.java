@@ -444,6 +444,9 @@ public class CallMediatorOutputConnectorEditPart extends AbstractMediatorOutputC
         if (targetEditPart instanceof APIResourceInSequenceInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
+        if (targetEditPart instanceof DataServicesCallMediatorInputConnectorEditPart) {
+            types.add(EsbElementTypes.EsbLink_4001);
+        }
         return types;
     }
 
@@ -531,6 +534,7 @@ public class CallMediatorOutputConnectorEditPart extends AbstractMediatorOutputC
             types.add(EsbElementTypes.APIResourceInputConnector_3670);
             types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
             types.add(EsbElementTypes.APIResourceInSequenceInputConnector_3747);
+            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
         }
         return types;
     }

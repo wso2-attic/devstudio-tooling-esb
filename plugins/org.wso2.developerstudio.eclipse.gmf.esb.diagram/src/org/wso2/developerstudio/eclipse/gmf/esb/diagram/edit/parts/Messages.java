@@ -120,6 +120,8 @@ public class Messages extends NLS {
     public static String XSLTMediatorEditPart_ToolTipMessage;
     public static String JsonTransformMediatorEditPart_NodeName;
     public static String JsonTransformMediatorEditPart_ToolTipMessage;
+    public static String DataServicesCallMediatorEditPart_NodeName;
+    public static String DataServicesCallMediatorEditPart_ToolTipMessage;
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

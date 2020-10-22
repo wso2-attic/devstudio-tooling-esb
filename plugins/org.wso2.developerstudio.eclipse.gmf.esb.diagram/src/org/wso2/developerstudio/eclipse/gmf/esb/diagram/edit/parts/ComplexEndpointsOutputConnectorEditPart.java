@@ -436,6 +436,9 @@ public class ComplexEndpointsOutputConnectorEditPart extends AbstractOutputConne
         if (targetEditPart instanceof JsonTransformMediatorInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
+        if (targetEditPart instanceof DataServicesCallMediatorInputConnectorEditPart) {
+            types.add(EsbElementTypes.EsbLink_4001);
+        }
         return types;
     }
 
@@ -507,6 +510,7 @@ public class ComplexEndpointsOutputConnectorEditPart extends AbstractOutputConne
             types.add(EsbElementTypes.APIResourceInputConnector_3670);
             types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
             types.add(EsbElementTypes.JsonTransformMediatorInputConnector_3792);
+            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
         }
         return types;
     }

@@ -431,6 +431,9 @@ public class EsbEditPartFactory implements EditPartFactory {
             case CacheMediatorEditPart.VISUAL_ID:
                 return new CacheMediatorEditPart(view);
 
+            case CacheMediatorCacheIdEditPart.VISUAL_ID:
+                return new CacheMediatorCacheIdEditPart(view);
+
             case CacheMediatorInputConnectorEditPart.VISUAL_ID:
                 return new CacheMediatorInputConnectorEditPart(view);
 

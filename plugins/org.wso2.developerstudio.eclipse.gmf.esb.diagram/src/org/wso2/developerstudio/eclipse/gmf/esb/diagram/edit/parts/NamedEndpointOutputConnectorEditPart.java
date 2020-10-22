@@ -385,6 +385,9 @@ public class NamedEndpointOutputConnectorEditPart extends AbstractEndpointOutput
         if (targetEditPart instanceof JsonTransformMediatorInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
+        if (targetEditPart instanceof DataServicesCallMediatorInputConnectorEditPart) {
+            types.add(EsbElementTypes.EsbLink_4001);
+        }
         return types;
     }
 
@@ -453,6 +456,7 @@ public class NamedEndpointOutputConnectorEditPart extends AbstractEndpointOutput
             types.add(EsbElementTypes.WSDLEndPointInputConnector_3654);
             types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3657);
             types.add(EsbElementTypes.JsonTransformMediatorInputConnector_3792);
+            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
         }
         return types;
     }

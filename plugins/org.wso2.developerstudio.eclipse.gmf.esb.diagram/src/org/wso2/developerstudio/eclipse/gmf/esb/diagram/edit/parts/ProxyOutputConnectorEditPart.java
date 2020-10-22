@@ -311,6 +311,9 @@ public class ProxyOutputConnectorEditPart extends AbstractOutputConnectorEditPar
         if (targetEditPart instanceof SendMediatorInputConnectorEditPart) {
             types.add(EsbElementTypes.EsbLink_4001);
         }
+        if (targetEditPart instanceof DataServicesCallMediatorInputConnectorEditPart) {
+            types.add(EsbElementTypes.EsbLink_4001);
+        }
         return types;
     }
 
@@ -347,6 +350,7 @@ public class ProxyOutputConnectorEditPart extends AbstractOutputConnectorEditPar
             types.add(EsbElementTypes.DBReportMediatorInputConnector_3079);
             types.add(EsbElementTypes.SmooksMediatorInputConnector_3082);
             types.add(EsbElementTypes.SendMediatorInputConnector_3085);
+            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
         }
         return types;
     }

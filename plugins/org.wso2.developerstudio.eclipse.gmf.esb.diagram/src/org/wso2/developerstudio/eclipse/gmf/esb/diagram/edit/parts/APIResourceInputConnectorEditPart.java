@@ -308,6 +308,7 @@ public class APIResourceInputConnectorEditPart extends AbstractBaseFigureInputCo
             types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3659);
             types.add(EsbElementTypes.APIResourceOutputConnector_3671);
             types.add(EsbElementTypes.JsonTransformMediatorOutputConnector_3793);
+            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
         }
         return types;
     }
