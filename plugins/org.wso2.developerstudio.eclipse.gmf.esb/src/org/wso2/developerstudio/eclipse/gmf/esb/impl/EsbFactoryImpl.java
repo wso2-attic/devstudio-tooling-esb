@@ -3220,10 +3220,12 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     public DataServicesCallMediator createDataServicesCallMediator() {
         DataServicesCallMediatorImpl dataServicesCallMediator = new DataServicesCallMediatorImpl();
+        dataServicesCallMediator.setInputConnector(createDataServicesCallMediatorInputConnector());
+        dataServicesCallMediator.setOutputConnector(createDataServicesCallMediatorOutputConnector());
         return dataServicesCallMediator;
     }
 

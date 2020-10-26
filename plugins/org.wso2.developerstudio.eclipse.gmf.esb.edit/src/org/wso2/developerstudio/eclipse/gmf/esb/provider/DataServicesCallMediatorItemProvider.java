@@ -166,14 +166,14 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
     }
 
     /**
-     * This returns DataServicesCallMediator.gif.
+     * This returns DataServicesCallMediator.png.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/DataServicesCallMediator"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/DataServicesCallMediator.png"));
     }
 
     /**
