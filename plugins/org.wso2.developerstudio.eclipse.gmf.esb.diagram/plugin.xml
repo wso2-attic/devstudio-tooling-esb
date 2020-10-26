@@ -5964,7 +5964,7 @@
             priority="normal" 
             contentProvider="org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorContentProvider" 
             labelProvider="org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorLabelProvider"
-            icon="icons/obj16/EsbDiagramFile.gif"
+            icon="icons/obj16/EsbDiagramFile.png"
             activeByDefault="true">
          <triggerPoints>
             <or>
@@ -6000,7 +6000,7 @@
             priority="normal" 
             contentProvider="org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbDomainNavigatorContentProvider" 
             labelProvider="org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbDomainNavigatorLabelProvider"
-            icon="icons/obj16/EsbDiagramFile.gif"
+            icon="icons/obj16/EsbDiagramFile.png"
             activeByDefault="true">
          <triggerPoints>
             <or>
@@ -6396,7 +6396,7 @@
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/obj16/EsbDiagramFile.png"
   	     category="org.eclipse.ui.Examples"
   	     class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizard"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizardID">
@@ -6847,7 +6847,7 @@
 			class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.swagger.SwaggerEditorEarlyStartup">
 		</startup>
 	</extension>
-<extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+<!--<extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.wso2.developerstudio.eclipse.gmf.esb.diagram"
@@ -6908,7 +6908,7 @@
             <input type="org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
-   </extension>
+   </extension>-->
 
 
 </plugin>

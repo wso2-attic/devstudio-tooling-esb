@@ -6,10 +6,13 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
@@ -25,18 +28,30 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.CustomToolTip;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.DataServicesCallMediatorCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.DataServicesCallMediatorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EditPartConstants.DATASERVICESCALL_MEDIATOR_ICON_PATH;
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EditPartConstants.DEFAULT_PROPERTY_VALUE_TEXT;
 
 /**
  * @generated
  */
-public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditPart {
+public class DataServicesCallMediatorEditPart extends FixedSizedAbstractMediator {
+
+    private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
     /**
     * @generated
@@ -51,7 +66,7 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
     /**
     * @generated
     */
-    protected IFigure primaryShape;
+    //protected IFigure primaryShape;
 
     /**
     * @generated
@@ -69,16 +84,17 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DataServicesCallMediatorItemSemanticEditPolicy());
         installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+        installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
         installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new DataServicesCallMediatorCanonicalEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
         // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-        // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+        removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
     /**
     * @generated
     */
-    protected LayoutEditPolicy createLayoutEditPolicy() {
+    /*protected LayoutEditPolicy createLayoutEditPolicy() {
 
         FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
 
@@ -105,13 +121,50 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
             }
         };
         return lep;
+    }*/
+
+    protected LayoutEditPolicy createLayoutEditPolicy() {
+
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+
+            protected EditPolicy createChildEditPolicy(EditPart child) {
+                View childView = (View) child.getModel();
+                switch (EsbVisualIDRegistry.getVisualID(childView)) {
+                    case DataServicesCallMediatorInputConnectorEditPart.VISUAL_ID:
+                    case DataServicesCallMediatorOutputConnectorEditPart.VISUAL_ID:
+                        return new BorderItemSelectionEditPolicy();
+                }
+                EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+                if (result == null) {
+                    result = new NonResizableEditPolicy();
+                }
+                return result;
+            }
+
+            protected Command getMoveChildrenCommand(Request request) {
+                return null;
+            }
+
+            protected Command getCreateCommand(CreateRequest request) {
+                return null;
+            }
+        };
+        return lep;
     }
 
     /**
-    * @generated
+    * @generated NOT
     */
     protected IFigure createNodeShape() {
-        return primaryShape = new DataServicesCallMediatorFigure();
+        return primaryShape = new DataServicesCallMediatorFigure(new Color(null, 255, 255, 255)) {
+            public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+                super.setBounds(rect);
+                if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
+                    connectToMostSuitableElement();
+                    reAllocate(rect);
+                }
+            };
+        };
     }
 
     /**
@@ -122,7 +175,7 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
     }
 
     /**
-    * @generated
+    * @generated NOT
     */
     protected boolean addFixedChild(EditPart childEditPart) {
         if (childEditPart instanceof DataServicesCallMediatorDescriptionEditPart) {
@@ -131,15 +184,23 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
             return true;
         }
         if (childEditPart instanceof DataServicesCallMediatorInputConnectorEditPart) {
-            BorderItemLocator locator = new BorderItemLocator(getMainFigure(), PositionConstants.WEST);
-            getBorderedFigure().getBorderItemContainer()
-                    .add(((DataServicesCallMediatorInputConnectorEditPart) childEditPart).getFigure(), locator);
+            IFigure borderItemFigure = ((DataServicesCallMediatorInputConnectorEditPart) childEditPart).getFigure();
+//            BorderItemLocator locator = new BorderItemLocator(getMainFigure(), PositionConstants.WEST);
+//            getBorderedFigure().getBorderItemContainer()
+//                    .add(((DataServicesCallMediatorInputConnectorEditPart) childEditPart).getFigure(), locator);
+            BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(), borderItemFigure,
+                    PositionConstants.WEST, 0.5);
+            getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
             return true;
         }
         if (childEditPart instanceof DataServicesCallMediatorOutputConnectorEditPart) {
-            BorderItemLocator locator = new BorderItemLocator(getMainFigure(), PositionConstants.EAST);
-            getBorderedFigure().getBorderItemContainer()
-                    .add(((DataServicesCallMediatorOutputConnectorEditPart) childEditPart).getFigure(), locator);
+            IFigure borderItemFigure = ((DataServicesCallMediatorOutputConnectorEditPart) childEditPart).getFigure();
+            //BorderItemLocator locator = new BorderItemLocator(getMainFigure(), PositionConstants.EAST);
+            //getBorderedFigure().getBorderItemContainer()
+            //       .add(((DataServicesCallMediatorOutputConnectorEditPart) childEditPart).getFigure(), locator);
+            BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(), borderItemFigure,
+                    PositionConstants.EAST, 0.5);
+            getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
             return true;
         }
         return false;
@@ -198,10 +259,10 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
     /**
     * @generated
     */
-    protected NodeFigure createNodePlate() {
+    /*protected NodeFigure createNodePlate() {
         DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
         return result;
-    }
+    }*/
 
     /**
     * Creates figure for this edit part.
@@ -209,11 +270,12 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
     * Body of this method does not depend on settings in generation model
     * so you may safely remove <i>generated</i> tag and modify it.
     * 
-    * @generated
+    * @generated NOT
     */
     protected NodeFigure createMainFigure() {
         NodeFigure figure = createNodePlate();
-        figure.setLayoutManager(new StackLayout());
+        figure.setLayoutManager(new ToolbarLayout(true));
+        //figure.setLayoutManager(new StackLayout());
         IFigure shape = createNodeShape();
         figure.add(shape);
         contentPane = setupContentPane(shape);
@@ -284,15 +346,15 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
     /**
     * @generated
     */
-    public EditPart getPrimaryChildEditPart() {
-        return getChildBySemanticHint(
-                EsbVisualIDRegistry.getType(DataServicesCallMediatorDescriptionEditPart.VISUAL_ID));
-    }
+//    public EditPart getPrimaryChildEditPart() {
+//        return getChildBySemanticHint(
+//                EsbVisualIDRegistry.getType(DataServicesCallMediatorDescriptionEditPart.VISUAL_ID));
+//    }
 
     /**
      * @generated
      */
-    public class DataServicesCallMediatorFigure extends EsbGraphicalShape {
+    public class DataServicesCallMediatorFigure extends EsbGraphicalShapeWithLabel   {
 
         /**
          * @generated
@@ -306,7 +368,7 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
         /**
          * @generated
          */
-        public DataServicesCallMediatorFigure() {
+        /*public DataServicesCallMediatorFigure() {
 
             FlowLayout layoutThis = new FlowLayout();
             layoutThis.setStretchMinorAxis(false);
@@ -321,16 +383,28 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
 
             this.setBackgroundColor(THIS_BACK);
             createContents();
+        }*/
+
+        public DataServicesCallMediatorFigure(Color borderColor) {
+
+            super(borderColor, false);
+            this.setBackgroundColor(THIS_BACK);
+            createContents();
         }
 
         /**
-         * @generated
+         * @generated NOT
          */
         private void createContents() {
 
             fFigureDataServicesCallMediatorPropertyLabel = new WrappingLabel();
 
-            fFigureDataServicesCallMediatorPropertyLabel.setText("<...>");
+            fFigureDataServicesCallMediatorPropertyLabel.setText(DEFAULT_PROPERTY_VALUE_TEXT);
+            fFigureDataServicesCallMediatorPropertyLabel.setAlignment(SWT.CENTER);
+
+            fFigureDataServicesCallMediatorDescriptionFigure = getPropertyNameLabel();
+
+            /*fFigureDataServicesCallMediatorPropertyLabel.setText("<...>");
 
             this.add(fFigureDataServicesCallMediatorPropertyLabel);
 
@@ -338,7 +412,7 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
 
             fFigureDataServicesCallMediatorDescriptionFigure.setText("<...>");
 
-            this.add(fFigureDataServicesCallMediatorDescriptionFigure);
+            this.add(fFigureDataServicesCallMediatorDescriptionFigure);*/
 
         }
 
@@ -365,7 +439,6 @@ public class DataServicesCallMediatorEditPart extends AbstractBorderedShapeEditP
         }
 
         public IFigure getToolTip() {
-            String toolTipMessage = null;
             if (StringUtils.isEmpty(toolTipMessage)) {
                 toolTipMessage = Messages.DataServicesCallMediatorEditPart_ToolTipMessage;
             }
