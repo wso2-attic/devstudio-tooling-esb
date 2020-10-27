@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.micro.integrator.mediator.dataservice-1.3.0-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediation.commons-4.7.51.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.rest.api-4.7.34.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/asm-1.0.2.jar"/>

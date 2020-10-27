@@ -96,6 +96,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.POJOCommandMediatorExt;
 import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 import org.wso2.carbon.mediator.datamapper.DataMapperMediator;
+import org.wso2.micro.integrator.mediator.dataservice.DataServiceCallMediator;
 
 /**
  * A registry of synapse model to model object deserializers.
@@ -201,6 +202,7 @@ public class EsbDeserializerRegistry {
         addDeserializer(CommentMediator.class, new CommentMediatorDeserializer());
         addDeserializer(PublishEventMediator.class, new PublishEventMediatorDeserializer());
         addDeserializer(JSONTransformMediator.class, new JsonTransformMediatorDeserializer());
+        addDeserializer(DataServiceCallMediator.class, new DataServicesCallMediatorDeserializer());
     }
 
     /**
