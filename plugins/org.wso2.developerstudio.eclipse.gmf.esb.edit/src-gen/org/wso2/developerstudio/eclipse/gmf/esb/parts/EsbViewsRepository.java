@@ -31,7 +31,7 @@ public class EsbViewsRepository {
 
 	/**
 	 * EsbServer view descriptor
-	 * 
+	 *
 	 */
 	public static class EsbServer {
 		public static class Properties {
@@ -3412,7 +3412,7 @@ public class EsbViewsRepository {
 			
 			
 			public static String enclosingElementProperty = "esb::AggregateMediator::properties::enclosingElementProperty";
-			
+
 			// Start of user code for correlationExpression ElementEditor key
 			public static String correlationExpression = "esb::AggregateMediator::properties::correlationExpression";
 			// End of user code
@@ -5102,11 +5102,11 @@ public class EsbViewsRepository {
 		public static class Properties {
 			
 			public static String queryString = "esb::SqlStatement::properties::queryString";
-			
+
 			public static String parameters = "esb::SqlStatement::properties::parameters";
-			
+
 			public static String resultsEnabled = "esb::SqlStatement::properties::resultsEnabled";
-			
+
 			public static String results = "esb::SqlStatement::properties::results";
 	
 		}
@@ -9482,21 +9482,21 @@ public class EsbViewsRepository {
 			
 			
 			public static String transportRabbitMqAutoDeclare = "esb::InboundEndpoint::properties::transportRabbitMqAutoDeclare";
-			
+
 			public static String transportRabbitMqMaxDeadLetteredCount = "esb::InboundEndpoint::properties::transportRabbitMqMaxDeadLetteredCount";
-			
+
 			public static String transportRabbitMqRequeueDelay = "esb::InboundEndpoint::properties::transportRabbitMqRequeueDelay";
-			
+
 			public static String transportRabbitMqExchangeAutoDeclare = "esb::InboundEndpoint::properties::transportRabbitMqExchangeAutoDeclare";
-			                      
+
 			public static String transportRabbitMqConsumerTag = "esb::InboundEndpoint::properties::transportRabbitMqConsumerTag";
-			                       
+
 			public static String transportRabbitMqErrorQueueRoutingKey = "esb::InboundEndpoint::properties::transportRabbitMqErrorQueueRoutingKey";
-			                       
+
 			public static String transportRabbitMqErrorExchangeName = "esb::InboundEndpoint::properties::transportRabbitMqErrorExchangeName";
-			                       
+
 			public static String transportRabbitMqFactoryConnectionTimeout = "esb::InboundEndpoint::properties::transportRabbitMqFactoryConnectionTimeout";
-			                       
+
 			public static String transportRabbitMqFactoryNetworkRecoveryInterval = "esb::InboundEndpoint::properties::transportRabbitMqFactoryNetworkRecoveryInterval";
 	
 		}
@@ -9717,6 +9717,66 @@ public class EsbViewsRepository {
 			
 			
 			public static String propertyValue = "esb::JsonTransformMediatorProperty::properties::propertyValue";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * DataServicesCallMediator view descriptor
+	 * 
+	 */
+	public static class DataServicesCallMediator {
+		public static class Properties {
+	
+			
+			public static String description = "esb::DataServicesCallMediator::properties::description";
+			
+			
+			public static String commentsList = "esb::DataServicesCallMediator::properties::commentsList";
+			
+			
+			public static String reverse = "esb::DataServicesCallMediator::properties::Reverse";
+			
+			
+			public static String sourceType = "esb::DataServicesCallMediator::properties::sourceType";
+			
+			
+			public static String targetType = "esb::DataServicesCallMediator::properties::targetType";
+			
+			
+			public static String serviceName = "esb::DataServicesCallMediator::properties::serviceName";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * DataServicesCallMediatorOutputConnector view descriptor
+	 * 
+	 */
+	public static class DataServicesCallMediatorOutputConnector {
+		public static class Properties {
+	
+			
+			public static String commentMediators = "esb::DataServicesCallMediatorOutputConnector::properties::commentMediators";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * DataServicesCallMediatorInputConnector view descriptor
+	 * 
+	 */
+	public static class DataServicesCallMediatorInputConnector {
+		public static class Properties {
+	
+			
+			public static String incomingLinks = "esb::DataServicesCallMediatorInputConnector::properties::incomingLinks";
 			
 	
 		}

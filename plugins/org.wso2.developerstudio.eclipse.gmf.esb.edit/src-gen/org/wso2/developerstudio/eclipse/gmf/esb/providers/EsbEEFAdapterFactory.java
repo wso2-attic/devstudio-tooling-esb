@@ -2629,5 +2629,29 @@ public class EsbEEFAdapterFactory extends EsbAdapterFactory {
 	public Adapter createJsonTransformMediatorPropertyAdapter() {
 		return new JsonTransformMediatorPropertyPropertiesEditionProvider();
 	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createDataServicesCallMediatorAdapter()
+	 * 
+	 */
+	public Adapter createDataServicesCallMediatorAdapter() {
+		return new DataServicesCallMediatorPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createDataServicesCallMediatorOutputConnectorAdapter()
+	 * 
+	 */
+	public Adapter createDataServicesCallMediatorOutputConnectorAdapter() {
+		return new DataServicesCallMediatorOutputConnectorPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createDataServicesCallMediatorInputConnectorAdapter()
+	 * 
+	 */
+	public Adapter createDataServicesCallMediatorInputConnectorAdapter() {
+		return new DataServicesCallMediatorInputConnectorPropertiesEditionProvider();
+	}
 
 }

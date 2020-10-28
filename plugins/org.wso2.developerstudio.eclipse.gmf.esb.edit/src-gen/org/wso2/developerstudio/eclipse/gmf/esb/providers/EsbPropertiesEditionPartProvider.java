@@ -97,6 +97,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DBReportMediatorProp
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataMapperMediatorInputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataMapperMediatorOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataMapperMediatorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorInputConnectorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorOutputConnectorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointInputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointPropertiesEditionPartForm;
@@ -451,6 +454,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DBReportMediatorPrope
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataMapperMediatorInputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataMapperMediatorOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataMapperMediatorPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServicesCallMediatorInputConnectorPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServicesCallMediatorOutputConnectorPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServicesCallMediatorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointInputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointPropertiesEditionPartImpl;
@@ -2857,6 +2863,24 @@ public class EsbPropertiesEditionPartProvider implements IPropertiesEditionPartP
 				return new JsonTransformMediatorPropertyPropertiesEditionPartImpl(component);
 			if (kind == EsbViewsRepository.FORM_KIND)
 				return new JsonTransformMediatorPropertyPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.DataServicesCallMediator.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new DataServicesCallMediatorPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new DataServicesCallMediatorPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.DataServicesCallMediatorOutputConnector.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new DataServicesCallMediatorOutputConnectorPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new DataServicesCallMediatorOutputConnectorPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.DataServicesCallMediatorInputConnector.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new DataServicesCallMediatorInputConnectorPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new DataServicesCallMediatorInputConnectorPropertiesEditionPartForm(component);
 		}
 		return null;
 	}

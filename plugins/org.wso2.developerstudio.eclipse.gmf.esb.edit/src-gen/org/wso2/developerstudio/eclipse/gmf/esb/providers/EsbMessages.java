@@ -1294,6 +1294,15 @@ public class EsbMessages extends NLS {
 	
 	public static String JsonTransformMediatorPropertyPropertiesEditionPart_PropertiesGroupLabel;
 
+	
+	public static String DataServicesCallMediatorPropertiesEditionPart_PropertiesGroupLabel;
+
+	
+	public static String DataServicesCallMediatorOutputConnectorPropertiesEditionPart_PropertiesGroupLabel;
+
+	
+	public static String DataServicesCallMediatorInputConnectorPropertiesEditionPart_PropertiesGroupLabel;
+
 
 	
 	public static String EsbDiagram_ReadOnly;
@@ -3424,6 +3433,24 @@ public class EsbMessages extends NLS {
 
 	
 	public static String JsonTransformMediatorProperty_Part_Title;
+
+	
+	public static String DataServicesCallMediator_ReadOnly;
+
+	
+	public static String DataServicesCallMediator_Part_Title;
+
+	
+	public static String DataServicesCallMediatorOutputConnector_ReadOnly;
+
+	
+	public static String DataServicesCallMediatorOutputConnector_Part_Title;
+
+	
+	public static String DataServicesCallMediatorInputConnector_ReadOnly;
+
+	
+	public static String DataServicesCallMediatorInputConnector_Part_Title;
 
 
 	
@@ -8387,6 +8414,30 @@ public class EsbMessages extends NLS {
 
 	
 	public static String JsonTransformMediatorPropertyPropertiesEditionPart_PropertyValueLabel;
+
+	
+	public static String DataServicesCallMediatorPropertiesEditionPart_DescriptionLabel;
+
+	
+	public static String DataServicesCallMediatorPropertiesEditionPart_CommentsListLabel;
+
+	
+	public static String DataServicesCallMediatorPropertiesEditionPart_ReverseLabel;
+
+	
+	public static String DataServicesCallMediatorPropertiesEditionPart_SourceTypeLabel;
+
+	
+	public static String DataServicesCallMediatorPropertiesEditionPart_TargetTypeLabel;
+
+	
+	public static String DataServicesCallMediatorPropertiesEditionPart_ServiceNameLabel;
+
+	
+	public static String DataServicesCallMediatorOutputConnectorPropertiesEditionPart_CommentMediatorsLabel;
+
+	
+	public static String DataServicesCallMediatorInputConnectorPropertiesEditionPart_IncomingLinksLabel;
 
 
 	
