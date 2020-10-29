@@ -52,6 +52,7 @@ import org.wso2.carbon.mediator.publishevent.PublishEventMediatorFactory;
 import org.wso2.carbon.mediator.service.MediatorException;
 import org.wso2.carbon.mediator.transform.xml.SmooksMediatorFactory;
 import org.wso2.carbon.rule.mediator.RuleMediatorFactory;
+import org.wso2.micro.integrator.mediator.dataservice.DataServiceCallMediatorFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.BamMediatorExtFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.BeanMediatorExtFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.BuilderMediatorExtFactory;
@@ -114,6 +115,7 @@ public class MediatorValidationUtil {
     private static BuilderMediatorExtFactory builderMediatorExtFactory;
     private static BamMediatorExtFactory bamMediatorExtFactory;
     private static JSONTransformMediatorFactory jsonTransformMediatorFactory;
+    private static DataServiceCallMediatorFactory dataServiceCallMediatorFactory;
 
     /**
      * Validate esb mediators such as log, send, call, etc.
@@ -513,6 +515,12 @@ public class MediatorValidationUtil {
 			    setNamespaceForChildren(omElement);
 			    jsonTransformMediatorFactory.createMediator(omElement, null);
 			    break;
+            case "dataServiceCall":
+                if (dataServiceCallMediatorFactory == null) {
+                	dataServiceCallMediatorFactory = new DataServiceCallMediatorFactory();
+                }
+                dataServiceCallMediatorFactory.createMediator(omElement, null);
+                break;
 			default:
 				break;
 			}

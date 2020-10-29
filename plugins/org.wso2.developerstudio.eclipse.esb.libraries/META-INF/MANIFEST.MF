@@ -126,7 +126,8 @@ Bundle-ClassPath: .,
  lib/org.wso2.carbon.rest.api-4.7.34.jar,
  lib/snakeyaml-1.18.jar,
  lib/org.wso2.carbon.mediation.commons-4.7.51.jar,
- lib/org.wso2.micro.integrator.mediator.dataservice-1.3.0-SNAPSHOT.jar
+ lib/org.wso2.micro.integrator.mediator.dataservice-1.3.0-SNAPSHOT.jar,
+ lib/org.wso2.micro.integrator.dataservices.core-1.3.0-SNAPSHOT.jar
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jdt.ui,
@@ -350,6 +351,7 @@ Export-Package: com.damnhandy.uri.template;version="2.1.6.wso2v2",
  org.wso2.carbon.tools.converter,
  org.wso2.carbon.utils,
  org.wso2.developerstudio.eclipse.esb.libraries.utils,
+ org.wso2.micro.integrator.dataservices.core,
  org.wso2.micro.integrator.mediator.dataservice,
  org.wso2.securevault.secret
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

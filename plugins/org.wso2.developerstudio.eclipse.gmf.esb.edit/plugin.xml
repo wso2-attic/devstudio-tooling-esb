@@ -2032,6 +2032,24 @@
                id="org.wso2.developerstudio.eclipse.gmf.esb.section.JsonTransformMediatorProperty"
                tab="Base">
          </propertySection>
+         <propertySection
+                 class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorPropertiesEditionPartForm"
+                 filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServicesCallMediatorPropertiesEditionProvider$EditionFilter"
+                 id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServicesCallMediator"
+                 tab="Base">
+         </propertySection>
+         <propertySection
+                 class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorOutputConnectorPropertiesEditionPartForm"
+                 filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServicesCallMediatorOutputConnectorPropertiesEditionProvider$EditionFilter"
+                 id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServicesCallMediatorOutputConnector"
+                 tab="Base">
+         </propertySection>
+         <propertySection
+                 class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorInputConnectorPropertiesEditionPartForm"
+                 filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServicesCallMediatorInputConnectorPropertiesEditionProvider$EditionFilter"
+                 id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServicesCallMediatorInputConnector"
+                 tab="Base">
+         </propertySection>
       </propertySections>
    </extension>
 </plugin>

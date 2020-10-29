@@ -78,6 +78,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformerException;
 
@@ -416,6 +417,10 @@ public class APIResourceTransformer extends AbstractEsbNodeTransformer {
                 }
             } else if (children.get(i) instanceof PublishEventMediator) {
                 if (((PublishEventMediator) children.get(i)).getInputConnector().getIncomingLinks().size() == 0) {
+                    return children.get(i);
+                }
+            } else if (children.get(i) instanceof DataServicesCallMediator) {
+                if (((DataServicesCallMediator) children.get(i)).getInputConnector().getIncomingLinks().size() == 0) {
                     return children.get(i);
                 }
             }

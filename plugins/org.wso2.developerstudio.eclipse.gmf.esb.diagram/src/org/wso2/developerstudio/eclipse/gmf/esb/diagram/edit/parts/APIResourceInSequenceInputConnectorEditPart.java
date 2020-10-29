@@ -372,7 +372,7 @@ public class APIResourceInSequenceInputConnectorEditPart extends AbstractBaseFig
             types.add(EsbElementTypes.APIResourceOutSequenceOutputConnector_3730);
             types.add(EsbElementTypes.ComplexEndpointsOutputConnector_3679);
             types.add(EsbElementTypes.JsonTransformMediatorOutputConnector_3793);
-            types.add(EsbElementTypes.DataServicesCallMediatorInputConnector_3795);
+            types.add(EsbElementTypes.DataServicesCallMediatorOutputConnector_3796);
         }
         return types;
     }

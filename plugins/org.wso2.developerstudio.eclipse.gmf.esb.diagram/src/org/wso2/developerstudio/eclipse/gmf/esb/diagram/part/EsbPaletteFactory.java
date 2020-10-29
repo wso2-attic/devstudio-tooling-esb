@@ -186,6 +186,7 @@ public class EsbPaletteFactory {
         paletteContainer.add(createSendMediator20CreationTool());
         paletteContainer.add(createSequence4CreationTool());
         paletteContainer.add(createStoreMediator31CreationTool());
+        paletteContainer.add(createDataServicesCallMediator51CreationTool());
 
         // Core Mediator Category separator.
         paletteContainer.add(new PaletteSeparator("Core"));
@@ -219,7 +220,6 @@ public class EsbPaletteFactory {
         paletteContainer.add(createDataMapperMediator47CreationTool()); // enabled
         paletteContainer.add(createFastXSLTMediator48CreationTool());
         paletteContainer.add(createJsonTransformMediator50CreationTool());
-        paletteContainer.add(createDataServicesCallMediator51CreationTool());
 
         // Transform Mediator Category separator.
         paletteContainer.add(new PaletteSeparator("Transform"));
@@ -284,6 +284,7 @@ public class EsbPaletteFactory {
         // paletteContainer.add(createSendMediator19CreationTool());
         paletteContainer.add(createSequence4CreationTool());
         // paletteContainer.add(createStoreMediator31CreationTool());
+        paletteContainer.add(createDataServicesCallMediator51CreationTool());
 
         // Core Mediator Category separator.
         paletteContainer.add(new PaletteSeparator("Core"));
@@ -317,7 +318,6 @@ public class EsbPaletteFactory {
         paletteContainer.add(createDataMapperMediator47CreationTool()); // enabled
         paletteContainer.add(createFastXSLTMediator48CreationTool());
         paletteContainer.add(createJsonTransformMediator50CreationTool());
-        paletteContainer.add(createDataServicesCallMediator51CreationTool());
 
         // Transform Mediator Category separator.
         paletteContainer.add(new PaletteSeparator("Transform"));
