@@ -132,13 +132,12 @@ public class DataServicesCallMediatorPropertiesEditionPartForm extends SectionPr
 	public void createControls(final FormToolkit widgetFactory, Composite view) {
 		CompositionSequence dataServicesCallMediatorStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = dataServicesCallMediatorStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.class);
-		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.description);
-		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.commentsList);
-		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.reverse);
+		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.serviceName);
+		//propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.commentsList);
+		//propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.reverse);
 		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.sourceType);
 		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.targetType);
-		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.serviceName);
-		
+		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.description);
 		
 		composer = new PartComposer(dataServicesCallMediatorStep) {
 
@@ -147,24 +146,25 @@ public class DataServicesCallMediatorPropertiesEditionPartForm extends SectionPr
 				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.class) {
 					return createPropertiesGroup(widgetFactory, parent);
 				}
-				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.description) {
-					return createDescriptionText(widgetFactory, parent);
+				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.serviceName) {
+					return createServiceNameText(widgetFactory, parent);
 				}
-				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.commentsList) {
+				/*if (key == EsbViewsRepository.DataServicesCallMediator.Properties.commentsList) {
 					return createCommentsListMultiValuedEditor(widgetFactory, parent);
 				}
 				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.reverse) {
 					return createReverseCheckbox(widgetFactory, parent);
-				}
+				}*/
 				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.sourceType) {
 					return createSourceTypeEMFComboViewer(widgetFactory, parent);
 				}
 				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.targetType) {
 					return createTargetTypeEMFComboViewer(widgetFactory, parent);
 				}
-				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.serviceName) {
-					return createServiceNameText(widgetFactory, parent);
+				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.description) {
+					return createDescriptionText(widgetFactory, parent);
 				}
+
 				return parent;
 			}
 		};

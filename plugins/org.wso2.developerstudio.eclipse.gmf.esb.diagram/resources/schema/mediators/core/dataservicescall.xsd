@@ -19,6 +19,8 @@
            targetNamespace="http://ws.apache.org/ns/synapse"
            xmlns="http://ws.apache.org/ns/synapse">
 
+    <xs:include schemaLocation="../../misc/common.xsd"/>
+
     <xs:element name="dataServiceCall">
         <xs:annotation>
             <xs:documentation source="description">
@@ -27,12 +29,51 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="operations" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="source" type="SourceType" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="target" type="TargetType" minOccurs="1" maxOccurs="1"/>
         	</xs:sequence>
         	<xs:attribute name="serviceName" type="xs:string" default="" use="required"/>
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="operations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="operation" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="type" use="optional" type="OperationsType"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="operation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="param" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="optional" type="xs:string" default=""/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="param">
+        <xs:complexType>
+            <xs:attributeGroup ref="valueOrExpression"/>
+            <xs:attribute name="name" use="optional" type="xs:string"/>
+            <xs:attribute name="type" use="optional" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="OperationsType">
+        <xs:attribute name="type" use="optional" default="single_req">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="single_req"/>
+                    <xs:enumeration value="batch_req"/>
+                    <xs:enumeration value="request_box"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
 
     <xs:complexType name="SourceType">
         <xs:attribute name="type" use="optional" default="body">

@@ -49,7 +49,7 @@ public class DataServicesCallMediatorTransformer extends AbstractEsbNodeTransfor
         if (visualDataServicesCall.getServiceName() != null) {
             dataServicesCallMediator.setDsName(visualDataServicesCall.getServiceName());
         } else {
-        	dataServicesCallMediator.setDsName("TestService");
+        	dataServicesCallMediator.setDsName("");
         }
         
         String sourceType = visualDataServicesCall.getSourceType().getLiteral();
