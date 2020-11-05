@@ -59,6 +59,11 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/REGISTRY_KEY"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/ENDPOINT"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//HTTPEndpointOAuthGrantType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HTTPEndpointOAuthGrantType/None"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HTTPEndpointOAuthGrantType/Authorization_Code_Grant"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HTTPEndpointOAuthGrantType/Client_Credentials_Grant"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//HttpMethodType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HttpMethodType/GET"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HttpMethodType/POST"/>
@@ -1035,6 +1040,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HTTPEndpoint/outputConnector"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/URITemplate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/HttpMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/OAuthGrantType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/OAuthClientId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/OAuthClientSecret"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/OAuthRefreshToken"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/OAuthTokenUrl"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//HTTPEndPointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//HTTPEndPointOutputConnector"/>
