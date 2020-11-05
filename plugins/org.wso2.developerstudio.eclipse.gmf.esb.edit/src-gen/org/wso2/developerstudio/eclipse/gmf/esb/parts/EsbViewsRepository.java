@@ -1240,6 +1240,26 @@ public class EsbViewsRepository {
 	
 		}
 	
+		public static class OAuthConfiguration {
+	
+			
+			public static String oAuthGrantType = "esb::HTTPEndpoint::oAuthConfiguration::oAuthGrantType";
+			
+			
+			public static String oAuthClientId = "esb::HTTPEndpoint::oAuthConfiguration::oAuthClientId";
+			
+			
+			public static String oAuthClientSecret = "esb::HTTPEndpoint::oAuthConfiguration::oAuthClientSecret";
+			
+			
+			public static String oAuthRefreshToken = "esb::HTTPEndpoint::oAuthConfiguration::oAuthRefreshToken";
+			
+			
+			public static String oAuthTokenUrl = "esb::HTTPEndpoint::oAuthConfiguration::oAuthTokenUrl";
+			
+	
+		}
+	
 	}
 
 	/**
