@@ -15,17 +15,23 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallOperationType;
+import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallOperations;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallTargetType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -43,6 +49,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getServiceName <em>Service Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getOperationType <em>Operation Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getOperations <em>Operations</em>}</li>
  * </ul>
  *
  * @generated
@@ -127,6 +135,36 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
      * @ordered
      */
     protected String serviceName = SERVICE_NAME_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getOperationType() <em>Operation Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOperationType()
+     * @generated
+     * @ordered
+     */
+    protected static final DataServicesCallOperationType OPERATION_TYPE_EDEFAULT = DataServicesCallOperationType.SINGLE;
+
+    /**
+     * The cached value of the '{@link #getOperationType() <em>Operation Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOperationType()
+     * @generated
+     * @ordered
+     */
+    protected DataServicesCallOperationType operationType = OPERATION_TYPE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOperations()
+     * @generated
+     * @ordered
+     */
+    protected EList<DataServicesCallOperations> operations;
 
     /**
      * <!-- begin-user-doc -->
@@ -301,6 +339,39 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
      * <!-- end-user-doc -->
      * @generated
      */
+    public DataServicesCallOperationType getOperationType() {
+        return operationType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOperationType(DataServicesCallOperationType newOperationType) {
+        DataServicesCallOperationType oldOperationType = operationType;
+        operationType = newOperationType == null ? OPERATION_TYPE_EDEFAULT : newOperationType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE, oldOperationType, operationType));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<DataServicesCallOperations> getOperations() {
+        if (operations == null) {
+            operations = new EObjectContainmentEList<DataServicesCallOperations>(DataServicesCallOperations.class, this, EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS);
+        }
+        return operations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -308,6 +379,8 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
                 return basicSetInputConnector(null, msgs);
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OUTPUT_CONNECTOR:
                 return basicSetOutputConnector(null, msgs);
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
+                return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -330,6 +403,10 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
                 return getTargetType();
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__SERVICE_NAME:
                 return getServiceName();
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE:
+                return getOperationType();
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
+                return getOperations();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -339,6 +416,7 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
@@ -356,6 +434,13 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
                 return;
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__SERVICE_NAME:
                 setServiceName((String)newValue);
+                return;
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE:
+                setOperationType((DataServicesCallOperationType)newValue);
+                return;
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
+                getOperations().clear();
+                getOperations().addAll((Collection<? extends DataServicesCallOperations>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -384,6 +469,12 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__SERVICE_NAME:
                 setServiceName(SERVICE_NAME_EDEFAULT);
                 return;
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE:
+                setOperationType(OPERATION_TYPE_EDEFAULT);
+                return;
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
+                getOperations().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -406,6 +497,10 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
                 return targetType != TARGET_TYPE_EDEFAULT;
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__SERVICE_NAME:
                 return SERVICE_NAME_EDEFAULT == null ? serviceName != null : !SERVICE_NAME_EDEFAULT.equals(serviceName);
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE:
+                return operationType != OPERATION_TYPE_EDEFAULT;
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
+                return operations != null && !operations.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -426,6 +521,8 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
         result.append(targetType);
         result.append(", serviceName: ");
         result.append(serviceName);
+        result.append(", operationType: ");
+        result.append(operationType);
         result.append(')');
         return result.toString();
     }

@@ -819,6 +819,11 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallTargetType/BODY"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallTargetType/PROPERTY"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//DataServicesCallOperationType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallOperationType/SINGLE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallOperationType/BATCH"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//DataServicesCallOperationType/REQUEST_BOX"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
@@ -2709,8 +2714,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/sourceType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/targetType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/serviceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/operationType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServicesCallMediator/operations"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//DataServicesCallMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//DataServicesCallMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//DataServicesCallOperations">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallOperations/operationName"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

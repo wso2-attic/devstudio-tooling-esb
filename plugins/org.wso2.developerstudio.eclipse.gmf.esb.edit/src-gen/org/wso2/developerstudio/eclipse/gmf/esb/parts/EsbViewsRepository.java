@@ -9747,40 +9747,58 @@ public class EsbViewsRepository {
 			
 			
 			public static String serviceName = "esb::DataServicesCallMediator::properties::serviceName";
-			
-	
+
+			public static String operationType = "esb::DataServicesCallMediator::properties::operationType";
+
+
+			public static String operations = "esb::DataServicesCallMediator::properties::operations";
 		}
 	
 	}
 
 	/**
 	 * DataServicesCallMediatorOutputConnector view descriptor
-	 * 
+	 *
 	 */
 	public static class DataServicesCallMediatorOutputConnector {
 		public static class Properties {
-	
-			
+
+
 			public static String commentMediators = "esb::DataServicesCallMediatorOutputConnector::properties::commentMediators";
-			
-	
+
+
 		}
-	
+
 	}
 
 	/**
 	 * DataServicesCallMediatorInputConnector view descriptor
-	 * 
+	 *
 	 */
 	public static class DataServicesCallMediatorInputConnector {
 		public static class Properties {
-	
-			
+
+
 			public static String incomingLinks = "esb::DataServicesCallMediatorInputConnector::properties::incomingLinks";
-			
-	
+
+
 		}
-	
+
+	}
+
+	/**
+	 * DataServicesCallOperations view descriptor
+	 *
+	 */
+	public static class DataServicesCallOperations {
+		public static class Properties {
+
+
+			public static String operationName = "esb::DataServicesCallOperations::properties::operationName";
+
+
+		}
+
 	}
 
 }

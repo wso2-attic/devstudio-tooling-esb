@@ -1858,6 +1858,15 @@ public interface EsbFactory extends EFactory {
     DataServicesCallMediatorInputConnector createDataServicesCallMediatorInputConnector();
 
     /**
+     * Returns a new object of class '<em>Data Services Call Operations</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Services Call Operations</em>'.
+     * @generated
+     */
+    DataServicesCallOperations createDataServicesCallOperations();
+
+    /**
      * Returns a new object of class '<em>Script Mediator</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

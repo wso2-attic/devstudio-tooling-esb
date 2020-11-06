@@ -3579,6 +3579,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetType" eType="#//DataServicesCallTargetType"
         defaultValueLiteral="body"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationType" eType="#//DataServicesCallOperationType"
+        defaultValueLiteral="single"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+        eType="#//DataServicesCallOperations" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataServicesCallMediatorOutputConnector"
       eSuperTypes="#//OutputConnector"/>
@@ -3591,5 +3595,13 @@
   <eClassifiers xsi:type="ecore:EEnum" name="DataServicesCallTargetType">
     <eLiterals name="BODY" literal="body"/>
     <eLiterals name="PROPERTY" value="1" literal="property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataServicesCallOperations">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataServicesCallOperationType">
+    <eLiterals name="SINGLE" literal="single"/>
+    <eLiterals name="BATCH" value="1" literal="batch"/>
+    <eLiterals name="REQUEST_BOX" value="2" literal="request-box"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -1565,6 +1565,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
                 return createDataServicesCallMediatorInputConnectorAdapter();
             }
             @Override
+            public Adapter caseDataServicesCallOperations(DataServicesCallOperations object) {
+                return createDataServicesCallOperationsAdapter();
+            }
+            @Override
             public Adapter defaultCase(EObject object) {
                 return createEObjectAdapter();
             }
@@ -4591,6 +4595,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createDataServicesCallMediatorInputConnectorAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallOperations <em>Data Services Call Operations</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallOperations
+     * @generated
+     */
+    public Adapter createDataServicesCallOperationsAdapter() {
         return null;
     }
 

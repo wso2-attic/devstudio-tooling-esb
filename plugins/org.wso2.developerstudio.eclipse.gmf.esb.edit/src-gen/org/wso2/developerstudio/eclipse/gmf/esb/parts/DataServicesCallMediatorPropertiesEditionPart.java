@@ -6,6 +6,9 @@ package org.wso2.developerstudio.eclipse.gmf.esb.parts;
 // Start of user code for imports
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+import org.eclipse.jface.viewers.ViewerFilter;
 
 
 // End of user code
@@ -124,6 +127,71 @@ public interface DataServicesCallMediatorPropertiesEditionPart {
 	 * 
 	 */
 	public void setServiceName(String newValue);
+
+
+	/**
+	 * @return the operationType
+	 * 
+	 */
+	public Enumerator getOperationType();
+
+	/**
+	 * Init the operationType
+	 * @param input the viewer input
+	 * @param current the current value
+	 */
+	public void initOperationType(Object input, Enumerator current);
+
+	/**
+	 * Defines a new operationType
+	 * @param newValue the new operationType to set
+	 * 
+	 */
+	public void setOperationType(Enumerator newValue);
+
+
+
+
+	/**
+	 * Init the operations
+	 * @param current the current value
+	 * @param containgFeature the feature where to navigate if necessary
+	 * @param feature the feature to manage
+	 */
+	public void initOperations(ReferencesTableSettings settings);
+
+	/**
+	 * Update the operations
+	 * @param newValue the operations to update
+	 * 
+	 */
+	public void updateOperations();
+
+	/**
+	 * Adds the given filter to the operations edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addFilterToOperations(ViewerFilter filter);
+
+	/**
+	 * Adds the given filter to the operations edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addBusinessFilterToOperations(ViewerFilter filter);
+
+	/**
+	 * @return true if the given element is contained inside the operations table
+	 * 
+	 */
+	public boolean isContainedInOperationsTable(EObject element);
 
 
 

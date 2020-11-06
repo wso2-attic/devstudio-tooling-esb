@@ -64,6 +64,7 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
             addSourceTypePropertyDescriptor(object);
             addTargetTypePropertyDescriptor(object);
             addServiceNamePropertyDescriptor(object);
+            addOperationTypePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -135,6 +136,28 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
     }
 
     /**
+     * This adds a property descriptor for the Operation Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOperationTypePropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_DataServicesCallMediator_operationType_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_DataServicesCallMediator_operationType_feature", "_UI_DataServicesCallMediator_type"),
+                 EsbPackage.Literals.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -148,6 +171,7 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
             super.getChildrenFeatures(object);
             childrenFeatures.add(EsbPackage.Literals.DATA_SERVICES_CALL_MEDIATOR__INPUT_CONNECTOR);
             childrenFeatures.add(EsbPackage.Literals.DATA_SERVICES_CALL_MEDIATOR__OUTPUT_CONNECTOR);
+            childrenFeatures.add(EsbPackage.Literals.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS);
         }
         return childrenFeatures;
     }
@@ -206,10 +230,12 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__SOURCE_TYPE:
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__TARGET_TYPE:
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__SERVICE_NAME:
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__INPUT_CONNECTOR:
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OUTPUT_CONNECTOR:
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -236,6 +262,11 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
             (createChildParameter
                 (EsbPackage.Literals.DATA_SERVICES_CALL_MEDIATOR__OUTPUT_CONNECTOR,
                  EsbFactory.eINSTANCE.createDataServicesCallMediatorOutputConnector()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (EsbPackage.Literals.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS,
+                 EsbFactory.eINSTANCE.createDataServicesCallOperations()));
     }
 
 }

@@ -36,10 +36,11 @@ import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallTargetType;
+import org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallOperationType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart;
@@ -61,6 +62,13 @@ public class DataServicesCallMediatorPropertiesEditionComponent extends SinglePa
 	
 	
 	/**
+   * Settings for operations ReferencesTable
+   */
+  protected ReferencesTableSettings operationsSettings;
+
+
+
+  /**
 	 * Default constructor
 	 * 
 	 */
@@ -101,8 +109,12 @@ public class DataServicesCallMediatorPropertiesEditionComponent extends SinglePa
 			if (isAccessible(EsbViewsRepository.DataServicesCallMediator.Properties.targetType)) {
 				basePart.initTargetType(EEFUtils.choiceOfValues(dataServicesCallMediator, EsbPackage.eINSTANCE.getDataServicesCallMediator_TargetType()), dataServicesCallMediator.getTargetType());
 			}
-			if (isAccessible(EsbViewsRepository.DataServicesCallMediator.Properties.serviceName))
+			if (isAccessible(EsbViewsRepository.DataServicesCallMediator.Properties.serviceName)) {
 				basePart.setServiceName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dataServicesCallMediator.getServiceName()));
+			}
+			if (isAccessible(EsbViewsRepository.DataServicesCallMediator.Properties.operationType)) {
+				basePart.initOperationType(EEFUtils.choiceOfValues(dataServicesCallMediator, EsbPackage.eINSTANCE.getDataServicesCallMediator_OperationType()), dataServicesCallMediator.getOperationType());
+			}
 			
 			// init filters
 			
@@ -150,6 +162,9 @@ public class DataServicesCallMediatorPropertiesEditionComponent extends SinglePa
 		if (editorKey == EsbViewsRepository.DataServicesCallMediator.Properties.serviceName) {
 			return EsbPackage.eINSTANCE.getDataServicesCallMediator_ServiceName();
 		}
+		if (editorKey == EsbViewsRepository.DataServicesCallMediator.Properties.operationType) {
+			return EsbPackage.eINSTANCE.getDataServicesCallMediator_OperationType();
+		}
 		return super.associatedFeature(editorKey);
 	}
 
@@ -180,6 +195,9 @@ public class DataServicesCallMediatorPropertiesEditionComponent extends SinglePa
 		}
 		if (EsbViewsRepository.DataServicesCallMediator.Properties.serviceName == event.getAffectedEditor()) {
 			dataServicesCallMediator.setServiceName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
+		}
+		if (EsbViewsRepository.DataServicesCallMediator.Properties.operationType == event.getAffectedEditor()) {
+			dataServicesCallMediator.setOperationType((DataServicesCallOperationType)event.getNewValue());
 		}
 	}
 
@@ -219,6 +237,9 @@ public class DataServicesCallMediatorPropertiesEditionComponent extends SinglePa
 			if (EsbPackage.eINSTANCE.getDataServicesCallMediator_TargetType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EsbViewsRepository.DataServicesCallMediator.Properties.targetType))
 				basePart.setTargetType((DataServicesCallTargetType)msg.getNewValue());
 			
+			if (EsbPackage.eINSTANCE.getDataServicesCallMediator_OperationType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EsbViewsRepository.DataServicesCallMediator.Properties.operationType))
+				basePart.setOperationType((DataServicesCallOperationType)msg.getNewValue());
+			
 			if (EsbPackage.eINSTANCE.getDataServicesCallMediator_ServiceName().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EsbViewsRepository.DataServicesCallMediator.Properties.serviceName)) {
 				if (msg.getNewValue() != null) {
 					basePart.setServiceName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
@@ -243,6 +264,7 @@ public class DataServicesCallMediatorPropertiesEditionComponent extends SinglePa
 			EsbPackage.eINSTANCE.getMediator_Reverse(),
 			EsbPackage.eINSTANCE.getDataServicesCallMediator_SourceType(),
 			EsbPackage.eINSTANCE.getDataServicesCallMediator_TargetType(),
+			EsbPackage.eINSTANCE.getDataServicesCallMediator_OperationType(),
 			EsbPackage.eINSTANCE.getDataServicesCallMediator_ServiceName()		);
 		return new NotificationFilter[] {filter,};
 	}
@@ -290,6 +312,13 @@ public class DataServicesCallMediatorPropertiesEditionComponent extends SinglePa
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
 						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getDataServicesCallMediator_TargetType().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getDataServicesCallMediator_TargetType().getEAttributeType(), newValue);
+				}
+				if (EsbViewsRepository.DataServicesCallMediator.Properties.operationType == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(EsbPackage.eINSTANCE.getDataServicesCallMediator_OperationType().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EsbPackage.eINSTANCE.getDataServicesCallMediator_TargetType().getEAttributeType(), newValue);
 				}

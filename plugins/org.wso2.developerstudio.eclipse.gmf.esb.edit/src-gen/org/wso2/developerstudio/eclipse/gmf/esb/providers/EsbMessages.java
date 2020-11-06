@@ -1303,7 +1303,7 @@ public class EsbMessages extends NLS {
 	
 	public static String DataServicesCallMediatorInputConnectorPropertiesEditionPart_PropertiesGroupLabel;
 
-
+    public static String DataServicesCallOperationsPropertiesEditionPart_PropertiesGroupLabel;
 	
 	public static String EsbDiagram_ReadOnly;
 
@@ -3452,6 +3452,10 @@ public class EsbMessages extends NLS {
 	
 	public static String DataServicesCallMediatorInputConnector_Part_Title;
 
+    public static String DataServicesCallOperations_ReadOnly;
+
+
+    public static String DataServicesCallOperations_Part_Title;
 
 	
 	public static String EsbDiagramPropertiesEditionPart_TestLabel;
@@ -8439,7 +8443,12 @@ public class EsbMessages extends NLS {
 	
 	public static String DataServicesCallMediatorInputConnectorPropertiesEditionPart_IncomingLinksLabel;
 
+    public static String DataServicesCallMediatorPropertiesEditionPart_OperationTypeLabel;
 
+
+    public static String DataServicesCallMediatorPropertiesEditionPart_OperationsLabel;
+
+    public static String DataServicesCallOperationsPropertiesEditionPart_OperationNameLabel;
 	
 	public static String PropertiesEditionPart_DocumentationLabel;
 

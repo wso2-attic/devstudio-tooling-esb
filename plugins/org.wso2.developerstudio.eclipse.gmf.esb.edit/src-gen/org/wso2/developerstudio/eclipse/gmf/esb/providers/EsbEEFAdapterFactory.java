@@ -2653,5 +2653,12 @@ public class EsbEEFAdapterFactory extends EsbAdapterFactory {
 	public Adapter createDataServicesCallMediatorInputConnectorAdapter() {
 		return new DataServicesCallMediatorInputConnectorPropertiesEditionProvider();
 	}
-
+    /**
+     * {@inheritDoc}
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.util.EsbAdapterFactory#createDataServicesCallOperationsAdapter()
+     *
+     */
+    public Adapter createDataServicesCallOperationsAdapter() {
+        return new DataServicesCallOperationsPropertiesEditionProvider();
+    }
 }

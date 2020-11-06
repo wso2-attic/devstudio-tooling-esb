@@ -2050,6 +2050,12 @@
                  id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServicesCallMediatorInputConnector"
                  tab="Base">
          </propertySection>
+         <propertySection
+                 class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallOperationsPropertiesEditionPartForm"
+                 filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServicesCallOperationsPropertiesEditionProvider$EditionFilter"
+                 id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServicesCallOperations"
+                 tab="Base">
+         </propertySection>
       </propertySections>
    </extension>
 </plugin>

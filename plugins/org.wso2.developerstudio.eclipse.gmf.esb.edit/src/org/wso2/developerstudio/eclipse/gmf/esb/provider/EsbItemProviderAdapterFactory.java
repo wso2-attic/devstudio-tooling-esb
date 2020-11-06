@@ -4771,6 +4771,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallOperations} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataServicesCallOperationsItemProvider dataServicesCallOperationsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallOperations}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDataServicesCallOperationsAdapter() {
+        if (dataServicesCallOperationsItemProvider == null) {
+            dataServicesCallOperationsItemProvider = new DataServicesCallOperationsItemProvider(this);
+        }
+
+        return dataServicesCallOperationsItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8901,6 +8924,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory
         if (dataServicesCallMediatorItemProvider != null) dataServicesCallMediatorItemProvider.dispose();
         if (dataServicesCallMediatorOutputConnectorItemProvider != null) dataServicesCallMediatorOutputConnectorItemProvider.dispose();
         if (dataServicesCallMediatorInputConnectorItemProvider != null) dataServicesCallMediatorInputConnectorItemProvider.dispose();
+        if (dataServicesCallOperationsItemProvider != null) dataServicesCallOperationsItemProvider.dispose();
     }
 
 }

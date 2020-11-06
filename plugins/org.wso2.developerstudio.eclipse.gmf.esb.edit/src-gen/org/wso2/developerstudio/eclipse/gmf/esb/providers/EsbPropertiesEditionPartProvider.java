@@ -100,6 +100,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataMapperMediatorPr
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorInputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallMediatorPropertiesEditionPartForm;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallOperationsPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointInputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointOutputConnectorPropertiesEditionPartForm;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DefaultEndPointPropertiesEditionPartForm;
@@ -457,6 +458,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataMapperMediatorPro
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServicesCallMediatorInputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServicesCallMediatorOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServicesCallMediatorPropertiesEditionPartImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DataServicesCallOperationsPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointInputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointOutputConnectorPropertiesEditionPartImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.parts.impl.DefaultEndPointPropertiesEditionPartImpl;
@@ -2881,6 +2883,12 @@ public class EsbPropertiesEditionPartProvider implements IPropertiesEditionPartP
 				return new DataServicesCallMediatorInputConnectorPropertiesEditionPartImpl(component);
 			if (kind == EsbViewsRepository.FORM_KIND)
 				return new DataServicesCallMediatorInputConnectorPropertiesEditionPartForm(component);
+		}
+		if (key == EsbViewsRepository.DataServicesCallOperations.class) {
+			if (kind == EsbViewsRepository.SWT_KIND)
+				return new DataServicesCallOperationsPropertiesEditionPartImpl(component);
+			if (kind == EsbViewsRepository.FORM_KIND)
+				return new DataServicesCallOperationsPropertiesEditionPartForm(component);
 		}
 		return null;
 	}
