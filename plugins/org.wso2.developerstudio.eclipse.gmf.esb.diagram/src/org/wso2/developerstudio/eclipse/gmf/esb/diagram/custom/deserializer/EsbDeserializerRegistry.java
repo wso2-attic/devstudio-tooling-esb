@@ -25,6 +25,7 @@ import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.FailoverEndpoint;
 import org.apache.synapse.endpoints.HTTPEndpoint;
+import org.apache.synapse.endpoints.OAuthConfiguredHTTPEndpoint;
 import org.apache.synapse.endpoints.IndirectEndpoint;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
 import org.apache.synapse.endpoints.RecipientListEndpoint;
@@ -190,6 +191,7 @@ public class EsbDeserializerRegistry {
         addDeserializer(DummyMessageStore.class, new MessageStoreDeserializer());
         addDeserializer(DummyMessageProcessor.class, new MessageProcessorDeserializer());
         addDeserializer(HTTPEndpoint.class, new HTTPEndpointDeserializer());
+        addDeserializer(OAuthConfiguredHTTPEndpoint.class, new HTTPEndpointDeserializer());
         addDeserializer(TemplateEndpoint.class, new TemplateEndpointDeserializer());
         addDeserializer(LoopBackMediator.class, new LoopBackMediatorDeserializer());
         addDeserializer(RespondMediator.class, new RespondMediatorDeserializer());
