@@ -147,12 +147,6 @@
                tab="Base">
          </propertySection>
          <propertySection
-               class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.ProxyServicePolicyPropertiesEditionPartForm"
-               filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.ProxyServicePolicyPropertiesEditionProvider$EditionFilter"
-               id="org.wso2.developerstudio.eclipse.gmf.esb.section.ProxyServicePolicy"
-               tab="Base">
-         </propertySection>
-         <propertySection
                class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.MediatorFlowPropertiesEditionPartForm"
                filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.MediatorFlowPropertiesEditionProvider$EditionFilter"
                id="org.wso2.developerstudio.eclipse.gmf.esb.section.MediatorFlow"
@@ -473,7 +467,7 @@
          <propertySection
                class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.PropertyGroupMediatorOutputConnectorPropertiesEditionPartForm"
                filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.PropertyGroupMediatorOutputConnectorPropertiesEditionProvider$EditionFilter"
-               id="org.wso2.developerstudio.eclipse.gmf.esb.section.PropertyMediatorOutputConnector"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.section.PropertyGroupMediatorOutputConnector"
                tab="Base">
          </propertySection>
          <propertySection
@@ -2037,10 +2031,10 @@
                tab="Base">
          </propertySection>
          <propertySection
-              class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallOperationsPropertiesEditionPartForm"
-              filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServicesCallOperationsPropertiesEditionProvider$EditionFilter"
-              id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServicesCallOperations"
-              tab="Base">
+               class="org.wso2.developerstudio.eclipse.gmf.esb.parts.forms.DataServicesCallOperationsPropertiesEditionPartForm"
+               filter="org.wso2.developerstudio.eclipse.gmf.esb.providers.DataServicesCallOperationsPropertiesEditionProvider$EditionFilter"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.section.DataServicesCallOperations"
+               tab="Base">
          </propertySection>
       </propertySections>
    </extension>

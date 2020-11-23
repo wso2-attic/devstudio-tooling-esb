@@ -9752,6 +9752,8 @@ public class EsbViewsRepository {
 
 
 			public static String operations = "esb::DataServicesCallMediator::properties::operations";
+			
+			public static String operationName = "esb::DataServicesCallMediator::properties::operationName";
 		}
 	
 	}

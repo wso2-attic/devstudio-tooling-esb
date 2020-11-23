@@ -13282,6 +13282,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getDataServicesCallMediator_OperationName() {
+        return (EAttribute)dataServicesCallMediatorEClass.getEStructuralFeatures().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getDataServicesCallMediatorOutputConnector() {
         return dataServicesCallMediatorOutputConnectorEClass;
     }
@@ -22127,6 +22136,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         createEAttribute(dataServicesCallMediatorEClass, DATA_SERVICES_CALL_MEDIATOR__SERVICE_NAME);
         createEAttribute(dataServicesCallMediatorEClass, DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE);
         createEReference(dataServicesCallMediatorEClass, DATA_SERVICES_CALL_MEDIATOR__OPERATIONS);
+        createEAttribute(dataServicesCallMediatorEClass, DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME);
 
         dataServicesCallMediatorOutputConnectorEClass = createEClass(DATA_SERVICES_CALL_MEDIATOR_OUTPUT_CONNECTOR);
 
@@ -24664,8 +24674,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
         initEAttribute(getDataServicesCallMediator_SourceType(), this.getDataServicesCallSourceType(), "sourceType", "body", 0, 1, DataServicesCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getDataServicesCallMediator_TargetType(), this.getDataServicesCallTargetType(), "targetType", "body", 0, 1, DataServicesCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getDataServicesCallMediator_ServiceName(), ecorePackage.getEString(), "serviceName", null, 0, 1, DataServicesCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDataServicesCallMediator_OperationType(), this.getDataServicesCallOperationType(), "operationType", "single", 0, 1, DataServicesCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDataServicesCallMediator_OperationType(), ecorePackage.getEString(), "operationType", "single", 0, 1, DataServicesCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getDataServicesCallMediator_Operations(), this.getDataServicesCallOperations(), null, "operations", null, 0, -1, DataServicesCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDataServicesCallMediator_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, DataServicesCallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(dataServicesCallMediatorOutputConnectorEClass, DataServicesCallMediatorOutputConnector.class, "DataServicesCallMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

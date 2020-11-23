@@ -51,6 +51,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getServiceName <em>Service Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getOperationType <em>Operation Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getOperations <em>Operations</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorImpl#getOperationName <em>Operation Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -144,7 +145,7 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
      * @generated
      * @ordered
      */
-    protected static final DataServicesCallOperationType OPERATION_TYPE_EDEFAULT = DataServicesCallOperationType.SINGLE;
+    protected static final String OPERATION_TYPE_EDEFAULT = null;
 
     /**
      * The cached value of the '{@link #getOperationType() <em>Operation Type</em>}' attribute.
@@ -154,7 +155,7 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
      * @generated
      * @ordered
      */
-    protected DataServicesCallOperationType operationType = OPERATION_TYPE_EDEFAULT;
+    protected String operationType = OPERATION_TYPE_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
@@ -165,6 +166,26 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
      * @ordered
      */
     protected EList<DataServicesCallOperations> operations;
+
+    /**
+     * The default value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOperationName()
+     * @generated
+     * @ordered
+     */
+    protected static final String OPERATION_NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOperationName()
+     * @generated
+     * @ordered
+     */
+    protected String operationName = OPERATION_NAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -339,7 +360,7 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataServicesCallOperationType getOperationType() {
+    public String getOperationType() {
         return operationType;
     }
 
@@ -348,9 +369,9 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOperationType(DataServicesCallOperationType newOperationType) {
-        DataServicesCallOperationType oldOperationType = operationType;
-        operationType = newOperationType == null ? OPERATION_TYPE_EDEFAULT : newOperationType;
+    public void setOperationType(String newOperationType) {
+        String oldOperationType = operationType;
+        operationType = newOperationType;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE, oldOperationType, operationType));
     }
@@ -365,6 +386,27 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
             operations = new EObjectContainmentEList<DataServicesCallOperations>(DataServicesCallOperations.class, this, EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS);
         }
         return operations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getOperationName() {
+        return operationName;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOperationName(String newOperationName) {
+        String oldOperationName = operationName;
+        operationName = newOperationName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME, oldOperationName, operationName));
     }
 
     /**
@@ -407,6 +449,8 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
                 return getOperationType();
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
                 return getOperations();
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME:
+                return getOperationName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -436,11 +480,14 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
                 setServiceName((String)newValue);
                 return;
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE:
-                setOperationType((DataServicesCallOperationType)newValue);
+                setOperationType((String)newValue);
                 return;
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
                 getOperations().clear();
                 getOperations().addAll((Collection<? extends DataServicesCallOperations>)newValue);
+                return;
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME:
+                setOperationName((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -475,6 +522,9 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
                 getOperations().clear();
                 return;
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME:
+                setOperationName(OPERATION_NAME_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -501,6 +551,8 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
                 return operationType != OPERATION_TYPE_EDEFAULT;
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATIONS:
                 return operations != null && !operations.isEmpty();
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME:
+                return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
         }
         return super.eIsSet(featureID);
     }
@@ -523,6 +575,8 @@ public class DataServicesCallMediatorImpl extends MediatorImpl implements DataSe
         result.append(serviceName);
         result.append(", operationType: ");
         result.append(operationType);
+        result.append(", operationName: ");
+        result.append(operationName);
         result.append(')');
         return result.toString();
     }

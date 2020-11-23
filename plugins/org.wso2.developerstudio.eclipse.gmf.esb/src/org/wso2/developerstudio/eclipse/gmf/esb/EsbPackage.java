@@ -26713,13 +26713,22 @@ public interface EsbPackage extends EPackage {
     int DATA_SERVICES_CALL_MEDIATOR__OPERATIONS = MEDIATOR_FEATURE_COUNT + 6;
 
     /**
+     * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME = MEDIATOR_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Data Services Call Mediator</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_SERVICES_CALL_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
+    int DATA_SERVICES_CALL_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 8;
 
     /**
      * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorOutputConnectorImpl <em>Data Services Call Mediator Output Connector</em>}' class.
@@ -39067,6 +39076,17 @@ public interface EsbPackage extends EPackage {
      * @generated
      */
     EReference getDataServicesCallMediator_Operations();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediator#getOperationName <em>Operation Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Operation Name</em>'.
+     * @see org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediator#getOperationName()
+     * @see #getDataServicesCallMediator()
+     * @generated
+     */
+    EAttribute getDataServicesCallMediator_OperationName();
 
     /**
      * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.DataServicesCallMediatorOutputConnector <em>Data Services Call Mediator Output Connector</em>}'.
@@ -55612,6 +55632,14 @@ public interface EsbPackage extends EPackage {
          * @generated
          */
         EReference DATA_SERVICES_CALL_MEDIATOR__OPERATIONS = eINSTANCE.getDataServicesCallMediator_Operations();
+
+        /**
+         * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME = eINSTANCE.getDataServicesCallMediator_OperationName();
 
         /**
          * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.DataServicesCallMediatorOutputConnectorImpl <em>Data Services Call Mediator Output Connector</em>}' class.

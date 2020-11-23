@@ -2716,6 +2716,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/serviceName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/operationType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DataServicesCallMediator/operations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//DataServicesCallMediator/operationName"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//DataServicesCallMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//DataServicesCallMediatorInputConnector"/>

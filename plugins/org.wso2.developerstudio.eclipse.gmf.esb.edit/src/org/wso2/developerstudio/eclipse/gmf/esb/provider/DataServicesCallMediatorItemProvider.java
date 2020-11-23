@@ -65,6 +65,7 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
             addTargetTypePropertyDescriptor(object);
             addServiceNamePropertyDescriptor(object);
             addOperationTypePropertyDescriptor(object);
+            addOperationNamePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -158,6 +159,28 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
     }
 
     /**
+     * This adds a property descriptor for the Operation Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOperationNamePropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_DataServicesCallMediator_operationName_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_DataServicesCallMediator_operationName_feature", "_UI_DataServicesCallMediator_type"),
+                 EsbPackage.Literals.DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -231,6 +254,7 @@ public class DataServicesCallMediatorItemProvider extends MediatorItemProvider {
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__TARGET_TYPE:
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__SERVICE_NAME:
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_TYPE:
+            case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__OPERATION_NAME:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case EsbPackage.DATA_SERVICES_CALL_MEDIATOR__INPUT_CONNECTOR:

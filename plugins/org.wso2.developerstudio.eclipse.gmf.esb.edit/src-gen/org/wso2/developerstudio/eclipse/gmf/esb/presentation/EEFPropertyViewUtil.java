@@ -179,7 +179,13 @@ public class EEFPropertyViewUtil {
             view.layout(true, true);
         }
     }
-
+    public void showTableButtons(Control[] controls) {
+        for (Control control : ((Composite)controls[0]).getChildren()) {
+          if (control instanceof org.eclipse.swt.widgets.Button) {
+              control.setVisible(true);
+          }
+        }
+    }
     public void showEntry(Control controls[], boolean layout) {
         for (Control control : controls) {
             // null check and type check

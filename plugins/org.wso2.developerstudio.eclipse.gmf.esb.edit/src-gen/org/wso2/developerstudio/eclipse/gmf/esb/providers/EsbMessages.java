@@ -8445,6 +8445,7 @@ public class EsbMessages extends NLS {
 
     public static String DataServicesCallMediatorPropertiesEditionPart_OperationTypeLabel;
 
+	public static String DataServicesCallMediatorPropertiesEditionPart_OperationNameLabel;
 
     public static String DataServicesCallMediatorPropertiesEditionPart_OperationsLabel;
 

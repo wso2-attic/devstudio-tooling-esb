@@ -90,10 +90,11 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 	protected EMFComboViewer sourceType;
 	protected EMFComboViewer targetType;
 	protected Text serviceName;
-	protected EMFComboViewer operationType;
+	protected Text operationType;
 	protected ReferencesTable operations;
 	protected List<ViewerFilter> operationsBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> operationsFilters = new ArrayList<ViewerFilter>();
+	protected Text operationName;
 
 
 
@@ -140,6 +141,7 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.serviceName);
 		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.operationType);
 		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.operations);
+		propertiesStep.addStep(EsbViewsRepository.DataServicesCallMediator.Properties.operationName);
 		
 		
 		composer = new PartComposer(dataServicesCallMediatorStep) {
@@ -168,11 +170,15 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 					return createServiceNameText(parent);
 				}
 				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.operationType) {
-					return createOperationTypeEMFComboViewer(parent);
+					return createOperationTypeText(parent);
+				}
+				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.operationName) {
+					return createOperationNameText(parent);
 				}
 				if (key == EsbViewsRepository.DataServicesCallMediator.Properties.operations) {
 					return createOperationsAdvancedTableComposition(parent);
 				}
+				
 				return parent;
 			}
 		};
@@ -426,33 +432,78 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 	}
 
 	
-	protected Composite createOperationTypeEMFComboViewer(Composite parent) {
+	protected Composite createOperationTypeText(Composite parent) {
 		createDescription(parent, EsbViewsRepository.DataServicesCallMediator.Properties.operationType, EsbMessages.DataServicesCallMediatorPropertiesEditionPart_OperationTypeLabel);
-		operationType = new EMFComboViewer(parent);
-		operationType.setContentProvider(new ArrayContentProvider());
-		operationType.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
+		operationType = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData operationTypeData = new GridData(GridData.FILL_HORIZONTAL);
-		operationType.getCombo().setLayoutData(operationTypeData);
-		operationType.addSelectionChangedListener(new ISelectionChangedListener() {
+		operationType.setLayoutData(operationTypeData);
+		operationType.addFocusListener(new FocusAdapter() {
 
 			/**
 			 * {@inheritDoc}
 			 * 
-			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
-			 * 	
+			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
+			 * 
 			 */
-			public void selectionChanged(SelectionChangedEvent event) {
+			@Override
+			@SuppressWarnings("synthetic-access")
+			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServicesCallMediatorPropertiesEditionPartImpl.this, EsbViewsRepository.DataServicesCallMediator.Properties.operationType, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getOperationType()));
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServicesCallMediatorPropertiesEditionPartImpl.this, EsbViewsRepository.DataServicesCallMediator.Properties.operationType, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, operationType.getText()));
 			}
 
 		});
-		operationType.setID(EsbViewsRepository.DataServicesCallMediator.Properties.operationType);
+		operationType.addKeyListener(new KeyAdapter() {
+
+			/**
+			 * {@inheritDoc}
+			 * 
+			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
+			 * 
+			 */
+			@Override
+			@SuppressWarnings("synthetic-access")
+			public void keyPressed(KeyEvent e) {
+				if (e.character == SWT.CR) {
+					if (propertiesEditionComponent != null)
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServicesCallMediatorPropertiesEditionPartImpl.this, EsbViewsRepository.DataServicesCallMediator.Properties.operationType, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, operationType.getText()));
+				}
+			}
+
+		});
+		EditingUtils.setID(operationType, EsbViewsRepository.DataServicesCallMediator.Properties.operationType);
+		EditingUtils.setEEFtype(operationType, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.DataServicesCallMediator.Properties.operationType, EsbViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createOperationTypeEMFComboViewer
+		// Start of user code for createOperationTypeText
 
 		// End of user code
 		return parent;
+//		createDescription(parent, EsbViewsRepository.DataServicesCallMediator.Properties.operationType, EsbMessages.DataServicesCallMediatorPropertiesEditionPart_OperationTypeLabel);
+//		operationType = new EMFComboViewer(parent);
+//		operationType.setContentProvider(new ArrayContentProvider());
+//		operationType.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
+//		GridData operationTypeData = new GridData(GridData.FILL_HORIZONTAL);
+//		operationType.getCombo().setLayoutData(operationTypeData);
+//		operationType.addSelectionChangedListener(new ISelectionChangedListener() {
+//
+//			/**
+//			 * {@inheritDoc}
+//			 * 
+//			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+//			 * 	
+//			 */
+//			public void selectionChanged(SelectionChangedEvent event) {
+//				if (propertiesEditionComponent != null)
+//					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServicesCallMediatorPropertiesEditionPartImpl.this, EsbViewsRepository.DataServicesCallMediator.Properties.operationType, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getOperationType()));
+//			}
+//
+//		});
+//		operationType.setID(EsbViewsRepository.DataServicesCallMediator.Properties.operationType);
+//		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.DataServicesCallMediator.Properties.operationType, EsbViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+//		// Start of user code for createOperationTypeEMFComboViewer
+//
+//		// End of user code
+//		return parent;
 	}
 
 	/**
@@ -501,6 +552,55 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 		operations.setID(EsbViewsRepository.DataServicesCallMediator.Properties.operations);
 		operations.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
 		// Start of user code for createOperationsAdvancedTableComposition
+
+		// End of user code
+		return parent;
+	}
+
+	
+	protected Composite createOperationNameText(Composite parent) {
+		createDescription(parent, EsbViewsRepository.DataServicesCallMediator.Properties.operationName, EsbMessages.DataServicesCallMediatorPropertiesEditionPart_OperationNameLabel);
+		operationName = SWTUtils.createScrollableText(parent, SWT.BORDER);
+		GridData operationNameData = new GridData(GridData.FILL_HORIZONTAL);
+		operationName.setLayoutData(operationNameData);
+		operationName.addFocusListener(new FocusAdapter() {
+
+			/**
+			 * {@inheritDoc}
+			 * 
+			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
+			 * 
+			 */
+			@Override
+			@SuppressWarnings("synthetic-access")
+			public void focusLost(FocusEvent e) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServicesCallMediatorPropertiesEditionPartImpl.this, EsbViewsRepository.DataServicesCallMediator.Properties.operationName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, operationName.getText()));
+			}
+
+		});
+		operationName.addKeyListener(new KeyAdapter() {
+
+			/**
+			 * {@inheritDoc}
+			 * 
+			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
+			 * 
+			 */
+			@Override
+			@SuppressWarnings("synthetic-access")
+			public void keyPressed(KeyEvent e) {
+				if (e.character == SWT.CR) {
+					if (propertiesEditionComponent != null)
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DataServicesCallMediatorPropertiesEditionPartImpl.this, EsbViewsRepository.DataServicesCallMediator.Properties.operationName, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, operationName.getText()));
+				}
+			}
+
+		});
+		EditingUtils.setID(operationName, EsbViewsRepository.DataServicesCallMediator.Properties.operationName);
+		EditingUtils.setEEFtype(operationName, "eef::Text"); //$NON-NLS-1$
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EsbViewsRepository.DataServicesCallMediator.Properties.operationName, EsbViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createOperationNameText
 
 		// End of user code
 		return parent;
@@ -766,19 +866,42 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart#getOperationType()
 	 * 
 	 */
-	public Enumerator getOperationType() {
-		Enumerator selection = (Enumerator) ((StructuredSelection) operationType.getSelection()).getFirstElement();
-		return selection;
-	}
+//	public Enumerator getOperationType() {
+//		Enumerator selection = (Enumerator) ((StructuredSelection) operationType.getSelection()).getFirstElement();
+//		return selection;
+//	}
+	
+	
 
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart#initOperationType(Object input, Enumerator current)
 	 */
-	public void initOperationType(Object input, Enumerator current) {
-		operationType.setInput(input);
-		operationType.modelUpdating(new StructuredSelection(current));
+//	public void initOperationType(Object input, Enumerator current) {
+//		operationType.setInput(input);
+//		operationType.modelUpdating(new StructuredSelection(current));
+//		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.DataServicesCallMediator.Properties.operationType);
+//		if (eefElementEditorReadOnlyState && operationType.isEnabled()) {
+//			operationType.setEnabled(false);
+//			operationType.setToolTipText(EsbMessages.DataServicesCallMediator_ReadOnly);
+//		} else if (!eefElementEditorReadOnlyState && !operationType.isEnabled()) {
+//			operationType.setEnabled(true);
+//		}	
+//		
+//	}
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServiceCallMediatorPropertiesEditionPart#setOperationType(String newValue)
+	 * 
+	 */
+	public void setOperationType(String newValue) {
+		if (newValue != null) {
+			operationType.setText(newValue);
+		} else {
+			operationType.setText(""); //$NON-NLS-1$
+		}
 		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.DataServicesCallMediator.Properties.operationType);
 		if (eefElementEditorReadOnlyState && operationType.isEnabled()) {
 			operationType.setEnabled(false);
@@ -787,6 +910,10 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 			operationType.setEnabled(true);
 		}	
 		
+	}
+	
+	public String getOperationType() {
+		return operationType.getText();
 	}
 
 	/**
@@ -795,17 +922,17 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart#setOperationType(Enumerator newValue)
 	 * 
 	 */
-	public void setOperationType(Enumerator newValue) {
-		operationType.modelUpdating(new StructuredSelection(newValue));
-		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.DataServicesCallMediator.Properties.operationType);
-		if (eefElementEditorReadOnlyState && operationType.isEnabled()) {
-			operationType.setEnabled(false);
-			operationType.setToolTipText(EsbMessages.DataServicesCallMediator_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !operationType.isEnabled()) {
-			operationType.setEnabled(true);
-		}	
-		
-	}
+//	public void setOperationType(Enumerator newValue) {
+//		operationType.modelUpdating(new StructuredSelection(newValue));
+//		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.DataServicesCallMediator.Properties.operationType);
+//		if (eefElementEditorReadOnlyState && operationType.isEnabled()) {
+//			operationType.setEnabled(false);
+//			operationType.setToolTipText(EsbMessages.DataServicesCallMediator_ReadOnly);
+//		} else if (!eefElementEditorReadOnlyState && !operationType.isEnabled()) {
+//			operationType.setEnabled(true);
+//		}	
+//		
+//	}
 
 
 
@@ -846,7 +973,6 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart#addFilterOperations(ViewerFilter filter)
 	 * 
 	 */
-	@Override
 	public void addFilterToOperations(ViewerFilter filter) {
 		operationsFilters.add(filter);
 		if (this.operations != null) {
@@ -860,7 +986,6 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart#addBusinessFilterOperations(ViewerFilter filter)
 	 * 
 	 */
-	@Override
 	public void addBusinessFilterToOperations(ViewerFilter filter) {
 		operationsBusinessFilters.add(filter);
 	}
@@ -871,9 +996,40 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart#isContainedInOperationsTable(EObject element)
 	 * 
 	 */
-	@Override
 	public boolean isContainedInOperationsTable(EObject element) {
 		return ((ReferencesTableSettings)operations.getInput()).contains(element);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart#getOperationName()
+	 * 
+	 */
+	public String getOperationName() {
+		return operationName.getText();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.parts.DataServicesCallMediatorPropertiesEditionPart#setOperationName(String newValue)
+	 * 
+	 */
+	public void setOperationName(String newValue) {
+		if (newValue != null) {
+			operationName.setText(newValue);
+		} else {
+			operationName.setText(""); //$NON-NLS-1$
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EsbViewsRepository.DataServicesCallMediator.Properties.operationName);
+		if (eefElementEditorReadOnlyState && operationName.isEnabled()) {
+			operationName.setEnabled(false);
+			operationName.setToolTipText(EsbMessages.DataServicesCallMediator_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !operationName.isEnabled()) {
+			operationName.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -890,7 +1046,6 @@ public class DataServicesCallMediatorPropertiesEditionPartImpl extends Composite
 	public String getTitle() {
 		return EsbMessages.DataServicesCallMediator_Part_Title;
 	}
-
 
 	// Start of user code additional methods
 	

@@ -64,7 +64,7 @@ public class DataServicesCallOperationsImpl extends EObjectImpl implements DataS
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DataServicesCallOperationsImpl() {
+    public DataServicesCallOperationsImpl() {
         super();
     }
 

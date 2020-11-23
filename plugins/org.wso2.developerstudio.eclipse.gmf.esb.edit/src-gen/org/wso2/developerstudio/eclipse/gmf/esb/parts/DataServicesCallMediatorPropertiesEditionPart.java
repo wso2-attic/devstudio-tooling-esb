@@ -133,21 +133,21 @@ public interface DataServicesCallMediatorPropertiesEditionPart {
 	 * @return the operationType
 	 * 
 	 */
-	public Enumerator getOperationType();
+	public String getOperationType();
 
-	/**
-	 * Init the operationType
-	 * @param input the viewer input
-	 * @param current the current value
-	 */
-	public void initOperationType(Object input, Enumerator current);
+//	/**
+//	 * Init the operationType
+//	 * @param input the viewer input
+//	 * @param current the current value
+//	 */
+//	public void initOperationType(Object input, Enumerator current);
 
 	/**
 	 * Defines a new operationType
 	 * @param newValue the new operationType to set
 	 * 
 	 */
-	public void setOperationType(Enumerator newValue);
+	public void setOperationType(String newValue);
 
 
 
@@ -192,6 +192,20 @@ public interface DataServicesCallMediatorPropertiesEditionPart {
 	 * 
 	 */
 	public boolean isContainedInOperationsTable(EObject element);
+
+
+	/**
+	 * @return the operationName
+	 * 
+	 */
+	public String getOperationName();
+
+	/**
+	 * Defines a new operationName
+	 * @param newValue the new operationName to set
+	 * 
+	 */
+	public void setOperationName(String newValue);
 
 
 
