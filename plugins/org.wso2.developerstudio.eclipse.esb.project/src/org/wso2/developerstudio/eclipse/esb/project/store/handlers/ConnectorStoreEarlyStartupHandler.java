@@ -36,7 +36,6 @@ import org.wso2.developerstudio.eclipse.esb.project.servlets.ConnectorSearchServ
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.templates.dashboard.handlers.JettyServerHandler;
-import org.wso2.developerstudio.eclipse.templates.dashboard.web.function.server.FunctionServerConstants;
 
 /**
  * Binds new servlets to paths of the jetty server
@@ -58,12 +57,7 @@ public class ConnectorStoreEarlyStartupHandler implements IStartup {
      */
     @Override
     public void earlyStartup() {
-    	
-    	JettyServerHandler jettyServerHandler = JettyServerHandler.getInstance();
-		if(!JettyServerHandler.serverStarted) {
-			jettyServerHandler.startEmbeddedJetty(FunctionServerConstants.EMBEDDED_SERVER_PORT);
-            JettyServerHandler.serverStarted = true;
-        }
+        JettyServerHandler jettyServerHandler = JettyServerHandler.getInstance();
 
         // Registering servlet context handler of store connectors window
         ServletContextHandler connectorsContext = new ServletContextHandler();
